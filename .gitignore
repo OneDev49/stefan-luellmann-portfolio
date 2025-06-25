@@ -58,3 +58,10 @@ next-env.d.ts
 
 # Turbopack
 .turbo
+
+
+
+# ==========
+# Personally ignored files
+# ==========
+/nwt_devfolder/
