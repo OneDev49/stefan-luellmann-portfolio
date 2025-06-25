@@ -1,29 +1,28 @@
-# [EN] NordWebTec - Webstudio of Stefan Lüllmann
-This is the code of [NordWebTec](https://www.nordwebtec.com/), the Webstudio of Stefan Lüllmann.
-The complete Website was coded in Next.js together with Headless WordPress and deployed in Vercel.
+# [DE] NordWebTec - Webstudio von Stefan Lüllmann
+Dies ist der Code von [NordWebTec](https://www.nordwebtec.com/), dem Webstudio von Stefan Lüllmann.
+Die komplette Website wurde in Next.js programmiert zusammen mit Headless WordPress und auf Vercel hochgeladen.
 
-## Content of the Website
-My personal portfolio Website and Webstudio Website NordWebTec has a lot of different areas that you can explore!
-All the parts of my Website are interesting, but for a easier navigation I have compiled this list of subpages:
+## Inhalt der Website
+Meine persönliche Portfolio-Website und Webstudio - NordWebTec - hat eine Vielzahl an verschiedenen Bereichen die Sie erkunden können!
+Alle Teile meiner Website sind durchaus interessant, doch für eine bessere Navigation der Website habe ich eine ungefähre Liste der Unterseiten zusammengestellt:
 
-(Please keep in mind that my Website is available in both English and German. The language switcher can be found at the very top of the page inside the navigation bar (and on mobile inside the mobile navbar) or at the very bottom inside the footer)
+(Bitte bedenken Sie, dass es meine Website sowohl auf Englisch, als auch auf Deutsch gibt. Die Funktion um die Sprache zu wechseln finden Sie entweder ganz oben auf der Website, in der Navigationsleiste (und beim Handy in der Navigationsleiste für Telefone) oder ganz unten auf der Website, im Fuß der Website).
 
-- [The English Homepage](https://www.nordwebtec.com/en/) - The English Version of my personal Webstudio
-- [About me Page](https://www.nordwebtec.com/en/about-me/) - My About-Me page that has all the information about me and even additional links you might find useful!
-- [Project Page](https://www.nordwebtec.com/en/projects/) - My Project page. It harbours all the projects I have ever worked on, that I am still working on and the projects I plan to work on in the future. Take a look, I am sure there is something interesting in it for everyone!
-- [My personal Blog](https://www.nordwebtec.com/en/blog/) - Here I write articles, sometimes news and always new updates on projects I have been working on. You will find a blog article on every project I have ever created (even for this one - check it out here: [The new NordWebTec](https://www.nordwebtec.com/en/blog/the-new-and-improved-nordwebtec/)).
-- [My Contact Page](https://www.nordwebtec.com/en/contact/) - If you want to reach out to me, message me or ask any question (or maybe even collaborate on any sort of project) you can easily message me here.
-
-
-There are obviously a lot more pages on my Webstudio Page - NordWebTec - but I leave the rest up for you to discover.
+- [Die Deutsche Hauptseite](https://www.nordwebtec.com/de/) - Die deutsche Version von meinem persönlichen Webstudio
+- [Über mich Seite](https://www.nordwebtec.com/de/ueber-mich/) - Meine persönliche Unterseite, die einige wichtige Informationen und sogar zusätzliche Links über mich hat!
+- [Projekt Seite](https://www.nordwebtec.com/de/projekte/) - Meine Projekt Seite. Sie beherbergt alle Projekte an denen ich jemals gearbeitet habe, an denen ich noch arbeite und an denen ich plane in der Zukunft zu arbeiten. Werfen Sie einen Blink hinein, ich bin mir sicher, dass etwas interessantes für jeden dabei ist!
+- [Mein persönlicher Blog](https://www.nordwebtec.com/de/blog/) - Hier schreibe ich Artikel, manchmal über Nachrichten und immer über neue Updates bezüglich der Projekte an denen ich gearbeitet habe oder noch arbeite. Hier können Sie ein Blog-Eintrag für jedes Projekt finden das ich jemals entwickelt habe (selbst für dieses Projekt - unter diesen Link: [Das neue NordWebTec](https://www.nordwebtec.com/de/blog/das-neue-und-verbesserte-nordwebtec)).
+- [Meine Kontakt Seite](https://www.nordwebtec.com/de/kontakt) - Wenn Sie mich erreichen wollen, mir eine Nachricht schicken wollen oder mir Fragen stellen wollen (oder vielleicht Fragen oder Anfragen bezüglich einer Zusammenarbeit haben) können Sie mich ganz einfach auf dieser Seite erreichen.
 
 
-## Technologies used
-This project uses: `WordPress (Headless)`, `Next.js`, `React`, `HTML`, `CSS`, `JavaScript`, `Typescript`, `SCSS`
+Natürlich gibt es noch jede Menge anderes Seiten auf meiner Webstudio Website - NordWebTec - aber den Rest der Seiten können Sie frei erkunden.
 
-For my personal Webstudio I decided to use a Headless WordPress approach combined with Next.js.
-Since WordPress is powering above 40% of the internet and since Next.js is really amazing to work with I decided to use the best of both worlds and create my personal website using Headless WordPress with Next.js and Vercel.
+## Genutzte Technologien
+Dieses Projekt nutzt: `WordPress (Headless)`, `Next.js`, `React`, `HTML`, `CSS`, `JavaScript`, `Typescript`, `SCSS`
+
+Für mein persönliches Webstudio habe ich mich für ein Headless WordPress zusammen mit Next.js entschieden.
+Da WordPress über 40% des Internets betreibt und da es allgemein fantastisch ist mit Next.js zu arbeiten habe ich mich dazu entschieden das Beste beider Welten zusammen zu bringen und meine persönliche Website unter Nutzung von Headless WordPress zusammen mit Next.js zu entwickeln und auf Vercel online zu bringen.
 
 
-## Issues and Contact
-If you find any sort of issues, please let me know, either here or via [My Contact Page](https://www.nordwebtec.com/en/contact/).
+## Fehler, Probleme und Kontakt
+Wenn Sie ein Fehler oder ein Problem finden wäre es sehr nett wenn Sie mich darüber informieren können, entweder hier auf GitHub oder über [Meine Kontakt Seite](https://www.nordwebtec.com/de/kontakt).
