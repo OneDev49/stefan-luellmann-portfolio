@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ParticleBackground from "@/components/effects/ParticleBackground";
 import localFont from 'next/font/local';
 
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 
 
 const fontHeadings = localFont({
