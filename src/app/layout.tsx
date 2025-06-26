@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
+import ParticleBackground from "@/components/effects/ParticleBackground";
+
 
 
 export const metadata: Metadata = {
@@ -18,7 +20,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <body>
+        <ParticleBackground particleCount={200} />
+        {children}
+      </body>
     </html>
   );
 }
