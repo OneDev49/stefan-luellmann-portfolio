@@ -1,17 +1,12 @@
-
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+@import 'reset';
+@import 'root';
+@import 'framework';
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-text);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+    line-height: 1.7;
+    overflow-wrap: break-word;
+    position: relative;
+    font-size: var(--nwt--r-fs-txt-normal);
+    background: var(--nwt--r-color-background);
+    color: var(--nwt--r-color-text);
 }
