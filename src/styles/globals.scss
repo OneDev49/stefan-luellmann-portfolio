@@ -10,3 +10,16 @@ body {
     background: var(--nwt--r-color-background);
     color: var(--nwt--r-color-text);
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        -webkit-animation-duration: 0.001s !important;
+                animation-duration: 0.001s !important;
+        -webkit-animation-iteration-count: 1 !important;
+                animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+    }
+}
