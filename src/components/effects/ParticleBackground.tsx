@@ -8,19 +8,14 @@ const useParticleCanvas = (
     particleCount: number
 ) => {
     useEffect(() => {
-        // --- Holen des Canvas-Elements ---
         const canvas = canvasRef.current;
-        if(!canvas) return; // Wenn kein Canvas da ist, tue nichts
+        if(!canvas) return;
         const ctx = canvas.getContext('2d');
         if(!ctx) return;
 
-
-        // --- Deine Logik hier ---
         let allParticles: Particle[] = [];
         let animationFrameID: number;
 
-
-        // --- Particle Class (1:1 von dir übernommen) ---
         class Particle {
             canvasWidth: number;
             canvasHeight: number;
@@ -36,25 +31,19 @@ const useParticleCanvas = (
                 this.canvasWidth = canvasWidth;
                 this.canvasHeight = canvasHeight;
 
-                // --- Appearance ---
-                // Original size was Math.random() * 8 + 2
-                this.size = Math.random() * 3 + 2; // Size in pixels
-                this.opacity = Math.random() * 0.4 + 0.2; // Opacity range 0.2 to 0.8
-                // Pre-calculate color string for efficiency. Light grey-blue, adjust as needed.
+                // Appearance
+                this.size = Math.random() * 3 + 2;
+                this.opacity = Math.random() * 0.4 + 0.2;
                 this.color = `rgba(180, 190, 210, ${this.opacity})`;
 
-                // --- Position (pixels) ---
+                // Position (pixels)
                 this.x = Math.random() * this.canvasWidth;
                 this.y = Math.random() * this.canvasHeight;
 
-                // --- Velocity (pixels per second) ---
-                // To match original '%' based speed characteristics relative to container size:
-                // Original base vertical speed was (Math.random() * 1.5 + 0.5) * -1; (% per sec) -> -0.5 to -2.0 %/sec
-                // Original effective speed factor was (100/60)
+                // Velocity (pixels per second)
                 const baseVerticalSpeedPercent = (Math.random() * 1.5 + 0.5) * -1;
                 this.velY = (baseVerticalSpeedPercent / 100) * this.canvasHeight * (100 / 60);
 
-                // Original base horizontal speed was (Math.random() - 0.5) * 1; (% per sec) -> -0.5 to +0.5 %/sec
                 const baseHorizontalSpeedPercent = (Math.random() - 0.5) * 1;
                 this.velX = (baseHorizontalSpeedPercent / 100) * this.canvasWidth * (100 / 60);
             }
@@ -64,25 +53,16 @@ const useParticleCanvas = (
                 this.y += this.velY * deltaTime;
                 this.x += this.velX * deltaTime;
 
-                // --- Boundary Check and Reset ---
-                // Vertical reset: If particle goes above the top edge
-                if (this.velY < 0 && this.y < -this.size) { // Moving up and fully off screen
-                    this.y = this.canvasHeight + this.size;   // Reset below the bottom edge
-                    this.x = Math.random() * this.canvasWidth; // Reset horizontal position randomly
-                    // Optional: Reset horizontal velocity for more variety upon reset
-                    // const baseHorizontalSpeedPercent = (Math.random() - 0.5) * 1;
-                    // this.velX = (baseHorizontalSpeedPercent / 100) * this.canvasWidth * (100 / 60);
+                // Boundary Check and Reset
+                if (this.velY < 0 && this.y < -this.size) {
+                    this.y = this.canvasHeight + this.size;
+                    this.x = Math.random() * this.canvasWidth;
                 }
-                // (Add similar check for this.velY > 0 if particles can move downwards off screen)
-
-                // Horizontal wrap-around:
-                // If particle goes off the right edge
                 if (this.velX > 0 && this.x > this.canvasWidth + this.size) {
-                    this.x = -this.size; // Wrap to the left side
+                    this.x = -this.size;
                 }
-                // If particle goes off the left edge
                 else if (this.velX < 0 && this.x < -this.size) {
-                    this.x = this.canvasWidth + this.size; // Wrap to the right side
+                    this.x = this.canvasWidth + this.size;
                 }
             }
 
@@ -96,7 +76,7 @@ const useParticleCanvas = (
         }
 
 
-        // -- Setup und Resize Function
+        // Setup und Resize Function
         const resizeCanvasAndCreateParticles = () => {
             const dpr = window.devicePixelRatio || 1;
             const rect = canvas.getBoundingClientRect();
@@ -130,19 +110,18 @@ const useParticleCanvas = (
             animationFrameID = requestAnimationFrame(animationLoop);
         };
 
-        // Start der Logik
+        // Main Animation Loop
         resizeCanvasAndCreateParticles();
         animationFrameID = requestAnimationFrame(animationLoop);
 
 
-        // Event Listener für Resize
+        // Event Listener for Resize
         let resizeTimeout: NodeJS.Timeout;
         const handleResize = () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(resizeCanvasAndCreateParticles, 250);
         }
         window.addEventListener('resize', handleResize);
-
 
         return () => {
             window.removeEventListener('resize', handleResize);
@@ -152,19 +131,15 @@ const useParticleCanvas = (
 };
 
 
-// Die eigentliche React-Komponente
+// React-Component
 interface ParticleBackgroundProps {
     particleCount?: number;
 }
 
-
-
 export default function ParticleBackground({ particleCount = 150 }: ParticleBackgroundProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-
     useParticleCanvas(canvasRef, particleCount);
-
 
     return (
         <canvas
