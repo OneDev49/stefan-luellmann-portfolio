@@ -12,12 +12,12 @@
 
 const iconVariants = {
     regular: {
-        viewBox: '0 0 320 512',
-        path: 'M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z',
+        viewBox: '0 0 512 512',
+        path: 'M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z',
     },
     solid: {
         viewBox: '0 0 448 512',
-        path: 'M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64h98.2V334.2H109.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H255V480H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z',
+        path: 'M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm297.1 84L257.3 234.6 379.4 396H283.8L209 298.1 123.3 396H75.8l111-126.9L69.7 116h98l67.7 89.5L313.6 116h47.5zM323.3 367.6L153.4 142.9H125.1L296.9 367.6h26.3z',
     },
 };
 
@@ -26,15 +26,15 @@ type IconVariant = keyof typeof iconVariants;
 
 
 interface IconProps {
-    width: number | string;
-    height: number | string;
+    width?: number | string;
+    height?: number | string;
     className?: string;
     color?: string;
     variant?: IconVariant;
 }
 
 
-export default function FacebookIcon({ 
+export default function NewTwitterIcon({ 
         width = 24, 
         height = 24, 
         className, 
