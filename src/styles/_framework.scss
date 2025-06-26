@@ -1,0 +1,50 @@
+
+
+
+// Display: Flex Classes
+// Suffixes: flex-[align-items]-[justify-content]-[flex-direction]
+.nwt--flex-n-n-col {
+    display: flex;
+    flex-direction: column;
+}
+.nwt--flex-c-n-n {
+    display: flex;
+    align-items: center;
+}
+.nwt--flex-n-c-n {
+    display: flex;
+    justify-content: center;
+}
+.nwt--flex-c-c-n {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nwt--flex-c-n-col {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.nwt--flex-n-c-col {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.nwt--flex-c-c-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+// Text: Alignments
+.nwt--txt-center {
+    text-align: center;
+}
+.nwt--txt-right {
+    text-align: right;
+}
+.nwt--txt-justify {
+    text-align: justify;
+}
