@@ -48,3 +48,61 @@
 .nwt--txt-justify {
     text-align: justify;
 }
+
+
+
+// Text/Heading: Styling
+.nwt--f-h1 {
+  font-size: var(--nwt--r-fs-head-h1);
+  font-weight: 800;
+  text-transform: capitalize;
+}
+.nwt--f-h2 {
+  font-size: var(--nwt--r-fs-head-h2);
+  font-weight: 800;
+  text-transform: capitalize;
+}
+.nwt--f-h3 {
+  font-size: var(--nwt--r-fs-head-h3);
+  font-weight: 800;
+}
+.nwt--f-h3-small {
+  font-size: var(--nwt--r-fs-head-h3-small);
+}
+.nwt--f-h4 {
+  font-size: var(--nwt--r-fs-head-h4);
+  font-weight: 800;
+}
+.nwt--f-h5 {
+    font-size: var(--nwt--r-fs-head-h5);
+    font-weight: 800;
+}
+.nwt--f-txt-big {
+  font-size: var(--nwt--r-fs-txt-big);
+}
+.nwt--f-txt-normal {
+  font-size: var(--nwt--r-fs-txt-normal);
+}
+.nwt--f-txt-small {
+  font-size: var(--nwt--r-fs-txt-small);
+}
+.nwt--f-txt-upper {
+  font-size: var(--nwt--r-fs-txt-normal);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+
+// Lists: Reset
+.nwt--ul-none {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+// Filters
+.nwt--invert {
+    -webkit-filter: invert();
+            filter: invert();
+}
