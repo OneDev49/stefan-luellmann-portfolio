@@ -103,6 +103,6 @@
 
 // Filters
 .nwt--invert {
-    -webkit-filter: invert();
-            filter: invert();
+    -webkit-filter: invert(1);
+            filter: invert(1);
 }
