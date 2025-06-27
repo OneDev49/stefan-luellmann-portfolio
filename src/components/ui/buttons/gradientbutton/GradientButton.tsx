@@ -7,6 +7,7 @@ import styles from './GradientButton.module.scss';
 interface LinkProps {
     href: string;
     title: string;
+    target?: string;
     variant?: 'blue' | 'orange' | 'green';
 }
 
@@ -14,6 +15,7 @@ interface LinkProps {
 export default function GradientButton({ 
     href, 
     title,
+    target,
     variant = 'blue'
     }: LinkProps) {
 
@@ -27,7 +29,7 @@ export default function GradientButton({
         );
 
         return (
-            <Link className={`${buttonClassNames} nwt--flex-c-c-n`} href={href}>
+            <Link className={`${buttonClassNames} nwt--flex-c-c-n`} href={href} target={target}>
                 {title}
             </Link>
         );
