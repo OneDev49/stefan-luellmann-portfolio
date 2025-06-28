@@ -1,0 +1,45 @@
+.nwtHeroWrapper {
+    position: relative;
+    min-height: calc(80svh - var(--nwt--r-spacer-lg));
+    padding-top: var(--nwt--r-spacer-xxl);
+    display: grid;
+
+
+
+    &[data-type*="waves"] {
+        overflow: hidden;
+    }
+
+    .Content {
+        height: 100%;
+    }
+
+    .ContentInner {
+        position: relative;
+        gap: var(--nwt--r-spacer-sm);
+        max-width: 900px;
+        padding: 0 var(--nwt--r-spacer-sm);
+    }
+}
+
+.nwt__temp-hero-1-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: grid;
+    place-items: center;
+    margin: 100px 0;
+}
+.nwt__temp-hero-1-bg img {
+    max-height: 700px;
+}
+.nwt__temp-hero-1-canvas {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    min-width: calc(100% + var(--nwt__r_spacer-lg));
+    z-index: -1;
+}
+.nwt__temp-hero-1_image-absolute {
+    position: absolute;
+}
