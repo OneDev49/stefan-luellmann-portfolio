@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import clsx from 'clsx';
 import styles from './GradientButton.module.scss';
+import React from 'react';
 
 
 
 export interface GradientButtonProps {
     href: string;
-    title: string;
+    children: React.ReactNode;
     target?: string;
     variant?: 'blue' | 'orange' | 'green';
     className?: string;
@@ -15,7 +16,7 @@ export interface GradientButtonProps {
 
 export default function GradientButton({ 
     href, 
-    title,
+    children,
     target,
     variant = 'blue',
     className
@@ -34,7 +35,7 @@ export default function GradientButton({
 
         return (
             <Link className={`${buttonClassNames} `} href={href} target={target}>
-                {title}
+                {children}
             </Link>
         );
 }
