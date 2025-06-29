@@ -4,11 +4,12 @@ import styles from './GradientButton.module.scss';
 
 
 
-interface LinkProps {
+export interface GradientButtonProps {
     href: string;
     title: string;
     target?: string;
     variant?: 'blue' | 'orange' | 'green';
+    className?: string;
 }
 
 
@@ -16,8 +17,9 @@ export default function GradientButton({
     href, 
     title,
     target,
-    variant = 'blue'
-    }: LinkProps) {
+    variant = 'blue',
+    className
+    }: GradientButtonProps) {
 
         const buttonClassNames = clsx(
             styles.nwtGradientButton,
@@ -25,11 +27,13 @@ export default function GradientButton({
                 [styles.nwtBlueGradient]: variant == 'blue',
                 [styles.nwtOrangeGradient]: variant == 'orange',
                 [styles.nwtGreenGradient]: variant == 'green',
-            }
+            },
+            'nwt--flex-c-c-n',
+            className
         );
 
         return (
-            <Link className={`${buttonClassNames} nwt--flex-c-c-n`} href={href} target={target}>
+            <Link className={`${buttonClassNames} `} href={href} target={target}>
                 {title}
             </Link>
         );
