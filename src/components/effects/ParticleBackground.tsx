@@ -3,6 +3,66 @@
 import { useEffect, useRef } from "react";
 
 
+class Particle {
+    canvasWidth: number;
+    canvasHeight: number;
+    size: number;
+    opacity: number;
+    color: string;
+    x: number;
+    y: number;
+    velX: number;
+    velY: number;
+    
+    constructor(canvasWidth: number, canvasHeight: number) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+
+        // Appearance
+        this.size = Math.random() * 3 + 2;
+        this.opacity = Math.random() * 0.4 + 0.2;
+        this.color = `rgba(180, 190, 210, ${this.opacity})`;
+
+        // Position (pixels)
+        this.x = Math.random() * this.canvasWidth;
+        this.y = Math.random() * this.canvasHeight;
+
+        // Velocity (pixels per second)
+        const baseVerticalSpeedPercent = (Math.random() * 1.5 + 0.5) * -1;
+        this.velY = (baseVerticalSpeedPercent / 100) * this.canvasHeight * (100 / 60);
+
+        const baseHorizontalSpeedPercent = (Math.random() - 0.5) * 1;
+        this.velX = (baseHorizontalSpeedPercent / 100) * this.canvasWidth * (100 / 60);
+    }
+
+    update(deltaTime: number) {
+        // Update position
+        this.y += this.velY * deltaTime;
+        this.x += this.velX * deltaTime;
+
+        // Boundary Check and Reset
+        if (this.velY < 0 && this.y < -this.size) {
+            this.y = this.canvasHeight + this.size;
+            this.x = Math.random() * this.canvasWidth;
+        }
+        if (this.velX > 0 && this.x > this.canvasWidth + this.size) {
+            this.x = -this.size;
+        }
+        else if (this.velX < 0 && this.x < -this.size) {
+            this.x = this.canvasWidth + this.size;
+        }
+    }
+
+    draw(context: CanvasRenderingContext2D) {
+        context.fillStyle = this.color;
+        context.beginPath();
+        // Draw particles as circles
+        context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Use size for diameter
+        context.fill();
+    }
+}
+
+
 const useParticleCanvas = (
     canvasRef: React.RefObject<HTMLCanvasElement | null>,
     particleCount: number
@@ -15,66 +75,6 @@ const useParticleCanvas = (
 
         let allParticles: Particle[] = [];
         let animationFrameID: number;
-
-        class Particle {
-            canvasWidth: number;
-            canvasHeight: number;
-            size: number;
-            opacity: number;
-            color: string;
-            x: number;
-            y: number;
-            velX: number;
-            velY: number;
-            
-            constructor(canvasWidth: number, canvasHeight: number) {
-                this.canvasWidth = canvasWidth;
-                this.canvasHeight = canvasHeight;
-
-                // Appearance
-                this.size = Math.random() * 3 + 2;
-                this.opacity = Math.random() * 0.4 + 0.2;
-                this.color = `rgba(180, 190, 210, ${this.opacity})`;
-
-                // Position (pixels)
-                this.x = Math.random() * this.canvasWidth;
-                this.y = Math.random() * this.canvasHeight;
-
-                // Velocity (pixels per second)
-                const baseVerticalSpeedPercent = (Math.random() * 1.5 + 0.5) * -1;
-                this.velY = (baseVerticalSpeedPercent / 100) * this.canvasHeight * (100 / 60);
-
-                const baseHorizontalSpeedPercent = (Math.random() - 0.5) * 1;
-                this.velX = (baseHorizontalSpeedPercent / 100) * this.canvasWidth * (100 / 60);
-            }
-
-            update(deltaTime: number) {
-                // Update position
-                this.y += this.velY * deltaTime;
-                this.x += this.velX * deltaTime;
-
-                // Boundary Check and Reset
-                if (this.velY < 0 && this.y < -this.size) {
-                    this.y = this.canvasHeight + this.size;
-                    this.x = Math.random() * this.canvasWidth;
-                }
-                if (this.velX > 0 && this.x > this.canvasWidth + this.size) {
-                    this.x = -this.size;
-                }
-                else if (this.velX < 0 && this.x < -this.size) {
-                    this.x = this.canvasWidth + this.size;
-                }
-            }
-
-            draw(context: CanvasRenderingContext2D) {
-                context.fillStyle = this.color;
-                context.beginPath();
-                // Draw particles as circles
-                context.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2); // Use size for diameter
-                context.fill();
-            }
-        }
-
 
         // Setup und Resize Function
         const resizeCanvasAndCreateParticles = () => {
