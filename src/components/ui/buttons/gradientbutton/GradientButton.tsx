@@ -4,7 +4,7 @@ import styles from './GradientButton.module.scss';
 
 
 
-interface GradientButtonProps {
+export interface GradientButtonProps {
     href: string;
     title: string;
     target?: string;
