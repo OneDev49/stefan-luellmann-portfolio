@@ -1,5 +1,5 @@
 import styles from './HeroSection.module.scss';
-import GradientButton from '@/components/ui/buttons/gradientbutton/GradientButton';
+import GradientButton, {GradientButtonProps} from '@/components/ui/buttons/gradientbutton/GradientButton';
 import clsx from 'clsx';
 
 
@@ -7,15 +7,11 @@ import clsx from 'clsx';
 interface HeroProps {
     heading?: string;
     paragraph?: string;
-    gradientButton: {
-        href: string,
-        title: string,
-        variant?: 'blue' | 'orange' | 'green',
-    }
+    gradientButton: GradientButtonProps;
 }
 
 
-export default function HeroSection({ heading, paragraph, gradientButton: {href, title, variant} }: HeroProps) {
+export default function HeroSection({ heading, paragraph, gradientButton }: HeroProps) {
     
     const contentClassNames = clsx(
         styles.Content,
@@ -38,7 +34,7 @@ export default function HeroSection({ heading, paragraph, gradientButton: {href,
                     <p>
                         {paragraph}
                     </p>
-                    <GradientButton href={href} title={title} variant={variant} />
+                    <GradientButton {...gradientButton}/>
                 </div>
 
             </div>
