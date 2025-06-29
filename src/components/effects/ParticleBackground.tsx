@@ -127,7 +127,7 @@ const useParticleCanvas = (
             window.removeEventListener('resize', handleResize);
             cancelAnimationFrame(animationFrameID);
         };
-    }), [canvasRef, particleCount];
+    }, [canvasRef, particleCount]);
 };
 
 
