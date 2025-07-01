@@ -2,7 +2,7 @@
 
 This repository contains the source code for my personal portfolio website, built to be a fast, responsive, and high-performance showcase of my work.
 
-**Live Demo**: (To the Live Demo)[https://www.nordwebtec.com/]
+**Live Demo**: [https://www.nordwebtec.com/](To the Live Demo)
 
 ## Core Features
 - High Performance: Built with Next.js and Static Site Generation (SSG) to achieve Lighthouse scores of 95+ across all metrics.
@@ -13,11 +13,11 @@ This repository contains the source code for my personal portfolio website, buil
 ## Tech Stack
 This project is a clear demonstration of my skills with the following technologies:
 
-- Framework: (Next.js)[https://nextjs.org/] (App Router)
-- Language: (TypeScript)[https://www.typescript.org/]
-- Styling: (SCSS Modules)[https://sass-lang.com/] and (clsx)[https://github.com/lukeed/clsx] for conditional classnames.
-- Content: (MDX)[https://mdxjs.com/] for blog posts, parsed with `next-mdx-remote` and `gray-matter`.
-- Deployment: (Vercel)[https://vercel.com/]
+- Framework: [https://nextjs.org/](Next.js) (App Router)
+- Language: [https://www.typescript.org/](TypeScript)
+- Styling: [https://sass-lang.com/](SCSS Modules) and [https://github.com/lukeed/clsx](clsx) for conditional classnames.
+- Content: [https://mdxjs.com/](MDX) for blog posts, parsed with `next-mdx-remote` and `gray-matter`.
+- Deployment: [https://vercel.com/](Vercel)
 
 ## Getting Started
 To get a local copy up and running, follow these simple steps.
@@ -46,7 +46,7 @@ npm install
 ```bash
 npm run dev
 ```
-Open (http://localhost:3000)[http://localhost:3000] with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Project Structure
 A brief overview of the key directories in this project:
@@ -64,6 +64,6 @@ A brief overview of the key directories in this project:
 
 
 ## Contact
-Stefan Lüllmann - (hallo@nordwebtec.com)[mailto:hallo@nordwebtec.com]
+Stefan Lüllmann - [mailto:hallo@nordwebtec.com](hallo@nordwebtec.com)
 
-Project Link: (https://github.com/OneDev49/stefan-luellmann-portfolio)[https://github.com/OneDev49/stefan-luellmann-portfolio]
+Project Link: [https://github.com/OneDev49/stefan-luellmann-portfolio](https://github.com/OneDev49/stefan-luellmann-portfolio)
