@@ -21,7 +21,6 @@
 }
 
 .projectCardContent {
-
     > * {
         padding: 16px;
     }
@@ -39,7 +38,18 @@
 }
 
 .projectCardTech {
-    
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+        background: #000;
+        padding: 5px 8px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px 5px rgb(0 81 255 / 25%);
+        outline: 1px solid #002b98;
+        text-decoration: underline;
+        gap: 8px;
+    }
 }
 
 

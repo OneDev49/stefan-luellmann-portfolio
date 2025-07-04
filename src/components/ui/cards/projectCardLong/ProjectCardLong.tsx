@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import styles from './ProjectCardLong.module.scss';
 import Image from 'next/image';
 import GradientButton, {GradientButtonProps} from '@/components/ui/buttons/gradientbutton/GradientButton';
+import NextJSIcon from '@/components/icons/tech/nextjsIcon';
 
 
 
@@ -11,9 +12,6 @@ export interface ProjectCardLongProps {
     gradientButtonLiveDemo: GradientButtonProps;
     gradientButtonBlogArticle: GradientButtonProps;
     gradientButtonGitHub: GradientButtonProps;
-
-
-
     paragraph: string;
 }
 
@@ -35,6 +33,11 @@ export default function ProjectCardLong({
         const linkBlockClassNames = clsx(
             styles.projectCardLinks,
             'nwt--flex-n-n-col'
+        )
+
+        const techBlockClassNames = clsx(
+            styles.projectCardTech,
+            'nwt--ul-none'
         )
 
         return (
@@ -69,9 +72,11 @@ export default function ProjectCardLong({
                         <strong>
                             Technologies Used:
                         </strong>
-                        <div className={styles.projectCardTech}>
-                            
-                        </div>
+                        <ul className={`${techBlockClassNames}`}>
+                            <li className="nwt--flex-c-n-n">
+                                
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
