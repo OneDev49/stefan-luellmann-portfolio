@@ -79,3 +79,15 @@ A brief overview of the key directories in this project:
 Stefan Lüllmann - [hallo@nordwebtec.com](mailto:hallo@nordwebtec.com)
 
 Project Link: [https://github.com/OneDev49/stefan-luellmann-portfolio](https://github.com/OneDev49/stefan-luellmann-portfolio)
+
+## Licensing
+
+The source code for this project is licensed under the [MIT License](LICENSE).
+
+All other assets, including but not limited to images, logos, and written content (blog posts, case studies), are my personal property.
+They are **not** licensed for reuse without my explicit written permission.
+
+### Third-Party Assets
+
+- Technology logos are trademarks of their respective owners.
+- Icons are used from [Font Awesome](https://fontawesome.com/license) and [SVGLogos](https://svgporn.com/) (CC0), and are subject to their respective licenses.
