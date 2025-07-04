@@ -17,8 +17,8 @@ interface IconProps {
 
 
 export default function NextJSIcon({ 
-        width = 24, 
-        height = 24, 
+        width = 40, 
+        height = 40, 
         className,
     }: IconProps) {
     
@@ -28,6 +28,7 @@ export default function NextJSIcon({
             xmlns="http://www.w3.org/2000/svg" 
             width={width} 
             height={height}
+            viewBox="0 0 40 40"
             fill="none"
             className={className}
         >
