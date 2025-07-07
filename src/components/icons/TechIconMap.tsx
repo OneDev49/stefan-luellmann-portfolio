@@ -11,6 +11,8 @@ import NextAuthJSIcon from './tech/NextAuthJSIcon';
 import TailwindCSSIcon from './tech/TailwindCSSIcon';
 import SupabaseIcon from './tech/SupabaseIcon';
 import ZustandIcon from './tech/ZustandIcon';
+import GitIcon from './tech/GitIcon';
+import DockerIcon from './tech/DockerIcon';
 
 export type TechnologyName =
   | 'nextjs'
@@ -25,7 +27,9 @@ export type TechnologyName =
   | 'nextauthjs'
   | 'tailwindcss'
   | 'supabase'
-  | 'zustand';
+  | 'zustand'
+  | 'git'
+  | 'docker';
 
 export const TechIconMap: Record<
   TechnologyName,
@@ -44,6 +48,8 @@ export const TechIconMap: Record<
   tailwindcss: TailwindCSSIcon,
   supabase: SupabaseIcon,
   zustand: ZustandIcon,
+  git: GitIcon,
+  docker: DockerIcon,
 };
 
 interface TechIconProps extends React.SVGProps<SVGSVGElement> {
