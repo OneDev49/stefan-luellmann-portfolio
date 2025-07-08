@@ -19,8 +19,8 @@ export default function CTASection() {
             loading='lazy'
             draggable='false'
             decoding='async'
-            src='./images/professional_personal_image.png'
-            alt=''
+            src='./images/professional_personal_image.webp'
+            alt='Image of Stefan Lüllmann'
             height='400'
             width='400'
           />
