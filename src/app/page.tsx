@@ -148,6 +148,7 @@ export default function HomePage() {
       <HeroSection
         heading='Stefan Lüllmann'
         subheading='Full-Stack Software Developer'
+        multiThinWave={1}
         paragraph='I build performant and scalable web applications with a focus on the Next.js, TypeScript, and Prisma ecosystem.'
         gradientButton={[
           {
