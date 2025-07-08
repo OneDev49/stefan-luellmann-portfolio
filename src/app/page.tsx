@@ -3,6 +3,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import AboutAndSkillsSection from './_components/AboutAndSkillsSection';
 import FeaturedWorkSection from './_components/FeaturedWorkSection';
 import { ProjectCardLongProps } from '@/components/ui/cards/ProjectCardLong';
+import CTASection from './_components/CTASection';
 
 export default function HomePage() {
   const myProjects: ProjectCardLongProps[] = [
@@ -171,6 +172,7 @@ export default function HomePage() {
       />
       <AboutAndSkillsSection />
       <FeaturedWorkSection />
+      <CTASection />
     </main>
   );
 }
