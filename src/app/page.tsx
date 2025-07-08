@@ -1,6 +1,7 @@
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutAndSkillsSection from './_components/AboutAndSkillsSection';
+import FeaturedWorkSection from './_components/FeaturedWorkSection';
 import { ProjectCardLongProps } from '@/components/ui/cards/ProjectCardLong';
 
 export default function HomePage() {
@@ -169,6 +170,7 @@ export default function HomePage() {
         ]}
       />
       <AboutAndSkillsSection />
+      <FeaturedWorkSection />
     </main>
   );
 }
