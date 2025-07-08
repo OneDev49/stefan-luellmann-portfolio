@@ -1,55 +1,49 @@
-
-
-
 // Display: Flex Classes
 // Suffixes: flex-[align-items]-[justify-content]-[flex-direction]
 .nwt--flex-n-n-col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .nwt--flex-c-n-n {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .nwt--flex-n-c-n {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .nwt--flex-c-c-n {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .nwt--flex-c-n-col {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .nwt--flex-n-c-col {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .nwt--flex-c-c-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
 
 // Text: Alignments
 .nwt--txt-center {
-    text-align: center;
+  text-align: center;
 }
 .nwt--txt-right {
-    text-align: right;
+  text-align: right;
 }
 .nwt--txt-justify {
-    text-align: justify;
+  text-align: justify;
 }
-
-
 
 // Text/Heading: Styling
 .nwt--f-h1 {
@@ -74,8 +68,8 @@
   font-weight: 800;
 }
 .nwt--f-h5 {
-    font-size: var(--nwt--r-fs-head-h5);
-    font-weight: 800;
+  font-size: var(--nwt--r-fs-head-h5);
+  font-weight: 800;
 }
 .nwt--f-txt-big {
   font-size: var(--nwt--r-fs-txt-big);
@@ -92,15 +86,13 @@
   font-weight: 800;
 }
 
-
 // Text: Gradients
 .nwt--txt-gradient {
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: var(--nwt--txt-gradient-1, var(--nwt--r-gradient-1));
-    color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: var(--nwt--txt-gradient-1, var(--nwt--r-gradient-1));
+  color: transparent;
 }
-
 
 // Text: Shine Animation
 .nwt--txt-shine {
@@ -112,7 +104,14 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(135deg,var(--text-clr) 0%,var(--text-clr) 40%,#ffffff 50%,var(--text-clr) 60%,var(--text-clr) 100%);
+  background-image: linear-gradient(
+    135deg,
+    var(--text-clr) 0%,
+    var(--text-clr) 40%,
+    #ffffff 50%,
+    var(--text-clr) 60%,
+    var(--text-clr) 100%
+  );
   background-size: 200% auto;
   animation: nwt__txt-shine-ani 4s linear infinite;
   font-weight: 800;
@@ -126,21 +125,18 @@
   }
 }
 
-
 // Lists: Reset
 .nwt--ul-none {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
 
 // Filters
 .nwt--invert {
-    -webkit-filter: invert(1);
-            filter: invert(1);
+  -webkit-filter: invert(1);
+  filter: invert(1);
 }
-
 
 // Width
 .nwt--width {
