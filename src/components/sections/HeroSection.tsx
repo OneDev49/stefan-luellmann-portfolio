@@ -1,12 +1,14 @@
 import styles from './HeroSection.module.scss';
 import GradientButton, {
   GradientButtonProps,
-} from '@/components/ui/buttons/gradientbutton/GradientButton';
+} from '@/components/ui/buttons/GradientButton';
 import clsx from 'clsx';
+import MultiThinWaves from '../effects/MultiThinWave';
 
 interface HeroProps {
   heading?: string;
   subheading?: string;
+  multiThinWave?: 0 | 1;
   paragraph?: string;
   gradientButton: GradientButtonProps[];
 }
@@ -14,6 +16,7 @@ interface HeroProps {
 export default function HeroSection({
   heading,
   subheading,
+  multiThinWave = 0,
   paragraph,
   gradientButton,
 }: HeroProps) {
@@ -30,6 +33,12 @@ export default function HeroSection({
 
   return (
     <section className={styles.wrapper}>
+      {multiThinWave === 1 && (
+        <div className={styles.sectionMultiThinWave}>
+          <MultiThinWaves />
+        </div>
+      )}
+
       <div className={`${contentClassNames}`}>
         <div className={`${contentInnerClassName}`}>
           <div>

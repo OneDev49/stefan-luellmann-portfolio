@@ -4,16 +4,22 @@
   padding-top: var(--nwt--r-spacer-xxl);
   display: grid;
 
-  &[data-type*='waves'] {
-    overflow: hidden;
-  }
-
   .content {
     height: 100%;
   }
 
   h2 {
     font-weight: 400;
+  }
+}
+
+.sectionMultiThinWave {
+  position: absolute;
+  inset: 0;
+
+  canvas {
+    height: 100%;
+    width: 100%;
   }
 }
 
