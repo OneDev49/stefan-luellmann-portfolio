@@ -3,23 +3,27 @@ import clsx from 'clsx';
 import styles from './GradientButton.module.scss';
 import React from 'react';
 
-export interface GradientButtonProps {
-  href: string;
+export interface GradientButtonBaseProps {
   children: React.ReactNode;
-  rel?: string;
-  target?: string;
   variant?: 'blue' | 'orange' | 'green';
   className?: string;
 }
 
-export default function GradientButton({
-  href,
+type GradientButtonProps<C extends React.ElementType> =
+  GradientButtonBaseProps & {
+    as?: C;
+  } & Omit<React.ComponentPropsWithoutRef<C>, keyof GradientButtonBaseProps>;
+
+export default function GradientButton<
+  C extends React.ElementType = typeof Link
+>({
+  as,
   children,
-  rel,
-  target,
   variant = 'blue',
   className,
-}: GradientButtonProps) {
+  ...restProps
+}: GradientButtonProps<C>) {
+  const Component = as || Link;
   const buttonClassNames = clsx(
     styles.nwtGradientButton,
     {
@@ -32,13 +36,8 @@ export default function GradientButton({
   );
 
   return (
-    <Link
-      className={`${buttonClassNames} `}
-      href={href}
-      rel={rel}
-      target={target}
-    >
+    <Component className={buttonClassNames} {...(restProps as any)}>
       {children}
-    </Link>
+    </Component>
   );
 }
