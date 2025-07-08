@@ -1,75 +1,75 @@
-
 .nwtGradientButton {
-    padding: 8px 20px;
-    gap: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 10px;
-    position: relative;
-    transition: all 0.2s ease-in-out;
-    
-    svg {
-        transition: all 0.1s ease-in-out;
-    }
+  padding: 8px 20px;
+  gap: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
 
-    &:hover {
-        transform: scale(1.05);
-    }
+  svg {
+    transition: all 0.1s ease-in-out;
+  }
 
-    &:active {
-        transform: scale(0.98);
-    }
+  &:hover {
+    transform: scale(1.05);
+  }
 
-    &:hover svg {
-        transform: translate(4px);
-    }
+  &:active {
+    transform: scale(0.98);
+  }
 
-    &:hover::before {
-        animation: nwtGradientButtonAni 1.5s linear infinite;
-    }
+  &:hover svg {
+    transform: translate(4px);
+  }
 
-    &::before {
-        content: "";
-        position: absolute;
-        width: 100px;
-        height: 100%;
-        background-image: linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0) 30%,
-        rgba(255, 255, 255, 0.8),
-        rgba(255, 255, 255, 0) 70%
-        );
-        top: 0;
-        left: -100px;
-        opacity: 0.6;
-    }
+  &:hover::before {
+    animation: nwtGradientButtonAni 1.5s linear infinite;
+  }
 
-    &.nwtBlueGradient {
-        background: linear-gradient(270deg, #36CFFF, #001AFF);
-        color: #fff;
-        box-shadow: 0 5px 20px rgb(0 74 255);
-        font-weight: 800;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+  }
 
-    &.nwtOrangeGradient {
-        background: linear-gradient(90deg, #FFC300, #FF9D00);
-        color: #000;
-        box-shadow: 0 5px 20px rgb(187, 143, 0);
-        font-weight: 800;
-    }
+  &.nwtBlueGradient {
+    background: linear-gradient(270deg, #36cfff, #001aff);
+    color: #fff;
+    box-shadow: 0 5px 20px rgb(0 74 255);
+    font-weight: 800;
+  }
 
-    &.nwtGreenGradient {
-        background: linear-gradient(90deg, #009105, #42E100);
-        color: #fff;
-        box-shadow: 0 5px 20px rgb(6, 189, 0);
-    }
-}   
+  &.nwtOrangeGradient {
+    background: linear-gradient(90deg, #ffc300, #ff9d00);
+    color: #000;
+    box-shadow: 0 5px 20px rgb(187, 143, 0);
+    font-weight: 800;
+  }
+
+  &.nwtGreenGradient {
+    background: linear-gradient(90deg, #009105, #42e100);
+    color: #fff;
+    box-shadow: 0 5px 20px rgb(6, 189, 0);
+  }
+}
 @keyframes nwtGradientButtonAni {
-    from {
-        left: -100%;
-    }
+  from {
+    left: -100%;
+  }
 
-    to {
-        left: 100%;
-    }
+  to {
+    left: 100%;
+  }
 }
