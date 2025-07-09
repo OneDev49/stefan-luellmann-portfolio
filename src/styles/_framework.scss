@@ -151,3 +151,27 @@
   visibility: hidden;
   opacity: 1;
 }
+
+// Anchor Effects
+.nwt--anchor-under {
+  display: inline-block;
+  position: relative;
+}
+.nwt--anchor-under::before {
+  background: linear-gradient(90deg, #00b8ff, #02ff00);
+  bottom: 1px;
+  content: '';
+  height: 2px;
+  left: auto;
+  position: absolute;
+  right: 0;
+  transition: ease all 0.3s;
+  width: 0;
+  will-change: left, right, width;
+  border-radius: 50px;
+}
+.nwt--anchor-under:hover::before {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
