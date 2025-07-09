@@ -1,17 +1,18 @@
 import styles from './HeroSection.module.scss';
-import GradientButton, {
-  GradientButtonProps,
-} from '@/components/ui/buttons/GradientButton';
+import GradientButton from '@/components/ui/buttons/GradientButton';
 import clsx from 'clsx';
 import MultiThinWaves from '../effects/MultiThinWave';
+import { ComponentProps } from 'react';
 
 interface HeroProps {
   heading?: string;
   subheading?: string;
   multiThinWave?: 0 | 1;
   paragraph?: string;
-  gradientButton: GradientButtonProps[];
+  gradientButton: SingleButtonProps[];
 }
+
+type SingleButtonProps = ComponentProps<typeof GradientButton>;
 
 export default function HeroSection({
   heading,
@@ -48,11 +49,7 @@ export default function HeroSection({
           <p>{paragraph}</p>
           <div className='nwt--flex-c-n-n'>
             {gradientButton.map((button, index) => (
-              <GradientButton
-                key={index}
-                href={button.href}
-                children={button.children}
-              />
+              <GradientButton key={index} {...button} />
             ))}
           </div>
         </div>
