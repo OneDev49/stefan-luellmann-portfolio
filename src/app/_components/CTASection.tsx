@@ -40,6 +40,7 @@ export default function CTASection() {
           </p>
           <div className={sectionLinks}>
             <GradientButton
+              as='a'
               href='mailto:hallo@nordwebtec.com'
               variant='orange'
               children={
@@ -50,6 +51,7 @@ export default function CTASection() {
             />
             <div>
               <GradientButton
+                as='a'
                 href='https://www.linkedin.com/in/stefan-lüllmann'
                 rel='noopener noreferrer'
                 target='_blank'
@@ -61,6 +63,7 @@ export default function CTASection() {
                 }
               />
               <GradientButton
+                as='a'
                 href='https://github.com/OneDev49'
                 rel='noopener noreferrer'
                 target='_blank'

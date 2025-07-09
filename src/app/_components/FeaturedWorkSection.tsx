@@ -96,6 +96,7 @@ export default function FeaturedWorkSection() {
           </div>
           <div className={sectionBigCardBottom}>
             <GradientButton
+              as='a'
               href='/'
               variant='orange'
               children={
@@ -106,7 +107,8 @@ export default function FeaturedWorkSection() {
               }
             />
             <GradientButton
-              href='/'
+              as='a'
+              href='https://github.com/OneDev49/stefan-luellmann-ecommerce-app'
               variant='green'
               children={
                 <>
@@ -173,7 +175,8 @@ export default function FeaturedWorkSection() {
             </div>
             <div className={sectionSmallCardBottom}>
               <GradientButton
-                href='/'
+                as='a'
+                href='https://github.com/OneDev49/stefan-luellmann-portfolio'
                 variant='green'
                 children={
                   <>
