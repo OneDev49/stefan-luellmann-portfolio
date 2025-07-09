@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import ParticleBackground from "@/components/effects/ParticleBackground";
+import type { Metadata } from 'next';
+import ParticleBackground from '@/components/effects/ParticleBackground';
 import localFont from 'next/font/local';
 
-import "@/styles/globals.scss";
-
+import '@/styles/globals.scss';
+import FooterSection from '@/components/layout/Footer';
 
 const fontHeadings = localFont({
   src: [
@@ -39,29 +39,41 @@ const fontTexts = localFont({
 
   variable: '--font-text',
   display: 'swap',
-})
-
-
+});
 
 export const metadata: Metadata = {
   title: {
     template: '%s | NordWebTec - Webstudio von Stefan Lüllmann',
     default: 'NordWebTec - Webstudio von Stefan Lüllmann',
   },
-  description: 'NordWebTec - Webstudio von Stefan Lüllmann. Erkunden Sie moderne Lösungen, intelligentens Webdesign und Weblösungen die WordPress und Next.js zusammen bringen, persönlich entwickelt und designed von Stefan Lüllmann',
-  authors: [{ name: 'Stefan', url: 'https://www.nordwebtec.com/'}],
+  description:
+    'NordWebTec - Webstudio von Stefan Lüllmann. Erkunden Sie moderne Lösungen, intelligentens Webdesign und Weblösungen die WordPress und Next.js zusammen bringen, persönlich entwickelt und designed von Stefan Lüllmann',
+  authors: [{ name: 'Stefan', url: 'https://www.nordwebtec.com/' }],
   creator: 'Stefan Lüllmann',
-  keywords: ['Stefan Lüllmann', 'Headless WordPress', 'WordPress', 'Next.js', 'React', 'JavaScript'],
+  keywords: [
+    'Stefan Lüllmann',
+    'Headless WordPress',
+    'WordPress',
+    'Next.js',
+    'React',
+    'JavaScript',
+  ],
 };
 
-
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="de" className={`${fontHeadings.variable} ${fontTexts.variable}`}>
+    <html
+      lang='en'
+      className={`${fontHeadings.variable} ${fontTexts.variable}`}
+    >
       <body>
         <ParticleBackground particleCount={200} />
         {children}
+        <FooterSection />
       </body>
     </html>
   );
