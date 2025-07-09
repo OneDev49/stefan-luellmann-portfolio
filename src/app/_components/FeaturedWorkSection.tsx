@@ -25,6 +25,7 @@ export default function FeaturedWorkSection() {
   return (
     <section className={sectionWrapper}>
       <div className='nwt--txt-center'>
+        <div id='projects' className='nwt--invisible-anchor'></div>
         <h2 className='nwt--f-h2'>
           <span className='nwt--txt-gradient'>Featured Work</span>
         </h2>
