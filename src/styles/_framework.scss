@@ -144,3 +144,10 @@
   margin: var(--nwt--width-1, 0 auto);
   padding: var(--nwt--width-2, 0 var(--nwt--r-spacer-sm));
 }
+
+// Invisible ID Anchor
+.nwt--invisible-anchor {
+  transform: translateY(-100px);
+  visibility: hidden;
+  opacity: 1;
+}
