@@ -64,6 +64,7 @@
     box-shadow: 0 5px 20px rgb(6, 189, 0);
   }
 }
+
 @keyframes nwtGradientButtonAni {
   from {
     left: -100%;
@@ -71,5 +72,65 @@
 
   to {
     left: 100%;
+  }
+}
+
+.nwtRainbow {
+  position: relative;
+  padding: 8px 12px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  svg {
+    transition: all 0.1s ease-in-out;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -200%;
+    left: -50%;
+    width: 200%;
+    height: 500%;
+    background: conic-gradient(from 0deg, #f36, #f93, #3c3, #39f, #93f, #f36);
+    z-index: -2;
+    animation: nwtRainbowButtonAni 3s linear infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: rgb(30 30 30 / 85%);
+    border-radius: 6px;
+    z-index: -1;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@keyframes nwtRainbowButtonAni {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

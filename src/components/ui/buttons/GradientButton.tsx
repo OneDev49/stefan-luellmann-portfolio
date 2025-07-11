@@ -5,7 +5,7 @@ import React from 'react';
 
 export interface GradientButtonBaseProps {
   children: React.ReactNode;
-  variant?: 'blue' | 'orange' | 'green';
+  variant?: 'blue' | 'orange' | 'green' | 'rainbow';
   className?: string;
 }
 
@@ -25,11 +25,12 @@ export default function GradientButton<
 }: GradientButtonProps<C>) {
   const Component = as || Link;
   const buttonClassNames = clsx(
-    styles.nwtGradientButton,
+    variant === 'rainbow' ? '' : styles.nwtGradientButton,
     {
       [styles.nwtBlueGradient]: variant == 'blue',
       [styles.nwtOrangeGradient]: variant == 'orange',
       [styles.nwtGreenGradient]: variant == 'green',
+      [styles.nwtRainbow]: variant == 'rainbow',
     },
     'nwt--flex-c-c-n',
     className
