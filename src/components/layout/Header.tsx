@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Component } from 'react';
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 import Link from 'next/link';
+import GradientButton from '../ui/buttons/GradientButton';
 
 export default function HeaderSection() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -69,6 +70,11 @@ export default function HeaderSection() {
                 <Link href='/about' className={styles.navLinkBtn}>
                   About
                 </Link>
+                <GradientButton
+                  href='/about'
+                  variant='rainbow'
+                  children={<span>Get In Touch</span>}
+                />
               </div>
             </nav>
           </div>
