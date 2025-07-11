@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 
 import '@/styles/globals.scss';
 import FooterSection from '@/components/layout/Footer';
+import HeaderSection from '@/components/layout/Header';
 
 const fontHeadings = localFont({
   src: [
@@ -41,23 +42,79 @@ const fontTexts = localFont({
   display: 'swap',
 });
 
+const siteUrl = 'https://www.nordwebtec.com';
+
 export const metadata: Metadata = {
+  // Core Metadata
   title: {
-    template: '%s | NordWebTec - Webstudio von Stefan Lüllmann',
-    default: 'NordWebTec - Webstudio von Stefan Lüllmann',
+    template: '%s | Stefan Lüllmann',
+    default: 'Stefan Lüllmann | Full-Stack Software Developer',
   },
   description:
-    'NordWebTec - Webstudio von Stefan Lüllmann. Erkunden Sie moderne Lösungen, intelligentens Webdesign und Weblösungen die WordPress und Next.js zusammen bringen, persönlich entwickelt und designed von Stefan Lüllmann',
-  authors: [{ name: 'Stefan', url: 'https://www.nordwebtec.com/' }],
+    'The personal portfolio of Stefan Lüllmann, a Full-Stack Developer specializing in Next.js, TypeScript and modern web architectures. Explore my Projects and Case Studies!',
+
+  // Author & Keyword Metadata
+  authors: [{ name: 'Stefan Lüllmann', url: siteUrl }],
   creator: 'Stefan Lüllmann',
   keywords: [
     'Stefan Lüllmann',
-    'Headless WordPress',
-    'WordPress',
+    'Full-Stack Developer',
     'Next.js',
     'React',
-    'JavaScript',
+    'TypeScript',
+    'Prisma',
+    'Portfolio',
+    'Germany',
   ],
+
+  // Favicons & Icon Metadata
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+
+  // Open Graph Metadata
+  openGraph: {
+    title: 'Stefan Lüllmann | Full-Stack Software Developer',
+    description:
+      'The personal portfolio of Stefan Lüllmann, specializing in modern web development.',
+    url: siteUrl,
+    siteName: 'Stefan Lüllmann',
+    images: [
+      {
+        url: `${siteUrl}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Stefan Lüllmann - Personal Portfolio',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+
+  // Twitter Card Metadata
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Stefan Lüllmann | Full-Stack Software Developer',
+    description:
+      'Personal portfolio showcasing Full-Stack Projects with Next.js, React and TypeScript.',
+    images: [`${siteUrl}/og-image.jpg`],
+  },
+
+  // Other Metadata
+  metadataBase: new URL(siteUrl),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -71,6 +128,7 @@ export default function RootLayout({
       className={`${fontHeadings.variable} ${fontTexts.variable}`}
     >
       <body>
+        <HeaderSection />
         <ParticleBackground particleCount={200} />
         {children}
         <FooterSection />
