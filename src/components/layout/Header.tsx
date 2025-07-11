@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import GradientButton from '../ui/buttons/GradientButton';
+import CaretRightIcon from '../icons/ui/CaretRightIcon';
 
 export default function HeaderSection() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -13,6 +14,8 @@ export default function HeaderSection() {
     const handleScroll = () => {
       setIsAtTop(window.scrollY < 100);
     };
+
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
 
@@ -73,7 +76,12 @@ export default function HeaderSection() {
                 <GradientButton
                   href='/about'
                   variant='rainbow'
-                  children={<span>Get In Touch</span>}
+                  children={
+                    <>
+                      <span>Get In Touch</span>
+                      <CaretRightIcon />
+                    </>
+                  }
                 />
               </div>
             </nav>
