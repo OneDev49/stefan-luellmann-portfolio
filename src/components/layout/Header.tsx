@@ -1,19 +1,44 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 import Link from 'next/link';
 
 export default function HeaderSection() {
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY < 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup Function to prevent memory leaks if section is removed.
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const headerMainClassName = clsx(styles.headerMain, 'nwt--flex-c-n-n');
-
-  const headerClassName = clsx(styles.header, styles.headerAtTop);
-
+  const headerClassName = clsx(styles.header, {
+    [styles.headerAtTop]: isAtTop,
+  });
   return (
     <>
-      <header className={headerClassName}>
+      <header
+        id='nwt-header'
+        className={headerClassName}
+        data-nwt-bg={isAtTop ? 'dark' : 'light'}
+      >
         <div className={headerMainClassName}>
           <div className={styles.headerBackground}></div>
           <div className={styles.headerIcon}>
-            <Link href='/' title='To the Mainpage'>
+            <Link
+              href='/'
+              title='Stefan Lüllmann - Full-Stack Software Developer'
+            >
               <img
                 loading='eager'
                 draggable='false'
