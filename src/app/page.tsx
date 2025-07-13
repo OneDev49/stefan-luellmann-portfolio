@@ -2,7 +2,10 @@ import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutAndSkillsSection from './_components/AboutAndSkillsSection';
 import FeaturedWorkSection from './_components/FeaturedWorkSection';
-import CTASection from './_components/CTASection';
+import CTASection from '@/components/sections/CTASection';
+import GradientButton from '@/components/ui/buttons/GradientButton';
+import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
+import GitHubIcon from '@/components/icons/brands/GitHubIcon';
 
 export default function HomePage() {
   return (
@@ -35,7 +38,60 @@ export default function HomePage() {
       />
       <AboutAndSkillsSection />
       <FeaturedWorkSection />
-      <CTASection />
+      <CTASection
+        heading="Let's Conntect"
+        paragraphChildren={
+          <>
+            <span>
+              I am currently looking for work as a Full-Stack Developer.
+            </span>
+            <span>
+              If my work and skills align with what you're looking for, I'd be
+              exited to hear from you.
+            </span>
+          </>
+        }
+        buttonChildren={
+          <>
+            <GradientButton
+              as='a'
+              href='mailto:hallo@nordwebtec.com'
+              variant='orange'
+              children={
+                <>
+                  <span>hallo@nordwebtec.com</span>
+                </>
+              }
+            />
+            <div>
+              <GradientButton
+                as='a'
+                href='https://www.linkedin.com/in/stefan-lüllmann'
+                rel='noopener noreferrer'
+                target='_blank'
+                children={
+                  <>
+                    <LinkedInIcon />
+                    <span>Stefan Lüllmann on LinkedIn</span>
+                  </>
+                }
+              />
+              <GradientButton
+                as='a'
+                href='https://github.com/OneDev49'
+                rel='noopener noreferrer'
+                target='_blank'
+                children={
+                  <>
+                    <GitHubIcon />
+                    <span>OneDev49 on GitHub</span>
+                  </>
+                }
+              />
+            </div>
+          </>
+        }
+      />
     </main>
   );
 }
