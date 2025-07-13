@@ -13,6 +13,13 @@ import SupabaseIcon from './tech/SupabaseIcon';
 import ZustandIcon from './tech/ZustandIcon';
 import GitIcon from './tech/GitIcon';
 import DockerIcon from './tech/DockerIcon';
+import CSS3Icon from './tech/CSS3Icon';
+import FigmaIcon from './tech/FigmaIcon';
+import HTML5Icon from './tech/HTML5Icon';
+import JavaScriptIcon from './tech/JavaScriptIcon';
+import PHPIcon from './tech/PHPIcon';
+import MySQLIcon from './tech/MySQLIcon';
+import WordPressIcon from './tech/WordPressIcon';
 
 export type TechnologyName =
   | 'nextjs'
@@ -29,7 +36,14 @@ export type TechnologyName =
   | 'supabase'
   | 'zustand'
   | 'git'
-  | 'docker';
+  | 'docker'
+  | 'css3'
+  | 'figma'
+  | 'html5'
+  | 'javascript'
+  | 'php'
+  | 'mysql'
+  | 'wordpress';
 
 export const TechIconMap: Record<
   TechnologyName,
@@ -50,6 +64,13 @@ export const TechIconMap: Record<
   zustand: ZustandIcon,
   git: GitIcon,
   docker: DockerIcon,
+  css3: CSS3Icon,
+  figma: FigmaIcon,
+  html5: HTML5Icon,
+  javascript: JavaScriptIcon,
+  php: PHPIcon,
+  mysql: MySQLIcon,
+  wordpress: WordPressIcon,
 };
 
 interface TechIconProps extends React.SVGProps<SVGSVGElement> {
