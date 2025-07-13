@@ -1,10 +1,17 @@
-import GradientButton from '@/components/ui/buttons/GradientButton';
 import styles from './CTASection.module.scss';
 import clsx from 'clsx';
-import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
-import GitHubIcon from '@/components/icons/brands/GitHubIcon';
 
-export default function CTASection() {
+interface CTASectionProps {
+  heading: string;
+  paragraphChildren: React.ReactNode;
+  buttonChildren: React.ReactNode;
+}
+
+export default function CTASection({
+  heading,
+  paragraphChildren,
+  buttonChildren,
+}: CTASectionProps) {
   const sectionWrapper = clsx(styles.wrapper, 'nwt--txt-center');
 
   const sectionRight = clsx(styles.right, 'nwt--flex-n-n-col');
@@ -27,55 +34,10 @@ export default function CTASection() {
         </div>
         <div className={sectionRight}>
           <h2 className='nwt--f-h2'>
-            <span className='nwt--txt-gradient'>Let's Connect</span>
+            <span className='nwt--txt-gradient'>{heading}</span>
           </h2>
-          <p>
-            <span>
-              I am currently looking for work as a Full-Stack Developer.
-            </span>
-            <span>
-              If my work and skills align with what you're looking for, I'd be
-              exited to hear from you.
-            </span>
-          </p>
-          <div className={sectionLinks}>
-            <GradientButton
-              as='a'
-              href='mailto:hallo@nordwebtec.com'
-              variant='orange'
-              children={
-                <>
-                  <span>hallo@nordwebtec.com</span>
-                </>
-              }
-            />
-            <div>
-              <GradientButton
-                as='a'
-                href='https://www.linkedin.com/in/stefan-lüllmann'
-                rel='noopener noreferrer'
-                target='_blank'
-                children={
-                  <>
-                    <LinkedInIcon />
-                    <span>Stefan Lüllmann on LinkedIn</span>
-                  </>
-                }
-              />
-              <GradientButton
-                as='a'
-                href='https://github.com/OneDev49'
-                rel='noopener noreferrer'
-                target='_blank'
-                children={
-                  <>
-                    <GitHubIcon />
-                    <span>OneDev49 on GitHub</span>
-                  </>
-                }
-              />
-            </div>
-          </div>
+          <p>{paragraphChildren}</p>
+          <div className={sectionLinks}>{buttonChildren}</div>
         </div>
       </div>
     </section>
