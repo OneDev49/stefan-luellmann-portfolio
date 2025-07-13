@@ -15,8 +15,8 @@ interface IconProps {
 }
 
 export default function DockerIcon({
-  width = 256,
-  height = 185,
+  width = 40,
+  height = 40,
   className,
 }: IconProps) {
   return (

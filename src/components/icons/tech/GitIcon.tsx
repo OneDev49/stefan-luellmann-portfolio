@@ -15,8 +15,8 @@ interface IconProps {
 }
 
 export default function GitIcon({
-  width = 256,
-  height = 256,
+  width = 40,
+  height = 40,
   className,
 }: IconProps) {
   return (
