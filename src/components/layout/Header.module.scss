@@ -207,7 +207,7 @@
   .sideNavHome,
   .sideNavHeader,
   .sideNavLI a {
-    padding: 8px 5px;
+    padding: 8px;
   }
 
   .sideNavHome,
@@ -240,6 +240,11 @@
     border-radius: 8px;
     font-size: 0.85rem;
     color: #0029ff;
+  }
+
+  .sideNavLI svg,
+  .sideNavLI img {
+    min-width: 15px;
   }
 }
 
