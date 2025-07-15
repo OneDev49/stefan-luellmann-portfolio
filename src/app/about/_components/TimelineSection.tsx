@@ -123,7 +123,7 @@ export default function TimelineSection() {
                 user-centric and scalable applications.
               </p>
               <GradientButton
-                href='/'
+                href='/#projects'
                 variant='orange'
                 children={
                   <>

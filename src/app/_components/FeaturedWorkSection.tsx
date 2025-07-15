@@ -110,6 +110,8 @@ export default function FeaturedWorkSection() {
               as='a'
               href='https://github.com/OneDev49/stefan-luellmann-ecommerce-app'
               variant='green'
+              rel='noopener noreferrer'
+              target='_blank'
               children={
                 <>
                   <span>View Code on GitHub</span>
@@ -178,6 +180,8 @@ export default function FeaturedWorkSection() {
                 as='a'
                 href='https://github.com/OneDev49/stefan-luellmann-portfolio'
                 variant='green'
+                rel='noopener noreferrer'
+                target='_blank'
                 children={
                   <>
                     <span>View Code on GitHub</span>

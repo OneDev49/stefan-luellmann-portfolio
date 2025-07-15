@@ -80,7 +80,7 @@ export default function FooterSection() {
                 loading='lazy'
                 decoding='async'
                 draggable='false'
-                src='./images/logos/full_logo_white.webp'
+                src='/images/logos/full_logo_white.webp'
                 alt='Logo of my Personal Website'
                 height='75'
                 width='500'
@@ -102,6 +102,8 @@ export default function FooterSection() {
                   <LinkedInIcon />
                   <a
                     href='https://www.linkedin.com/in/stefan-lüllmann'
+                    rel='noopener noreferrer'
+                    target='_blank'
                     className='nwt--anchor-under'
                   >
                     LinkedIn: Stefan Lüllmann
@@ -111,6 +113,8 @@ export default function FooterSection() {
                   <GitHubIcon />
                   <a
                     href='https://github.com/OneDev49'
+                    rel='noopener noreferrer'
+                    target='_blank'
                     className='nwt--anchor-under'
                   >
                     GitHub: OneDev49
@@ -139,13 +143,16 @@ export default function FooterSection() {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/contact' className='nwt--anchor-under'>
+                  <Link
+                    href='/about#get-in-touch'
+                    className='nwt--anchor-under'
+                  >
                     Get In Touch
                   </Link>
                 </li>
               </ul>
             </div>
-            <div>
+            {/* <div>
               <strong>Articles</strong>
               <ul className='nwt--ul-none'>
                 <li>
@@ -159,17 +166,17 @@ export default function FooterSection() {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div>
               <strong>Other</strong>
               <ul className='nwt--ul-none'>
                 <li>
-                  <Link href='/' className='nwt--anchor-under'>
+                  <Link href='/impressum' className='nwt--anchor-under'>
                     Legal Notice
                   </Link>
                 </li>
                 <li>
-                  <Link href='/' className='nwt--anchor-under'>
+                  <Link href='/datenschutz' className='nwt--anchor-under'>
                     Privacy Policy
                   </Link>
                 </li>
@@ -181,8 +188,7 @@ export default function FooterSection() {
           <p>
             <span>Designed and Developed by Stefan Lüllmann</span>
             <span>
-              Copyright © 2022 - {`${date}`} - Stefan Lüllmann - All rights
-              reserved
+              Copyright © 2022 - {date} - Stefan Lüllmann - All rights reserved
             </span>
           </p>
         </div>
