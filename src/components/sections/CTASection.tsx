@@ -5,12 +5,14 @@ interface CTASectionProps {
   heading: string;
   paragraphChildren: React.ReactNode;
   buttonChildren: React.ReactNode;
+  pageAnchorName: string;
 }
 
 export default function CTASection({
   heading,
   paragraphChildren,
   buttonChildren,
+  pageAnchorName,
 }: CTASectionProps) {
   const sectionWrapper = clsx(styles.wrapper, 'nwt--txt-center');
 
@@ -20,6 +22,9 @@ export default function CTASection({
 
   return (
     <section className={sectionWrapper}>
+      {pageAnchorName && (
+        <div id={pageAnchorName} className='nwt--invisible-anchor'></div>
+      )}
       <div className='nwt--width nwt--flex-c-n-col'>
         <div className={styles.left}>
           <img
