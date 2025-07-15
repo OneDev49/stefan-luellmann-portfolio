@@ -5,7 +5,7 @@ interface CTASectionProps {
   heading: string;
   paragraphChildren: React.ReactNode;
   buttonChildren: React.ReactNode;
-  pageAnchorName: string;
+  pageAnchorName?: string;
 }
 
 export default function CTASection({

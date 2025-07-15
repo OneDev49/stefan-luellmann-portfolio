@@ -26,7 +26,7 @@ export default function HomePage() {
             ),
           },
           {
-            href: '/contact',
+            href: '/about#get-in-touch',
             children: (
               <>
                 <span>Get In Touch</span>

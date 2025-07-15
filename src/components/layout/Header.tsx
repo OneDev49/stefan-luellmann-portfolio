@@ -93,7 +93,7 @@ export default function HeaderSection() {
                   About
                 </Link>
                 <GradientButton
-                  href='/about'
+                  href='/about#get-in-touch'
                   variant='rainbow'
                   className={styles.navCTA}
                   children={
@@ -120,7 +120,7 @@ export default function HeaderSection() {
                   </svg>
                 </button>
                 <GradientButton
-                  href='/about'
+                  href='/about#get-in-touch'
                   variant='rainbow'
                   className={styles.navCTA}
                   children={
@@ -233,6 +233,8 @@ export default function HeaderSection() {
                         <a
                           href='https://github.com/OneDev49'
                           className='nwt--anchor-img nwt--flex-c-n-n'
+                          rel='noopener noreferrer'
+                          target='_blank'
                           onClick={closePhoneNav}
                         >
                           <div className='nwt--flex-n-n-col'>
@@ -245,6 +247,8 @@ export default function HeaderSection() {
                         <a
                           href='https://github.com/in/stefan-lüllmann'
                           className='nwt--anchor-img nwt--flex-c-n-n'
+                          rel='noopener noreferrer'
+                          target='_blank'
                           onClick={closePhoneNav}
                         >
                           <div className='nwt--flex-n-n-col'>
@@ -255,7 +259,7 @@ export default function HeaderSection() {
                       </li>
                       <li className={styles.sideNavLI}>
                         <Link
-                          href='/'
+                          href='/impressum'
                           className='nwt--anchor-img nwt--flex-c-n-n'
                           onClick={closePhoneNav}
                         >
@@ -265,7 +269,7 @@ export default function HeaderSection() {
                       </li>
                       <li className={styles.sideNavLI}>
                         <Link
-                          href='/'
+                          href='/datenschutz'
                           className='nwt--anchor-img nwt--flex-c-n-n'
                           onClick={closePhoneNav}
                         >

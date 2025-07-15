@@ -51,7 +51,7 @@ export default function Home() {
             ),
           },
           {
-            href: '/contact',
+            href: '#get-in-touch',
             children: (
               <>
                 <span>Get In Touch</span>
@@ -63,8 +63,9 @@ export default function Home() {
       />
       <TimelineSection />
       <ToolkitSection />
+      <div id='get-in-touch' className='nwt--invisible-anchor'></div>
       <CTASection
-        heading="Let's Connect"
+        heading="Get in Touch and let's connect!"
         paragraphChildren={
           <>
             <span>
