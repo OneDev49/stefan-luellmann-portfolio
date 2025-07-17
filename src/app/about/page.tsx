@@ -81,7 +81,7 @@ export default function Home() {
           <>
             <GradientButton
               as='a'
-              href='/files/Stefan_Luellmann_CV.pdf'
+              href='/files/Stefan_Luellmann_CV_English.pdf'
               variant='orange'
               download
               children={
