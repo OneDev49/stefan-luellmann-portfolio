@@ -41,7 +41,7 @@ git clone https://github.com/OneDev49/stefan-luellmann-portfolio
 2. **Navigate to the project directory:**
 
 ```bash
-cd portfolio-nextjs
+cd stefan-luellmann-portfolio
 ```
 
 3. **Install dependencies:**
