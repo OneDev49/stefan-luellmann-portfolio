@@ -90,4 +90,5 @@ They are **not** licensed for reuse without my explicit written permission.
 ### Third-Party Assets
 
 - Technology logos are trademarks of their respective owners.
+- Brand logos are trademarks of their respective owners.
 - Icons are used from [Font Awesome](https://fontawesome.com/license) and [SVGLogos](https://svgporn.com/) (CC0), and are subject to their respective licenses.
