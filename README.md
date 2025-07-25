@@ -58,22 +58,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Project Structure
-
-A brief overview of the key directories in this project:
-
-```text
-/
-├── src/
-|   ├── app/            # Main application code (App Router)
-|   ├── assets/         # Static assets like images, fonts, icons and videos
-|   ├── components/     # Reusable React components
-|   └── styles/         # Global styles and SCSS partials
-|
-├── public/             # Publicly served assets
-└── ... (config files)
-```
-
 ## Contact
 
 Stefan Lüllmann - [hallo@nordwebtec.com](mailto:hallo@nordwebtec.com)
