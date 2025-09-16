@@ -113,7 +113,8 @@
   .bigCard .top {
     grid-template-columns: repeat(2, 1fr);
   }
-  .bottom {
+  .bigCard .bottom,
+  .smallCard .bottom {
     flex-direction: row;
   }
 }
