@@ -7,6 +7,7 @@ export interface GradientButtonBaseProps {
   children: React.ReactNode;
   variant?: 'blue' | 'orange' | 'green' | 'rainbow';
   className?: string;
+  position?: 'card' | 'section';
 }
 
 type GradientButtonProps<C extends React.ElementType> =
@@ -21,17 +22,19 @@ export default function GradientButton<
   children,
   variant = 'blue',
   className,
+  position = 'section',
   ...restProps
 }: GradientButtonProps<C>) {
   const Component = as || Link;
   const buttonClassNames = clsx(
     variant === 'rainbow' ? '' : styles.nwtGradientButton,
     {
-      [styles.nwtBlueGradient]: variant == 'blue',
-      [styles.nwtOrangeGradient]: variant == 'orange',
-      [styles.nwtGreenGradient]: variant == 'green',
-      [styles.nwtRainbow]: variant == 'rainbow',
+      [styles.nwtBlueGradient]: variant === 'blue',
+      [styles.nwtOrangeGradient]: variant === 'orange',
+      [styles.nwtGreenGradient]: variant === 'green',
+      [styles.nwtRainbow]: variant === 'rainbow',
     },
+    position === 'section' ? styles.nwtPositionSection : styles.nwtPositionCard,
     'nwt--flex-c-c-n',
     className
   );
