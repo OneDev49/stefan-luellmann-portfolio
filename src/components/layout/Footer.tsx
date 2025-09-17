@@ -3,14 +3,11 @@ import GitHubIcon from '../icons/brands/GitHubIcon';
 import LinkedInIcon from '../icons/brands/LinkedInIcon';
 import styles from './Footer.module.scss';
 import EnvelopeIcon from '../icons/glyphs/EnvelopeIcon';
-import clsx from 'clsx';
+import Image from 'next/image';
+import { siteData } from '@/config/siteData';
 
 export default function FooterSection() {
   const date = new Date().getFullYear();
-
-  const footerTop = clsx(styles.footerTop, 'nwt--flex-n-n-col');
-
-  const footerLeft = clsx(styles.footerLeft, 'nwt--flex-c-n-col');
 
   return (
     <footer>
@@ -73,14 +70,14 @@ export default function FooterSection() {
         </svg>
       </div>
       <div className={styles.footerMain}>
-        <div className={footerTop}>
-          <div className={footerLeft}>
-            <Link href='/' title='To the Mainpage'>
-              <img
+        <div className={styles.footerTop}>
+          <div className={styles.footerLeft}>
+            <Link href='/' title='To the Mainpage' aria-label='To the Mainpage'>
+              <Image
                 loading='lazy'
                 decoding='async'
                 draggable='false'
-                src='/images/logos/full_logo_white.webp'
+                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5'
                 alt='Logo of my Personal Website'
                 height='75'
                 width='500'
@@ -88,20 +85,20 @@ export default function FooterSection() {
             </Link>
             <div className='nwt--flex-n-n-col'>
               <strong>How to Reach out to me</strong>
-              <ul className='nwt--ul-none nwt--flex-n-n-col'>
+              <ul className='nwt--ul-none'>
                 <li className='nwt--flex-c-n-n'>
                   <EnvelopeIcon variant='solid' />
                   <a
-                    href='mailto:hallo@nordwebtec.com'
+                    href={`mailto:${siteData.email}`}
                     className='nwt--anchor-under'
                   >
-                    hallo@nordwebtec.com
+                    {siteData.email}
                   </a>
                 </li>
                 <li className='nwt--flex-c-n-n'>
                   <LinkedInIcon />
                   <a
-                    href='https://www.linkedin.com/in/stefan-lüllmann'
+                    href={`${siteData.social.linkedin}`}
                     rel='noopener noreferrer'
                     target='_blank'
                     className='nwt--anchor-under'
@@ -112,7 +109,7 @@ export default function FooterSection() {
                 <li className='nwt--flex-c-n-n'>
                   <GitHubIcon />
                   <a
-                    href='https://github.com/OneDev49'
+                    href={`${siteData.social.github}`}
                     rel='noopener noreferrer'
                     target='_blank'
                     className='nwt--anchor-under'
@@ -133,21 +130,13 @@ export default function FooterSection() {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/#projects' className='nwt--anchor-under'>
+                  <Link href='/projects' className='nwt--anchor-under'>
                     Projects
                   </Link>
                 </li>
                 <li>
                   <Link href='/about' className='nwt--anchor-under'>
                     About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/about#get-in-touch'
-                    className='nwt--anchor-under'
-                  >
-                    Get In Touch
                   </Link>
                 </li>
               </ul>

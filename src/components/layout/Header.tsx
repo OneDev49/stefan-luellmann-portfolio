@@ -95,6 +95,9 @@ export default function HeaderSection() {
                 <Link href='/' className={styles.navLinkBtn}>
                   Homepage
                 </Link>
+                <Link href='/projects' className={styles.navLinkBtn}>
+                  Projects
+                </Link>
               </div>
               <div className={styles.navRight}>
                 <Link href='/about' className={styles.navLinkBtn}>

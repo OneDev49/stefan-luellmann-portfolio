@@ -5,6 +5,7 @@
 
 .footerMain {
   background-image: linear-gradient(90deg, #000386, #00478d);
+  text-align: center;
 
   > div {
     max-width: 1200px;
@@ -34,6 +35,8 @@
 .footerTop {
   padding: 2rem 0 1rem;
   border-bottom: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
 
   .footerRight {
     display: flex;
@@ -43,6 +46,9 @@
   }
 
   .footerLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
   }
 
@@ -52,6 +58,9 @@
 
   .footerLeft ul {
     gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .footerLeft li {
     gap: 0.5rem;
@@ -70,12 +79,19 @@
 }
 
 @media (min-width: 768px) {
+  .footerMain {
+    text-align: left;
+  }
   .footerTop {
     justify-content: space-between;
     flex-direction: row;
 
     .footerLeft {
       align-items: flex-start;
+
+      ul {
+        align-items: flex-start;
+      }
     }
     .footerRight {
       display: grid;
