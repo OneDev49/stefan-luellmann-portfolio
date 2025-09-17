@@ -1,5 +1,4 @@
 .nwtGradientButton {
-  padding: 8px 20px;
   gap: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -77,7 +76,6 @@
 
 .nwtRainbow {
   position: relative;
-  padding: 8px 12px;
   font-size: 18px;
   font-weight: 800;
   color: #fff;
@@ -133,4 +131,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.nwtPositionSection {
+  padding: 8px 20px;
+}
+
+.nwtPositionCard {
+  padding: 4px 12px;
 }
