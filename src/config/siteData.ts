@@ -1,6 +1,6 @@
 export const siteData = {
   email: 'hallo@stefan-luellmann.com',
-  phone: '',
+  phone: '+491632155075',
   url: 'https://stefan-luellmann.com/',
   social: {
     github: 'https://github.com/OneDev49/',
