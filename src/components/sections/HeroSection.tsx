@@ -1,5 +1,5 @@
 import styles from './HeroSection.module.scss';
-import GradientButton from '@/components/ui/buttons/GradientButton';
+import GradientButton from '@/components/ui/GradientButton';
 import clsx from 'clsx';
 import MultiThinWaves from '../effects/MultiThinWave';
 import { ComponentProps } from 'react';

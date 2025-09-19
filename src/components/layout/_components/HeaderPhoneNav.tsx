@@ -4,7 +4,7 @@ import styles from './HeaderPhoneNav.module.scss';
 import clsx from 'clsx';
 import CloseIcon from '@/components/icons/ui/CloseIcon';
 import Image from 'next/image';
-import GradientButton from '@/components/ui/buttons/GradientButton';
+import GradientButton from '@/components/ui/GradientButton';
 import { siteData } from '@/config/siteData';
 
 interface HeaderPhoneNavProps {

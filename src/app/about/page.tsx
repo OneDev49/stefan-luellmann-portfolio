@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import TimelineSection from './_components/TimelineSection';
 import CTASection from '@/components/sections/CTASection';
 import ToolkitSection from './_components/ToolkitSection';
-import GradientButton from '@/components/ui/buttons/GradientButton';
+import GradientButton from '@/components/ui/GradientButton';
 import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
 
