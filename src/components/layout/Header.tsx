@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 import Link from 'next/link';
-import GradientButton from '../ui/buttons/GradientButton';
+import GradientButton from '../ui/GradientButton';
 import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import Image from 'next/image';
 import HamburgerIcon from '../icons/ui/HamburgerIcon';

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import styles from './TimelineSection.module.scss';
-import GradientButton from '@/components/ui/buttons/GradientButton';
+import GradientButton from '@/components/ui/GradientButton';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import RocketIcon from '@/components/icons/glyphs/RocketIcon';
 import CodeIcon from '@/components/icons/glyphs/CodeIcon';

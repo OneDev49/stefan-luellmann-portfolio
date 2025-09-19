@@ -1,5 +1,5 @@
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
-import GradientButton from '@/components/ui/buttons/GradientButton';
+import GradientButton from '@/components/ui/GradientButton';
 import { siteData } from '@/config/siteData';
 import Image from 'next/image';
 import styles from './HeaderModal.module.scss';
