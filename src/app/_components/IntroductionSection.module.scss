@@ -1,0 +1,37 @@
+.wrapper {
+  --nwt--width-1: 100px auto;
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  > div:first-child {
+    flex: 1 0;
+    max-width: 400px;
+    border: 2px solid #fff;
+    border-radius: 9999px;
+    overflow: hidden;
+
+    img {
+      height: auto;
+    }
+  }
+
+  > div:last-child {
+    flex: 1;
+    gap: 1.5rem;
+  }
+  p {
+    display: grid;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
