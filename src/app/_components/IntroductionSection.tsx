@@ -1,8 +1,8 @@
 import ChevronRightIcon from '@/components/icons/ui/ChevronRightIcon';
 import GradientButton from '@/components/ui/GradientButton';
-import Image from 'next/image';
 import styles from './IntroductionSection.module.scss';
 import clsx from 'clsx';
+import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 
 export default function IntroductionSection() {
   const wrapperClassName = clsx(styles.wrapper, 'nwt--width');
@@ -10,13 +10,13 @@ export default function IntroductionSection() {
   return (
     <section className={wrapperClassName}>
       <div>
-        <Image
-          loading='lazy'
-          decoding='async'
+        <ImageSkeletonLoader
+          loading='eager'
+          priority
           src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YNoamfXUJOoHBgmDrVu9kl6dW42XtInKGhaJT'
+          alt="Hey, I'm Stefan!"
           height={400}
           width={400}
-          alt="Hey, I'm Stefan!"
         />
       </div>
       <div className='nwt--flex-n-n-col'>

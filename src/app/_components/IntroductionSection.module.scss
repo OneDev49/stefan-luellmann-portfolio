@@ -7,8 +7,7 @@
   text-align: center;
 
   > div:first-child {
-    flex: 1 0;
-    max-width: 400px;
+    display: flex;
     border: 2px solid #fff;
     border-radius: 9999px;
     overflow: hidden;
