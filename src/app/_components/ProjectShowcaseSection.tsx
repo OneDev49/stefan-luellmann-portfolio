@@ -18,7 +18,9 @@ export default function ProjectShowcaseSection() {
       <ul className={`${styles.projectList} nwt--ul-none`}>
         {personalProjects.length > 0 &&
           personalProjects.map((project, index) => (
-            <li key={index}>{/* <SmallProjectCard project={project} /> */}</li>
+            <li key={index}>
+              <SmallProjectCard project={project} />
+            </li>
           ))}
       </ul>
     </section>
