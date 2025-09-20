@@ -8,6 +8,7 @@ export interface GradientButtonBaseProps {
   variant?: 'blue' | 'orange' | 'green' | 'rainbow';
   className?: string;
   position?: 'card' | 'section';
+  animation?: 'all' | 'hover' | 'move' | 'none';
 }
 
 type GradientButtonProps<C extends React.ElementType> =
@@ -23,6 +24,7 @@ export default function GradientButton<
   variant = 'blue',
   className,
   position = 'section',
+  animation = 'hover',
   ...restProps
 }: GradientButtonProps<C>) {
   const Component = as || Link;
@@ -36,6 +38,13 @@ export default function GradientButton<
     },
     position === 'section' ? styles.nwtPositionSection : styles.nwtPositionCard,
     'nwt--flex-c-c-n',
+    animation === 'hover'
+      ? styles.animationHover
+      : animation === 'move'
+      ? styles.animationMove
+      : animation === 'all'
+      ? styles.animationAll
+      : '',
     className
   );
 
