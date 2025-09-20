@@ -11,15 +11,22 @@
     transition: all 0.1s ease-in-out;
   }
 
-  &:hover {
+  &.animationAll:hover {
+    transform: translate(4px);
     transform: scale(1.05);
   }
 
-  &:active {
+  &.animationHover:hover {
+    transform: scale(1.05);
+  }
+
+  &.animationHover:active,
+  &.animationMove:active,
+  &.animationAll:active {
     transform: scale(0.98);
   }
 
-  &:hover svg {
+  &.animationMove:hover svg {
     transform: translate(4px);
   }
 

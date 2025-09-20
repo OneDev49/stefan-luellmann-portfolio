@@ -8,3 +8,9 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

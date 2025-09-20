@@ -2,7 +2,7 @@ import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import HeroSection from '@/components/sections/HeroSection';
 import IntroductionSection from './_components/IntroductionSection';
 import ArticleAdvertisementSection from './_components/ArticleAdvertisementSection';
-import ProjectShowcaseSection from './_components/ProjectShowcaseSeciton';
+import ProjectShowcaseSection from './_components/ProjectShowcaseSection';
 
 export default function HomePage() {
   return (

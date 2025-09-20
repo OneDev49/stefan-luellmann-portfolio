@@ -18,6 +18,8 @@ function TechnologyNameMapper(tech: TechnologyName) {
     case 'vercel':
     case 'zustand':
     case 'docker':
+    case 'zod':
+    case 'redis':
       return tech.charAt(0).toUpperCase() + tech.slice(1);
 
     case 'mdx':
