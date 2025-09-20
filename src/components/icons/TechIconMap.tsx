@@ -20,6 +20,8 @@ import JavaScriptIcon from './tech/JavaScriptIcon';
 import PHPIcon from './tech/PHPIcon';
 import MySQLIcon from './tech/MySQLIcon';
 import WordPressIcon from './tech/WordPressIcon';
+import ZodIcon from './tech/ZodIcon';
+import RedisIcon from './tech/RedisIcon';
 
 export type TechnologyName =
   | 'nextjs'
@@ -43,7 +45,9 @@ export type TechnologyName =
   | 'javascript'
   | 'php'
   | 'mysql'
-  | 'wordpress';
+  | 'wordpress'
+  | 'zod'
+  | 'redis';
 
 export const TechIconMap: Record<
   TechnologyName,
@@ -71,6 +75,8 @@ export const TechIconMap: Record<
   php: PHPIcon,
   mysql: MySQLIcon,
   wordpress: WordPressIcon,
+  zod: ZodIcon,
+  redis: RedisIcon,
 };
 
 interface TechIconProps extends React.SVGProps<SVGSVGElement> {
