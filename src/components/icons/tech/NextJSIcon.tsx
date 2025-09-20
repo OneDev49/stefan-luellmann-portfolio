@@ -35,8 +35,8 @@ export default function NextJSIcon({
           maskUnits='userSpaceOnUse'
           x='0'
           y='0'
-          width={width}
-          height={height}
+          width={40}
+          height={40}
         >
           <path
             d='M20.0781 40C31.1238 40 40.0781 31.0457 40.0781 20C40.0781 8.9543 31.1238 0 20.0781 0C9.03243 0 0.078125 8.9543 0.078125 20C0.078125 31.0457 9.03243 40 20.0781 40Z'
