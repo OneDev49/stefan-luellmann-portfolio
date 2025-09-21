@@ -3,6 +3,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import IntroductionSection from './_components/IntroductionSection';
 import ArticleAdvertisementSection from './_components/ArticleAdvertisementSection';
 import ProjectShowcaseSection from './_components/ProjectShowcaseSection';
+import CTASection from './_components/CTASection';
 
 export default function HomePage() {
   return (
@@ -27,6 +28,7 @@ export default function HomePage() {
       <IntroductionSection />
       <ArticleAdvertisementSection />
       <ProjectShowcaseSection />
+      <CTASection />
     </main>
   );
 }
