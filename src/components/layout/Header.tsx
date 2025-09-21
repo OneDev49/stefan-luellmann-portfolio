@@ -8,8 +8,8 @@ import GradientButton from '../ui/GradientButton';
 import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import Image from 'next/image';
 import HamburgerIcon from '../icons/ui/HamburgerIcon';
-import HeaderModal from './_components/HeaderModal';
 import HeaderPhoneNav from './_components/HeaderPhoneNav';
+import { useModal } from '@/context/ModalContext';
 
 export default function HeaderSection() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -30,8 +30,6 @@ export default function HeaderSection() {
 
   const [isPhoneNavOpen, setIsPhoneNavOpen] = useState(false);
   const [isPhoneNavClosed, setIsPhoneNavClosed] = useState(false);
-  const [isGetInTouchOpen, setIsGetInTouchOpen] = useState(false);
-  const [isGetInTouchClosed, setIsGetInTouchClosed] = useState(false);
 
   const openPhoneNav = () => {
     setIsPhoneNavClosed(false);
@@ -45,18 +43,7 @@ export default function HeaderSection() {
     }, 400);
   };
 
-  const openGetInTouch = () => {
-    setIsGetInTouchClosed(false);
-    setIsGetInTouchOpen(true);
-  };
-
-  const closeGetInTouch = () => {
-    setIsGetInTouchClosed(true);
-    setTimeout(() => {
-      setIsGetInTouchOpen(false);
-      setIsGetInTouchClosed(false);
-    });
-  };
+  const { openGetInTouch } = useModal();
 
   // General Header ClassNames
   const headerMainClassName = clsx(styles.headerMain, 'nwt--flex-c-n-n');
@@ -153,8 +140,6 @@ export default function HeaderSection() {
             />
           )}
         </div>
-
-        {isGetInTouchOpen && <HeaderModal closeGetInTouch={closeGetInTouch} />}
       </header>
     </>
   );
