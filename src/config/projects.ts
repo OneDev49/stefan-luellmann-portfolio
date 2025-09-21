@@ -20,7 +20,7 @@ export const personalProjects: Project[] = [
     slug: 'personal-website',
     title: 'Personal Website',
     description:
-      'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS.',
+      'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
     techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx'],
     shortCaseStudy:
       'Developed a fully responsive Portfolio Website, from conceptualisation to design to development.',
@@ -47,7 +47,9 @@ export const personalProjects: Project[] = [
       'postgresql',
       'supabase',
       'vercel',
-    ] /* Add Redis & Zod */,
+      'zod',
+      'redis',
+    ],
     shortCaseStudy:
       'Designed, Developed and Deployed a Full-Stack E-Commerce Computer Store - Entro. Developed using SSG, ISR and SSR and a relational Database with Prisma.',
     links: {
