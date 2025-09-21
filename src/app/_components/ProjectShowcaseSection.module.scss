@@ -1,6 +1,8 @@
 .wrapper {
   --nwt--width-1: 150px auto;
   gap: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -13,4 +15,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

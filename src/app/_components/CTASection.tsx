@@ -3,7 +3,6 @@
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import GradientButton from '@/components/ui/GradientButton';
 import { useModal } from '@/context/ModalContext';
-import Image from 'next/image';
 import styles from './CTASection.module.scss';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 
@@ -17,6 +16,7 @@ export default function CTASection() {
           <ImageSkeletonLoader
             loading='lazy'
             decoding='async'
+            draggable='false'
             src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YiVsuEM0mxJPz0TqguADyd2SlvBtYRebXojs9'
             alt='Technologies I use for my Projects'
             height={300}

@@ -6,25 +6,28 @@
   flex-direction: column;
   text-align: center;
 
-  > div:first-child {
-    display: flex;
-    border: 2px solid #fff;
-    border-radius: 9999px;
-    overflow: hidden;
-
-    img {
-      height: auto;
-    }
-  }
-
-  > div:last-child {
-    flex: 1;
-    gap: 1.5rem;
-  }
   p {
     display: grid;
     gap: 1rem;
   }
+}
+
+.wrapper > div:first-child {
+  display: flex;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  overflow: hidden;
+
+  img {
+    height: auto;
+  }
+}
+
+.wrapper > div:last-child {
+  flex: 1;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 768px) {

@@ -10,6 +10,7 @@ export default function ArticleAdvertisementSection() {
         <Image
           loading='lazy'
           decoding='async'
+          draggable='false'
           src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YIbfJ5lEl9J5WbN6XohyduFKaOCUP3BDAsHkp'
           alt='Areas I write Articles in'
           height={360}
