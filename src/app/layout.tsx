@@ -8,6 +8,7 @@ import {
 import '@/styles/globals.scss';
 import FooterSection from '@/components/layout/Footer';
 import HeaderSection from '@/components/layout/Header';
+import { ModalProvider } from '@/context/ModalContext';
 
 export const metadata = metadataConfig;
 
@@ -22,10 +23,12 @@ export default function RootLayout({
       className={`${fontHeadings.variable} ${fontTexts.variable}`}
     >
       <body>
-        <HeaderSection />
-        <ParticleBackground particleCount={200} />
-        {children}
-        <FooterSection />
+        <ModalProvider>
+          <HeaderSection />
+          <ParticleBackground particleCount={200} />
+          {children}
+          <FooterSection />
+        </ModalProvider>
       </body>
     </html>
   );
