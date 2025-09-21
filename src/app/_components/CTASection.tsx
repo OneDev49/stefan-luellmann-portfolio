@@ -5,6 +5,7 @@ import GradientButton from '@/components/ui/GradientButton';
 import { useModal } from '@/context/ModalContext';
 import Image from 'next/image';
 import styles from './CTASection.module.scss';
+import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 
 export default function CTASection() {
   const { openGetInTouch } = useModal();
@@ -13,7 +14,7 @@ export default function CTASection() {
     <section className={styles.wrapper}>
       <div className={`${styles.contentWrapper} nwt--width`}>
         <div className={styles.image}>
-          <Image
+          <ImageSkeletonLoader
             loading='lazy'
             decoding='async'
             src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YiVsuEM0mxJPz0TqguADyd2SlvBtYRebXojs9'
