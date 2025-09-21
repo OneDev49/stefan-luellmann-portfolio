@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import styles from './TimelineSection.module.scss';
 import GradientButton from '@/components/ui/GradientButton';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
@@ -6,19 +5,12 @@ import RocketIcon from '@/components/icons/glyphs/RocketIcon';
 import CodeIcon from '@/components/icons/glyphs/CodeIcon';
 import BriefcaseIcon from '@/components/icons/glyphs/BriefcaseIcon';
 import GlobeIcon from '@/components/icons/glyphs/GlobeIcon';
+import Image from 'next/image';
 
 export default function TimelineSection() {
-  const sectionWrapperClassName = clsx(
-    styles.wrapper,
-    'nwt--width',
-    'nwt--flex-n-n-col'
-  );
-
-  const sectionHeadClassName = clsx(styles.sectionHead, 'nwt--txt-center');
-
   return (
-    <section className={sectionWrapperClassName}>
-      <div className={sectionHeadClassName}>
+    <section className={`${styles.wrapper} nwt--width`}>
+      <div className={styles.sectionHead}>
         <h2 className='nwt--f-h2'>
           <span className='nwt--txt-gradient'>My Professional Journey</span>
         </h2>
@@ -29,10 +21,20 @@ export default function TimelineSection() {
         </p>
       </div>
       <div className={styles.sectionBody}>
-        <ol className='nwt--ul-none nwt--flex-n-n-col'>
+        <ol>
           <div className={styles.timeline}></div>
           <li data-item='1'>
-            <div className={styles.leftContainer} data-cont='img'></div>
+            <div className={styles.leftContainer} data-cont='img'>
+              <Image
+                loading='lazy'
+                decoding='async'
+                draggable='false'
+                alt='Git, PHP, HTML, CSS and JavaScript Technology Icons'
+                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YjttSNuFZWS01vBYf3yHtizhn8IV2UdGeQlP5'
+                height={163}
+                width={356}
+              />
+            </div>
             <div className={styles.middleContainer}>
               <div>
                 <GlobeIcon height={35} width={35} />
@@ -70,10 +72,30 @@ export default function TimelineSection() {
                 <BriefcaseIcon height={35} width={35} />
               </div>
             </div>
-            <div className={styles.rightContainer} data-cont='img'></div>
+            <div className={styles.rightContainer} data-cont='img'>
+              <Image
+                loading='lazy'
+                decoding='async'
+                draggable='false'
+                alt='Figma, PHP, SASS, WordPress and MySQL Technology Icons'
+                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YHXWCmv3AULrIv19p0qBfTKZdXzJemEya26uS'
+                height={185}
+                width={385}
+              />
+            </div>
           </li>
           <li data-item='3'>
-            <div className={styles.leftContainer} data-cont='img'></div>
+            <div className={styles.leftContainer} data-cont='img'>
+              <Image
+                loading='lazy'
+                decoding='async'
+                draggable='false'
+                alt='Prisma, NextJS, Vercel and PostgreSQL Technology Icons'
+                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YqmSDcqHq0ru9WKvaM2UeYoRJO1fsNpbcGhL6'
+                height={188}
+                width={365}
+              />
+            </div>
             <div className={styles.middleContainer}>
               <div>
                 <CodeIcon height={35} width={35} />
@@ -109,7 +131,17 @@ export default function TimelineSection() {
                 <RocketIcon height={35} width={35} />
               </div>
             </div>
-            <div className={styles.rightContainer} data-cont='img'></div>
+            <div className={styles.rightContainer} data-cont='img'>
+              <Image
+                loading='lazy'
+                decoding='async'
+                draggable='false'
+                alt='React, TailwindCSS and TypeScript Technology Icons'
+                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YQy0ydLDI1O7Cd2btZFA38iaKMH6vwWBzDNJk'
+                height={152}
+                width={361}
+              />
+            </div>
           </li>
         </ol>
         <div className={styles.sectionFoot}>
@@ -122,16 +154,10 @@ export default function TimelineSection() {
                 focused on applying this Full-Stack toolkit to build robust,
                 user-centric and scalable applications.
               </p>
-              <GradientButton
-                href='/#projects'
-                variant='orange'
-                children={
-                  <>
-                    <span>Explore my Work</span>
-                    <CaretRightIcon height={16} width={16} />
-                  </>
-                }
-              />
+              <GradientButton href='/projects' variant='orange'>
+                <span>Explore my Work</span>
+                <CaretRightIcon height={20} width={20} />
+              </GradientButton>
             </div>
           </div>
         </div>

@@ -1,7 +1,9 @@
+import clsx from 'clsx';
 import { TechIcon, TechnologyName } from '../icons/TechIconMap';
 import styles from './TechnologyContainer.module.scss';
 
 interface TechnologyContainerProps {
+  variant?: 'big' | 'small';
   technology: TechnologyName;
 }
 
@@ -47,7 +49,7 @@ function TechnologyNameMapper(tech: TechnologyName) {
       return 'WordPress';
 
     case 'php':
-      return;
+      return 'php';
 
     default:
       return;
@@ -55,12 +57,21 @@ function TechnologyNameMapper(tech: TechnologyName) {
 }
 
 export default function TechnologyContainer({
+  variant = 'small',
   technology,
 }: TechnologyContainerProps) {
+  /* Determine svgSize by variant | in px */
+  const svgSize = variant === 'small' ? 20 : 35;
+
   return (
-    <div className={`${styles.mainContainer} nwt--flex-c-n-n`}>
-      <div className={styles.imageContainer}>
-        <TechIcon height={20} width={20} name={technology} />
+    <div
+      className={clsx(
+        styles.mainContainer,
+        variant === 'small' ? styles.small : styles.big
+      )}
+    >
+      <div>
+        <TechIcon height={svgSize} width={svgSize} name={technology} />
       </div>
       <span>{TechnologyNameMapper(technology)}</span>
     </div>
