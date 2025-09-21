@@ -45,7 +45,7 @@ export const metadataConfig: Metadata = {
     default: 'Stefan Lüllmann | Full-Stack Software Developer',
   },
   description:
-    'The personal portfolio of Stefan Lüllmann, a Full-Stack Developer specializing in Next.js, TypeScript and modern web architectures. Explore my Projects and Case Studies!',
+    'The personal portfolio of Stefan Lüllmann, a Full-Stack Developer specializing in Next.js, TypeScript and modern web architectures. Explore my Projects, Case Studies and Articles!',
 
   // Author & Keyword Metadata
   authors: [{ name: 'Stefan Lüllmann', url: siteData.url }],
@@ -72,7 +72,7 @@ export const metadataConfig: Metadata = {
   openGraph: {
     title: 'Stefan Lüllmann | Full-Stack Software Developer',
     description:
-      'The personal portfolio of Stefan Lüllmann, specializing in modern web development.',
+      'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
     url: siteData.url,
     siteName: 'Stefan Lüllmann',
     images: [
@@ -92,7 +92,7 @@ export const metadataConfig: Metadata = {
     card: 'summary_large_image',
     title: 'Stefan Lüllmann | Full-Stack Software Developer',
     description:
-      'Personal portfolio showcasing Full-Stack Projects with Next.js, React and TypeScript.',
+      'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
     images: [`${siteData.url}/og-image.jpg`],
   },
 

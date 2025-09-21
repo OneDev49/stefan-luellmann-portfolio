@@ -1,25 +1,23 @@
 import ChevronRightIcon from '@/components/icons/ui/ChevronRightIcon';
 import GradientButton from '@/components/ui/GradientButton';
 import styles from './IntroductionSection.module.scss';
-import clsx from 'clsx';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 
 export default function IntroductionSection() {
-  const wrapperClassName = clsx(styles.wrapper, 'nwt--width');
-
   return (
-    <section className={wrapperClassName}>
+    <section className={`${styles.wrapper} nwt--width`}>
       <div>
         <ImageSkeletonLoader
           loading='eager'
           priority
+          draggable='false'
           src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YNoamfXUJOoHBgmDrVu9kl6dW42XtInKGhaJT'
           alt="Hey, I'm Stefan!"
           height={400}
           width={400}
         />
       </div>
-      <div className='nwt--flex-n-n-col'>
+      <div>
         <h2 className='nwt--f-h2'>
           <span className='nwt--txt-gradient'>Building and Optimizing</span>
         </h2>

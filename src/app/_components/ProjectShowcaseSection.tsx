@@ -4,7 +4,7 @@ import { personalProjects } from '@/config/projects';
 
 export default function ProjectShowcaseSection() {
   return (
-    <section className={`${styles.wrapper} nwt--width nwt--flex-n-n-col`}>
+    <section className={`${styles.wrapper} nwt--width`}>
       <div className={styles.header}>
         <h2 className='nwt--f-h2'>
           <span className='nwt--txt-gradient'>Project Showcase</span>
@@ -15,7 +15,7 @@ export default function ProjectShowcaseSection() {
           of my Projects as well!
         </p>
       </div>
-      <ul className={`${styles.projectList} nwt--ul-none`}>
+      <ul className={styles.projectList}>
         {personalProjects.length > 0 &&
           personalProjects.map((project, index) => (
             <li key={index}>
