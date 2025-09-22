@@ -27,10 +27,14 @@ export const personalProjects: Project[] = [
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-portfolio',
       liveDemo: 'https://stefan-luellmann.com/',
-      caseStudy: '',
+      caseStudy: '/case-studies/personal-website',
     },
-    thumbnail: 'x81VdwhEWe9YNXWlewJOoHBgmDrVu9kl6dW42XtInKGhaJT3',
-    images: ['x81VdwhEWe9YNXWlewJOoHBgmDrVu9kl6dW42XtInKGhaJT3'],
+    thumbnail: 'x81VdwhEWe9YglBJ9iXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
+    images: [
+      'x81VdwhEWe9YglBJ9iXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
+      'x81VdwhEWe9YPw0HMULrk2i6cgS3Y9p8FLUOsheVEWmzZloG',
+      'x81VdwhEWe9YLgMvrVdInMrjeXmBiTPth46N1ogxlyE7cGJp',
+    ],
   },
   {
     slug: 'entro-ecommerce-store',
@@ -55,9 +59,14 @@ export const personalProjects: Project[] = [
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-ecommerce-app',
       liveDemo: 'https://ecommerce.stefan-luellmann.com/',
-      caseStudy: '',
+      caseStudy: '/case-studies/entro-ecommerce-store',
     },
-    thumbnail: '',
-    images: [''],
+    thumbnail: 'x81VdwhEWe9Ygmp6ZZXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
+    images: [
+      'x81VdwhEWe9Ygmp6ZZXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
+      'x81VdwhEWe9Yk6xvyNRfP1gF2n5dtA9WmjYOaITxQJVwBzLo',
+      'x81VdwhEWe9YmncacBN9P4VmtRyDwqsTxWXaG0lOzr9IC5Lo',
+      'x81VdwhEWe9YBtFXS7KeYfw57tzND9qVBJrFHu6XOnMahs34',
+    ],
   },
 ];
