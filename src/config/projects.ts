@@ -3,6 +3,12 @@ import { TechnologyName } from '@/components/icons/TechIconMap';
 export interface Project {
   slug: string;
   title: string;
+  status:
+    | 'Not Released'
+    | 'Released'
+    | 'V1 - Released'
+    | 'V2 - Released'
+    | 'V3 - Released';
   description: string;
   techStack: TechnologyName[];
   shortCaseStudy: string;
@@ -19,6 +25,7 @@ export const personalProjects: Project[] = [
   {
     slug: 'personal-website',
     title: 'Personal Website',
+    status: 'V1 - Released',
     description:
       'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
     techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx'],
@@ -39,6 +46,7 @@ export const personalProjects: Project[] = [
   {
     slug: 'entro-ecommerce-store',
     title: 'Entro - ECommerce Computer Store',
+    status: 'Not Released',
     description:
       'A Full-Stack E-Commerce Computer Store designed with Figma, developed with NextJS, React, TypeScript, Prisma, PostgreSQL and TailwindCSS.',
     techStack: [
@@ -70,3 +78,5 @@ export const personalProjects: Project[] = [
     ],
   },
 ];
+
+export const clientProjects: Project[] | null = null;
