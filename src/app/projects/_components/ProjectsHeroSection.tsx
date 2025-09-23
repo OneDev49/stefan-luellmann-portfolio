@@ -18,7 +18,7 @@ const allImages = personalProjects.flatMap((project) =>
 
 const loopedImages = [...allImages, ...allImages];
 
-export default function ProjectHeroSection() {
+export default function ProjectsHeroSection() {
   const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
