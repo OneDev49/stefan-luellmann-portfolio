@@ -27,9 +27,11 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
 
   return (
     <div className={styles.cardWrapper}>
-      <Link
-        href={`/projects/${project.slug}`}
+      <a
+        href={project.links.liveDemo}
         className={styles.cardImageAnchor}
+        target='_blank'
+        rel='noopener noreferrer'
       >
         <ImageSkeletonLoader
           loading='lazy'
@@ -39,7 +41,7 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
           height={600}
           width={1000}
         />
-      </Link>
+      </a>
       <div className={styles.contentWrapper}>
         <div className={styles.topWrapper}>
           <h3 className='nwt--f-h3-small'>{project.title}</h3>
@@ -71,7 +73,6 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
             <div
               className={clsx(styles.linksDropdown, isExpanded && styles.open)}
             >
-              <Link href={`/projects/${project.slug}`}>Project Page</Link>
               <a
                 href={project.links.liveDemo}
                 rel='noopener noreferrer'
@@ -79,13 +80,7 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
               >
                 Live Demo
               </a>
-              <a
-                href={project.links.caseStudy}
-                rel='noopener noreferrer'
-                target='_blank'
-              >
-                Case Study
-              </a>
+              <Link href={`/case-studies/${project.slug}`}>Case Study</Link>
               <a
                 href={project.links.github}
                 rel='noopener noreferrer'

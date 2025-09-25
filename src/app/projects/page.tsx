@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import ProjectsHeroSection from './_components/ProjectsHeroSection';
 import ProjectsMainSection from './_components/ProjectsMainSection';
 import PersonalImageCTA from '@/components/sections/PersonalImageCTA';
-import GradientButton from '@/components/ui/GradientButton';
 
 /* ADD METADATA HERE */
 export const metadata: Metadata = {

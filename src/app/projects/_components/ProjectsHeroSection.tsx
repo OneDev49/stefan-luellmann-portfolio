@@ -63,7 +63,7 @@ export default function ProjectsHeroSection() {
             {loopedImages.map((image, index) => (
               <div className={styles.carouselItemWrapper} key={index}>
                 <div className={styles.carouselItem}>
-                  <a href={image.url}>
+                  <a href={image.url} target='_blank' rel='noopener noreferrer'>
                     <ImageSkeletonLoader
                       loading='eager'
                       priority
