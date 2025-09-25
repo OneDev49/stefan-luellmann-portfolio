@@ -9,7 +9,6 @@ import clsx from 'clsx';
 import ImageSkeletonLoader from './ImageSkeletonLoader';
 import { useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import Link from 'next/link';
 
 interface BigProjectCardProps {
   projectCategory: 'personal' | 'client';
@@ -40,7 +39,11 @@ export default function BigProjectCard({
     >
       <div className={styles.imageWrapper}>
         <div className={styles.mainImageWrapper}>
-          <Link href={project.links.liveDemo}>
+          <a
+            href={project.links.liveDemo}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <ImageSkeletonLoader
               src={`https://utfs.io/a/qnr34aa1vn/${project.images[mainIndex]}`}
               alt={`${project.title} Screenshot ${mainIndex + 1}`}
@@ -52,7 +55,7 @@ export default function BigProjectCard({
               <span>Visit:</span>
               <span>{project.title}</span>
             </div>
-          </Link>
+          </a>
         </div>
         <div className={styles.thumbnailCarousel} ref={emblaRef}>
           <div className={styles.thumbnails}>
@@ -103,12 +106,14 @@ export default function BigProjectCard({
             href={project.links.liveDemo}
             variant='orange'
             position='card'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Project Live-Demo
             <CaretRightIcon />
           </GradientButton>
           <GradientButton
-            href={project.links.caseStudy}
+            href={`/case-studies/${project.slug}`}
             variant='green'
             position='card'
           >
@@ -120,6 +125,8 @@ export default function BigProjectCard({
             href={project.links.github}
             variant='blue'
             position='card'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Project GitHub
             <CaretRightIcon />

@@ -34,7 +34,7 @@ export default function ArticleAdvertisementSection() {
             Case Studies of my Projects
           </Link>{' '}
           to read up on my Projects, solutions to problems I faced or to find
-          out more about the technologies used in them!.
+          out more about the technologies used in them!
         </p>
       </div>
     </section>

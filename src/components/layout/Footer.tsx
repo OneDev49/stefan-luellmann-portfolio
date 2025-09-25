@@ -91,6 +91,7 @@ export default function FooterSection() {
                   <a
                     href={`mailto:${siteData.email}`}
                     className='nwt--anchor-under'
+                    rel='noopener noreferrer'
                   >
                     {siteData.email}
                   </a>
@@ -146,21 +147,6 @@ export default function FooterSection() {
                 </li>
               </ul>
             </div>
-            {/* <div>
-              <strong>Articles</strong>
-              <ul className='nwt--ul-none'>
-                <li>
-                  <Link href='/' className='nwt--anchor-under'>
-                    Case Studies
-                  </Link>
-                </li>
-                <li>
-                  <Link href='/' className='nwt--anchor-under'>
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div> */}
             <div>
               <strong>Other</strong>
               <ul className='nwt--ul-none'>

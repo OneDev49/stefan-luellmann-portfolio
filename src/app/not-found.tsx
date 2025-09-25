@@ -15,7 +15,7 @@ export default function NotFound() {
             Return to Homepage
           </Link>
           ,{' '}
-          <Link className='nwt--anchor-under' href='/about'>
+          <Link className='nwt--anchor-under' href='/projects'>
             Check out my Projects
           </Link>{' '}
           or{' '}

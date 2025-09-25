@@ -32,7 +32,7 @@ export default function CaseStudiesMainSection() {
                   </div>
                   <p>{project.caseStudyBrief}</p>
                   <GradientButton
-                    href={`/case-studies/${project.title}`}
+                    href={`/case-studies/${project.slug}`}
                     variant='blue'
                   >
                     Read {project.title} Case Study
