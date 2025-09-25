@@ -92,6 +92,23 @@ export default function HeaderPhoneNav({
               </li>
               <li className={styles.sideNavLI}>
                 <Link
+                  href='/case-studies'
+                  className='nwt--anchor-img nwt--flex-c-n-n'
+                  onClick={closePhoneNav}
+                >
+                  <div className='nwt--flex-n-n-col'>
+                    <span
+                      className={`${styles.sideNavLIHeading} nwt--flex-c-n-n`}
+                    >
+                      Case Studies
+                    </span>
+                    <span>Case Studies on all of my Projects.</span>
+                  </div>
+                  <AnglesRightIcon height={15} width={15} />
+                </Link>
+              </li>
+              <li className={styles.sideNavLI}>
+                <Link
                   href='/about'
                   className='nwt--anchor-img nwt--flex-c-n-n'
                   onClick={closePhoneNav}

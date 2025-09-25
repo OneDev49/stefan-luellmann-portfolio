@@ -135,6 +135,11 @@ export default function FooterSection() {
                   </Link>
                 </li>
                 <li>
+                  <Link href='/case-studies' className='nwt--anchor-under'>
+                    Case Studies
+                  </Link>
+                </li>
+                <li>
                   <Link href='/about' className='nwt--anchor-under'>
                     About
                   </Link>
