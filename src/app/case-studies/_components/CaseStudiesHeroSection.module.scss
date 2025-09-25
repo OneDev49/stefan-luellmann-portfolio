@@ -1,0 +1,60 @@
+.wrapper {
+  position: relative;
+  padding: 40svh var(--nwt--r-spacer-sm) 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  strong {
+    color: #00d0ff;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.blobOne,
+.shapeOne,
+.shapeTwo {
+  position: absolute;
+}
+
+.blobOne {
+  top: 0;
+}
+
+.shapeOne,
+.shapeTwo {
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.shapeOne {
+  left: 0;
+}
+
+.shapeTwo {
+  right: 3%;
+  top: 15%;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .shapeOne,
+  .shapeTwo {
+    opacity: 1;
+  }
+}

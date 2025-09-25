@@ -85,6 +85,9 @@ export default function HeaderSection() {
                 <Link href='/projects' className={styles.navLinkBtn}>
                   Projects
                 </Link>
+                <Link href='/case-studies' className={styles.navLinkBtn}>
+                  Case Studies
+                </Link>
               </div>
               <div className={styles.navRight}>
                 <Link href='/about' className={styles.navLinkBtn}>

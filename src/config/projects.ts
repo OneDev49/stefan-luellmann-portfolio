@@ -11,7 +11,8 @@ export interface Project {
     | 'V3 - Released';
   description: string;
   techStack: TechnologyName[];
-  shortCaseStudy: string;
+  caseStudyStatus: 'notReleased' | 'released';
+  caseStudyBrief: string;
   links: {
     github: string;
     liveDemo: string;
@@ -21,16 +22,17 @@ export interface Project {
   images: string[];
 }
 
-export const personalProjects: Project[] = [
+export const personalProjects: Project[] | [] = [
   {
-    slug: 'personal-website',
-    title: 'Personal Website',
+    slug: 'professional-portfolio',
+    title: 'Professional Portfolio',
     status: 'V1 - Released',
     description:
       'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
-    techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx'],
-    shortCaseStudy:
-      'Developed a fully responsive Portfolio Website, from conceptualisation to design to development.',
+    techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'vercel'],
+    caseStudyStatus: 'released',
+    caseStudyBrief:
+      'A Case Study on the planning, design, development and deployment of my Professional Portfolio Website. The Case Study goes into detail about different designs, challenges and solutions for a variety of problems, like deciding which Technologies to use and why certain Technologies were used.',
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-portfolio',
       liveDemo: 'https://stefan-luellmann.com/',
@@ -62,7 +64,8 @@ export const personalProjects: Project[] = [
       'zod',
       'redis',
     ],
-    shortCaseStudy:
+    caseStudyStatus: 'notReleased',
+    caseStudyBrief:
       'Designed, Developed and Deployed a Full-Stack E-Commerce Computer Store - Entro. Developed using SSG, ISR and SSR and a relational Database with Prisma.',
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-ecommerce-app',
@@ -79,4 +82,4 @@ export const personalProjects: Project[] = [
   },
 ];
 
-export const clientProjects: Project[] | null = null;
+export const clientProjects: Project[] | [] = [];
