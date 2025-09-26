@@ -1,13 +1,26 @@
 import { getMdxContent } from '@/lib/mdx';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
-export default async function ImpressumPage() {
-  const mdxSource = await getMdxContent('impressum.mdx');
+export async function generateMetadata() {
+  const result = await getMdxContent('impressum', 'legal');
 
-  if (!mdxSource) {
+  if (!result) {
+    return {};
+  }
+
+  return {
+    title: 'Impressum',
+    description:
+      'Impressum von stefan-luellmann.com - Meiner professionellen Portfolio Website.',
+  };
+}
+
+export default async function ImpressumPage() {
+  const result = await getMdxContent('impressum', 'legal');
+
+  if (!result) {
     notFound();
   }
 
-  return <MDXRemote source={mdxSource} />;
+  return <div>{result.content}</div>;
 }
