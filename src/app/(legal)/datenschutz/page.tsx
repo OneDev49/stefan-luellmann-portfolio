@@ -1,13 +1,26 @@
 import { getMdxContent } from '@/lib/mdx';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
-export default async function ImpressumPage() {
-  const mdxSource = await getMdxContent('datenschutz.mdx');
+export async function generateMetadata() {
+  const result = await getMdxContent('datenschutz', 'legal');
 
-  if (!mdxSource) {
+  if (!result) {
+    return {};
+  }
+
+  return {
+    title: 'Datenschutz',
+    description:
+      'Datenschutzerklärung von meiner Website - stefan-luellmann.com',
+  };
+}
+
+export default async function DatenschutzPage() {
+  const result = await getMdxContent('datenschutz', 'legal');
+
+  if (!result) {
     notFound();
   }
 
-  return <MDXRemote source={mdxSource} />;
+  return <div>{result.content}</div>;
 }
