@@ -109,7 +109,7 @@ export default function GetInTouchModal({
                 </div>
                 <GradientButton
                   as='a'
-                  href='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YtE55xSLnupRKAS2XigqF3JvI7VjwM5WrNfhO'
+                  href='/files/Stefan_Luellmann_CV_16.09.2025.pdf'
                   variant='green'
                   download
                   rel='noopener noreferrer'
