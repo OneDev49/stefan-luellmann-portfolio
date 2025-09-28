@@ -29,6 +29,7 @@ export const techStack: TechnologyArea[] = [
       'css3',
       'sass',
       'tailwindcss',
+      'zustand',
     ],
   },
   {
@@ -49,7 +50,7 @@ export const techStack: TechnologyArea[] = [
   },
   {
     area: 'tools',
-    heading: 'Tools & Platforms',
+    heading: 'Devops & Design',
     paragraph:
       'These are the essential tools that power my development workflow, from version control to deployment.',
     icon: ScrewdriverWrenchIcon,
