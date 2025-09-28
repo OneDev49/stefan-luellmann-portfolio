@@ -16,7 +16,6 @@ export interface Project {
   links: {
     github: string;
     liveDemo: string;
-    caseStudy: string;
   };
   thumbnail: string;
   images: string[];
@@ -30,13 +29,12 @@ export const personalProjects: Project[] | [] = [
     description:
       'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
     techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'vercel'],
-    caseStudyStatus: 'released',
+    caseStudyStatus: 'notReleased',
     caseStudyBrief:
       'A Case Study on the planning, design, development and deployment of my Professional Portfolio Website. The Case Study goes into detail about different designs, challenges and solutions for a variety of problems, like deciding which Technologies to use and why certain Technologies were used.',
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-portfolio',
       liveDemo: 'https://stefan-luellmann.com/',
-      caseStudy: '/case-studies/personal-website',
     },
     thumbnail: 'x81VdwhEWe9YglBJ9iXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
     images: [
@@ -70,7 +68,6 @@ export const personalProjects: Project[] | [] = [
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-ecommerce-app',
       liveDemo: 'https://ecommerce.stefan-luellmann.com/',
-      caseStudy: '/case-studies/entro-ecommerce-store',
     },
     thumbnail: 'x81VdwhEWe9Ygmp6ZZXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
     images: [

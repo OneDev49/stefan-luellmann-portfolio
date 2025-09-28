@@ -1,7 +1,6 @@
 .nwtGradientButton {
   gap: 10px;
   overflow: hidden;
-  cursor: pointer;
   border-radius: 10px;
   position: relative;
   transition: all 0.2s ease-in-out;
@@ -9,6 +8,14 @@
 
   svg {
     transition: all 0.1s ease-in-out;
+  }
+
+  &.enabled {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
   }
 
   &.animationAll:hover {
@@ -57,6 +64,11 @@
     font-weight: 800;
   }
 
+  &.disabled.nwtBlueGradient {
+    background: linear-gradient(270deg, #185e74, #0011a8);
+    color: #8f8f8f;
+  }
+
   &.nwtOrangeGradient {
     background: linear-gradient(90deg, #ffc300, #ff9d00);
     color: #000;
@@ -68,6 +80,12 @@
     background: linear-gradient(90deg, #009105, #42e100);
     color: #fff;
     box-shadow: 0 5px 20px rgb(6, 189, 0);
+  }
+
+  &.disabled.nwtGreenGradient {
+    background: linear-gradient(90deg, #004d03, #1c6400);
+    color: #cccccc;
+    box-shadow: 0 5px 20px rgb(3, 82, 0);
   }
 }
 

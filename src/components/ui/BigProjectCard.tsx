@@ -112,14 +112,29 @@ export default function BigProjectCard({
             Project Live-Demo
             <CaretRightIcon />
           </GradientButton>
-          <GradientButton
-            href={`/case-studies/${project.slug}`}
-            variant='green'
-            position='card'
-          >
-            Project Case Study
-            <CaretRightIcon />
-          </GradientButton>
+          {project.caseStudyStatus === 'released' ? (
+            <GradientButton
+              href={`/case-studies/${project.slug}`}
+              variant='green'
+              position='card'
+            >
+              Project Case Study
+              <CaretRightIcon />
+            </GradientButton>
+          ) : (
+            <GradientButton
+              as='button'
+              type='button'
+              variant='green'
+              position='card'
+              mode='disabled'
+              animation='none'
+              title='Project Case Study not yet released'
+              aria-label='Project Case Study not yet released'
+            >
+              Project Case Study
+            </GradientButton>
+          )}
           <GradientButton
             as='a'
             href={project.links.github}

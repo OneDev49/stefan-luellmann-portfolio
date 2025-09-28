@@ -80,7 +80,9 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
               >
                 Live Demo
               </a>
-              <Link href={`/case-studies/${project.slug}`}>Case Study</Link>
+              {project.caseStudyStatus === 'released' && (
+                <Link href={`/case-studies/${project.slug}`}>Case Study</Link>
+              )}
               <a
                 href={project.links.github}
                 rel='noopener noreferrer'
