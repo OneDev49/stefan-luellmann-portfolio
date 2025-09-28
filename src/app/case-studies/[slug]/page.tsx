@@ -10,6 +10,12 @@ interface CaseStudyPageProps {
   params: { slug: string };
 }
 
+export async function generateStaticParams() {
+  const allProjects = [...personalProjects, ...clientProjects];
+
+  return allProjects.map((project) => ({ slug: project.slug }));
+}
+
 export async function generateMetadata({ params }: CaseStudyPageProps) {
   const { slug } = params;
   const result = await getMdxContent(slug, 'case-studies');
