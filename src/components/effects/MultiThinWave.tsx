@@ -73,7 +73,7 @@ class WavesCanvas {
   private createWaves() {
     this.waves = [];
     for (let i = 0; i < this.settings.waveCount; i++) {
-      this.waves.push(new ThinWave(i, this.settings, this.canvas));
+      this.waves.push(new ThinWave(i, this.settings));
     }
   }
 
@@ -106,11 +106,7 @@ class ThinWave {
   private settings: WaveSettings;
   private color: string;
 
-  constructor(
-    index: number,
-    settings: WaveSettings,
-    canvas: HTMLCanvasElement
-  ) {
+  constructor(index: number, settings: WaveSettings) {
     this.index = index;
     this.phase = index * 0.3;
     this.settings = settings;

@@ -7,6 +7,7 @@ import { useModal } from '@/context/ModalContext';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import BlobOne from './background/BlobOne';
 import BlobTwo from './background/BlobTwo';
+import { siteData } from '@/config/siteData';
 
 export default function AboutHeroSection() {
   const { openGetInTouch } = useModal();
@@ -27,7 +28,7 @@ export default function AboutHeroSection() {
               </h2>
             </div>
             <p>
-              Hello! I'm a software developer with a passion for building
+              Hello! I&apos;m a software developer with a passion for building
               elegant, functional and highly performant digital experiences. My
               journey in tech has been quite a unique one, and this page tells a
               bit more about that story.
@@ -54,7 +55,7 @@ export default function AboutHeroSection() {
               loading='eager'
               priority
               draggable='false'
-              src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YNoamfXUJOoHBgmDrVu9kl6dW42XtInKGhaJT'
+              src={`https://utfs.io/a/qnr34aa1vn/${siteData.personalImage}`}
               alt="Hey, I'm Stefan!"
               height={400}
               width={400}

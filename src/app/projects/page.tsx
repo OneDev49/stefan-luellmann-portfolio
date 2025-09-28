@@ -3,7 +3,6 @@ import ProjectsHeroSection from './_components/ProjectsHeroSection';
 import ProjectsMainSection from './_components/ProjectsMainSection';
 import PersonalImageCTA from '@/components/sections/PersonalImageCTA';
 
-/* ADD METADATA HERE */
 export const metadata: Metadata = {
   title: 'Project Showcase',
   description:

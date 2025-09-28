@@ -98,14 +98,11 @@ export default function HeaderSection() {
                   variant='rainbow'
                   className={styles.navCTA}
                   position='card'
-                  children={
-                    <>
-                      <span>Get In Touch</span>
-                      <CaretRightIcon />
-                    </>
-                  }
                   onClick={openGetInTouch}
-                />
+                >
+                  <span>Get In Touch</span>
+                  <CaretRightIcon />
+                </GradientButton>
               </div>
               <div className={headerNavPhoneClassName}>
                 <button
@@ -124,14 +121,11 @@ export default function HeaderSection() {
                   variant='rainbow'
                   className={styles.navCTA}
                   position='card'
-                  children={
-                    <>
-                      <span>Get In Touch</span>
-                      <CaretRightIcon />
-                    </>
-                  }
                   onClick={openGetInTouch}
-                />
+                >
+                  <span>Get In Touch</span>
+                  <CaretRightIcon />
+                </GradientButton>
               </div>
             </nav>
           </div>

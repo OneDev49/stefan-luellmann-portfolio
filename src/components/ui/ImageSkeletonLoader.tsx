@@ -5,12 +5,14 @@ import Image, { ImageProps } from 'next/image';
 import clsx from 'clsx';
 import styles from './ImageSkeletonLoader.module.scss';
 
-interface ImageSkeletonLoaderProps extends ImageProps {
+interface ImageSkeletonLoaderProps extends Omit<ImageProps, 'alt'> {
+  alt: string;
   className?: string;
   wrapperClassName?: string;
 }
 
 export default function ImageSkeletonLoader({
+  alt,
   className,
   wrapperClassName,
   ...props
@@ -30,6 +32,7 @@ export default function ImageSkeletonLoader({
       )}
       <Image
         {...props}
+        alt={alt ?? ''}
         onLoad={() => setLoaded(true)}
         className={clsx(styles.image, loaded && styles.visible, className)}
       />
