@@ -2,7 +2,7 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import GradientButton from '@/components/ui/GradientButton';
 import ChevronRightIcon from '@/components/icons/ui/ChevronRightIcon';
-import { personalProjects } from '@/config/projects';
+import { clientProjects, personalProjects } from '@/config/projects';
 import styles from './ProjectsHeroSection.module.scss';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import AutoScroll from 'embla-carousel-auto-scroll';
@@ -51,10 +51,12 @@ export default function ProjectsHeroSection() {
             <span>Personal Projects</span>
             <ChevronRightIcon />
           </GradientButton>
-          <GradientButton href='#client-projects' variant='green'>
-            <span>Client Projects</span>
-            <ChevronRightIcon />
-          </GradientButton>
+          {clientProjects !== null && clientProjects.length > 0 && (
+            <GradientButton href='#client-projects' variant='green'>
+              <span>Client Projects</span>
+              <ChevronRightIcon />
+            </GradientButton>
+          )}
         </div>
       </div>
       <div className={styles.carouselOuterWrapper}>

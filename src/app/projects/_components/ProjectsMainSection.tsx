@@ -7,7 +7,7 @@ export default function ProjectsMainSection() {
     <section className={styles.sectionWrapper}>
       {personalProjects.length > 0 && (
         <div className={styles.personalBackground}>
-          <div className={styles.areaWrapper}>
+          <div id='personal-projects' className={styles.areaWrapper}>
             <div className={styles.areaHead}>
               <h2 className='nwt--f-h2'>Personal Projects</h2>
               <p>
@@ -30,7 +30,7 @@ export default function ProjectsMainSection() {
       )}
       {clientProjects !== null && clientProjects.length > 0 && (
         <div className={styles.clientBackground}>
-          <div className={styles.areaWrapper}>
+          <div id='client-projects' className={styles.areaWrapper}>
             <div className={styles.areaHead}>
               <h2 className='nwt--f-h2'>Client Projects</h2>
               <p>
