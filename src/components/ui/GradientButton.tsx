@@ -29,7 +29,7 @@ export default function GradientButton<
   mode = 'enabled',
   ...restProps
 }: GradientButtonProps<C>) {
-  const Component = as || Link;
+  const Component = (as || Link) as React.ElementType;
   const buttonClassNames = clsx(
     variant === 'rainbow' ? '' : styles.nwtGradientButton,
     {
@@ -52,7 +52,7 @@ export default function GradientButton<
   );
 
   return (
-    <Component className={buttonClassNames} {...(restProps as any)}>
+    <Component className={buttonClassNames} {...restProps}>
       {children}
     </Component>
   );
