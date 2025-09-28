@@ -1,25 +1,29 @@
 # Stefan Lüllmann's Personal Portfolio
 
-This repository contains the source code for my personal portfolio website, built to be a fast, responsive, and high-performance showcase of my work.
+![Professional Portfolio Preview](https://qnr34aa1vn.ufs.sh/f/x81VdwhEWe9YG1OekopKVqv5jYUWFgHJZNum1TXOtfSDIosQ)
 
-**Live Demo**: [To the Live Demo](https://www.nordwebtec.com/)
+This repository contains the source code for my Professional Portfolio Website, built to showcase my Projects (both Personal and Client) and professional Case Studies. Designed for speed, responsiveness, and maintainability.
+
+
+**Live Demo**: [https://stefan-luellmann.com](https://stefan-luellmann.com)
 
 ## Core Features
 
-- High Performance: Built with Next.js and Static Site Generation (SSG) to achieve Lighthouse scores of 95+ across all metrics.
-- Fully Responsive: Designed with a mobile-first approach to ensure a seamless experience on all devices.
-- Blog Engine: Features a statically generated blog powered by local MDX files, demonstrating content-driven site architecture.
-- Modern Styling: Styled with SCSS Modules for component-scoped styles and a global stylesheet for base theming.
+- **Project Showcase:** Highlights Personal and Client Projects with interactive cards and image galleries.
+- **Case Studies:** Detailed Case Studies written in MDX for each Project, documenting planning, design, tech choices, development, challenges, solutions and releases.
+- **High Performance:** Built with Next.js and Static Site Generation (SSG) to achieve optimal Lighthouse scores.
+- **Fully Responsive:** Mobile-first design ensures a seamless experience across all devices.
+- **Modern Styling:** SCSS Modules for component-scoped styles combined with global theming.
 
 ## Tech Stack
 
-This project is a clear demonstration of my skills with the following technologies:
+This Project demonstrates proficiency in the following Technologies:
 
-- Framework: [Next.js](https://nextjs.org/) (App Router)
-- Language: [TypeScript](https://www.typescript.org/)
-- Styling: [SCSS Module](https://sass-lang.com/) and [clsx](https://github.com/lukeed/clsx) for conditional classnames.
-- Content: [MDX](https://mdxjs.com/) for blog posts, parsed with `next-mdx-remote` and `gray-matter`.
-- Deployment: [Vercel](https://vercel.com/)
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescript.org/)
+- **Styling:** [SCSS Module](https://sass-lang.com/) and [clsx](https://github.com/lukeed/clsx) for conditional classnames.
+- **Content:** MDX parsed with `next-mdx-remote` and `gray-matter` for legal pages and case studies.
+- **Deployment:** [Vercel](https://vercel.com/)
 
 ## Getting Started
 
@@ -27,7 +31,7 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-- Node.js (v18 or later)
+- Node.js v18+
 - npm or yarn
 
 ### Installation & Setup
@@ -56,11 +60,24 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After the 4. Step, open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Folder Structure Overview
+
+- /public - Directory for favicon and CV files
+- /content - MDX content for Case Studies and Legal Pages
+- /src - Next.js project directory
+  - /app - Next.js App Router pages
+  - /components - Reusable UI components
+  - /config - Project and Case Study Metadata (`projects.ts`)
+  - /context - React contexts
+  - /lib - Utility functions (e.g., MDX parsing)
+  - /styles - Global and modular SCSS
+  - /assets - font resources
 
 ## Contact
 
-Stefan Lüllmann - [hallo@nordwebtec.com](mailto:hallo@nordwebtec.com)
+Stefan Lüllmann - [hallo@stefan-luellmann.com](mailto:hallo@stefan-luellmann.com)
 
 Project Link: [https://github.com/OneDev49/stefan-luellmann-portfolio](https://github.com/OneDev49/stefan-luellmann-portfolio)
 
@@ -68,7 +85,7 @@ Project Link: [https://github.com/OneDev49/stefan-luellmann-portfolio](https://g
 
 The source code for this project is licensed under the [MIT License](LICENSE).
 
-All other assets, including but not limited to images, logos, and written content (blog posts, case studies), are my personal property.
+All other assets, including but not limited to images, logos, case studies and written content, are my personal property.
 They are **not** licensed for reuse without my explicit written permission.
 
 ### Third-Party Assets
