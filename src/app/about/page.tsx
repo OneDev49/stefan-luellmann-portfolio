@@ -39,7 +39,7 @@ export default function Home() {
             </span>
             <span>
               If you believe that my skills and mindset would be a great fit for
-              your Team or Project, I'd be exited to Chat!
+              your Team or Project, I&apos;d be exited to Chat!
             </span>
           </>
         }
