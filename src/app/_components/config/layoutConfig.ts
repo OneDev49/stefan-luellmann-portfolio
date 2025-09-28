@@ -77,7 +77,7 @@ export const metadataConfig: Metadata = {
     siteName: 'Stefan Lüllmann',
     images: [
       {
-        url: `${siteData.url}/og-image.jpg`,
+        url: `https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YKbHRFQuwOLusU4nrYPKeglEHaIm1DQNjRA26`,
         width: 1200,
         height: 630,
         alt: 'Stefan Lüllmann - Personal Portfolio',
@@ -93,7 +93,9 @@ export const metadataConfig: Metadata = {
     title: 'Stefan Lüllmann | Full-Stack Software Developer',
     description:
       'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
-    images: [`${siteData.url}/og-image.jpg`],
+    images: [
+      `https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YKbHRFQuwOLusU4nrYPKeglEHaIm1DQNjRA26`,
+    ],
   },
 
   // Other Metadata
