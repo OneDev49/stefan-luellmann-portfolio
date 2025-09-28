@@ -9,6 +9,7 @@ export interface GradientButtonBaseProps {
   className?: string;
   position?: 'card' | 'section';
   animation?: 'all' | 'hover' | 'move' | 'none';
+  mode?: 'enabled' | 'disabled';
 }
 
 type GradientButtonProps<C extends React.ElementType> =
@@ -25,6 +26,7 @@ export default function GradientButton<
   className,
   position = 'section',
   animation = 'hover',
+  mode = 'enabled',
   ...restProps
 }: GradientButtonProps<C>) {
   const Component = as || Link;
@@ -45,6 +47,7 @@ export default function GradientButton<
       : animation === 'all'
       ? styles.animationAll
       : '',
+    mode === 'disabled' ? styles.disabled : styles.enabled,
     className
   );
 
