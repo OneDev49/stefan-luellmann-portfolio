@@ -3,13 +3,13 @@
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
 import GradientButton from '@/components/ui/GradientButton';
 import { siteData } from '@/config/siteData';
-import Image from 'next/image';
 import styles from './GetInTouchModal.module.scss';
 import GlobeIcon from '@/components/icons/glyphs/GlobeIcon';
 import Link from 'next/link';
 import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
 import CloseIcon from '@/components/icons/ui/CloseIcon';
 import { useEffect, useState } from 'react';
+import ImageSkeletonLoader from './ImageSkeletonLoader';
 
 interface GetInTouchModalProps {
   isOpen: boolean;
@@ -58,8 +58,8 @@ export default function GetInTouchModal({
         <div className={styles.container}>
           <div className={styles.containerTop}>
             <div className={styles.containerImage}>
-              <Image
-                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YNoamfXUJOoHBgmDrVu9kl6dW42XtInKGhaJT'
+              <ImageSkeletonLoader
+                src={`https://utfs.io/a/qnr34aa1vn/${siteData.personalImage}`}
                 height={600}
                 width={600}
                 alt="Hey, I'm Stefan!"

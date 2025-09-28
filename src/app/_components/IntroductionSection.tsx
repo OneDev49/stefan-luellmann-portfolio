@@ -2,6 +2,7 @@ import ChevronRightIcon from '@/components/icons/ui/ChevronRightIcon';
 import GradientButton from '@/components/ui/GradientButton';
 import styles from './IntroductionSection.module.scss';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
+import { siteData } from '@/config/siteData';
 
 export default function IntroductionSection() {
   return (
@@ -11,7 +12,7 @@ export default function IntroductionSection() {
           loading='eager'
           priority
           draggable='false'
-          src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YNoamfXUJOoHBgmDrVu9kl6dW42XtInKGhaJT'
+          src={`https://utfs.io/a/qnr34aa1vn/${siteData.personalImage}`}
           alt="Hey, I'm Stefan!"
           height={400}
           width={400}

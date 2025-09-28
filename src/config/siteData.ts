@@ -6,4 +6,5 @@ export const siteData = {
     github: 'https://github.com/OneDev49/',
     linkedin: 'https://www.linkedin.com/in/stefan-l%C3%BCllmann/',
   },
+  personalImage: 'x81VdwhEWe9Yqc6Du4Hq0ru9WKvaM2UeYoRJO1fsNpbcGhL6',
 };
