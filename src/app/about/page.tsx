@@ -45,6 +45,7 @@ export default function Home() {
         }
         getInTouchButton={true}
         background={true}
+        backgroundWaves={true}
       />
     </main>
   );

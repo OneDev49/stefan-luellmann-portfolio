@@ -5,12 +5,19 @@ import GradientButton from '@/components/ui/GradientButton';
 import { useModal } from '@/context/ModalContext';
 import styles from './CTASection.module.scss';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
+import WaveTransition from '@/components/effects/WaveTransition';
 
 export default function CTASection() {
   const { openGetInTouch } = useModal();
 
   return (
     <section className={styles.wrapper}>
+      <WaveTransition
+        position='top'
+        color='rgba(1, 46, 143, 0.5)'
+        positionOffset='-50px'
+        variant='outer'
+      />
       <div className={`${styles.contentWrapper} nwt--width`}>
         <div className={styles.image}>
           <ImageSkeletonLoader
@@ -41,6 +48,15 @@ export default function CTASection() {
           </GradientButton>
         </div>
       </div>
+      <WaveTransition
+        position='bottom'
+        color='rgba(1, 46, 143, 0.5)'
+        positionOffset='-38px'
+        variant='outer'
+        config={{
+          height: 75,
+        }}
+      />
     </section>
   );
 }

@@ -1,10 +1,17 @@
 import { clientProjects, personalProjects } from '@/config/projects';
 import styles from './ProjectsMainSection.module.scss';
 import BigProjectCard from '@/components/ui/BigProjectCard';
+import WaveTransition from '@/components/effects/WaveTransition';
 
 export default function ProjectsMainSection() {
   return (
     <section className={styles.sectionWrapper}>
+      <WaveTransition
+        position='top'
+        color='rgba(0, 18, 91, 0.4)'
+        positionOffset='-50px'
+        variant='outer'
+      />
       {personalProjects.length > 0 && (
         <div className={styles.personalBackground}>
           <div id='personal-projects' className={styles.areaWrapper}>
@@ -28,6 +35,12 @@ export default function ProjectsMainSection() {
           </div>
         </div>
       )}
+      <WaveTransition
+        position='bottom'
+        color='rgba(0, 18, 91, 0.4)'
+        positionOffset='-50px'
+        variant='outer'
+      />
       {clientProjects !== null && clientProjects.length > 0 && (
         <div className={styles.clientBackground}>
           <div id='client-projects' className={styles.areaWrapper}>
