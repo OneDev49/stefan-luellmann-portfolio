@@ -2,13 +2,14 @@
   padding: 2rem 0;
   margin: 150px 0;
   text-align: center;
+  position: relative;
 }
 
 .wrapper.background {
   background: rgb(0 28 88 / 50%);
 }
 
-.wrapper > div {
+.wrapper > .content {
   gap: 2rem;
   display: flex;
   flex-direction: column;
@@ -75,7 +76,7 @@
     text-align: left;
   }
 
-  .wrapper > div {
+  .wrapper > .content {
     flex-direction: row;
   }
 

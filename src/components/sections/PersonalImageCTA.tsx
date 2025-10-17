@@ -7,6 +7,7 @@ import { useModal } from '@/context/ModalContext';
 import AnglesRightIcon from '@/components/icons/ui/AnglesRightIcon';
 import clsx from 'clsx';
 import { siteData } from '@/config/siteData';
+import WaveTransition from '../effects/WaveTransition';
 
 interface CTASectionProps {
   heading: string;
@@ -14,6 +15,7 @@ interface CTASectionProps {
   getInTouchButton?: boolean;
   buttonChildren?: React.ReactNode;
   background?: boolean;
+  backgroundWaves?: boolean;
 }
 
 export default function PersonalImageCTA({
@@ -22,6 +24,7 @@ export default function PersonalImageCTA({
   getInTouchButton = false,
   buttonChildren,
   background = false,
+  backgroundWaves = false,
 }: CTASectionProps) {
   const { openGetInTouch } = useModal();
 
@@ -31,7 +34,16 @@ export default function PersonalImageCTA({
         [styles.background]: background === true,
       })}
     >
-      <div>
+      {backgroundWaves && (
+        <WaveTransition
+          position='top'
+          color='rgba(0, 28, 88, 0.5)'
+          positionOffset='-50px'
+          variant='outer'
+        />
+      )}
+
+      <div className={styles.content}>
         <div className={styles.left}>
           <ImageSkeletonLoader
             loading='lazy'
@@ -64,6 +76,14 @@ export default function PersonalImageCTA({
           </div>
         </div>
       </div>
+      {backgroundWaves && (
+        <WaveTransition
+          position='bottom'
+          color='rgba(0, 28, 88, 0.5)'
+          positionOffset='-50px'
+          variant='outer'
+        />
+      )}
     </section>
   );
 }
