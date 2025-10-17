@@ -1,6 +1,7 @@
 .modalWrapper {
   position: fixed;
   inset: 0;
+  z-index: 999;
 }
 
 .headerModal {
@@ -11,6 +12,7 @@
   place-items: center;
   overflow-y: auto;
   font-size: 14px;
+  padding: 16px 0;
 
   .overlay {
     position: fixed;
@@ -28,6 +30,7 @@
     max-width: 500px;
     border-radius: 25px;
     overflow: hidden;
+    min-height: 390px;
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.3s ease, transform 0.3s ease;
