@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { personalData } from '@/config/siteData';
 
-import fs from 'fs';
+/* import fs from 'fs';
 import path from 'path';
 
 interface CaseStudy {
@@ -32,7 +32,7 @@ async function getCaseStudySlugs(): Promise<string[]> {
     console.error('Error reading case studies:', error);
     return [];
   }
-}
+} */
 
 export default async function siteMap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = personalData.url || 'https://stefan-luellmann.com';
