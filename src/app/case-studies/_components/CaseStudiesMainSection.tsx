@@ -1,4 +1,5 @@
 import { clientProjects, personalProjects } from '@/config/projects';
+
 import styles from './CaseStudiesMainSection.module.scss';
 import TechnologyContainer from '@/components/ui/TechnologyContainer';
 import GradientButton from '@/components/ui/GradientButton';
