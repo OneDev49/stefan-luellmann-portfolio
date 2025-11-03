@@ -1,4 +1,5 @@
 import { clientProjects, personalProjects } from '@/config/projects';
+
 import styles from './ProjectsMainSection.module.scss';
 import BigProjectCard from '@/components/ui/BigProjectCard';
 import WaveTransition from '@/components/effects/WaveTransition';

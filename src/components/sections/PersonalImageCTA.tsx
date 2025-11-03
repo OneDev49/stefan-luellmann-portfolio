@@ -1,12 +1,13 @@
 'use client';
 
+import { personalData } from '@/config/siteData';
+import { useModal } from '@/context/ModalContext';
+
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import styles from './PersonalImageCTA.module.scss';
 import GradientButton from '@/components/ui/GradientButton';
-import { useModal } from '@/context/ModalContext';
 import AnglesRightIcon from '@/components/icons/ui/AnglesRightIcon';
 import clsx from 'clsx';
-import { siteData } from '@/config/siteData';
 import WaveTransition from '../effects/WaveTransition';
 
 interface CTASectionProps {
@@ -49,7 +50,7 @@ export default function PersonalImageCTA({
             loading='lazy'
             draggable='false'
             decoding='async'
-            src={`https://utfs.io/a/qnr34aa1vn/${siteData.personalImage}`}
+            src={`https://utfs.io/a/qnr34aa1vn/${personalData.personalImage}`}
             alt='Hey, I am Stefan!'
             height={400}
             width={400}

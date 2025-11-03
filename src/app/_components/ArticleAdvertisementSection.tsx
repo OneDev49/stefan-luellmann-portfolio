@@ -1,3 +1,5 @@
+import { siteData } from '@/config/siteData';
+
 import Link from 'next/link';
 import styles from './ArticleAdvertisementSection.module.scss';
 import Image from 'next/image';
@@ -11,10 +13,11 @@ export default function ArticleAdvertisementSection() {
           loading='lazy'
           decoding='async'
           draggable='false'
-          src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YIbfJ5lEl9J5WbN6XohyduFKaOCUP3BDAsHkp'
+          src={`${siteData.uploadThingUrl}/x81VdwhEWe9YIbfJ5lEl9J5WbN6XohyduFKaOCUP3BDAsHkp`}
           alt='Areas I write Articles in'
           height={360}
           width={450}
+          sizes='25vw'
         />
       </div>
       <div className={styles.content}>

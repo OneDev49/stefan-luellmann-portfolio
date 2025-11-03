@@ -1,13 +1,14 @@
 'use client';
 
+import { personalData, siteData } from '@/config/siteData';
+import { useModal } from '@/context/ModalContext';
+
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import styles from './AboutHeroSection.module.scss';
 import GradientButton from '@/components/ui/GradientButton';
-import { useModal } from '@/context/ModalContext';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import BlobOne from './background/BlobOne';
 import BlobTwo from './background/BlobTwo';
-import { siteData } from '@/config/siteData';
 
 export default function AboutHeroSection() {
   const { openGetInTouch } = useModal();
@@ -53,12 +54,13 @@ export default function AboutHeroSection() {
           <div className={styles.InnerRight}>
             <ImageSkeletonLoader
               loading='eager'
-              priority
+              priority={true}
               draggable='false'
-              src={`https://utfs.io/a/qnr34aa1vn/${siteData.personalImage}`}
+              src={`${siteData.uploadThingUrl}/${personalData.personalImage}`}
               alt="Hey, I'm Stefan!"
               height={400}
               width={400}
+              sizes='25vw'
             />
           </div>
         </div>

@@ -1,6 +1,8 @@
 import { getMdxContent } from '@/lib/mdx';
 import { personalProjects, clientProjects } from '@/config/projects';
 import { notFound } from 'next/navigation';
+import { siteData } from '@/config/siteData';
+
 import TechnologyContainer from '@/components/ui/TechnologyContainer';
 import GradientButton from '@/components/ui/GradientButton';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
@@ -35,7 +37,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
       description: project?.caseStudyBrief,
       url: `/case-studies/${slug}`,
       images: project?.thumbnail
-        ? [{ url: `https://utfs.io/a/qnr34aa1vn/${project?.thumbnail}` }]
+        ? [{ url: `${siteData.uploadThingUrl}/${project?.thumbnail}` }]
         : [],
     },
   };

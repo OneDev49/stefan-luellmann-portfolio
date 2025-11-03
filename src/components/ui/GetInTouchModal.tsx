@@ -1,14 +1,15 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { personalData, siteData } from '@/config/siteData';
+
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
 import GradientButton from '@/components/ui/GradientButton';
-import { siteData } from '@/config/siteData';
 import styles from './GetInTouchModal.module.scss';
 import GlobeIcon from '@/components/icons/glyphs/GlobeIcon';
 import Link from 'next/link';
 import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
 import CloseIcon from '@/components/icons/ui/CloseIcon';
-import { useEffect, useState } from 'react';
 import ImageSkeletonLoader from './ImageSkeletonLoader';
 
 interface GetInTouchModalProps {
@@ -22,8 +23,8 @@ export default function GetInTouchModal({
   isOpen,
   onClose,
 }: GetInTouchModalProps) {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
     let timerMount: ReturnType<typeof setTimeout> | null = null;
@@ -59,10 +60,12 @@ export default function GetInTouchModal({
           <div className={styles.containerTop}>
             <div className={styles.containerImage}>
               <ImageSkeletonLoader
-                src={`https://utfs.io/a/qnr34aa1vn/${siteData.personalImage}`}
+                draggable={false}
+                src={`${siteData.uploadThingUrl}/${personalData.personalImage}`}
                 height={600}
                 width={600}
                 alt="Hey, I'm Stefan!"
+                sizes='10vw'
               />
             </div>
             <div className={styles.containerTopContent}>
@@ -91,20 +94,20 @@ export default function GetInTouchModal({
                   <GradientButton
                     as='a'
                     rel='noopener noreferrer'
-                    href={`mailto:${siteData.email}`}
+                    href={`mailto:${personalData.email}`}
                     variant='blue'
                     position='card'
                   >
-                    {siteData.email}
+                    {personalData.email}
                   </GradientButton>
                   <GradientButton
                     as='a'
                     rel='noopener noreferrer'
-                    href={`tel:${siteData.phone}`}
+                    href={`tel:${personalData.phone}`}
                     variant='blue'
                     position='card'
                   >
-                    {siteData.phone}
+                    {personalData.phone}
                   </GradientButton>
                 </div>
                 <GradientButton
@@ -137,7 +140,7 @@ export default function GetInTouchModal({
                   GitHub:
                 </div>
                 <a
-                  href={`${siteData.social.github}`}
+                  href={`${personalData.social.github}`}
                   className='nwt--anchor-under'
                   rel='noopener noreferrer'
                   target='_blank'
@@ -152,7 +155,7 @@ export default function GetInTouchModal({
                 </div>
                 <span>
                   <a
-                    href={`${siteData.social.linkedin}`}
+                    href={`${personalData.social.linkedin}`}
                     className='nwt--anchor-under'
                     rel='noopener noreferrer'
                     target='_blank'

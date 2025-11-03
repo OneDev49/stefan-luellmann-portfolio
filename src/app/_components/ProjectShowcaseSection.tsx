@@ -1,6 +1,7 @@
+import { personalProjects } from '@/config/projects';
+
 import SmallProjectCard from '@/components/ui/SmallProjectCard';
 import styles from './ProjectShowcaseSection.module.scss';
-import { personalProjects } from '@/config/projects';
 
 export default function ProjectShowcaseSection() {
   return (

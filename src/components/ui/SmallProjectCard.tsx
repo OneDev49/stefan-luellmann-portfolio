@@ -1,25 +1,27 @@
 'use client';
 
 import { Project } from '@/config/projects';
-import TechnologyContainer from './TechnologyContainer';
-import styles from './SmallProjectCard.module.scss';
 import { useRef, useState } from 'react';
-import GradientButton from './GradientButton';
-import Link from 'next/link';
 import {
   useOnClickOutside,
   useOnClickOutsideEscape,
 } from '@/lib/useOnClickOutside';
+import { siteData } from '@/config/siteData';
+
 import clsx from 'clsx';
 import CaretDownIcon from '../icons/ui/CaretDownIcon';
 import ImageSkeletonLoader from './ImageSkeletonLoader';
+import GradientButton from './GradientButton';
+import Link from 'next/link';
+import TechnologyContainer from './TechnologyContainer';
+import styles from './SmallProjectCard.module.scss';
 
 interface SmallProjectCardProps {
   project: Project;
 }
 
 export default function SmallProjectCard({ project }: SmallProjectCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useOnClickOutside(wrapperRef, () => setIsExpanded(false));
@@ -34,12 +36,12 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
         rel='noopener noreferrer'
       >
         <ImageSkeletonLoader
-          loading='lazy'
           decoding='async'
-          src={`https://utfs.io/a/qnr34aa1vn/${project.thumbnail}`}
+          src={`${siteData.uploadThingUrl}/${project.thumbnail}`}
           alt={`${project.title} Thumbnail`}
           height={600}
           width={1000}
+          sizes='(max-width: 992px) 100vw, 40vw'
         />
       </a>
       <div className={styles.contentWrapper}>

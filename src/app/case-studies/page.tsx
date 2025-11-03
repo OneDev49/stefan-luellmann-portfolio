@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+
 import CaseStudiesHeroSection from './_components/CaseStudiesHeroSection';
 import CaseStudiesMainSection from './_components/CaseStudiesMainSection';
 

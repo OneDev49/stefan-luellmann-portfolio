@@ -1,8 +1,9 @@
+import { personalData, siteData } from '@/config/siteData';
+
 import ChevronRightIcon from '@/components/icons/ui/ChevronRightIcon';
 import GradientButton from '@/components/ui/GradientButton';
 import styles from './IntroductionSection.module.scss';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
-import { siteData } from '@/config/siteData';
 
 export default function IntroductionSection() {
   return (
@@ -10,12 +11,13 @@ export default function IntroductionSection() {
       <div>
         <ImageSkeletonLoader
           loading='eager'
-          priority
+          priority={true}
           draggable='false'
-          src={`https://utfs.io/a/qnr34aa1vn/${siteData.personalImage}`}
+          src={`${siteData.uploadThingUrl}/${personalData.personalImage}`}
           alt="Hey, I'm Stefan!"
           height={400}
           width={400}
+          sizes='(max-width: 768px) 100vw, 25vw'
         />
       </div>
       <div>
@@ -24,7 +26,7 @@ export default function IntroductionSection() {
         </h2>
         <p>
           <span>
-            Hello! I am Stefan, a Full-Stack Web Developer, and ths is my
+            Hello! I am Stefan, a Full-Stack Web Developer, and this is my
             personal Website.
           </span>
           <span>

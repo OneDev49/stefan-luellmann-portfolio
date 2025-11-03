@@ -17,8 +17,8 @@ export default function MainpageHeroSection() {
             <h2 className='nwt--f-h2'>Full-Stack Software Developer</h2>
           </div>
           <p>
-            I build performant and scalable web applications with a focus on the
-            Next.js, TypeScript, and Prisma ecosystem.
+            I build performant and scalable Web Applications with a focus on the
+            Next.js, TypeScript, and Prisma Ecosystem.
           </p>
           <div className={styles.links}>
             <GradientButton href='/projects'>

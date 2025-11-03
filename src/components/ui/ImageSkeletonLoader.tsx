@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+
 import Image, { ImageProps } from 'next/image';
 import clsx from 'clsx';
 import styles from './ImageSkeletonLoader.module.scss';

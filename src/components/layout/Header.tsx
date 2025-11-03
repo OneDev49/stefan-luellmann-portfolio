@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useModal } from '@/context/ModalContext';
+import { siteData } from '@/config/siteData';
+
 import clsx from 'clsx';
 import styles from './Header.module.scss';
 import Link from 'next/link';
@@ -9,7 +12,6 @@ import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import Image from 'next/image';
 import HamburgerIcon from '../icons/ui/HamburgerIcon';
 import HeaderPhoneNav from './_components/HeaderPhoneNav';
-import { useModal } from '@/context/ModalContext';
 
 export default function HeaderSection() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -28,8 +30,8 @@ export default function HeaderSection() {
     };
   }, []);
 
-  const [isPhoneNavOpen, setIsPhoneNavOpen] = useState(false);
-  const [isPhoneNavClosed, setIsPhoneNavClosed] = useState(false);
+  const [isPhoneNavOpen, setIsPhoneNavOpen] = useState<boolean>(false);
+  const [isPhoneNavClosed, setIsPhoneNavClosed] = useState<boolean>(false);
 
   const openPhoneNav = () => {
     setIsPhoneNavClosed(false);
@@ -68,11 +70,13 @@ export default function HeaderSection() {
             >
               <Image
                 loading='eager'
+                priority={true}
                 draggable='false'
-                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5'
+                src={`${siteData.uploadThingUrl}/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5`}
                 alt='Logo of my Personal Website'
                 height='71'
                 width='250'
+                sizes='25vw'
               />
             </Link>
           </div>

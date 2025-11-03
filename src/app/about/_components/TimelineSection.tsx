@@ -1,3 +1,5 @@
+import { siteData } from '@/config/siteData';
+
 import styles from './TimelineSection.module.scss';
 import GradientButton from '@/components/ui/GradientButton';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
@@ -26,13 +28,13 @@ export default function TimelineSection() {
           <li data-item='1'>
             <div className={styles.leftContainer} data-cont='img'>
               <Image
-                loading='lazy'
                 decoding='async'
                 draggable='false'
                 alt='Git, PHP, HTML, CSS and JavaScript Technology Icons'
-                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YjttSNuFZWS01vBYf3yHtizhn8IV2UdGeQlP5'
+                src={`${siteData.uploadThingUrl}/x81VdwhEWe9YjttSNuFZWS01vBYf3yHtizhn8IV2UdGeQlP5`}
                 height={163}
                 width={356}
+                sizes='25vw'
               />
             </div>
             <div className={styles.middleContainer}>
@@ -74,26 +76,26 @@ export default function TimelineSection() {
             </div>
             <div className={styles.rightContainer} data-cont='img'>
               <Image
-                loading='lazy'
                 decoding='async'
                 draggable='false'
                 alt='Figma, PHP, SASS, WordPress and MySQL Technology Icons'
-                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YHXWCmv3AULrIv19p0qBfTKZdXzJemEya26uS'
+                src={`${siteData.uploadThingUrl}/x81VdwhEWe9YHXWCmv3AULrIv19p0qBfTKZdXzJemEya26uS`}
                 height={185}
                 width={385}
+                sizes='25vw'
               />
             </div>
           </li>
           <li data-item='3'>
             <div className={styles.leftContainer} data-cont='img'>
               <Image
-                loading='lazy'
                 decoding='async'
                 draggable='false'
                 alt='Prisma, NextJS, Vercel and PostgreSQL Technology Icons'
-                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YqmSDcqHq0ru9WKvaM2UeYoRJO1fsNpbcGhL6'
+                src={`${siteData.uploadThingUrl}/x81VdwhEWe9YqmSDcqHq0ru9WKvaM2UeYoRJO1fsNpbcGhL6`}
                 height={188}
                 width={365}
+                sizes='25vw'
               />
             </div>
             <div className={styles.middleContainer}>
@@ -107,7 +109,7 @@ export default function TimelineSection() {
               </h3>
               <p>
                 My drive to build more complex and scalable applications led me
-                to my current focus: the modern JavaScript ecosystem. I am now
+                to my current focus: the modern JavaScript Ecosystem. I am now
                 centered on developing with Next.js, React and Prisma, with a
                 passion for performance optimization and building scalable,
                 reusable components.
@@ -133,13 +135,13 @@ export default function TimelineSection() {
             </div>
             <div className={styles.rightContainer} data-cont='img'>
               <Image
-                loading='lazy'
                 decoding='async'
                 draggable='false'
                 alt='React, TailwindCSS and TypeScript Technology Icons'
-                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YQy0ydLDI1O7Cd2btZFA38iaKMH6vwWBzDNJk'
+                src={`${siteData.uploadThingUrl}/x81VdwhEWe9YQy0ydLDI1O7Cd2btZFA38iaKMH6vwWBzDNJk`}
                 height={152}
                 width={361}
+                sizes='25vw'
               />
             </div>
           </li>
