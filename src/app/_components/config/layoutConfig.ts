@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
-import { siteData } from '@/config/siteData';
+import { personalData, siteData } from '@/config/siteData';
+
 import localFont from 'next/font/local';
 
 export const fontHeadings = localFont({
   src: [
     {
-      path: '../../../assets/fonts/ibm-plex-sans-condensed-regular.woff2',
+      path: '../../../../public/fonts/ibm-plex-sans-condensed-regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../../assets/fonts/ibm-plex-sans-condensed-700.woff2',
+      path: '../../../../public/fonts/ibm-plex-sans-condensed-700.woff2',
       weight: '700',
       style: 'normal',
     },
@@ -23,12 +24,12 @@ export const fontHeadings = localFont({
 export const fontTexts = localFont({
   src: [
     {
-      path: '../../../assets/fonts/ibm-plex-sans-regular.woff2',
+      path: '../../../../public/fonts/ibm-plex-sans-regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../../../assets/fonts/ibm-plex-sans-700.woff2',
+      path: '../../../../public/fonts/ibm-plex-sans-700.woff2',
       weight: '700',
       style: 'normal',
     },
@@ -48,7 +49,7 @@ export const metadataConfig: Metadata = {
     'The personal portfolio of Stefan Lüllmann, a Full-Stack Developer specializing in Next.js, TypeScript and modern web architectures. Explore my Projects, Case Studies and Articles!',
 
   // Author & Keyword Metadata
-  authors: [{ name: 'Stefan Lüllmann', url: siteData.url }],
+  authors: [{ name: 'Stefan Lüllmann', url: personalData.url }],
   creator: 'Stefan Lüllmann',
   keywords: [
     'Stefan Lüllmann',
@@ -73,11 +74,11 @@ export const metadataConfig: Metadata = {
     title: 'Stefan Lüllmann | Full-Stack Software Developer',
     description:
       'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
-    url: siteData.url,
+    url: personalData.url,
     siteName: 'Stefan Lüllmann',
     images: [
       {
-        url: `https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YKbHRFQuwOLusU4nrYPKeglEHaIm1DQNjRA26`,
+        url: `${siteData.uploadThingUrl}/x81VdwhEWe9YKbHRFQuwOLusU4nrYPKeglEHaIm1DQNjRA26`,
         width: 1200,
         height: 630,
         alt: 'Stefan Lüllmann - Personal Portfolio',
@@ -94,12 +95,12 @@ export const metadataConfig: Metadata = {
     description:
       'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
     images: [
-      `https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YKbHRFQuwOLusU4nrYPKeglEHaIm1DQNjRA26`,
+      `${siteData.uploadThingUrl}/x81VdwhEWe9YKbHRFQuwOLusU4nrYPKeglEHaIm1DQNjRA26`,
     ],
   },
 
   // Other Metadata
-  metadataBase: new URL(siteData.url),
+  metadataBase: new URL(personalData.url),
   robots: {
     index: true,
     follow: true,

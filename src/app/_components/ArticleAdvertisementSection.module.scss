@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  padding: 5rem 5rem;
+  padding: 2rem 2rem;
   margin: 100px 0;
 
   > div:first-child {
@@ -44,6 +44,12 @@
   > * {
     max-width: 650px;
     margin: 0 auto;
+  }
+}
+
+@media (min-width: 576px) {
+  .wrapper {
+    padding: 5em 5rem;
   }
 }
 

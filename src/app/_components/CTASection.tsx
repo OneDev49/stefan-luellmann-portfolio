@@ -1,8 +1,10 @@
 'use client';
 
+import { useModal } from '@/context/ModalContext';
+import { siteData } from '@/config/siteData';
+
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import GradientButton from '@/components/ui/GradientButton';
-import { useModal } from '@/context/ModalContext';
 import styles from './CTASection.module.scss';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import WaveTransition from '@/components/effects/WaveTransition';
@@ -24,10 +26,11 @@ export default function CTASection() {
             loading='lazy'
             decoding='async'
             draggable='false'
-            src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9YiVsuEM0mxJPz0TqguADyd2SlvBtYRebXojs9'
+            src={`${siteData.uploadThingUrl}/x81VdwhEWe9YiVsuEM0mxJPz0TqguADyd2SlvBtYRebXojs9`}
             alt='Technologies I use for my Projects'
             height={300}
             width={530}
+            sizes='(max-width: 768px) 100vw, 25vw'
           />
         </div>
         <div className={styles.content}>

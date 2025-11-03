@@ -11,12 +11,13 @@ export default function IntroductionSection() {
       <div>
         <ImageSkeletonLoader
           loading='eager'
-          priority
+          priority={true}
           draggable='false'
           src={`${siteData.uploadThingUrl}/${personalData.personalImage}`}
           alt="Hey, I'm Stefan!"
           height={400}
           width={400}
+          sizes='(max-width: 768px) 100vw, 25vw'
         />
       </div>
       <div>
