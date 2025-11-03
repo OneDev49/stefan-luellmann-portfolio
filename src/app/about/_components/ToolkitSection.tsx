@@ -1,5 +1,6 @@
-import styles from './ToolkitSection.module.scss';
 import { techStack } from './config/techstackConfig';
+
+import styles from './ToolkitSection.module.scss';
 import TechnologyContainer from '@/components/ui/TechnologyContainer';
 
 export default function ToolkitSection() {
