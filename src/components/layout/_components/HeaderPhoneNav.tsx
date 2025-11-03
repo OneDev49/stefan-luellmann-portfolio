@@ -1,3 +1,5 @@
+import { personalData, siteData } from '@/config/siteData';
+
 import AnglesRightIcon from '@/components/icons/ui/AnglesRightIcon';
 import Link from 'next/link';
 import styles from './HeaderPhoneNav.module.scss';
@@ -5,7 +7,6 @@ import clsx from 'clsx';
 import CloseIcon from '@/components/icons/ui/CloseIcon';
 import Image from 'next/image';
 import GradientButton from '@/components/ui/GradientButton';
-import { siteData } from '@/config/siteData';
 
 interface HeaderPhoneNavProps {
   isPhoneNavClosed: boolean;
@@ -42,13 +43,13 @@ export default function HeaderPhoneNav({
             onClick={closePhoneNav}
           >
             <Image
-              loading='lazy'
               decoding='async'
               draggable='false'
-              src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5'
+              src={`${siteData.uploadThingUrl}/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5`}
               alt='Logo of my Personal Website'
               height={106}
               width={379}
+              sizes='25vw'
             />
           </Link>
           <GradientButton
@@ -134,7 +135,7 @@ export default function HeaderPhoneNav({
             <ul className='nwt--ul-none'>
               <li className={styles.sideNavLI}>
                 <a
-                  href={`${siteData.social.github}`}
+                  href={`${personalData.social.github}`}
                   className='nwt--anchor-img nwt--flex-c-n-n'
                   rel='noopener noreferrer'
                   target='_blank'
@@ -146,7 +147,7 @@ export default function HeaderPhoneNav({
               </li>
               <li className={styles.sideNavLI}>
                 <a
-                  href={`${siteData.social.linkedin}`}
+                  href={`${personalData.social.linkedin}`}
                   className='nwt--anchor-img nwt--flex-c-n-n'
                   rel='noopener noreferrer'
                   target='_blank'

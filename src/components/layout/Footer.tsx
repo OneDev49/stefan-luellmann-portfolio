@@ -1,10 +1,11 @@
+import { personalData, siteData } from '@/config/siteData';
+
 import Link from 'next/link';
 import GitHubIcon from '../icons/brands/GitHubIcon';
 import LinkedInIcon from '../icons/brands/LinkedInIcon';
 import styles from './Footer.module.scss';
 import EnvelopeIcon from '../icons/glyphs/EnvelopeIcon';
 import Image from 'next/image';
-import { siteData } from '@/config/siteData';
 import FooterBackground from './_components/background/FooterBackground';
 
 export default function FooterSection() {
@@ -20,13 +21,12 @@ export default function FooterSection() {
           <div className={styles.footerLeft}>
             <Link href='/' title='To the Mainpage' aria-label='To the Mainpage'>
               <Image
-                loading='lazy'
-                decoding='async'
                 draggable='false'
-                src='https://utfs.io/a/qnr34aa1vn/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5'
+                src={`${siteData.uploadThingUrl}/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5`}
                 alt='Logo of my Personal Website'
-                height='75'
-                width='500'
+                height={75}
+                width={500}
+                sizes='(max-width: 768px) 100vw, 25vw'
               />
             </Link>
             <div>
@@ -35,17 +35,17 @@ export default function FooterSection() {
                 <li>
                   <EnvelopeIcon variant='solid' />
                   <a
-                    href={`mailto:${siteData.email}`}
+                    href={`mailto:${personalData.email}`}
                     className='nwt--anchor-under'
                     rel='noopener noreferrer'
                   >
-                    {siteData.email}
+                    {personalData.email}
                   </a>
                 </li>
                 <li>
                   <LinkedInIcon />
                   <a
-                    href={`${siteData.social.linkedin}`}
+                    href={`${personalData.social.linkedin}`}
                     rel='noopener noreferrer'
                     target='_blank'
                     className='nwt--anchor-under'
@@ -56,7 +56,7 @@ export default function FooterSection() {
                 <li>
                   <GitHubIcon />
                   <a
-                    href={`${siteData.social.github}`}
+                    href={`${personalData.social.github}`}
                     rel='noopener noreferrer'
                     target='_blank'
                     className='nwt--anchor-under'

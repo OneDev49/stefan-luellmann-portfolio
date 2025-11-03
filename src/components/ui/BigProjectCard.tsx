@@ -1,13 +1,15 @@
 'use client';
 
+import { useState } from 'react';
 import { Project } from '@/config/projects';
-import styles from './BigProjectCard.module.scss';
 import { TechIcon } from '../icons/TechIconMap';
+import { siteData } from '@/config/siteData';
+
+import styles from './BigProjectCard.module.scss';
 import GradientButton from './GradientButton';
 import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import clsx from 'clsx';
 import ImageSkeletonLoader from './ImageSkeletonLoader';
-import { useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 interface BigProjectCardProps {
@@ -19,7 +21,7 @@ export default function BigProjectCard({
   projectCategory,
   project,
 }: BigProjectCardProps) {
-  const [mainIndex, setMainIndex] = useState(0);
+  const [mainIndex, setMainIndex] = useState<number>(0);
   const [emblaRef] = useEmblaCarousel({
     containScroll: 'trimSnaps',
     dragFree: true,
@@ -45,11 +47,12 @@ export default function BigProjectCard({
             rel='noopener noreferrer'
           >
             <ImageSkeletonLoader
-              src={`https://utfs.io/a/qnr34aa1vn/${project.images[mainIndex]}`}
+              src={`${siteData.uploadThingUrl}/${project.images[mainIndex]}`}
               alt={`${project.title} Screenshot ${mainIndex + 1}`}
               style={{ objectFit: 'cover' }}
               width={500}
               height={300}
+              sizes='25vw'
             />
             <div className={styles.mainImageForeground}>
               <span>Visit:</span>
@@ -68,11 +71,12 @@ export default function BigProjectCard({
                 onClick={() => setMainIndex(index)}
               >
                 <ImageSkeletonLoader
-                  src={`https://utfs.io/a/qnr34aa1vn/${image}`}
+                  src={`${siteData.uploadThingUrl}/${image}`}
                   alt={`${project.title} Thumbnail ${index + 1}`}
                   width={120}
                   height={120}
                   style={{ objectFit: 'cover' }}
+                  sizes='10vw'
                 />
               </div>
             ))}
