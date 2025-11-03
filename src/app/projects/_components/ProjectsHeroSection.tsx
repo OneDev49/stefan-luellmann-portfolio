@@ -1,8 +1,10 @@
 'use client';
+
+import { clientProjects, personalProjects } from '@/config/projects';
+
 import useEmblaCarousel from 'embla-carousel-react';
 import GradientButton from '@/components/ui/GradientButton';
 import ChevronRightIcon from '@/components/icons/ui/ChevronRightIcon';
-import { clientProjects, personalProjects } from '@/config/projects';
 import styles from './ProjectsHeroSection.module.scss';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import AutoScroll from 'embla-carousel-auto-scroll';
@@ -68,12 +70,13 @@ export default function ProjectsHeroSection() {
                   <a href={image.url} target='_blank' rel='noopener noreferrer'>
                     <ImageSkeletonLoader
                       loading='eager'
-                      priority
+                      priority={true}
                       src={`https://utfs.io/a/qnr34aa1vn/${image.src}`}
                       width={400}
                       height={200}
                       alt={image.alt}
                       className='w-full h-auto object-cover'
+                      sizes='(max-width: 576px) 100vw, 25vw'
                     />
                     <div className={styles.anchorHover}>
                       <span>Visit</span>
