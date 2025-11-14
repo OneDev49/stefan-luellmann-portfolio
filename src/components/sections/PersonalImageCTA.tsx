@@ -47,9 +47,6 @@ export default function PersonalImageCTA({
       <div className={styles.content}>
         <div className={styles.left}>
           <ImageSkeletonLoader
-            loading='lazy'
-            draggable='false'
-            decoding='async'
             src={`https://utfs.io/a/qnr34aa1vn/${personalData.personalImage}`}
             alt='Hey, I am Stefan!'
             height={400}

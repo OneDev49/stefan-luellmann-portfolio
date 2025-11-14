@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+
 import TimelineSection from './_components/TimelineSection';
 import ToolkitSection from './_components/ToolkitSection';
 import AboutHeroSection from './_components/AboutHeroSection';
