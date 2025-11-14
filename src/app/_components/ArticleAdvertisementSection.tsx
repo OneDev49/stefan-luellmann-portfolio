@@ -10,8 +10,6 @@ export default function ArticleAdvertisementSection() {
       <div>
         <div className={styles.background}></div>
         <Image
-          loading='lazy'
-          decoding='async'
           draggable='false'
           src={`${siteData.uploadThingUrl}/x81VdwhEWe9YIbfJ5lEl9J5WbN6XohyduFKaOCUP3BDAsHkp`}
           alt='Areas I write Articles in'

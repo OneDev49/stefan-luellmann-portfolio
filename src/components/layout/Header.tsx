@@ -24,7 +24,6 @@ export default function HeaderSection() {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup Function to prevent memory leaks if section is removed.
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -47,7 +46,6 @@ export default function HeaderSection() {
 
   const { openGetInTouch } = useModal();
 
-  // General Header ClassNames
   const headerMainClassName = clsx(styles.headerMain, 'nwt--flex-c-n-n');
   const headerClassName = clsx(styles.header, {
     [styles.headerAtTop]: isAtTop,

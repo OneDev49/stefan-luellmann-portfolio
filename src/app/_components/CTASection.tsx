@@ -23,8 +23,6 @@ export default function CTASection() {
       <div className={`${styles.contentWrapper} nwt--width`}>
         <div className={styles.image}>
           <ImageSkeletonLoader
-            loading='lazy'
-            decoding='async'
             draggable='false'
             src={`${siteData.uploadThingUrl}/x81VdwhEWe9YiVsuEM0mxJPz0TqguADyd2SlvBtYRebXojs9`}
             alt='Technologies I use for my Projects'
@@ -54,7 +52,7 @@ export default function CTASection() {
       <WaveTransition
         position='bottom'
         color='rgba(1, 46, 143, 0.5)'
-        positionOffset='-38px'
+        positionOffset='-37px'
         variant='outer'
         config={{
           height: 75,

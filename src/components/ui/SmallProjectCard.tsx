@@ -36,7 +36,6 @@ export default function SmallProjectCard({ project }: SmallProjectCardProps) {
         rel='noopener noreferrer'
       >
         <ImageSkeletonLoader
-          decoding='async'
           src={`${siteData.uploadThingUrl}/${project.thumbnail}`}
           alt={`${project.title} Thumbnail`}
           height={600}

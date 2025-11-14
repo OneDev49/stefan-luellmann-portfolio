@@ -28,7 +28,6 @@ export default function TimelineSection() {
           <li data-item='1'>
             <div className={styles.leftContainer} data-cont='img'>
               <Image
-                decoding='async'
                 draggable='false'
                 alt='Git, PHP, HTML, CSS and JavaScript Technology Icons'
                 src={`${siteData.uploadThingUrl}/x81VdwhEWe9YjttSNuFZWS01vBYf3yHtizhn8IV2UdGeQlP5`}
@@ -76,7 +75,6 @@ export default function TimelineSection() {
             </div>
             <div className={styles.rightContainer} data-cont='img'>
               <Image
-                decoding='async'
                 draggable='false'
                 alt='Figma, PHP, SASS, WordPress and MySQL Technology Icons'
                 src={`${siteData.uploadThingUrl}/x81VdwhEWe9YHXWCmv3AULrIv19p0qBfTKZdXzJemEya26uS`}
@@ -89,7 +87,6 @@ export default function TimelineSection() {
           <li data-item='3'>
             <div className={styles.leftContainer} data-cont='img'>
               <Image
-                decoding='async'
                 draggable='false'
                 alt='Prisma, NextJS, Vercel and PostgreSQL Technology Icons'
                 src={`${siteData.uploadThingUrl}/x81VdwhEWe9YqmSDcqHq0ru9WKvaM2UeYoRJO1fsNpbcGhL6`}
@@ -135,7 +132,6 @@ export default function TimelineSection() {
             </div>
             <div className={styles.rightContainer} data-cont='img'>
               <Image
-                decoding='async'
                 draggable='false'
                 alt='React, TailwindCSS and TypeScript Technology Icons'
                 src={`${siteData.uploadThingUrl}/x81VdwhEWe9YQy0ydLDI1O7Cd2btZFA38iaKMH6vwWBzDNJk`}
