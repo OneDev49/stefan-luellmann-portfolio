@@ -1,5 +1,6 @@
 import { TechnologyName } from '@/components/icons/TechIconMap';
 import { ComponentType, SVGProps } from 'react';
+
 import DesktopIcon from '@/components/icons/glyphs/DesktopIcon';
 import ServerIcon from '@/components/icons/glyphs/ServerIcon';
 import DatabaseIcon from '@/components/icons/glyphs/DatabaseIcon';
@@ -50,10 +51,10 @@ export const techStack: TechnologyArea[] = [
   },
   {
     area: 'tools',
-    heading: 'Devops & Design',
+    heading: 'DevOps & Design',
     paragraph:
       'These are the essential tools that power my development workflow, from version control to deployment.',
     icon: ScrewdriverWrenchIcon,
-    technologies: ['git', 'docker', 'vercel', 'wordpress', 'figma'],
+    technologies: ['git', 'docker', 'vercel', 'wordpress', 'figma', 'netlify'],
   },
 ];

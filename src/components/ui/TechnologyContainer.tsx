@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import { TechIcon, TechnologyName } from '../icons/TechIconMap';
+
+import clsx from 'clsx';
 import styles from './TechnologyContainer.module.scss';
 
 interface TechnologyContainerProps {
@@ -22,6 +23,7 @@ function TechnologyNameMapper(tech: TechnologyName) {
     case 'docker':
     case 'zod':
     case 'redis':
+    case 'netlify':
       return tech.charAt(0).toUpperCase() + tech.slice(1);
 
     case 'mdx':
@@ -52,7 +54,7 @@ function TechnologyNameMapper(tech: TechnologyName) {
       return 'php';
 
     default:
-      return;
+      return tech;
   }
 }
 
