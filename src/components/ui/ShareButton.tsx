@@ -44,6 +44,7 @@ export default function ShareButton({ className }: ShareButtonProps) {
       onClick={handleCopy}
       disabled={isDisabled}
       title='Copy page link'
+      className={className}
     >
       {isCopied ? (
         <>
