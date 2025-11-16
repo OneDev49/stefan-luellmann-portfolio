@@ -1,16 +1,12 @@
 'use client';
-
-import { useState } from 'react';
 import { Project } from '@/config/projects';
 import { TechIcon } from '../icons/TechIconMap';
-import { siteData } from '@/config/siteData';
 
 import styles from './BigProjectCard.module.scss';
 import GradientButton from './GradientButton';
 import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import clsx from 'clsx';
-import ImageSkeletonLoader from './ImageSkeletonLoader';
-import useEmblaCarousel from 'embla-carousel-react';
+import ImageCarousel from './ImageCarousel';
 
 interface BigProjectCardProps {
   projectCategory: 'personal' | 'client';
@@ -21,12 +17,6 @@ export default function BigProjectCard({
   projectCategory,
   project,
 }: BigProjectCardProps) {
-  const [mainIndex, setMainIndex] = useState<number>(0);
-  const [emblaRef] = useEmblaCarousel({
-    containScroll: 'trimSnaps',
-    dragFree: true,
-  });
-
   const statusStyle =
     project.status === 'Not Released' ? styles.notReleased : styles.released;
 
@@ -40,48 +30,7 @@ export default function BigProjectCard({
       )}
     >
       <div className={styles.imageWrapper}>
-        <div className={styles.mainImageWrapper}>
-          <a
-            href={project.links.liveDemo}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <ImageSkeletonLoader
-              src={`${siteData.uploadThingUrl}/${project.images[mainIndex]}`}
-              alt={`${project.title} Screenshot ${mainIndex + 1}`}
-              style={{ objectFit: 'cover' }}
-              width={500}
-              height={300}
-              sizes='25vw'
-            />
-            <div className={styles.mainImageForeground}>
-              <span>Visit:</span>
-              <span>{project.title}</span>
-            </div>
-          </a>
-        </div>
-        <div className={styles.thumbnailCarousel} ref={emblaRef}>
-          <div className={styles.thumbnails}>
-            {project.images.map((image, index) => (
-              <div
-                key={index}
-                className={clsx(styles.thumbnailItem, {
-                  [styles.activeThumbnail]: index === mainIndex,
-                })}
-                onClick={() => setMainIndex(index)}
-              >
-                <ImageSkeletonLoader
-                  src={`${siteData.uploadThingUrl}/${image}`}
-                  alt={`${project.title} Thumbnail ${index + 1}`}
-                  width={120}
-                  height={120}
-                  style={{ objectFit: 'cover' }}
-                  sizes='10vw'
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <ImageCarousel project={project} bigImageSize='25vw' />
       </div>
       <div className={styles.contentWrapper}>
         <div className={styles.content}>
