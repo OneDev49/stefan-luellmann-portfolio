@@ -1,12 +1,14 @@
 ---
 
 author: Stefan Lüllmann
-published: 01. Januar 1990
+published: 16. November 2025
 designedBy: Stefan Lüllmann
 developedBy: Stefan Lüllmann
-releaseDateV1: 01. Januar 1990
+releaseDateV1: 17. Juli 2025
 
 ---
+
+import TextBlock from '@/components/mdx/TextBlock'
 
 ## Abstract
 I developed my personal website to showcase all my projects, documents and case studies in one central hub.
@@ -14,19 +16,26 @@ The primary goal was to create a central hub for my portfolio that is fast, SEO-
 Developed over two weeks, the site leverages the power of the Next.js App Router, TypeScript, React and custom developed React components, and Static Site Generation (SSG) to achieve near-perfect Lighthouse scores.
 Key architectural features include a global state solution using React Context for the website Modal and a dynamic content pipeline for case studies using MDX and Gray Matter.
 
+<TextBlock>
 ## Introduction
 This project was developed to display my projects, documents and case studies in a modern way using the latest technologies in website development.
 The core objective was to build a personal brand platform that not only showcases my projects but also serves as a testament to my skills in creating high-performance web applications.
 The core goals were to achieve a Lighthouse score of >95 across all metrics, ensure full accessibility (WCAG 2.1) and to build a scalable content system for future articles and case studies.
+</TextBlock>
 
+<TextBlock>
 ## Choosing the Technology
 When choosing the technology stack to develop and design this website, a main focus was speed and the app-like feeling.
 While there were ideas to use other technologies such as Astro.js, Next.js expanding market and its easy integration with Vercel among other important advantages like the App Router were the key factors that ultimately led to the choice of Next.js as a core environment.
 React and TypeScript were relatively easy to choose due to the integration of both into Next.js.
 While my other projects levarage the utility-first approach of TailwindCSS, I chose SCSS for this project to demonstrate proficiency in traditional CSS architecture, including methodologies like BEM and the power of pre-processors for creating maintainable, scalable style sheets.
 MDX with Gray Matter were chosen to allow me to write articles such as this case study in an easy format and to integrate them in a simple workflow into the Next.js website.
+</TextBlock>
 
+
+<TextBlock>
 ## Design of the Project
+In this project there were a couple of important design choices to be made.
 ### UI/UX Design
 The user journey was suppose to be very linear.
 Everything is only two clicks away and most of the website can be accessed from any page of the website.
@@ -34,14 +43,17 @@ The header is suppose to be the guide through the website, allowing visitors to 
 The “Get In Touch” button with its popup modal should will give the visitor all the information about me that they might need, from Social Media Links all the way to my CV and direct contact possibilities.
 The design of the website was heavily based on the old design of NordWebTec and the dark blue color choice should give a modern, futuristic feeling to the visitor.
 Animations such as the moving background particles or the multiple different waves across the website should break the potential quiet website feel.
-
 ### Architectural Design
 The core principle behind every project I develop is DRY (Don't Repeat Yourself). The same applies here.
 The architecture is built on a foundation of atomic design principles.
 Core UI elements were developed as small, reusable and unopinionated components (Icons, Buttons, Modals).
 These were then composed into larger "organisms" (like the Header or project cards).
 This approach, combined with a clear separation of concerns between Server Components (for static content) and Client Components (for interactivity), ensures the codebase is both maintainable and performant.
+</TextBlock>
 
+
+
+<TextBlock>
 ## Challenges & Solutions
 The two main challenges were the Modal and the MDX integration.
 
@@ -58,16 +70,24 @@ For basic pages such as the legal pages, MDX could simply be called and the Meta
 For the case studies however a proper translation layer had to be developed.
 To create dynamic slug-based articles, MDX had to find the correct article and frontmatter had to be used to populate the dynamic page itself.
 This core idea was the basic workflow to write, create and publish articles on the website.
+</TextBlock>
 
+
+<TextBlock>
 ## Deployment & Infrastructure
 The CI/CD pipeline is managed through GitHub, with the main branch automatically deploying to Netlify.
 I made a strategic decision to host my personal brand site on Netlify and my more complex, application-focused projects (like Entro) on Vercel.
 This diversifies my experience with the two leading Jamstack platforms and segragates the resource usage of my portfolio pieces.
 The CI pipeline of the website always involves new feature branching, writing precise GitHub documentations prior to each merge and after a successful merge, the CD pipeline then deploys the latest version onto Netlify.
+</TextBlock>
 
+
+<TextBlock>
 ## Conclusion
 Through the successful development of the website and the implementation of Next.js and the App Router, a seamless user experience was created.
 At the same time MDX was successfully implemented.
 This now allows for vast possibilities for the future.
 One venue that is already in the planning is the creation of educational content and documentation on this website.
 Overall, the design and development of the website was a success.
+</TextBlock>
+
