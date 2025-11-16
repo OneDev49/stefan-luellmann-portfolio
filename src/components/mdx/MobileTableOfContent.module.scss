@@ -1,0 +1,102 @@
+.floatingButton {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 40;
+
+  background-color: #0033be;
+  color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 50%;
+  border: 1px solid #2b2b2b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease,
+    background 0.1s ease-in-out;
+  pointer-events: none;
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+    background-color: #0043fa;
+  }
+}
+
+.overlayBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+
+  &.open {
+    opacity: 1;
+  }
+}
+
+.overlayContent {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 85%;
+  max-width: 320px;
+  z-index: 1000;
+
+  background: linear-gradient(180deg, #000645, #000435 60%, #000216 100%);
+  border-left: 1px solid #747474;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  :global(nav) {
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #003cff #000a7e;
+  }
+}
+
+.overlayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #4a4a4a;
+  flex-shrink: 0;
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: #a0aec0;
+    cursor: pointer;
+    padding: 0.25rem;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
