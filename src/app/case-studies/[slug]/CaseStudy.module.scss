@@ -4,10 +4,10 @@
   padding: 0 var(--nwt--r-spacer-sm);
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 4rem;
 
-  h1 {
-    text-decoration: underline;
+  hr {
+    border-color: #0067c7;
   }
 
   ul {
@@ -17,39 +17,84 @@
   }
 }
 
+.mainHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: auto;
+
+  h1 {
+    text-decoration: underline;
+  }
+}
+
 .contentWrapper {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
+  margin: auto;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  flex: 80%;
+  gap: 6rem;
+  flex: 72ch 1;
 }
 
+.projectThumbnail {
+  box-shadow: 0 0 15px 5px rgba(0, 81, 255, 0.25);
+  background: #000;
+  border: 1px solid #002b98;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.thumbnailOverview,
 .studyOverview {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
 
-  strong {
-    font-family: var(--font-heading);
-    text-decoration: underline;
-  }
+.thumbnailOverview h2,
+.studyOverview h2 {
+  scroll-margin-top: 70px;
+}
+
+.thumbnailOverview > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.studyOverview strong {
+  font-family: var(--font-heading);
+  text-decoration: underline;
 }
 
 .details {
   display: flex;
-  gap: 4rem;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
 
   ul li {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1rem;
     font-size: 14px;
+  }
+}
+
+@media (min-width: 536px) {
+  .details {
+    gap: 4rem;
+    flex-direction: row;
+    align-items: normal;
   }
 }
 
@@ -73,17 +118,35 @@
   > div {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
   }
 }
 
 .tableOfContent {
-  flex: 20%;
-  border-left: 2px solid #717171;
-  padding: 1rem 1.5rem 3rem;
+  flex: 290px 0 0;
+  flex-shrink: 0;
+  padding: 1rem 1.5rem 3rem 0;
+  position: sticky;
+  top: 70px;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .mainHeading,
+  .contentWrapper {
+    margin: initial;
+  }
+
+  .mainHeading div {
+    display: none;
+  }
+
+  .tableOfContent {
+    display: block;
+  }
 }
 
 .article {
-  margin-top: 5rem;
   max-width: 72ch;
 
   h2,
@@ -106,4 +169,15 @@
   h4 {
     font-size: var(--nwt--r-fs-head-h5);
   }
+}
+
+// Components
+.caseStudyParagraph {
+  line-height: 2;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.caseStudyHeading {
+  scroll-margin-top: 70px;
 }
