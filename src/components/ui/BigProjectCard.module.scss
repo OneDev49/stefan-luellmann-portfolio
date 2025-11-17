@@ -5,6 +5,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  max-width: 700px;
+  margin: 0 auto;
 
   &.personalProject {
     background: linear-gradient(
@@ -42,71 +44,6 @@
   border-radius: 30px;
   border: 2px solid rgb(90, 90, 90);
   overflow: hidden;
-
-  img {
-    transition: transform 0.3s ease;
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-  }
-
-  &:hover img {
-    transform: scale(1.05);
-  }
-
-  &:hover .mainImageForeground {
-    opacity: 1;
-  }
-}
-
-.mainImageForeground {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-
-  > span:first-child {
-    text-decoration: underline;
-  }
-}
-
-.thumbnailCarousel {
-  overflow: hidden;
-}
-
-.thumbnails {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.thumbnailItem {
-  cursor: pointer;
-  border: 2px solid transparent;
-  flex: 0 0 auto;
-  height: 80px;
-  max-width: 80px;
-  border-radius: 15px;
-
-  > div {
-    height: 100%;
-    border-radius: 15px;
-  }
-
-  img {
-    object-fit: cover;
-    height: auto;
-  }
-}
-
-.activeThumbnail {
-  border-color: rgb(8, 214, 1);
 }
 
 .contentWrapper {
@@ -183,20 +120,5 @@
 
   .links {
     justify-content: flex-start;
-  }
-}
-
-@media (min-width: 992px) {
-  .projectWrapper {
-    grid-template-columns: auto 1fr;
-  }
-
-  .imageWrapper {
-    max-width: 400px;
-  }
-
-  .mainImageWrapper img {
-    width: auto;
-    height: 300px;
   }
 }

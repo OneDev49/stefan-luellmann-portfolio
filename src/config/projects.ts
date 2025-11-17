@@ -28,8 +28,8 @@ export const personalProjects: Project[] | [] = [
     status: 'V1 - Released',
     description:
       'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
-    techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'vercel'],
-    caseStudyStatus: 'notReleased',
+    techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'netlify'],
+    caseStudyStatus: 'released',
     caseStudyBrief:
       'A Case Study on the planning, design, development and deployment of my Professional Portfolio Website. The Case Study goes into detail about different designs, challenges and solutions for a variety of problems, like deciding which Technologies to use and why certain Technologies were used.',
     links: {
