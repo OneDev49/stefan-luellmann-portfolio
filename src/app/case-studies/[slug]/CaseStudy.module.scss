@@ -1,13 +1,17 @@
 .wrapper {
   margin: 150px auto;
   max-width: 1200px;
-  padding: 0 var(--nwt--r-spacer-sm);
+  padding: var(--nwt--r-spacer-lg);
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  border-radius: 25px;
+  background: rgb(0 60 137 / 50%);
+  box-shadow: 0 0 20px 15px rgb(0 60 137 / 50%);
 
   hr {
-    border-color: #0067c7;
+    border: 2px solid #0082fc;
+    border-radius: 5px;
   }
 
   ul {
