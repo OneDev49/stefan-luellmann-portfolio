@@ -1,13 +1,13 @@
 import { MetadataRoute } from 'next';
 import { personalData } from '@/config/siteData';
 
-/* import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 
-interface CaseStudy {
+/* interface CaseStudy {
   slug: string;
   lastModified: Date;
-}
+} */
 
 async function getCaseStudySlugs(): Promise<string[]> {
   const caseStudiesDirectory = path.join(
@@ -32,19 +32,19 @@ async function getCaseStudySlugs(): Promise<string[]> {
     console.error('Error reading case studies:', error);
     return [];
   }
-} */
+}
 
 export default async function siteMap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = personalData.url || 'https://stefan-luellmann.com';
 
-  /* const caseStudySlugs = await getCaseStudySlugs();
+  const caseStudySlugs = await getCaseStudySlugs();
 
   const caseStudyUrls = caseStudySlugs.map((slug) => ({
     url: `${baseUrl}/case-studies/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
-  })); */
+  }));
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -85,5 +85,5 @@ export default async function siteMap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  return [...staticRoutes];
+  return [...staticRoutes, ...caseStudyUrls];
 }

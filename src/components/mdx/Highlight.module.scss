@@ -1,0 +1,49 @@
+.technology {
+  span {
+    margin-left: 2px;
+  }
+
+  img,
+  picture,
+  svg {
+    margin-inline: 3px;
+    vertical-align: sub;
+    display: inline;
+  }
+}
+
+.singleWord {
+  font-weight: 800;
+}
+
+.none {
+  background: transparent;
+}
+
+.red,
+.green,
+.blue,
+.yellow {
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+}
+
+.red {
+  background-color: rgb(255 0 0 / 20%);
+  color: #ffcccc;
+}
+
+.green {
+  background-color: rgb(0 255 0 / 20%);
+  color: #ccffcc;
+}
+
+.blue {
+  background-color: rgba(0, 162, 255, 0.2);
+  color: #ccecff;
+}
+
+.yellow {
+  background-color: rgba(255, 251, 0, 0.2);
+  color: #feffcc;
+}

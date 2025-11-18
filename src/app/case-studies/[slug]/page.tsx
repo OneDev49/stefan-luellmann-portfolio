@@ -13,6 +13,7 @@ import TextBlock from '@/components/mdx/TextBlock';
 import ImageCarousel from '@/components/ui/ImageCarousel';
 import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
 import ShareButton from '@/components/ui/ShareButton';
+import Highlight from '@/components/mdx/Highlight';
 
 interface CaseStudyPageProps {
   params: { slug: string };
@@ -75,6 +76,7 @@ const P = (props: React.HTMLAttributes<HTMLParagraphElement>) => (
 
 const mdxComponents = {
   TextBlock,
+  Highlight,
   h2: H2,
   h3: H3,
   p: P,
