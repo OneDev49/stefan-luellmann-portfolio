@@ -46,7 +46,7 @@ export const personalProjects: Project[] | [] = [
   {
     slug: 'entro-ecommerce-store',
     title: 'Entro - ECommerce Computer Store',
-    status: 'Not Released',
+    status: 'V1 - Released',
     description:
       'A Full-Stack E-Commerce Computer Store designed with Figma, developed with NextJS, React, TypeScript, Prisma, PostgreSQL and TailwindCSS.',
     techStack: [
@@ -62,7 +62,7 @@ export const personalProjects: Project[] | [] = [
       'zod',
       'redis',
     ],
-    caseStudyStatus: 'notReleased',
+    caseStudyStatus: 'released',
     caseStudyBrief:
       'Designed, Developed and Deployed a Full-Stack E-Commerce Computer Store - Entro. Developed using SSG, ISR and SSR and a relational Database with Prisma.',
     links: {
