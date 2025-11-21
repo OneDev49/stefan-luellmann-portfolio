@@ -14,6 +14,7 @@ import ImageCarousel from '@/components/ui/ImageCarousel';
 import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
 import ShareButton from '@/components/ui/ShareButton';
 import Highlight from '@/components/mdx/Highlight';
+import TextSpacer from '@/components/mdx/TextSpacer';
 
 interface CaseStudyPageProps {
   params: { slug: string };
@@ -74,12 +75,18 @@ const P = (props: React.HTMLAttributes<HTMLParagraphElement>) => (
   <p className={styles.caseStudyParagraph} {...props} />
 );
 
+const UL = (props: React.HTMLAttributes<HTMLUListElement>) => (
+  <ul className={styles.caseStudyUnorderedList} {...props} />
+);
+
 const mdxComponents = {
+  TextSpacer,
   TextBlock,
   Highlight,
   h2: H2,
   h3: H3,
   p: P,
+  ul: UL,
 };
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {

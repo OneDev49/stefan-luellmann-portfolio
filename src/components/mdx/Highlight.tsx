@@ -4,7 +4,7 @@ import styles from './Highlight.module.scss';
 
 interface HighlightProps {
   children: React.ReactNode;
-  color?: 'red' | 'green' | 'yellow' | 'blue' | 'none';
+  color?: 'red' | 'green' | 'yellow' | 'blue' | 'code' | 'none';
   type?: 'technology' | 'singleWord';
   technology?: TechnologyName;
 }
