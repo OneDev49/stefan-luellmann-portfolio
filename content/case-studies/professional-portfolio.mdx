@@ -39,15 +39,19 @@ While my other projects levarage the utility-first approach of <Highlight type="
 ## Design of the Project
 In this project there were a couple of important design choices to be made.
 
+<TextSpacer />
+
 ### UI/UX Design
 The user journey was suppose to be very linear.
 
 Everything is only two clicks away and most of the website can be accessed from any page of the website.
 The header is suppose to be the guide through the website, allowing visitors to navigate easily through the website.
-The <Highlight color="green">Get In Touch</Highlight> button with its popup modal should will give the visitor all the information about me that they might need, from Social Media Links all the way to my CV and direct contact possibilities.
+The <Highlight color="code">Get In Touch</Highlight> button with its popup modal should will give the visitor all the information about me that they might need, from Social Media Links all the way to my CV and direct contact possibilities.
 
 The design of the website was heavily based on the old design of NordWebTec and the dark blue color choice should give a modern, futuristic feeling to the visitor.
 Animations such as the moving background particles or the multiple different waves across the website should break the potential quiet website feel.
+
+<TextSpacer />
 
 ### Architectural Design
 The core principle behind every project I develop is DRY (Don't Repeat Yourself).
@@ -65,12 +69,16 @@ This approach, combined with a clear separation of concerns between Server Compo
 ## Challenges & Solutions
 The two main challenges were the Modal and the MDX integration.
 
+<TextSpacer />
+
 ### First Challenge & Solution: Modal
 The first iteration of the website only had the modal as a component of the header.
 This created a challenge since other components outside the header were not able to open the modal.
 
 To allow other components on the website to open the modal (regardless of their position on the page) the modal had to be extracted from the header and placed inside a React Context.
 This allowed every other component on the website to call and open the modal, regardless of their position.
+
+<TextSpacer />
 
 ### Second Challenge & Solution: MDX integration
 To write articles, blogs and documentations MDX was the best choice.
