@@ -12,10 +12,6 @@
   }
 }
 
-.singleWord {
-  font-weight: 800;
-}
-
 .none {
   background: transparent;
 }
@@ -23,7 +19,8 @@
 .red,
 .green,
 .blue,
-.yellow {
+.yellow,
+.code {
   padding: 0.1rem 0.3rem;
   border-radius: 5px;
 }
@@ -46,4 +43,11 @@
 .yellow {
   background-color: rgba(255, 251, 0, 0.2);
   color: #feffcc;
+}
+
+.code {
+  background: #000;
+  font-family: monospace;
+  border: 1px solid #313131;
+  font-size: 14px;
 }
