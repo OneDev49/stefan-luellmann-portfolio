@@ -72,6 +72,12 @@
     flex-grow: 1;
     scrollbar-width: thin;
     scrollbar-color: #003cff #000a7e;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
   }
 }
 
