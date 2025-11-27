@@ -26,7 +26,7 @@ export default function RootLayout({
         <ModalProvider>
           <HeaderSection />
           <ParticleBackground particleCount={150} />
-          {children}
+          <main>{children}</main>
           <FooterSection />
         </ModalProvider>
       </body>
