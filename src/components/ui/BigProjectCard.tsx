@@ -30,7 +30,7 @@ export default function BigProjectCard({
       )}
     >
       <div className={styles.imageWrapper}>
-        <ImageCarousel project={project} bigImageSize='25vw' />
+        <ImageCarousel project={project} bigImageSize='50vw' />
       </div>
       <div className={styles.contentWrapper}>
         <div className={styles.content}>
