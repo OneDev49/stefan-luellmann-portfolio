@@ -22,7 +22,7 @@
 
 .tocLink {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   color: #ffffff;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
@@ -36,6 +36,8 @@
   border-radius: 0.5rem;
   margin-bottom: 2rem;
   max-width: 576px;
+  background: rgb(0 35 137 / 100%);
+  box-shadow: 0 0 20px 5px rgb(0 35 137 / 100%);
 }
 
 .collapsibleHeader {
@@ -62,4 +64,10 @@
 .collapsibleContent {
   padding: 0 1rem 0.75rem 1rem;
   border-top: 1px solid #4a4a4a;
+
+  > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
 }
