@@ -1,0 +1,114 @@
+---
+
+title: "The Full-Stack Zod Playbook: Why TypeScript alone isn't enough"
+author: "Stefan Lüllmann"
+published: "17. Juni 1990"
+tags: [zod, typescript]
+
+---
+
+When it comes to the development of production apps, type-safety is universally known to be extremely important.
+Not having it results in bugs, frustration, and generally more problems down the line.
+
+## What TypeScript can (and can't) do
+TypeScript is one of the most used tools in Web Development.
+It is used by developers all around the world to ensure that data types are consistent and safe, regardless of where they are used.
+
+// Code of typescript
+
+However, TypeScript itself can only ensure safety while you are **developing** the application.
+Inside our code editor (e.g. VS Code), TypeScript ensures we adhere to the types we define.
+
+But once the application goes online, TypeScript doesn't exist anymore.
+
+This makes sense, because TypeScript is a __compile-time__ tool.
+Once the application builds, it is translated into JavaScript.
+And standard JavaScript doesn't have type-safety.
+It only knows about the data values it has at that exact moment, and it doesn't care whether they are "safe" or not.
+
+// Code of JavaScript
+
+Only using TypeScript in pure Front-End applications is rarely an issue.
+We, as developers, control the code, so we know the types are generally safe.
+
+The same can't be said about **Full-Stack applications**.
+
+Every Full-Stack App has a Back-End, and every Back-End deals with data that changes.
+How can we ensure that both the Back-End and Front-End are type-safe and, most importantly, that we handle potential errors when data types don't align?
+
+Take this code for example:
+
+// Error Example
+
+We can declare a TypeScript interface, but whatever the API returns is essentially `any`.
+There is no fixed data type guaranteed at runtime.
+
+Even worse, if we develop the application to expect a `String` from the Back-End, but that data type changes to a `Number` over the course of months, our application might crash.
+Practices like this result in poor UX and difficult bugs to trace.
+
+So the question is, how do we fix this?
+The answer is simple: **We use Zod.**
+
+
+## How to make Full-Stack applications fully Type-safe
+
+Zod is a TypeScript schema validation library with advanced type inference.
+
+What exactly does this mean?
+It means it allows us to solve the issue for the Front-End needing TypeScript while the Back-End responds with unknown data.
+Zod acts as a bridge, checking the data while the app is running.
+
+Let's look at an example.
+This is what our previous TypeScript interface looks like when written in Zod.
+
+// Example
+
+The Zod code we just wrote does the same thing as the TypeScript interface.
+However, the last line is the most important part.
+
+By using `infer`, Zod transforms the schema into a TypeScript interface so that we can use it across the whole application.
+It essentially works like a standard interface, but we can do a lot more with it - specifically, validation.
+
+
+## Full-Stack Error Handling using Zod
+
+By itself, writing the schema doesn't make our application safe.
+We have to use it to validate the input of the user or the response of the API.
+
+Here is a practical example of a Server Action using Zod validation:
+
+// Example
+
+In this code, we create a simple `createUser` function.
+Take note that the data we provide to the function is type `unknown`.
+If we didn't use Zod, we would be sending potentially dangerous data to our Database.
+
+To validate the data, we have two methods: `.parse()` and `.safeParse()`.
+
+The important difference is how errors are handled.
+While `.parse()` results in a crash if the data is wrong, `.safeParse()` allows us to handle the error gracefully.
+
+And that is what we are doing here.
+We use `.safeParse()` to check the data first.
+If the validation was a success (which we check using `.success`), we create the user.
+If not, we return a custom error message.
+
+And that is it.
+Our application is now type-safe.
+We can now use the Zod schema like a TypeScript interface, but with the added security of runtime validation.
+
+
+## Closing remarks
+
+One thing I need to make clear, however, is that we shouldn't use Zod everywhere.
+
+I personally only use Zod for complex data validation and at system boundaries (APIs, Forms, Database calls).
+I do not use Zod for every internal component I develop.
+
+It is important to know when to use the tools we possess.
+Knowing **when** to use them is what makes us engineers.
+
+And now you know how to make your next Full-Stack application type-safe on both the Back-End and the Front-End at the same time.
+
+Thank you for reading.
+Happy coding!
