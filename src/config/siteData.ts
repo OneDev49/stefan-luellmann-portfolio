@@ -1,6 +1,9 @@
 export const personalData = {
   email: 'hallo@stefan-luellmann.com',
-  phone: '+491632155075',
+  phone: {
+    raw: '+491632155075',
+    adjusted: '0163 21 55 0 75',
+  },
   url: 'https://stefan-luellmann.com',
   social: {
     github: 'https://github.com/OneDev49/',
