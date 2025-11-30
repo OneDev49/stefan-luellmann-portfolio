@@ -48,7 +48,7 @@ export default function TableOfContent({
   if (headings.length === 0) return null;
 
   const renderLinks = () => (
-    <ul>
+    <ol>
       {headings.map((heading) => {
         const isActive = activeId === heading.slug;
         const linkClassName = isActive
@@ -66,7 +66,7 @@ export default function TableOfContent({
           </li>
         );
       })}
-    </ul>
+    </ol>
   );
 
   if (variant === 'sidebar') {
@@ -87,7 +87,7 @@ export default function TableOfContent({
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
         >
-          <span>On this page</span>
+          <span className='nwt--f-h4'>Table of Content</span>
           <CaretDownIcon
             className={clsx(styles.caret, isOpen && styles.caretOpen)}
           />
