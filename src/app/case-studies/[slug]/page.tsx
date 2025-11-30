@@ -71,52 +71,18 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const project = allProjects.find((p) => p.slug === slug);
   if (!project) notFound();
 
-  const projectThumbnailHeading: Heading = {
-    level: 2,
-    text: 'Project Images',
-    slug: 'project-images',
-  };
-
-  const studyOverviewHeading: Heading = {
-    level: 2,
-    text: 'Study Overview',
-    slug: 'study-overview',
-  };
-
-  const extendedHeadings: Heading[] = [
-    projectThumbnailHeading,
-    studyOverviewHeading,
-    ...headings,
-  ];
-
   return (
     <article className={styles.wrapper}>
-      <div className={styles.mainHeading}>
+      <div className={styles.header}>
         <h1 className='nwt--f-h1'>
           <span className='nwt--txt-gradient'>Case Study: {project.title}</span>
         </h1>
-        <div>
-          <MobileTableOfContent headings={extendedHeadings} />
-        </div>
       </div>
-      <div className={styles.contentWrapper}>
-        <div className={styles.content}>
-          {project.thumbnail && (
-            <div className={styles.thumbnailOverview}>
-              <div>
-                <h2 id='project-images' className='nwt--f-h2'>
-                  Project Images
-                </h2>
-                <hr />
-              </div>
-              <div>
-                <ImageCarousel project={project} bigImageSize='75vw' />
-              </div>
-            </div>
-          )}
+      <div className={styles.body}>
+        <div className={styles.bodyTop}>
           <div className={styles.studyOverview}>
             <div>
-              <h2 id='study-overview' className='nwt--f-h2'>
+              <h2 id='study-overview' className='nwt--f-h3'>
                 Study Overview
               </h2>
               <hr />
@@ -208,13 +174,35 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </div>
             </div>
           </div>
+          {project.thumbnail && (
+            <div className={styles.thumbnailOverview}>
+              <div>
+                <h2 id='project-images' className='nwt--f-h3'>
+                  Project Images
+                </h2>
+                <hr />
+              </div>
+              <div>
+                <ImageCarousel project={project} bigImageSize='75vw' />
+              </div>
+            </div>
+          )}
+          <div className={styles.mobileTableOfContent}>
+            <MobileTableOfContent headings={headings} />
+          </div>
+        </div>
+        <div className={styles.bodyBottom}>
           <div className={styles.article}>
             <MDXRemote source={content} components={coreMdxComponents} />
           </div>
+          <aside className={styles.tableOfContent}>
+            <TableOfContent headings={headings} variant='sidebar' />
+          </aside>
         </div>
-        <aside className={styles.tableOfContent}>
-          <TableOfContent headings={extendedHeadings} variant='sidebar' />
-        </aside>
+      </div>
+
+      <div className={styles.contentWrapper}>
+        <div className={styles.content}></div>
       </div>
     </article>
   );
