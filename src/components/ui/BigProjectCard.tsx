@@ -6,7 +6,7 @@ import styles from './BigProjectCard.module.scss';
 import GradientButton from './GradientButton';
 import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import clsx from 'clsx';
-import ImageCarousel from './ImageCarousel';
+import ImageCarousel from './ProjectImageCarousel';
 
 interface BigProjectCardProps {
   projectCategory: 'personal' | 'client';
