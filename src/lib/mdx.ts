@@ -12,6 +12,7 @@ export interface Heading {
 
 interface MDXArticleFrontmatter {
   title: string;
+  excerpt: string;
   author: string;
   published: string;
   updated?: string;
@@ -83,6 +84,7 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
         category,
         frontmatter: {
           title: data.title,
+          excerpt: data.excerpt,
           author: data.author,
           published: data.published || new Date().toISOString(),
           updated: data.updated,
@@ -186,6 +188,7 @@ export async function getMdxContent(
 
     const frontmatter: MDXArticleFrontmatter = {
       title: data.title || '',
+      excerpt: data.excerpt || '',
       author: data.author || 'Stefan Lüllmann',
       published:
         data.published || new Date().toLocaleDateString().replaceAll('/', '.'),
