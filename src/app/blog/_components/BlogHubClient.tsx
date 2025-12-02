@@ -30,7 +30,8 @@ export default function BlogHubClient({
         </h2>
         <p>
           Discover every article I have ever written, from Technical analysis to
-          my personal opinion on Technical topics. It's all here, in one spot.
+          my personal opinion on Technical topics. It&apos;s all here, in one
+          spot.
         </p>
       </div>
       <div className={styles.body}>
