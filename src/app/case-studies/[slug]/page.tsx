@@ -1,4 +1,4 @@
-import { getMdxContent, Heading } from '@/lib/mdx';
+import { getMdxContent } from '@/lib/mdx';
 import { personalProjects, clientProjects } from '@/config/projects';
 import { notFound } from 'next/navigation';
 import { siteData } from '@/config/siteData';
