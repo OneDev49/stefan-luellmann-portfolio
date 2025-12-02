@@ -1,89 +1,91 @@
 import { MetadataRoute } from 'next';
 import { personalData } from '@/config/siteData';
+import { getAllBlogPosts } from '@/lib/mdx';
 
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 
-/* interface CaseStudy {
-  slug: string;
-  lastModified: Date;
-} */
+const BASE_URL = personalData.url || 'https://stefan-luellmann.com';
 
-async function getCaseStudySlugs(): Promise<string[]> {
-  const caseStudiesDirectory = path.join(
-    process.cwd(),
-    'content',
-    'case-studies'
-  );
+async function getCaseStudySitemapData() {
+  const dir = path.join(process.cwd(), 'content', 'case-studies');
+  if (!fs.existsSync(dir)) return [];
 
-  try {
-    if (!fs.existsSync(caseStudiesDirectory)) {
-      return [];
-    }
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
 
-    const fileNames = fs.readdirSync(caseStudiesDirectory);
+  return files.map((file) => {
+    const filePath = path.join(dir, file);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data } = matter(fileContent);
 
-    return fileNames
-      .filter(
-        (fileName) => fileName.endsWith('.mdx') || fileName.endsWith('.md')
-      )
-      .map((fileName) => fileName.replace(/\.(mdx|md)$/, ''));
-  } catch (error) {
-    console.error('Error reading case studies:', error);
-    return [];
-  }
+    const lastModified = data.updated
+      ? new Date(data.updated)
+      : data.published
+      ? new Date(data.published)
+      : new Date();
+
+    return {
+      url: `${BASE_URL}/case-studies/${file.replace('.mdx', '')}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    };
+  });
 }
 
-export default async function siteMap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = personalData.url || 'https://stefan-luellmann.com';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const blogPosts = await getAllBlogPosts();
 
-  const caseStudySlugs = await getCaseStudySlugs();
-
-  const caseStudyUrls = caseStudySlugs.map((slug) => ({
-    url: `${baseUrl}/case-studies/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.frontmatter.published
+      ? new Date(post.frontmatter.published)
+      : new Date(),
+    changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
 
+  const caseStudyUrls = await getCaseStudySitemapData();
+
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: BASE_URL,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'weekly' as const,
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${BASE_URL}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects`,
+      url: `${BASE_URL}/projects`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/case-studies`,
+      url: `${BASE_URL}/case-studies`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/impressum`,
+      url: `${BASE_URL}/impressum`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/datenschutz`,
+      url: `${BASE_URL}/datenschutz`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.3,
     },
   ];
 
-  return [...staticRoutes, ...caseStudyUrls];
+  return [...staticRoutes, ...caseStudyUrls, ...blogUrls];
 }
