@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
 import styles from './CodeBlock.module.scss';
 import CheckIcon from '@/components/icons/glyphs/CheckIcon';
 import LinkIcon from '@/components/icons/glyphs/LinkIcon';

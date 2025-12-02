@@ -4,6 +4,8 @@ import TextBlock from '@/components/mdx/mdxArticleComponents/TextBlock';
 import Highlight from '@/components/mdx/mdxArticleComponents/Highlight';
 import TextSpacer from '@/components/mdx/mdxArticleComponents/TextSpacer';
 import styles from './mdxParentFile.module.scss';
+import CodeBlock from './CodeBlock';
+import HyperLink from './Hyperlink';
 
 const H2 = ({ children }: { children?: React.ReactNode }) => {
   if (typeof children !== 'string') return <h2>{children}</h2>;
@@ -34,6 +36,8 @@ const UL = (props: React.HTMLAttributes<HTMLUListElement>) => (
 );
 
 export const coreMdxComponents = {
+  HyperLink,
+  CodeBlock,
   TextSpacer,
   TextBlock,
   Highlight,
