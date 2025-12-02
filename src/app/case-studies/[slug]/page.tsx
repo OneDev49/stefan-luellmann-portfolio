@@ -13,6 +13,7 @@ import TableOfContent from '@/components/mdx/TableOfContent';
 import ImageCarousel from '@/components/ui/ProjectImageCarousel';
 import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
 import ShareButton from '@/components/ui/ShareButton';
+import FormattedDate from '@/components/ui/FormattedDate';
 
 interface CaseStudyPageProps {
   params: { slug: string };
@@ -97,12 +98,16 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                   </li>
                   <li>
                     <span>Published:</span>
-                    <span>{frontmatter.published}</span>
+                    <span>
+                      <FormattedDate dateString={frontmatter.published} />
+                    </span>
                   </li>
                   {frontmatter.updated && (
                     <li>
                       <span>Updated:</span>
-                      <span>{frontmatter.updated}</span>
+                      <span>
+                        <FormattedDate dateString={frontmatter.updated} />
+                      </span>
                     </li>
                   )}
                 </ul>
@@ -128,7 +133,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     {frontmatter.releaseDateV1 && (
                       <li>
                         <span>Release Date V1:</span>
-                        <span>{frontmatter.releaseDateV1}</span>
+                        <span>
+                          <FormattedDate
+                            dateString={frontmatter.releaseDateV1}
+                          />
+                        </span>
                       </li>
                     )}
                   </ul>
@@ -187,22 +196,24 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </div>
             </div>
           )}
-          <div className={styles.mobileTableOfContent}>
+          <nav
+            className={styles.mobileTableOfContent}
+            aria-label='Table of contents'
+          >
             <MobileTableOfContent headings={headings} />
-          </div>
+          </nav>
         </div>
         <div className={styles.bodyBottom}>
           <div className={styles.article}>
             <MDXRemote source={content} components={coreMdxComponents} />
           </div>
-          <aside className={styles.tableOfContent}>
+          <aside
+            className={styles.tableOfContent}
+            aria-label='Table of contents'
+          >
             <TableOfContent headings={headings} variant='sidebar' />
           </aside>
         </div>
-      </div>
-
-      <div className={styles.contentWrapper}>
-        <div className={styles.content}></div>
       </div>
     </article>
   );
