@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import ImageSkeletonLoader from './ImageSkeletonLoader';
 import clsx from 'clsx';
-import styles from './ImageCarousel.module.scss';
+import styles from './ProjectImageCarousel.module.scss';
 import useEmblaCarousel from 'embla-carousel-react';
 
 interface ImageCarouselProps {

@@ -6,7 +6,7 @@ import styles from './BigProjectCard.module.scss';
 import GradientButton from './GradientButton';
 import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import clsx from 'clsx';
-import ImageCarousel from './ImageCarousel';
+import ImageCarousel from './ProjectImageCarousel';
 
 interface BigProjectCardProps {
   projectCategory: 'personal' | 'client';
@@ -30,7 +30,7 @@ export default function BigProjectCard({
       )}
     >
       <div className={styles.imageWrapper}>
-        <ImageCarousel project={project} bigImageSize='25vw' />
+        <ImageCarousel project={project} bigImageSize='50vw' />
       </div>
       <div className={styles.contentWrapper}>
         <div className={styles.content}>

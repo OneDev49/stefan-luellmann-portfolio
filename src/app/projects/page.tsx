@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main>
+    <>
       <ProjectsHeroSection />
       <ProjectsMainSection />
       <PersonalImageCTA
@@ -31,6 +31,6 @@ export default function ProjectsPage() {
         paragraph='Interested in my Projects or want to learn more about me? Reach out to me! I am currently looking for a full-time position as a Web Developer. So if you think that my skills and my mindset aligns well with you or your team, hit me up! I am always happy to have a chat.'
         getInTouchButton={true}
       />
-    </main>
+    </>
   );
 }

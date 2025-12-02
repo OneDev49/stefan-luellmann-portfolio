@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main>
+    <>
       <AboutHeroSection />
       <TimelineSection />
       <ToolkitSection />
@@ -48,6 +48,6 @@ export default function Home() {
         background={true}
         backgroundWaves={true}
       />
-    </main>
+    </>
   );
 }

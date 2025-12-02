@@ -28,6 +28,8 @@
   flex-direction: column;
   gap: 2rem;
   transition: border 0.3s ease;
+  max-width: 567px;
+  margin: 0 auto;
 
   h2 {
     text-decoration: underline;
@@ -53,5 +55,9 @@
 @media (min-width: 992px) {
   .gridContainer {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gridItem {
+    max-width: initial;
   }
 }

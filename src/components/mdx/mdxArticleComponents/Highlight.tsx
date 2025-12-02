@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { TechIcon, TechnologyName } from '../icons/TechIconMap';
+import { TechIcon, TechnologyName } from '../../icons/TechIconMap';
 import styles from './Highlight.module.scss';
 
 interface HighlightProps {

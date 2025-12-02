@@ -107,7 +107,7 @@ export default function GetInTouchModal({
                     variant='blue'
                     position='card'
                   >
-                    {personalData.phone}
+                    {personalData.phone.adjusted}
                   </GradientButton>
                 </div>
                 <GradientButton

@@ -93,6 +93,26 @@ export default function HeaderPhoneNav({
               </li>
               <li className={styles.sideNavLI}>
                 <Link
+                  href='/blog'
+                  className='nwt--anchor-img nwt--flex-c-n-n'
+                  onClick={closePhoneNav}
+                >
+                  <div className='nwt--flex-n-n-col'>
+                    <span
+                      className={`${styles.sideNavLIHeading} nwt--flex-c-n-n`}
+                    >
+                      Blog
+                    </span>
+                    <span>
+                      The latest articles about technology, development and
+                      everything inbetween.
+                    </span>
+                  </div>
+                  <AnglesRightIcon height={15} width={15} />
+                </Link>
+              </li>
+              <li className={styles.sideNavLI}>
+                <Link
                   href='/case-studies'
                   className='nwt--anchor-img nwt--flex-c-n-n'
                   onClick={closePhoneNav}

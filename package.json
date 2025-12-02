@@ -19,14 +19,19 @@
     "next-mdx-remote": "^5.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-syntax-highlighter": "^16.1.0",
     "sass": "^1.89.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.32",
     "typescript": "^5"
+  },
+  "overrides": {
+    "glob": "^10.4.6"
   }
 }

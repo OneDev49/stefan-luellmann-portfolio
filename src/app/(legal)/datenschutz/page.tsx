@@ -1,12 +1,10 @@
 import { getMdxContent } from '@/lib/mdx';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
   const result = await getMdxContent('datenschutz', 'legal');
-
-  if (!result) {
-    return {};
-  }
+  if (!result) return {};
 
   return {
     title: 'Datenschutz',
@@ -16,11 +14,12 @@ export async function generateMetadata() {
 }
 
 export default async function DatenschutzPage() {
-  const result = await getMdxContent('datenschutz', 'legal');
+  const mdxResult = (await getMdxContent('datenschutz', 'legal')) ?? notFound();
+  const { content } = mdxResult;
 
-  if (!result) {
-    notFound();
-  }
-
-  return <div>{result.content}</div>;
+  return (
+    <div>
+      <MDXRemote source={content} />
+    </div>
+  );
 }

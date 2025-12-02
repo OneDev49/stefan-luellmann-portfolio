@@ -22,7 +22,7 @@
 
 .tocLink {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   color: #ffffff;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
@@ -31,11 +31,26 @@
   padding-left: 1rem;
 }
 
+.sidebarNav ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-height: calc(80svh - 60px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #0077ff #00457e;
+}
+
 .collapsibleNav {
-  border: 1px solid #4a4a4a;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
-  max-width: 576px;
+  max-width: 72ch;
+  background: rgb(0, 34, 138);
+  box-shadow: 0 0 10px 5px rgb(0, 43, 173);
+
+  button {
+    text-decoration: underline;
+  }
 }
 
 .collapsibleHeader {
@@ -62,4 +77,13 @@
 .collapsibleContent {
   padding: 0 1rem 0.75rem 1rem;
   border-top: 1px solid #4a4a4a;
+
+  > ol {
+    padding-left: 1rem;
+    margin: 0;
+
+    ::marker {
+      font-size: 14px;
+    }
+  }
 }

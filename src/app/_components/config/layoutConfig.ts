@@ -71,7 +71,10 @@ export const metadataConfig: Metadata = {
 
   // Open Graph Metadata
   openGraph: {
-    title: 'Stefan Lüllmann | Full-Stack Software Developer',
+    title: {
+      template: '%s | Stefan Lüllmann',
+      default: 'Stefan Lüllmann | Full-Stack Software Developer',
+    },
     description:
       'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
     url: personalData.url,
@@ -91,7 +94,10 @@ export const metadataConfig: Metadata = {
   // Twitter Card Metadata
   twitter: {
     card: 'summary_large_image',
-    title: 'Stefan Lüllmann | Full-Stack Software Developer',
+    title: {
+      template: '%s | Stefan Lüllmann',
+      default: 'Stefan Lüllmann | Full-Stack Software Developer',
+    },
     description:
       'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
     images: [
