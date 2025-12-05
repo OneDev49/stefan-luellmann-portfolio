@@ -11,6 +11,7 @@
 
 .relatedArticles {
   max-width: 1280px;
+  padding: 0 var(--nwt--r-spacer-sm);
   margin: 150px auto;
   display: flex;
   flex-direction: column;
@@ -20,6 +21,19 @@
 
 .relArtHeader {
   text-align: center;
+}
+
+.relArtBody {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .relArtBody {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .header {
@@ -136,6 +150,7 @@
 
 .content {
   flex: 100%;
+  min-width: 0;
 
   h2,
   h3,
