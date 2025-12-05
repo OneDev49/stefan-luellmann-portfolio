@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     frontmatter: frontmatter,
   };
 
-  const relatedPosts = await getRelatedPosts(currentPost, 3);
+  const relatedPosts = await getRelatedPosts(currentPost, 2);
 
   return (
     <>
@@ -200,7 +200,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <h2 className='nwt--f-h2'>Related Articles</h2>
             <p>My other Technical Articles that are related to this one.</p>
           </div>
-          <div>
+          <div className={styles.relArtBody}>
             {relatedPosts.map((post, index) => (
               <ArticleCard key={index} post={post} />
             ))}
