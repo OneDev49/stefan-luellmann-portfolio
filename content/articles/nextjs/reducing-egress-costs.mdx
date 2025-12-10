@@ -1,0 +1,163 @@
+---
+
+title: "The Next.js Playbook: Mastering Egress & Reducing Cloud Costs"
+
+---
+
+Egress is a fundamental concept in web infrastructure, yet it is often the most overlooked by developers.
+We tend to obsess over the execution speed of our code, but we neglect the **cost** of delivering it.
+
+If you are hosting a media-heavy Next.js application on platforms like Vercel or Netlify without a proper storage strategy, you are sitting on a ticking time bomb.
+
+Without understanding Egress, you cannot effectively architect a scalable application.
+
+This article explores what Egress actually is, why the <Highlight color="code">/public</Highlight> folder is a production trap, and how to optimize your media pipeline to save resources and money.
+
+
+
+<TextBlock>
+## What is Egress?
+Simply put, **Egress** is outbound traffic.
+Every time a user visits your website, your server sends data (HTML, CSS, JS, Images) to their browser.
+That data travel is Egress.
+
+Cloud providers like Vercel and Netlify cover the costs for a certain amount of Egress.
+If one unoptimized image is 1.5MB, you consume 1.5MB of your bandwidth quota every single time that image loads.
+
+This sounds negligible for one user.
+But if you have 10,000 visitors, that single image consumes **15GB** of bandwidth.
+When you scale, this cost skyrockets.
+</TextBlock>
+
+
+
+<TextBlock>
+## The /public Folder Trap
+One of the most common architectural mistakes I encounter in Next.js projects is treating the <Highlight color="code">/public</Highlight> folder as a database for media.
+
+The <Highlight color="code">/public</Highlight> folder is special. Files inside it are bundled with your deployment and served directly from the Edge. While this is fine for a 5KB favicon, it is a disaster for large assets.
+
+Storing heavy media here creates three major problems:
+1. **Git Bloat:** Storing binary files in Git slows down cloning and version control operations for the entire team.
+2. **Slow CI/CD:** Your build server has to download and cache these assets every single time you deploy.
+3. **Expensive Egress:** You are using premium "Application Bandwidth" to serve static assets.
+
+
+TIP:
+**Senior Architect Recommendation:**
+Treat your Git repository as "Code Only".
+If a file is not source code (like a PDFs, MP4s, or high resolution PNGs), it does not belong in your Git history.
+**Rule of Thumb:** If the file is >5KB, it breaks the repository. Move it to Object Storage immediately.
+</TextBlock>
+
+
+
+<TextBlock>
+## The Optimization Pipeline
+Before we even discuss where to store files, we must discuss **Optimization**.
+The most effective way to reduce Egress is to simply send less data.
+
+Here is the specific workflow I use to ensure assets are production-ready.
+
+<TextSpacer />
+### Image Optimization
+Sending a raw 5MB PNG is architectural negligence.
+
+- **Format Shifting:** Shift from <Highlight color="code">.png</Highlight> or <Highlight color="code">.jpg</Highlight> to modern formats like <Highlight color="code">.webp</Highlight> or <Highlight color="code">.avif</Highlight>. These offer superior compression with no visible loss in quality.
+- **Pre-Processing:** I personally use **GIMP** to scale images down to their display size. There is no reason to host a 4000x6000px image if it is rendered at 800x1200px.
+- **Compression:** Tools like Compress-or-die.com are essential. My workflow is simple: Scale in GIMP > Drag into Compress-or-die > Export as WebP.
+
+<TextSpacer />
+### Video Optimization
+Video is the heaviest asset type.
+Never serve raw video files.
+I use **FFmpeg**, the industry standard for video processing (used by Netflix and YouTube).
+It allows you to compress and encode videos specifically for web streaming.
+
+TIP:
+**Tool Recommendation: FFmpeg
+Using a CLI tool can be intimidating, but it offers the best compression.
+Use this command to convert a video to a web optimized format:
+
+<Highlight color="code">ffmpeg -i input.mp4 -vcodec libx265 -crf 28 output.mp4</Highlight>
+
+This <Highlight color="code">crf 28</Highlight> flag tells FFmpeg to compress aggressively while maintaining visual quality, often reducing file size by 70%.
+</TextBlock>
+
+
+
+<TextBlock>
+## The Architecture Shift: Separation of Concerns
+Once the assets are optimized, we need to store them. To optimize costs, we need to decouple our **Code** from our **Assets**.
+1. **Code (Vercel/Netlify):** Handles logic, SSR and API routes.
+2. **Assets (Object Storage):** Handles images, videos and PDFs.
+
+Services like **AWS S3** or **UploadThing** are designed specifically for this.
+They offer massive storage at a fraction of the cost of Vercel's bandwidth.
+
+<TextSpacer />
+### Implementing the "Asset Helper" Pattern
+Hardcoding URLs (e.g.: <Highlight color="code">https://stefan-luellmann.com/image.png</Highlight>) is brittle and makes maintenance difficult.
+
+Instead, I recommend using **Environment Variables** combined with a helper config file.
+This keeps your code clean and allows you to switch storage providers without rewriting every component.
+
+First we need to configure the Environment:
+<CodeBlock language="env" filename=".env.local">
+{`
+NEXT_PUBLIC_ASSET_URL="https://ufts.io/f/"
+`}
+</CodeBlock>
+
+IMPORTANT:
+**Remember to allow the URL in next.config.mjs**
+When using a service such as UploadThing together with Next.js, remember that you have to allow the URL inside the <Highlight color="code">next.config.mjs</Highlight> file.
+
+Next, create a centralized config file:
+<CodeBlock language="typescript" filename="config/url.ts">
+{`
+export const UPLOADTHING_IMAGE_URL = process.env.NEXT_PUBLIC_ASSET_URL;
+`}
+</CodeBlock>
+
+You can now use that constant inside all of your other files.
+Your components are now agnostic to where the files live.
+<CodeBlock language="typescript">
+{`
+import { UPLOADTHING_IMAGE_URL } = "@/config/url";
+import Image from "next/image";
+
+export function HeroSection() {
+  return (
+    <div className="relative h-96 w-full">
+      <Image
+        src={\`\${UPLOADTHING_IMAGE_URL}/hero.jpg\`}}
+        alt="Hero Banner"
+        fill
+        className="object-cover"
+      />
+    </div>
+  );
+}
+`}
+</CodeBlock>
+</TextBlock>
+
+
+
+<TextBlock>
+## Closing Remarks
+Optimizing resource usage is no longer a secondary task.
+It is a mandatory skill for scalable development.
+
+By optimizing your media workflow (using tools like GIMP and FFmpeg) and moving heavy assets into a dedicated Object Storage, you achieve three things:
+1. **Minimal Egress** (Lower Costs).
+2. **Faster CI/CD** (Smaller Git repo).
+3. **Better User Experience** (Faster load times).
+
+If you are interested in further Full-Stack optimizations, check out my <HyperLink href="/blog/404">Prisma Performance Deep Dive</HyperLink> for database tuning tips.
+
+Happy Coding!
+
+Stefan.
+</TextBlock>
