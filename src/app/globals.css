@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground break-words relative leading-relaxed antialiased;
+    font-family: var(--font-text);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    overflow-wrap: break-word;
+  }
+
+  p {
+    overflow-wrap: break-word;
+  }
+}
+
+@layer utilities {
+  .custom-text-shine {
+    @apply relative inline-block font-extrabold overflow-hidden bg-clip-text bg-transparent;
+    background-image: linear-gradient(
+      135deg,
+      #9c9c9c 0%,
+      #9c9c9c 40%,
+      #ffffff 50%,
+      #9c9c9c 60%,
+      #9c9c9c 100%
+    );
+    background-size: 200% auto;
+  }
+
+  .custom-hover-underline-swipe {
+    @apply relative inline-block;
+  }
+
+  .custom-hover-underline-swipe::before {
+    content: '';
+    @apply absolute left-auto h-[2px] right-0 w-0 transition-all duration-300 ease-out rounded-xl bottom-[1px];
+    background: linear-gradient(90deg, #006eff, #00e1ff);
+  }
+
+  .custom-hover-underline-swipe:hover::before {
+    @apply left-0 right-auto w-full;
+  }
+}
