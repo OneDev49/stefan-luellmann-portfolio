@@ -4,7 +4,6 @@
 
 This repository contains the source code for my Professional Portfolio Website, built to showcase my Projects (both Personal and Client) and professional Case Studies. Designed for speed, responsiveness, and maintainability.
 
-
 **Live Demo**: [https://stefan-luellmann.com](https://stefan-luellmann.com)
 
 ## Core Features
