@@ -5,7 +5,6 @@ import {
 } from './_components/config/layoutConfig';
 import { ModalProvider } from '@/context/ModalContext';
 
-import '@/styles/globals.scss';
 import FooterSection from '@/components/layout/Footer';
 import HeaderSection from '@/components/layout/Header';
 import ParticleBackground from '@/components/effects/ParticleBackground';
