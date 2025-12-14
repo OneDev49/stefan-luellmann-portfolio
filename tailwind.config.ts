@@ -34,6 +34,9 @@ const config: Config = {
       backgroundImage: {
         'gradient-card': 'linear-gradient(180deg, #fff 50%, #929292 100%',
       },
+      fontFamily: {
+        heading: 'var(--font-heading)',
+      },
     },
   },
   plugins: [],
