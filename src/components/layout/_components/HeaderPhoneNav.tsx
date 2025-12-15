@@ -74,8 +74,8 @@ export default function HeaderPhoneNav({
           </Link>
           <GradientButton
             as='button'
-            variant='rainbow'
-            className='text-sm font-normal flex-shrink-0'
+            variant='blue'
+            className='text-sm flex-shrink-0'
             position='card'
             onClick={() => {
               closePhoneNav();

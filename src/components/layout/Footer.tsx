@@ -84,8 +84,8 @@ export default function FooterSection() {
                   </Link>
                 </li>
                 <li>
-                  <Link href='/projects' className={anchorClassName}>
-                    Projects
+                  <Link href='/work' className={anchorClassName}>
+                    My Work
                   </Link>
                 </li>
                 <li>
@@ -99,8 +99,8 @@ export default function FooterSection() {
               <strong className={strongClassName}>Articles</strong>
               <ul>
                 <li>
-                  <Link href='/blog' className={anchorClassName}>
-                    Blog
+                  <Link href='/articles' className={anchorClassName}>
+                    Articles Hub
                   </Link>
                 </li>
                 <li>
@@ -111,7 +111,7 @@ export default function FooterSection() {
               </ul>
             </div>
             <div>
-              <strong className={strongClassName}>Other</strong>
+              <strong className={strongClassName}>Misc.</strong>
               <ul>
                 <li>
                   <Link href='/impressum' className={anchorClassName}>

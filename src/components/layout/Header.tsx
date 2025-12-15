@@ -97,29 +97,25 @@ export default function HeaderSection() {
                 <Link href='/' className={navLinkBtn}>
                   Homepage
                 </Link>
-                <Link href='/projects' className={navLinkBtn}>
-                  Projects
-                </Link>
-                <Link href='/case-studies' className={navLinkBtn}>
-                  Case Studies
+                <Link href='/work' className={navLinkBtn}>
+                  Work
                 </Link>
               </div>
               <div className='hidden items-center gap-2 min-[1100px]:flex'>
-                <Link href='/blog' className={navLinkBtn}>
-                  Blog
+                <Link href='/articles' className={navLinkBtn}>
+                  Articles
                 </Link>
                 <Link href='/about' className={navLinkBtn}>
                   About
                 </Link>
                 <GradientButton
                   as='button'
-                  variant='rainbow'
+                  variant='blue'
                   className={navCTA}
                   position='card'
                   onClick={openGetInTouch}
                 >
                   <span>Get In Touch</span>
-                  <CaretRightIcon />
                 </GradientButton>
               </div>
               <div className='flex items-center gap-4 min-[1100px]:hidden'>
@@ -138,13 +134,12 @@ export default function HeaderSection() {
                 </button>
                 <GradientButton
                   as='button'
-                  variant='rainbow'
+                  variant='blue'
                   className={navCTA}
                   position='card'
                   onClick={openGetInTouch}
                 >
                   <span>Get In Touch</span>
-                  <CaretRightIcon />
                 </GradientButton>
               </div>
             </nav>
