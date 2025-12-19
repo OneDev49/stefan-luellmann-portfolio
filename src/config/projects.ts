@@ -80,3 +80,5 @@ export const personalProjects: Project[] | [] = [
 ];
 
 export const clientProjects: Project[] | [] = [];
+
+export const allProjects: Project[] = [...personalProjects, ...clientProjects];
