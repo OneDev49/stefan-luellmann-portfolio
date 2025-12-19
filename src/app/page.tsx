@@ -1,17 +1,18 @@
-import IntroductionSection from './_components/IntroductionSection';
-import ArticleAdvertisementSection from './_components/ArticleAdvertisementSection';
-import ProjectShowcaseSection from './_components/ProjectShowcaseSection';
-import CTASection from './_components/CTASection';
-import MainpageHeroSection from './_components/MainpageHeroSection';
+import HomePageCTA from './_components/HomePageCTA';
+import HomePageHero from './_components/HomePageHero';
+import HomePageBento from './_components/HomePageBento';
+import './globals.css';
+import HomePageNewsletter from './_components/HomePageNewsletter';
+import HomepageLatestArticle from './_components/HomepageLatestArticles';
 
 export default function HomePage() {
   return (
     <main>
-      <MainpageHeroSection />
-      <IntroductionSection />
-      <ArticleAdvertisementSection />
-      <ProjectShowcaseSection />
-      <CTASection />
+      <HomePageHero />
+      <HomePageBento />
+      <HomePageNewsletter />
+      <HomepageLatestArticle />
+      <HomePageCTA />
     </main>
   );
 }
