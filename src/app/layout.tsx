@@ -7,7 +7,6 @@ import { ModalProvider } from '@/context/ModalContext';
 
 import FooterSection from '@/components/layout/Footer';
 import HeaderSection from '@/components/layout/Header';
-import ParticleBackground from '@/components/effects/ParticleBackground';
 
 export const metadata = metadataConfig;
 
@@ -24,7 +23,6 @@ export default function RootLayout({
       <body>
         <ModalProvider>
           <HeaderSection />
-          <ParticleBackground particleCount={150} />
           <main>{children}</main>
           <FooterSection />
         </ModalProvider>
