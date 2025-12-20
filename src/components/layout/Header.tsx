@@ -7,7 +7,6 @@ import { cn } from '@/lib/utilities';
 
 import Link from 'next/link';
 import GradientButton from '../ui/GradientButton';
-import CaretRightIcon from '../icons/ui/CaretRightIcon';
 import Image from 'next/image';
 import HamburgerIcon from '../icons/ui/HamburgerIcon';
 import HeaderPhoneNav from './_components/HeaderPhoneNav';
