@@ -3,9 +3,9 @@
 import { personalData, siteData } from '@/config/siteData';
 import { useModal } from '@/context/ModalContext';
 
-import GradientButton from '@/components/ui/GradientButton';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
+import CTAButton from '@/components/ui/CTAButton';
 
 export default function HomePageCTA() {
   const { openGetInTouch } = useModal();
@@ -44,17 +44,17 @@ export default function HomePageCTA() {
           </span>
         </p>
         <div>
-          <GradientButton
+          <CTAButton
             as='button'
-            variant='blue'
-            position='card'
+            colorStyle='gradientBlue'
+            animation='all'
             onClick={() => {
               openGetInTouch();
             }}
           >
             Reach out to Me
             <CaretRightIcon height={32} width={16} />
-          </GradientButton>
+          </CTAButton>
         </div>
       </div>
     </section>

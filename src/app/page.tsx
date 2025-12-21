@@ -2,7 +2,7 @@ import HomePageCTA from './_components/HomePageCTA';
 import HomePageHero from './_components/HomePageHero';
 import HomePageBento from './_components/HomePageBento';
 import HomePageNewsletter from './_components/HomePageNewsletter';
-import HomepageLatestArticle from './_components/HomepageLatestArticles';
+import LatestArticles from '@/components/sections/LatestArticles';
 
 export default function HomePage() {
   return (
@@ -10,7 +10,7 @@ export default function HomePage() {
       <HomePageHero />
       <HomePageBento />
       <HomePageNewsletter />
-      <HomepageLatestArticle />
+      <LatestArticles heading='Discover my latest Technical Deep Dives' />
       <HomePageCTA />
     </main>
   );

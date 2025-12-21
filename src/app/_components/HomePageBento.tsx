@@ -10,11 +10,11 @@ import {
 import LinkedInIconWithName from '@/components/icons/brands/LinkedInIconWithName';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import FormattedDate from '@/components/ui/FormattedDate';
-import GradientButton from '@/components/ui/GradientButton';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import MenuButton from '@/components/ui/MenuButton';
 import TechnologyContainer from '@/components/ui/TechnologyContainer';
 import Link from 'next/link';
+import CTAButton from '@/components/ui/CTAButton';
 
 export default async function HomePageBento() {
   const latestArticle: Article[] = await getLatestArticles(1);
@@ -47,11 +47,19 @@ export default async function HomePageBento() {
     'max-w-[75%] h-0.5 border-0 bg-gradient-to-br from-[#0033ff] to-[#0059ff]';
   const listHeadingClassName = 'text-[26px] font-extrabold capitalize';
   const listButtonClassName =
-    'gap-1 py-1 px-2 items-center rounded-md font-heading';
+    'gap-1 py-1 px-2 items-center rounded-md font-heading font-extrabold';
   const contentSkeletonClassName = 'h-2 bg-neutral-50/25 rounded-full';
 
   return (
-    <section className='max-w-6xl w-full mx-auto px-4 mb-36'>
+    <section className='max-w-6xl space-y-6 w-full mx-auto px-4 mb-36'>
+      <div className='space-y-2'>
+        <h2 className='text-h2 text-transparent font-extrabold capitalize text-center'>
+          <span className='bg-gradient-card bg-clip-text'>
+            Explore my Website
+          </span>
+        </h2>
+        <hr className='border-gray-400' />
+      </div>
       <ul className='grid lg:grid-cols-3 lg:grid-rows-3 gap-6'>
         <li className={`${listClassName} col-span-2`}>
           <div
@@ -95,13 +103,15 @@ export default async function HomePageBento() {
                       {article.frontmatter.excerpt}
                     </p>
                   </div>
-                  <GradientButton
+                  <CTAButton
                     href={`/articles/${article.topic}/${article.slug}`}
                     className={listButtonClassName}
+                    animation='all'
+                    colorStyle='gradientBlue'
                   >
                     Read latest Deep Dive
                     <CaretRightIcon height={24} width={14} />
-                  </GradientButton>
+                  </CTAButton>
                 </div>
                 <div className='flex-1 hidden sm:block'>
                   <Link href={`/articles/${article.topic}/${article.slug}`}>
@@ -122,28 +132,33 @@ export default async function HomePageBento() {
           </div>
         </li>
         <li className={`${listClassName} col-span-2 col-start-1 row-start-2`}>
-          <div className={`${listBgClassName} flex gap-2`}>
-            <div className='flex flex-col gap-4 flex-1 items-center text-center sm:items-start sm:text-left'>
-              <div className='w-full'>
-                <h3 className={listHeadingClassName}>My Latest Project</h3>
-                <hr className={`${hrClassName} mx-auto sm:mx-0`} />
-              </div>
-              {latestProject && maximumTechStack ? (
-                <div className='flex flex-col gap-2 items-center sm:items-start'>
-                  {latestProject && (
-                    <div className='flex-1 max-w-[250px] flex sm:hidden'>
+          <div
+            className={`${listBgClassName} flex flex-col gap-4 text-center sm:text-left`}
+          >
+            <div className='w-full'>
+              <h3 className={listHeadingClassName}>My Latest Project</h3>
+              <hr className={`${hrClassName} mx-auto sm:mx-0`} />
+            </div>
+            {latestProject && maximumTechStack ? (
+              <div className='flex flex-1 items-center gap-2'>
+                <div className='flex flex-col gap-4 items-center sm:items-start flex-1'>
+                  <div className='sm:hidden'>
+                    <a
+                      href={latestProject.links.liveDemo}
+                      rel='noopener noreferrer'
+                      target='_blank'
+                    >
                       <ImageSkeletonLoader
-                        loading='eager'
                         draggable={false}
                         alt={latestProject.title}
                         title={latestProject.title}
-                        src={`${siteData.uploadThingUrl}/x81VdwhEWe9Y9GUnOvVSpGcn3VJg5sjiNkum8Iy2dAoabDQT`}
-                        width={215}
-                        height={215}
-                        className='w-auto object-cover h-auto max-w-[250px]'
+                        src={`${siteData.uploadThingUrl}/${latestProject.thumbnail}`}
+                        width={307}
+                        height={160}
+                        className='h-auto w-full'
                       />
-                    </div>
-                  )}
+                    </a>
+                  </div>
                   <h4 className='line-clamp-1 text-[18px] font-extrabold underline'>
                     {latestProject.title}
                   </h4>
@@ -164,39 +179,46 @@ export default async function HomePageBento() {
                       <li className='text-[12px] underline'>and more...</li>
                     )}
                   </ul>
-                  <p className='text-sm line-clamp-3'>
+                  <p className='line-clamp-2 text-sm'>
                     {latestProject.description}
                   </p>
-                  <MenuButton project={latestProject} />
+                  <MenuButton
+                    project={latestProject}
+                    className='font-extrabold'
+                  />
                 </div>
-              ) : (
-                <div className='max-w-sm animate-pulse space-y-2'>
-                  <div className={`${contentSkeletonClassName} max-w-36`} />
-                  <div className={`${contentSkeletonClassName} max-w-40`} />
-                  <div className={`${contentSkeletonClassName} max-w-48`} />
-                  <div className={`${contentSkeletonClassName} max-w-24`} />
-                  <div className={`${contentSkeletonClassName} max-w-64`} />
-                  <div className={`${contentSkeletonClassName} max-w-72`} />
-                  <div className='h-8 max-w-24 bg-neutral-50/25 rounded-md' />
+                <div className='flex-1 hidden sm:block'>
+                  <a
+                    href={latestProject.links.liveDemo}
+                    rel='noopener noreferrer'
+                    target='_blank'
+                  >
+                    <ImageSkeletonLoader
+                      draggable={false}
+                      alt={latestProject.title}
+                      title={latestProject.title}
+                      src={`${siteData.uploadThingUrl}/${latestProject.thumbnail}`}
+                      width={307}
+                      height={160}
+                      className='h-auto w-full'
+                    />
+                  </a>
                 </div>
-              )}
-            </div>
-            {latestProject && (
-              <div className='flex-1 max-w-[250px] hidden sm:flex'>
-                <ImageSkeletonLoader
-                  loading='eager'
-                  draggable={false}
-                  alt={latestProject.title}
-                  title={latestProject.title}
-                  src={`${siteData.uploadThingUrl}/x81VdwhEWe9Y9GUnOvVSpGcn3VJg5sjiNkum8Iy2dAoabDQT`}
-                  width={215}
-                  height={215}
-                  className='w-auto object-cover h-auto max-w-[250px]'
-                />
+              </div>
+            ) : (
+              <div className='max-w-sm animate-pulse space-y-2'>
+                <div className={`${contentSkeletonClassName} max-w-36`} />
+                <div className={`${contentSkeletonClassName} max-w-40`} />
+                <div className={`${contentSkeletonClassName} max-w-48`} />
+                <div className={`${contentSkeletonClassName} max-w-24`} />
+                <div className={`${contentSkeletonClassName} max-w-64`} />
+                <div className={`${contentSkeletonClassName} max-w-72`} />
+                <div className='h-8 max-w-24 bg-neutral-50/25 rounded-md' />
               </div>
             )}
           </div>
         </li>
+
         <li
           className={`${listClassName} row-start-3 col-span-2 row-span-1 md:col-span-2 md:col-start-1 lg:col-start-3 lg:row-start-1 lg:row-span-2 lg:col-span-1`}
         >
@@ -330,16 +352,18 @@ export default async function HomePageBento() {
                 <strong className='underline'>30+</strong>
                 <span>Current Technical Posts</span>
               </p>
-              <GradientButton
+              <CTAButton
                 as='a'
                 href={`${personalData.social.linkedin}`}
                 rel='noopener noreferrer'
                 target='_blank'
                 className={listButtonClassName}
+                animation='all'
+                colorStyle='gradientBlue'
               >
                 Connect on LinkedIn
                 <CaretRightIcon height={24} width={14} />
-              </GradientButton>
+              </CTAButton>
             </div>
           </div>
         </li>
@@ -359,10 +383,15 @@ export default async function HomePageBento() {
               Learn more about me, how I became a Full-Stack Engineer and my
               full journey to who I am now.
             </p>
-            <GradientButton href='/about' className={listButtonClassName}>
+            <CTAButton
+              href='/about'
+              className={listButtonClassName}
+              animation='all'
+              colorStyle='gradientBlue'
+            >
               To my About Page
               <CaretRightIcon height={24} width={14} />
-            </GradientButton>
+            </CTAButton>
           </div>
         </li>
         <li
@@ -381,13 +410,15 @@ export default async function HomePageBento() {
               Discover which technologies I use to architect scalable,
               maintainable projects for SMBs of all types.
             </p>
-            <GradientButton
+            <CTAButton
               href='/about#techstack'
               className={listButtonClassName}
+              animation='all'
+              colorStyle='gradientBlue'
             >
               View my TechStack
               <CaretRightIcon height={24} width={14} />
-            </GradientButton>
+            </CTAButton>
           </div>
         </li>
       </ul>
