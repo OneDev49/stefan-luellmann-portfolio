@@ -1,4 +1,4 @@
-import { HeroNetwork } from '@/components/effects/NewParticleBackground';
+import { BackgroundNetworkParticles } from '@/components/effects/BackgroundNetworkParticles';
 
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import CTAButton from '@/components/ui/CTAButton';
@@ -6,8 +6,8 @@ import CTAButton from '@/components/ui/CTAButton';
 export default function HomePageHero() {
   return (
     <section className='relative min-h-[80svh] grid place-items-center'>
-      <div className='absolute inset-0 [mask-image:radial-gradient(circle_at_center,black_40%,transparent_100%)]'>
-        <HeroNetwork />
+      <div className='absolute inset-0 [mask-image:linear-gradient(180deg,black_90%,transparent_100%)]'>
+        <BackgroundNetworkParticles />
       </div>
 
       <div className='relative py-20 max-w-7xl w-full mx-auto px-4 flex flex-col items-center text-center gap-4'>
