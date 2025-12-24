@@ -2,15 +2,18 @@
 
 import { useEffect, useState } from 'react';
 import { personalData, siteData } from '@/config/siteData';
+import { cn } from '@/lib/utilities';
 
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
-import GradientButton from '@/components/ui/GradientButton';
-import styles from './GetInTouchModal.module.scss';
 import GlobeIcon from '@/components/icons/glyphs/GlobeIcon';
 import Link from 'next/link';
 import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
 import CloseIcon from '@/components/icons/ui/CloseIcon';
 import ImageSkeletonLoader from './ImageSkeletonLoader';
+import EnvelopeIcon from '../icons/glyphs/EnvelopeIcon';
+import LinkIcon from '../icons/glyphs/LinkIcon';
+import PDFIcon from '../icons/glyphs/PDFIcon';
+import CTAButton from './CTAButton';
 
 interface GetInTouchModalProps {
   isOpen: boolean;
@@ -25,6 +28,13 @@ export default function GetInTouchModal({
 }: GetInTouchModalProps) {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(personalData.email);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
 
   useEffect(() => {
     let timerMount: ReturnType<typeof setTimeout> | null = null;
@@ -42,129 +52,133 @@ export default function GetInTouchModal({
       if (timerMount) clearTimeout(timerMount);
       if (timerUnmount) clearTimeout(timerUnmount);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isOpen && e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   if (!isMounted) return null;
 
+  const overlayClassName = cn(
+    'fixed inset-0 bg-black/80 transition-opacity duration-300 ease-in-out',
+    isVisible ? 'opacity-100' : 'opacity-0'
+  );
+
+  const containerClassName = cn(
+    'relative flex flex-col justify-center items-center bg-[linear-gradient(30deg,#002bff,#a100ff)] p-1 min-w-[300px] max-w-lg rounded-lg overflow-hidden transition-all duration-300 ease-in-out sm:min-w-[360px]',
+    isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+  );
+
+  const emailClassName =
+    'flex-1 px-2 py-1 flex gap-2 items-center font-extrabold transition-colors duration-300 ease-in-out justify-center';
+
+  const anchorClassName =
+    'shadow-[inset_0_2px_4px_2px_rgb(255,255,255,0.25)] py-1.5 px-2 flex gap-2 text-base';
+
   return (
-    <div className={styles.modalWrapper} aria-hidden={!isVisible}>
+    <div className='fixed inset-0 z-[999]' aria-hidden={!isVisible}>
       <div
-        className={`${styles.headerModal} ${
-          isVisible ? styles.open : styles.closed
-        }`}
+        className='fixed inset-0 z-[100] grid place-items-center overflow-y-auto text-sm py-4'
         role='dialog'
         aria-modal='true'
       >
-        <div className={styles.overlay} onClick={onClose}></div>
-        <div className={styles.container}>
-          <div className={styles.containerTop}>
-            <div className={styles.containerImage}>
-              <ImageSkeletonLoader
-                draggable={false}
-                src={`${siteData.uploadThingUrl}/${personalData.personalImage}`}
-                height={600}
-                width={600}
-                alt="Hey, I'm Stefan!"
-                sizes='10vw'
-              />
-            </div>
-            <div className={styles.containerTopContent}>
-              <div className={styles.containerTopInner}>
-                <h2 className='nwt--f-h3'>Get In Touch!</h2>
-                <div
-                  className={styles.modalCloseBtn}
-                  onClick={onClose}
-                  title="Close the 'Get In Touch' Window"
-                  aria-label="Close the 'Get in Touch' Window"
-                >
-                  <CloseIcon height={30} width={30} />
-                </div>
+        <div className={overlayClassName} onClick={onClose} />
+        <div className={containerClassName}>
+          <div className='absolute w-[1000px] h-[1000px] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_50%,rgb(190,190,190,0.5)_100%)]' />
+          <div className='relative z-50 w-full h-full flex-1 bg-[#161616] rounded-lg p-4 flex flex-col gap-6'>
+            <div className='flex flex-col items-center text-center gap-2 border-b border-[#767676] pb-3'>
+              <div className='rounded-full overflow-hidden border border-white shadow-[0_0_15px_2px_#0066ff] mb-1'>
+                <ImageSkeletonLoader
+                  draggable={false}
+                  className='h-28 w-28 object-cover'
+                  src={`${siteData.uploadThingUrl}/${personalData.personalImage}`}
+                  height={118}
+                  width={118}
+                  alt="Hey, I'm Stefan, a Full-Stack Engineer & Technical Writer!"
+                  title="Hey, I'm Stefan, a Full-Stack Engineer & Technical Writer!"
+                  sizes='10vw'
+                />
               </div>
-              <p>Always available and open for a talk!</p>
-            </div>
-          </div>
-          <div className={`${styles.containerBottom}`}>
-            <div>
-              <p>
-                Reach out to me via <strong>E-Mail</strong>,{' '}
-                <strong>Phone</strong> or through other means!
+              <h2 className='text-[36px] font-extrabold'>Stefan Lüllmann</h2>
+              <strong className='font-heading underline'>
+                Full-Stack Engineer & Technical Writer
+              </strong>
+              <p className='grid'>
+                <span>Based in Germany.</span>
+                <span>Open to remote opportunities.</span>
               </p>
-              <div className={`${styles.containerBtns}`}>
-                <div>
-                  <GradientButton
-                    as='a'
-                    rel='noopener noreferrer'
-                    href={`mailto:${personalData.email}`}
-                    variant='blue'
-                    position='card'
-                  >
-                    {personalData.email}
-                  </GradientButton>
-                  <GradientButton
-                    as='a'
-                    rel='noopener noreferrer'
-                    href={`tel:${personalData.phone}`}
-                    variant='blue'
-                    position='card'
-                  >
-                    {personalData.phone.adjusted}
-                  </GradientButton>
-                </div>
-                <GradientButton
+            </div>
+            <div className='flex flex-col gap-4'>
+              <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                <CTAButton
                   as='a'
-                  href='/files/Stefan_Luellmann_CV_16.09.2025.pdf'
-                  variant='green'
-                  download
+                  rel='noopener noreferrer'
+                  href={`mailto:${personalData.email}`}
+                  animation='all'
+                  className={`${anchorClassName} bg-[#00b2ff]`}
+                >
+                  Direct E-Mail
+                  <EnvelopeIcon variant='solid' height={25} width={25} />
+                </CTAButton>
+                <CTAButton
+                  as='button'
+                  type='button'
+                  onClick={handleCopy}
+                  animation='all'
+                  className={`${anchorClassName} bg-[#00b2ff]`}
+                >
+                  {isCopied ? 'Copied!' : 'Copy E-Mail'}
+                  <LinkIcon height={25} width={25} />
+                </CTAButton>
+              </div>
+              <CTAButton
+                as='a'
+                href='/files/Stefan_Luellmann_CV_16.09.2025.pdf'
+                download
+                rel='noopener noreferrer'
+                target='_blank'
+                className={`${anchorClassName} bg-[#00812b]`}
+                animation='all'
+              >
+                Download my CV
+                <PDFIcon height={25} width={25} />
+              </CTAButton>
+              <div className='flex flex-col gap-4'>
+                <CTAButton
+                  as='a'
                   rel='noopener noreferrer'
                   target='_blank'
-                  position='card'
+                  href={`${personalData.social.linkedin}`}
+                  animation='all'
+                  className={`${anchorClassName} bg-[#00089f]`}
                 >
-                  Download my CV
-                </GradientButton>
+                  LinkedIn
+                  <LinkedInIcon height={25} width={25} />
+                </CTAButton>
+                <CTAButton
+                  as='a'
+                  href={`${personalData.social.github}`}
+                  rel='noopener noreferrer'
+                  target='_blank'
+                  animation='all'
+                  className={`${anchorClassName} bg-[#00089f]`}
+                >
+                  My GitHub
+                  <GitHubIcon height={25} width={25} />
+                </CTAButton>
               </div>
             </div>
-            <hr />
-            <ul className='nwt--ul-none'>
-              <li>
-                <div>
-                  <GlobeIcon />
-                  My Website:
-                </div>
-                <Link className='nwt--anchor-under' href='/' onClick={onClose}>
-                  stefan-luellmann.com
-                </Link>
-              </li>
-              <li>
-                <div>
-                  <GitHubIcon />
-                  GitHub:
-                </div>
-                <a
-                  href={`${personalData.social.github}`}
-                  className='nwt--anchor-under'
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  github.com/OneDev49
-                </a>
-              </li>
-              <li>
-                <div>
-                  <LinkedInIcon />
-                  LinkedIn:
-                </div>
-                <span>
-                  <a
-                    href={`${personalData.social.linkedin}`}
-                    className='nwt--anchor-under'
-                    rel='noopener noreferrer'
-                    target='_blank'
-                  >
-                    linkedin.com/in/stefan-lüllmann
-                  </a>
-                </span>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
