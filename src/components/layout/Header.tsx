@@ -6,10 +6,10 @@ import { siteData } from '@/config/siteData';
 import { cn } from '@/lib/utilities';
 
 import Link from 'next/link';
-import GradientButton from '../ui/GradientButton';
 import Image from 'next/image';
 import HamburgerIcon from '../icons/ui/HamburgerIcon';
 import HeaderPhoneNav from './_components/HeaderPhoneNav';
+import CTAButton from '../ui/CTAButton';
 
 export default function HeaderSection() {
   const [isAtTop, setIsAtTop] = useState<boolean>(true);
@@ -107,15 +107,14 @@ export default function HeaderSection() {
                 <Link href='/about' className={navLinkBtn}>
                   About
                 </Link>
-                <GradientButton
+                <CTAButton
                   as='button'
-                  variant='blue'
+                  colorStyle='borderPurple'
                   className={navCTA}
-                  position='card'
                   onClick={openGetInTouch}
                 >
                   <span>Get In Touch</span>
-                </GradientButton>
+                </CTAButton>
               </div>
               <div className='flex items-center gap-4 min-[1100px]:hidden'>
                 <button
@@ -131,15 +130,14 @@ export default function HeaderSection() {
                     width={20}
                   />
                 </button>
-                <GradientButton
+                <CTAButton
                   as='button'
-                  variant='blue'
+                  colorStyle='borderPurple'
                   className={navCTA}
-                  position='card'
                   onClick={openGetInTouch}
                 >
                   <span>Get In Touch</span>
-                </GradientButton>
+                </CTAButton>
               </div>
             </nav>
           </div>

@@ -38,7 +38,7 @@ export default function FooterSection() {
               <strong className={strongClassName}>
                 How to Reach out to me
               </strong>
-              <ul className='gap-2 flex flex-col items-center md:items-start lg:gap-6 lg:flex-row'>
+              <ul className='gap-2 flex flex-col items-center md:items-start xl:gap-4 lg:flex-row'>
                 <li className={listClassName}>
                   <EnvelopeIcon variant='solid' />
                   <a

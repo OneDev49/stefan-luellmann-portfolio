@@ -6,9 +6,9 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import CloseIcon from '@/components/icons/ui/CloseIcon';
 import Image from 'next/image';
-import GradientButton from '@/components/ui/GradientButton';
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
 import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
+import CTAButton from '@/components/ui/CTAButton';
 
 interface HeaderPhoneNavProps {
   isPhoneNavClosed: boolean;
@@ -72,18 +72,17 @@ export default function HeaderPhoneNav({
               sizes='25vw'
             />
           </Link>
-          <GradientButton
+          <CTAButton
             as='button'
-            variant='blue'
+            colorStyle='borderPurple'
             className='text-sm flex-shrink-0'
-            position='card'
             onClick={() => {
               closePhoneNav();
               openGetInTouch();
             }}
           >
             Get In Touch
-          </GradientButton>
+          </CTAButton>
         </div>
         <div className='absolute w-full pb-5'>
           <Link
