@@ -1,7 +1,7 @@
 import { clientProjects, personalProjects } from '@/config/projects';
 
-import BigProjectCard from '@/components/ui/BigProjectCard';
 import WaveTransition from '@/components/effects/WaveTransition';
+import ProjectCard from '@/components/ui/ProjectCard';
 
 export default function WorkMain() {
   return (
@@ -34,10 +34,7 @@ export default function WorkMain() {
             <ul className='grid grid-cols-1 gap-12 lg:grid-cols-2'>
               {personalProjects.map((project, index) => (
                 <li key={index}>
-                  <BigProjectCard
-                    project={project}
-                    projectCategory='personal'
-                  />
+                  <ProjectCard project={project} projectCategory='personal' />
                 </li>
               ))}
             </ul>
@@ -79,7 +76,7 @@ export default function WorkMain() {
             <ul className='grid grid-cols-1 gap-12 lg:grid-cols-2'>
               {clientProjects.map((project, index) => (
                 <li key={index}>
-                  <BigProjectCard project={project} projectCategory='client' />
+                  <ProjectCard project={project} projectCategory='client' />
                 </li>
               ))}
             </ul>
