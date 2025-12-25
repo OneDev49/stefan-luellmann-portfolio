@@ -1,5 +1,6 @@
 import {
   fontHeadings,
+  fontMono,
   fontTexts,
   metadataConfig,
 } from './_components/config/layoutConfig';
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${fontHeadings.variable} ${fontTexts.variable}`}
+      className={`${fontHeadings.variable} ${fontTexts.variable} ${fontMono.variable}`}
     >
       <body>
         <ModalProvider>

@@ -75,6 +75,7 @@ const config: Config = {
       },
       fontFamily: {
         heading: 'var(--font-heading)',
+        mono: 'var(--font-mono)',
       },
     },
   },
