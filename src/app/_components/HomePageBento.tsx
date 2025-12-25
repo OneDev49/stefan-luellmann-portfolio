@@ -285,7 +285,7 @@ export default async function HomePageBento() {
                     ))
                   ) : (
                     <div
-                      className='h-[135px] w-full bg-[#0d3c7a] bg-[linear-gradient(90deg,#00277c_8%,#0a3fb1_18%,#00277c_28%)] animate-image-skeleton-shimmer rounded-lg flex justify-center items-center bg-[length:1200px_100%]'
+                      className='h-[135px] w-full bg-[#0d3c7a] bg-[linear-gradient(90deg,#00277c_8%,#0a3fb1_18%,#00277c_28%)] animate-image-skeleton-shimmer rounded-lg grid place-items-center bg-[length:1200px_100%]'
                       aria-label='Image is loading'
                       title='Image is loading'
                     >
