@@ -284,8 +284,14 @@ export default async function HomePageBento() {
                       </Link>
                     ))
                   ) : (
-                    <div className='grid place-items-center h-[135px] w-full bg-white/25 animate-pulse rounded-md'>
-                      <span>Loading...</span>
+                    <div
+                      className='h-[135px] w-full bg-[#0d3c7a] bg-[linear-gradient(90deg,#00277c_8%,#0a3fb1_18%,#00277c_28%)] animate-image-skeleton-shimmer rounded-lg flex justify-center items-center bg-[length:1200px_100%]'
+                      aria-label='Image is loading'
+                      title='Image is loading'
+                    >
+                      <span className='opacity-75 text-lg font-extrabold text-[#74a7eb]'>
+                        Image is Loading
+                      </span>
                     </div>
                   )}
                 </div>
