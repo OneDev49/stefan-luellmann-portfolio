@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
+    './src/**/*.{html,js,jsx,ts,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -34,6 +35,10 @@ const config: Config = {
           '0%': { backgroundPosition: '200% center' },
           '100%': { backgroundPosition: '-200% center' },
         },
+        'custom-link-move': {
+          from: { left: '-100%' },
+          to: { left: '100%' },
+        },
         'sideNav-collapse': {
           from: { zIndex: '100', transform: 'translateX(0px)' },
           to: { transform: 'translateX(-380px)' },
@@ -50,13 +55,20 @@ const config: Config = {
           from: { opacity: '1' },
           to: { opacity: '0' },
         },
+        'image-skeleton-shimmer': {
+          from: { backgroundPosition: '-1200px 0' },
+          to: { backgroundPosition: '1200px 0' },
+        },
       },
       animation: {
-        'custom-text-shine': 'text-shine 4s linear infinite',
+        'custom-text-shine': 'custom-text-shine 4s linear infinite',
+        'custom-link-move': 'custom-link-move 1.5s linear infinite',
         'opacity-show': 'opacity-show 0.3s forwards',
         'opacity-hide': 'opacity-hide 0.3s forwards',
         'sideNav-collapse': 'sideNav-collapse 0.3s forwards',
         'sideNav-expand': 'sideNav-expand 0.3s forwards',
+        'image-skeleton-shimmer':
+          'forwards image-skeleton-shimmer 4s linear infinite',
       },
       backgroundImage: {
         'gradient-card': 'linear-gradient(180deg, #fff 50%, #929292 100%)',
