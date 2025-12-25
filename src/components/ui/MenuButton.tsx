@@ -9,14 +9,15 @@ import {
 import { cn } from '@/lib/utilities';
 
 import CaretDownIcon from '../icons/ui/CaretDownIcon';
-import GradientButton from './GradientButton';
 import Link from 'next/link';
+import CTAButton from './CTAButton';
 
 interface MenuButtonProps {
   project: Project;
+  className?: string;
 }
 
-export default function MenuButton({ project }: MenuButtonProps) {
+export default function MenuButton({ project, className }: MenuButtonProps) {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -28,12 +29,14 @@ export default function MenuButton({ project }: MenuButtonProps) {
 
   return (
     <div ref={wrapperRef} className='inline-block relative'>
-      <GradientButton
+      <CTAButton
         as='button'
         onClick={() => setIsExpanded((p) => !p)}
-        position='card'
-        animation='none'
-        className='gap-1 py-1 px-2 items-center rounded-md font-heading'
+        className={cn(
+          'gap-1 py-1 px-2 items-center rounded-md font-heading',
+          className
+        )}
+        colorStyle='gradientBlue'
       >
         Quick Links of this Project
         <span
@@ -44,7 +47,7 @@ export default function MenuButton({ project }: MenuButtonProps) {
         >
           <CaretDownIcon height={25} />
         </span>
-      </GradientButton>
+      </CTAButton>
       {isExpanded && (
         <div
           className={cn(
