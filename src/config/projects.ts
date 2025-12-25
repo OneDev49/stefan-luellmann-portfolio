@@ -11,10 +11,10 @@ export interface Project {
     | 'V3 - Released';
   description: string;
   techStack: TechnologyName[];
-  caseStudyStatus: 'notReleased' | 'released';
+  caseStudyStatus: 'Not Released' | 'Released';
   caseStudyBrief: string;
   links: {
-    github: string;
+    github: string | null;
     liveDemo: string;
   };
   thumbnail: string;
@@ -29,7 +29,7 @@ export const personalProjects: Project[] | [] = [
     description:
       'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
     techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'netlify'],
-    caseStudyStatus: 'released',
+    caseStudyStatus: 'Released',
     caseStudyBrief:
       'A Case Study on the planning, design, development and deployment of my Professional Portfolio Website. The Case Study goes into detail about different designs, challenges and solutions for a variety of problems, like deciding which Technologies to use and why certain Technologies were used.',
     links: {
@@ -62,7 +62,7 @@ export const personalProjects: Project[] | [] = [
       'zod',
       'redis',
     ],
-    caseStudyStatus: 'released',
+    caseStudyStatus: 'Released',
     caseStudyBrief:
       'Designed, Developed and Deployed a Full-Stack E-Commerce Computer Store - Entro. Developed using SSG, ISR and SSR and a relational Database with Prisma.',
     links: {
