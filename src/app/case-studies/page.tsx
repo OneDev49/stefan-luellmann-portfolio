@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-import CaseStudiesHeroSection from './_components/CaseStudiesHeroSection';
-import CaseStudiesMainSection from './_components/CaseStudiesMainSection';
+import CaseStudiesHero from './_components/CaseStudiesHero';
+import CaseStudiesMain from './_components/CaseStudiesMain';
 
 export const metadata: Metadata = {
   title: 'Case Studies',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <>
-      <CaseStudiesHeroSection />
-      <CaseStudiesMainSection />
+      <CaseStudiesHero />
+      <CaseStudiesMain />
     </>
   );
 }

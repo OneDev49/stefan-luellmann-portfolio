@@ -5,6 +5,8 @@ interface BackgroundShapeOneProps {
 export default function BackgroundShapeOne({
   className,
 }: BackgroundShapeOneProps) {
+  const strokeColor = '#003cff';
+
   return (
     <svg
       width='234'
@@ -21,7 +23,7 @@ export default function BackgroundShapeOne({
         height='40.2426'
         rx='20.1213'
         transform='rotate(45 -92.3984 -11.4373)'
-        stroke='#00E6FF'
+        stroke={strokeColor}
         strokeWidth='2'
       />
       <rect
@@ -30,7 +32,7 @@ export default function BackgroundShapeOne({
         width='52.4468'
         height='52.4468'
         transform='rotate(45 68.0703 531.602)'
-        stroke='#00E6FF'
+        stroke={strokeColor}
         strokeWidth='2'
       />
       <rect
@@ -39,21 +41,21 @@ export default function BackgroundShapeOne({
         width='38.9416'
         height='38.9416'
         transform='rotate(45 68.0703 541.149)'
-        stroke='#00E6FF'
+        stroke={strokeColor}
         strokeWidth='2'
       />
       <circle
         cx='146.624'
         cy='367.749'
         r='24.3345'
-        stroke='#00E6FF'
+        stroke={strokeColor}
         strokeWidth='2'
       />
       <circle
         cx='218.297'
         cy='645.059'
         r='14.5864'
-        stroke='#00E6FF'
+        stroke={strokeColor}
         strokeWidth='2'
       />
     </svg>
