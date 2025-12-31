@@ -18,7 +18,8 @@ export interface ArticleFrontmatter {
   published: string;
   updated?: string;
   thumbnail?: string;
-  category: 'opinion' | 'playbook' | 'fundamentals';
+  estimatedReadTime?: string;
+  category: 'opinion' | 'playbook' | 'other' | 'module';
 }
 
 export interface Article {
@@ -54,6 +55,7 @@ export async function getAllArticles(): Promise<Article[]> {
           published: data.published || new Date().toISOString(),
           updated: data.updated,
           thumbnail: data.thumbnail,
+          estimatedReadTime: data.estimatedReadTime,
           category: data.category || 'fundamentals',
         },
       };
@@ -152,6 +154,7 @@ export async function getArticleByTopicAndSlug(
       published: data.published || new Date().toISOString(),
       updated: data.updated,
       thumbnail: data.thumbnail,
+      estimatedReadTime: data.estimatedReadTime,
       category: data.category || 'fundamentals',
     };
 
