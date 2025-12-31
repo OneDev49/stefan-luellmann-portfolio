@@ -7,10 +7,10 @@ export default function WorkMain() {
   return (
     <section className='relative my-36'>
       {personalProjects.length > 0 && (
-        <div className='bg-[rgb(0,18,91,0.4)] py-16 relative'>
+        <div className='bg-[rgb(1,25,123,0.5)] py-16 relative'>
           <WaveTransition
             position='top'
-            color='rgba(0, 9, 46, 1)'
+            color='#000414'
             variant='inner'
             config={{
               height: 75,
@@ -41,7 +41,7 @@ export default function WorkMain() {
           </div>
           <WaveTransition
             position='bottom'
-            color='rgba(0, 9, 46, 1)'
+            color='#000414'
             variant='inner'
             config={{
               height: 75,
@@ -53,7 +53,7 @@ export default function WorkMain() {
         <div className='bg-[rgb(0,37,78,0.4)] py-16 relative my-36'>
           <WaveTransition
             position='top'
-            color='rgba(0, 9, 46, 1)'
+            color='#000414'
             variant='inner'
             config={{
               height: 75,
@@ -83,7 +83,7 @@ export default function WorkMain() {
           </div>
           <WaveTransition
             position='bottom'
-            color='rgba(0, 9, 46, 1)'
+            color='#000414'
             variant='inner'
             config={{
               height: 75,
