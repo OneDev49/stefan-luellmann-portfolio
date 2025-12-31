@@ -44,7 +44,7 @@ export default function HomePageNewsletter() {
               draggable='false'
               src={`${siteData.uploadThingUrl}/x81VdwhEWe9Yhp5hfvIFems6u5ObJfIoqgYZlSkEzWDyL3tQ`}
               alt="I'm Stefan, a Full-Stack Software Engineer. Enjoy my Deep Dives!"
-              title="Hey there, I'm Stefan, a Full-Stack Software Engineer. Enjoy my Deep Dives"
+              title="Hey there, I'm Stefan, a Full-Stack Software Engineer. Enjoy my Deep Dives."
               height={450}
               width={450}
               sizes='50vw'

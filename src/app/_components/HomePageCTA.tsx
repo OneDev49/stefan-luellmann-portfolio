@@ -39,8 +39,8 @@ export default function HomePageCTA() {
             in a Team to architect something new and exciting.
           </span>
           <span>
-            Feel free to reach out to me via my media channels, or book a quick
-            free introduction call directly with me via Calendly.
+            Feel free to reach out to me via LinkedIn, through E-Mail or contact
+            me for a quick introduction call.
           </span>
         </p>
         <CTAButton
