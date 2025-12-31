@@ -8,15 +8,16 @@ import ImageSkeletonLoader from './ImageSkeletonLoader';
 import clsx from 'clsx';
 import styles from './ProjectImageCarousel.module.scss';
 import useEmblaCarousel from 'embla-carousel-react';
+import { cn } from '@/lib/utilities';
 
 interface ImageCarouselProps {
   project: Project;
-  bigImageSize: string;
+  bigImageRenderSize: string;
 }
 
 export default function ImageCarousel({
   project,
-  bigImageSize,
+  bigImageRenderSize,
 }: ImageCarouselProps) {
   const [mainIndex, setMainIndex] = useState<number>(0);
   const [emblaRef] = useEmblaCarousel({
@@ -26,7 +27,7 @@ export default function ImageCarousel({
 
   return (
     <>
-      <div className={styles.mainImageWrapper}>
+      <div className='relative rounded-lg border border-[#313131] overflow-hidden shadow-[0_0_15px_2px_#0051ff40] group'>
         <a
           href={project.links.liveDemo}
           target='_blank'
@@ -38,22 +39,26 @@ export default function ImageCarousel({
             style={{ objectFit: 'cover' }}
             width={500}
             height={300}
-            sizes={bigImageSize}
+            sizes={bigImageRenderSize}
+            className='object-top h-auto w-full transition-transform duration-300 ease-in-out max-h-[512px] group-hover:scale-105'
           />
-          <div className={styles.mainImageForeground}>
-            <span>Visit:</span>
-            <span>{project.title}</span>
+          <div className='absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 ease-in-out text-white grid place-items-center text-center group-hover:opacity-100'>
+            <div className='flex flex-col items-center'>
+              <span className='underline text-lg font-extrabold'>Visit:</span>
+              <span>{project.title}</span>
+            </div>
           </div>
         </a>
       </div>
-      <div className={styles.thumbnailCarousel} ref={emblaRef}>
-        <div className={styles.thumbnails}>
+      <div className='overflow-hidden' ref={emblaRef}>
+        <div className='flex gap-2'>
           {project.images.map((image, index) => (
             <div
               key={index}
-              className={clsx(styles.thumbnailItem, {
-                [styles.activeThumbnail]: index === mainIndex,
-              })}
+              className={cn(
+                'cursor-pointer border-2 border-transparent flex-[0_0_auto] h-20 max-w-20 rounded-md [&_div]:h-full [&_div]:rounded-md [&_div]:border [&_div]:border-[#0144d6]',
+                index === mainIndex && 'border-[#0144d6]'
+              )}
               onClick={() => setMainIndex(index)}
             >
               <ImageSkeletonLoader
@@ -63,6 +68,7 @@ export default function ImageCarousel({
                 height={120}
                 style={{ objectFit: 'cover' }}
                 sizes='20vw'
+                className='object-cover h-auto'
               />
             </div>
           ))}
