@@ -25,7 +25,7 @@ export default function ArticlesHubMain({
   return (
     <section
       id='allArticles'
-      className='relative z-50 max-w-7xl mx-auto px-4 flex flex-col gap-8 my-36 scroll-mt-20'
+      className='relative z-50 max-w-7xl mx-auto px-4 flex flex-col gap-8 mt-16 mb-36 scroll-mt-20'
     >
       <div className='text-center'>
         <h2 className='text-h2 text-transparent font-extrabold capitalize'>
