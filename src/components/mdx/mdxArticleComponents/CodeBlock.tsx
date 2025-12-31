@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-import styles from './CodeBlock.module.scss';
 import CheckIcon from '@/components/icons/glyphs/CheckIcon';
 import LinkIcon from '@/components/icons/glyphs/LinkIcon';
 
@@ -28,23 +27,32 @@ export default function CodeBlock({
   };
 
   return (
-    <div className={styles.codeBlockWrapper}>
-      <div className={styles.header}>
-        <span className={styles.language}>{filename || language}</span>
+    <div className='my-8 rounded-lg border border-[#333] overflow-hidden bg-[#1e1e1e]'>
+      <div className='flex justify-between items-center gap-1 py-2 px-4 bg-[#252526] border-b border-[#333] text-[#ccc] font-mono'>
+        <div className='text-sm'>
+          {filename && <span>{filename} - </span>}
+          {filename && language ? (
+            <span>({language})</span>
+          ) : (
+            <span>{language}</span>
+          )}
+        </div>
         <button
+          type='button'
           onClick={handleCopy}
-          className={styles.copyButton}
-          title='Copy Code'
+          disabled={isCopied}
+          className='flex items-center gap-2 bg-transparent border-none text-[#888] cursor-pointer transition-colors duration-200 ease-in-out hover:text-[#fff]'
+          title='Copy Code the code snippet below'
         >
           {isCopied ? (
             <>
-              <CheckIcon className={styles.icon} />
-              <span className={styles.copyText}>Copied!</span>
+              <CheckIcon height={15} width={15} />
+              <span className='text-[12px]'>Copied!</span>
             </>
           ) : (
             <>
-              <LinkIcon className={styles.icon} />
-              <span className={styles.copyText}>Copy</span>
+              <LinkIcon height={15} width={15} />
+              <span className='text-[12px]'>Copy</span>
             </>
           )}
         </button>
