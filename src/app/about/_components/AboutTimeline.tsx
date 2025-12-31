@@ -133,8 +133,8 @@ export default function AboutTimeline() {
                 technical deep dives, case studies and documentations for my
                 projects as well as teaching others about modern technologies
                 from the perspective of a seasoned Engineer. I have been
-                actively building my own library called "The Senior Guide to
-                Full-Stack Development" since late 2024.
+                actively building my own library called &quot;The Senior Guide
+                to Full-Stack Development&quot; since late 2024.
               </p>
             </div>
           </li>

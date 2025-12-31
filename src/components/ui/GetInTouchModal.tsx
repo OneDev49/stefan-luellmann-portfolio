@@ -5,10 +5,7 @@ import { personalData, siteData } from '@/config/siteData';
 import { cn } from '@/lib/utilities';
 
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
-import GlobeIcon from '@/components/icons/glyphs/GlobeIcon';
-import Link from 'next/link';
 import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
-import CloseIcon from '@/components/icons/ui/CloseIcon';
 import ImageSkeletonLoader from './ImageSkeletonLoader';
 import EnvelopeIcon from '../icons/glyphs/EnvelopeIcon';
 import LinkIcon from '../icons/glyphs/LinkIcon';
@@ -79,9 +76,6 @@ export default function GetInTouchModal({
     'relative flex flex-col justify-center items-center bg-[linear-gradient(30deg,#002bff,#a100ff)] p-1 min-w-[300px] max-w-lg rounded-lg overflow-hidden transition-all duration-300 ease-in-out sm:min-w-[360px]',
     isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
   );
-
-  const emailClassName =
-    'flex-1 px-2 py-1 flex gap-2 items-center font-extrabold transition-colors duration-300 ease-in-out justify-center';
 
   const anchorClassName =
     'shadow-[inset_0_2px_4px_2px_rgb(255,255,255,0.25)] py-1.5 px-2 flex gap-2 text-base';

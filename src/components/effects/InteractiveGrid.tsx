@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utilities';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 
 interface InteractiveGridProps extends React.SVGProps<SVGSVGElement> {
   width?: number;
@@ -39,19 +39,19 @@ export function InteractiveGrid({
   const idCounterRef = useRef(0);
   const svgRef = useRef<SVGSVGElement>(null);
 
-  const generateUniqueId = (baseId: string) => {
-    idCounterRef.current += 1;
-    return `${baseId}-${idCounterRef.current}`;
-  };
+  const addToTrail = useCallback(
+    (cell: GridPoint) => {
+      idCounterRef.current += 1;
+      const trailId = `${cell.id}-${idCounterRef.current}`;
 
-  const addToTrail = (cell: GridPoint) => {
-    const trailId = generateUniqueId(cell.id);
-    setTrail((prev) => [...prev, { ...cell, id: trailId }]);
+      setTrail((prev) => [...prev, { ...cell, id: trailId }]);
 
-    setTimeout(() => {
-      setTrail((prev) => prev.filter((t) => t.id !== trailId));
-    }, fadeDuration);
-  };
+      setTimeout(() => {
+        setTrail((prev) => prev.filter((t) => t.id !== trailId));
+      }, fadeDuration);
+    },
+    [fadeDuration]
+  );
 
   const handleMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
     if (!isInteractive) return;
@@ -91,6 +91,9 @@ export function InteractiveGrid({
       if (!svgRef.current) return;
 
       const rect = svgRef.current.getBoundingClientRect();
+
+      if (!rect.width || !rect.height) return;
+
       const cols = Math.floor(rect.width / width);
       const rows = Math.floor(rect.height / height);
 
@@ -103,7 +106,7 @@ export function InteractiveGrid({
     }, 500);
 
     return () => clearInterval(interval);
-  }, [width, height, autoPulse, fadeDuration]);
+  }, [width, height, autoPulse, addToTrail]);
 
   return (
     <svg

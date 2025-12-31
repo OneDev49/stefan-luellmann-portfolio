@@ -3,12 +3,10 @@
 import { Project } from '@/config/projects';
 import { siteData } from '@/config/siteData';
 import { useState } from 'react';
+import { cn } from '@/lib/utilities';
 
 import ImageSkeletonLoader from './ImageSkeletonLoader';
-import clsx from 'clsx';
-import styles from './ProjectImageCarousel.module.scss';
 import useEmblaCarousel from 'embla-carousel-react';
-import { cn } from '@/lib/utilities';
 
 interface ImageCarouselProps {
   project: Project;
