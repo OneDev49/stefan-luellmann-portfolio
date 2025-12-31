@@ -9,7 +9,6 @@ export default function HomePageHero() {
       <div className='absolute inset-0 [mask-image:linear-gradient(180deg,black_90%,transparent_100%)]'>
         <BackgroundNetworkParticles />
       </div>
-
       <div className='relative py-20 max-w-7xl w-full mx-auto px-4 flex flex-col items-center text-center gap-4'>
         <div className='flex flex-col items-center gap-2'>
           <h1 className='grid capitalize'>
@@ -39,7 +38,7 @@ export default function HomePageHero() {
             <CaretRightIcon width={25} height={25} />
           </CTAButton>
           <CTAButton
-            href='/case-studies'
+            href='/work#personal-projects'
             colorStyle='gradientGreen'
             animation='all'
             className='py-1 px-2 font-heading font-extrabold'

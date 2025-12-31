@@ -26,7 +26,7 @@ export default function HomePageCTA() {
           sizes='(max-width: 768px) 100vw, 25vw'
         />
       </div>
-      <div className='flex-1 space-y-6 lg:ml-12'>
+      <div className='flex-1 flex flex-col items-center gap-6 md:items-start lg:ml-12'>
         <h2 className='text-h2 text-transparent font-extrabold capitalize'>
           <span className='bg-gradient-card bg-clip-text'>
             Reach out and Connect with me
@@ -43,19 +43,18 @@ export default function HomePageCTA() {
             free introduction call directly with me via Calendly.
           </span>
         </p>
-        <div>
-          <CTAButton
-            as='button'
-            colorStyle='gradientBlue'
-            animation='all'
-            onClick={() => {
-              openGetInTouch();
-            }}
-          >
-            Reach out to Me
-            <CaretRightIcon height={32} width={16} />
-          </CTAButton>
-        </div>
+        <CTAButton
+          as='button'
+          colorStyle='gradientBlue'
+          animation='all'
+          onClick={() => {
+            openGetInTouch();
+          }}
+          className='gap-1 py-1 px-2 items-center rounded-md font-heading font-extrabold'
+        >
+          Reach out to Me
+          <CaretRightIcon height={24} width={14} />
+        </CTAButton>
       </div>
     </section>
   );

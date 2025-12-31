@@ -8,7 +8,7 @@ export default function HomePageNewsletter() {
     <section className='relative bg-[#020d7e] mb-36 overflow-hidden text-center lg:text-left'>
       <WaveTransition
         position='top'
-        color='rgba(0, 9, 46, 1)'
+        color='#000414'
         variant='inner'
         config={{
           height: 75,
@@ -21,10 +21,9 @@ export default function HomePageNewsletter() {
               Deep Dive Newsletter, Every two Weeks
             </span>
           </h2>
-          <p className='grid gap-6'>
+          <p className='grid gap-6  shadow-xl'>
             <span>
-              Join over 100+ Developers and get{' '}
-              <strong>the real engineering documentation</strong>, including
+              Get <strong>the real engineering documentation</strong>, including
               Technical Deep Dives, Performance Analytics, Build Logs and Edge
               Case Solutions <strong>every two weeks here on Sundays</strong>.
             </span>
@@ -55,7 +54,7 @@ export default function HomePageNewsletter() {
       </div>
       <WaveTransition
         position='bottom'
-        color='rgba(0, 9, 46, 1)'
+        color='#000414'
         variant='inner'
         config={{
           height: 75,
