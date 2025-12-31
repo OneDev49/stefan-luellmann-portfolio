@@ -35,11 +35,13 @@ function useIntersectionObserver(headings: Heading[]) {
 interface TableOfContentProps {
   headings: Heading[];
   variant?: 'sidebar' | 'collapsible';
+  listClassName?: string;
 }
 
 export default function TableOfContent({
   headings,
   variant = 'sidebar',
+  listClassName,
 }: TableOfContentProps) {
   const activeId = useIntersectionObserver(headings);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -47,7 +49,7 @@ export default function TableOfContent({
   if (headings.length === 0) return null;
 
   const renderLinks = () => (
-    <ol className='max-h-80 overflow-y-auto'>
+    <ol className={`${listClassName} overflow-y-auto`}>
       {headings.map((heading) => {
         const isActive = activeId === heading.slug;
 

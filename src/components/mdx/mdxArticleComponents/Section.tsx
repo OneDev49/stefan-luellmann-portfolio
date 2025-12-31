@@ -10,7 +10,7 @@ export default function Section({
   children,
 }: ContentBlockProps) {
   const sectionClassName = cn(
-    'mt-16 mb-16 text-[#e2e3e7] [&_p]:mb-3 [&_p+ol]:mt-0 [&_p+ul]:mt-0',
+    'mt-16 mb-16 text-[#f1f1f1] [&_p]:mb-3 [&_p+ol]:mt-0 [&_p+ul]:mt-0',
     position === 'top' && 'mt-0'
   );
 
