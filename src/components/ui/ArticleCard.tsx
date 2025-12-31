@@ -16,7 +16,7 @@ export default function ArticleCard({ post }: ArticleCardProps) {
 
   return (
     <Link
-      href={`/blog/${post.slug}`}
+      href={`/articles/${post.topic}/${post.slug}`}
       className='bg-gradient-to-tr from-[#0077ff] to-[#000dff] block text-white rounded-2xl shadow-[0_0_15px_5px_#0051ff] overflow-hidden border-[#0059ff] border transition-all duration-300 ease-in-out max-w-lg hover:shadow-[0_0_15px_5px_#5289ff]'
     >
       <article className='flex flex-col'>
@@ -26,7 +26,7 @@ export default function ArticleCard({ post }: ArticleCardProps) {
               <ImageSkeletonLoader
                 src={`${siteData.uploadThingUrl}/${post.frontmatter.thumbnail}`}
                 alt={post.frontmatter.title}
-                className='h-auto object-cover'
+                className='h-auto object-cover w-full'
                 height={252}
                 width={480}
                 sizes='(min-width: 900px) 25vw, (min-width: 576px) 50vw, 100vw'
@@ -49,7 +49,6 @@ export default function ArticleCard({ post }: ArticleCardProps) {
           {post.frontmatter.excerpt && <p>{post.frontmatter.excerpt}</p>}
           <div className='italic flex items-center font-extrabold gap-1 underline'>
             <span>To the {properCategory} Article</span>
-
             <ArrowRightIcon height={16} width={16} />
           </div>
         </div>
