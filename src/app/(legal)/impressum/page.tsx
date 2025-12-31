@@ -1,9 +1,9 @@
-import { getMdxContent } from '@/lib/mdx';
+import { getLegalFileBySlug } from '@/lib/mdx/legals';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
-  const result = await getMdxContent('impressum', 'legal');
+  const result = await getLegalFileBySlug('impressum');
   if (!result) return {};
 
   return {
@@ -14,12 +14,8 @@ export async function generateMetadata() {
 }
 
 export default async function ImpressumPage() {
-  const mdxResult = (await getMdxContent('impressum', 'legal')) ?? notFound();
+  const mdxResult = (await getLegalFileBySlug('impressum')) ?? notFound();
   const { content } = mdxResult;
 
-  return (
-    <div>
-      <MDXRemote source={content} />
-    </div>
-  );
+  return <MDXRemote source={content} />;
 }

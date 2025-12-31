@@ -1,11 +1,14 @@
 import { TechIcon, TechnologyName } from '../icons/TechIconMap';
-
-import clsx from 'clsx';
-import styles from './TechnologyContainer.module.scss';
+import { cn } from '@/lib/utilities';
 
 interface TechnologyContainerProps {
-  variant?: 'big' | 'small';
+  styleSize?: 'big' | 'small' | 'none';
+  svgWidth: number;
+  svgHeight: number;
+  variant?: 'all' | 'icon' | 'text';
   technology: TechnologyName;
+  className?: string;
+  background?: boolean;
 }
 
 function TechnologyNameMapper(tech: TechnologyName) {
@@ -59,23 +62,36 @@ function TechnologyNameMapper(tech: TechnologyName) {
 }
 
 export default function TechnologyContainer({
-  variant = 'small',
+  variant = 'all',
+  styleSize = 'small',
+  svgHeight,
+  svgWidth,
   technology,
+  className,
+  background = true,
 }: TechnologyContainerProps) {
-  /* Determine svgSize by variant | in px */
-  const svgSize = variant === 'small' ? 20 : 35;
+  const techClassName = cn(
+    ' flex items-center',
+    styleSize === 'small'
+      ? 'gap-2 py-0.5 px-2'
+      : styleSize === 'big'
+      ? 'gap-4 py-1 px-2'
+      : '',
+    background === true &&
+      'bg-black rounded-lg border border-[#002b98] shadow-[0_0_15px_5px_rgba(0,81,255,0.25)]',
+    className
+  );
 
   return (
-    <div
-      className={clsx(
-        styles.mainContainer,
-        variant === 'small' ? styles.small : styles.big
+    <div className={techClassName}>
+      {(variant === 'all' || variant === 'icon') && (
+        <div>
+          <TechIcon height={svgHeight} width={svgWidth} name={technology} />
+        </div>
       )}
-    >
-      <div>
-        <TechIcon height={svgSize} width={svgSize} name={technology} />
-      </div>
-      <span>{TechnologyNameMapper(technology)}</span>
+      {(variant === 'all' || variant === 'text') && (
+        <span>{TechnologyNameMapper(technology)}</span>
+      )}
     </div>
   );
 }

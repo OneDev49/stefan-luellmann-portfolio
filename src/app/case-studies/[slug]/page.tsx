@@ -1,19 +1,19 @@
-import { getMdxContent } from '@/lib/mdx';
 import { personalProjects, clientProjects } from '@/config/projects';
 import { notFound } from 'next/navigation';
 import { siteData } from '@/config/siteData';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { coreMdxComponents } from '@/components/mdx/mdxArticleComponents/mdxParentFile';
+import { getCaseStudyBySlug } from '@/lib/mdx/case-studies';
+import { BackgroundNetworkParticles } from '@/components/effects/BackgroundNetworkParticles';
 
 import TechnologyContainer from '@/components/ui/TechnologyContainer';
-import GradientButton from '@/components/ui/GradientButton';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
-import styles from './CaseStudy.module.scss';
 import TableOfContent from '@/components/mdx/TableOfContent';
-import ImageCarousel from '@/components/ui/ProjectImageCarousel';
-import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
 import ShareButton from '@/components/ui/ShareButton';
 import FormattedDate from '@/components/ui/FormattedDate';
+import CTAButton from '@/components/ui/CTAButton';
+import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
+import ImageCarousel from '@/components/ui/ProjectImageCarousel';
 
 interface CaseStudyPageProps {
   params: { slug: string };
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: CaseStudyPageProps) {
   const { slug } = params;
-  const result = await getMdxContent(slug, 'case-studies');
+  const result = await getCaseStudyBySlug(slug);
   if (!result) return {};
 
   const { frontmatter } = result;
@@ -65,45 +65,78 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { slug } = params;
-  const mdxResult = (await getMdxContent(slug, 'case-studies')) ?? notFound();
+  const mdxResult = (await getCaseStudyBySlug(slug)) ?? notFound();
   const { frontmatter, headings, content } = mdxResult;
 
   const allProjects = [...personalProjects, ...clientProjects];
   const project = allProjects.find((p) => p.slug === slug);
   if (!project) notFound();
 
+  const maximumContentClassName = 'max-w-6xl mx-auto px-4 w-full';
+  const anchorClassName = 'px-2 py-1 font-heading font-extrabold';
+  const detailsHeadingClassName =
+    'font-heading font-extrabold underline text-center';
+  const detailsLiClassName = 'grid grid-cols-[1fr_auto] gap-8 text-sm';
+
   return (
-    <article className={styles.wrapper}>
-      <div className={styles.header}>
-        <h1 className='nwt--f-h1'>
-          <span className='nwt--txt-gradient'>Case Study: {project.title}</span>
-        </h1>
-      </div>
-      <div className={styles.body}>
-        <div className={styles.bodyTop}>
-          <div className={styles.studyOverview}>
-            <div>
-              <h2 id='study-overview' className='nwt--f-h3'>
+    <article className='relative flex mb-36 flex-col gap-16'>
+      <div className='relative'>
+        <div className='absolute inset-0 [mask-image:linear-gradient(180deg,black_80%,transparent_100%)]'>
+          <BackgroundNetworkParticles />
+        </div>
+
+        <div
+          className={`${maximumContentClassName} mt-36 space-y-24 relative z-10`}
+        >
+          <div className='flex flex-col items-center text-center gap-6'>
+            <h1 className='text-h1 font-extrabold capitalize leading-[1.1]'>
+              <span className='text-h3 font-mono'>Case Study</span>
+              <div className='text-transparent'>
+                <span className='bg-gradient-card bg-clip-text'>
+                  {project.title}
+                </span>
+              </div>
+            </h1>
+            <ul className='flex flex-wrap justify-center gap-2'>
+              {project.techStack.map((tech) => (
+                <li key={tech}>
+                  <TechnologyContainer
+                    technology={tech}
+                    svgHeight={25}
+                    svgWidth={25}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className='max-w-2xl mx-auto'>
+            <ImageCarousel bigImageRenderSize='50vw' project={project} />
+          </div>
+          <div className='flex flex-col items-center max-w-xl mx-auto gap-4'>
+            <div className='w-full flex flex-col items-center text-center gap-1'>
+              <h2 className='text-h3-small font-extrabold capitalize'>
                 Study Overview
               </h2>
-              <hr />
+              <hr className='border-[#b3b3b3] w-3/5' />
             </div>
-            <div className={styles.details}>
-              <div>
-                <strong>Study Details:</strong>
+            <div className='flex flex-col gap-4 justify-between items-start sm:gap-16 sm:flex-row'>
+              <div className='space-y-1'>
+                <div className={detailsHeadingClassName}>
+                  <strong>Study Details:</strong>
+                </div>
                 <ul>
-                  <li>
+                  <li className={detailsLiClassName}>
                     <span>Author:</span>
                     <span>{frontmatter.author}</span>
                   </li>
-                  <li>
+                  <li className={detailsLiClassName}>
                     <span>Published:</span>
                     <span>
                       <FormattedDate dateString={frontmatter.published} />
                     </span>
                   </li>
                   {frontmatter.updated && (
-                    <li>
+                    <li className={detailsLiClassName}>
                       <span>Updated:</span>
                       <span>
                         <FormattedDate dateString={frontmatter.updated} />
@@ -115,23 +148,25 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               {(frontmatter.designedBy ||
                 frontmatter.developedBy ||
                 frontmatter.releaseDateV1) && (
-                <div>
-                  <strong>Project Details:</strong>
+                <div className='space-y-1'>
+                  <div className={detailsHeadingClassName}>
+                    <strong>Project Details:</strong>
+                  </div>
                   <ul>
                     {frontmatter.designedBy && (
-                      <li>
+                      <li className={detailsLiClassName}>
                         <span>Design:</span>
                         <span>{frontmatter.designedBy}</span>
                       </li>
                     )}
                     {frontmatter.developedBy && (
-                      <li>
+                      <li className={detailsLiClassName}>
                         <span>Developed:</span>
                         <span>{frontmatter.developedBy}</span>
                       </li>
                     )}
                     {frontmatter.releaseDateV1 && (
-                      <li>
+                      <li className={detailsLiClassName}>
                         <span>Release Date V1:</span>
                         <span>
                           <FormattedDate
@@ -144,76 +179,102 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 </div>
               )}
             </div>
-            <div className={styles.techStack}>
-              <strong>Project Technology Stack:</strong>
-              <ul>
-                {project.techStack.map((tech) => (
-                  <li key={tech}>
-                    <TechnologyContainer technology={tech} variant='small' />
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={styles.links}>
-              <strong>Important Links:</strong>
-              <div>
-                <GradientButton
-                  as='a'
-                  href={project.links.liveDemo}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  variant='orange'
-                  position='card'
-                >
-                  Live Demo
-                  <CaretRightIcon />
-                </GradientButton>
-                <GradientButton
-                  as='a'
-                  href={project.links.github}
-                  variant='blue'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  position='card'
-                >
-                  GitHub
-                  <CaretRightIcon />
-                </GradientButton>
-                <ShareButton />
+            <div className='space-y-1'>
+              <div className={detailsHeadingClassName}>
+                <strong>Important Links:</strong>
+              </div>
+              <div className='flex gap-4 flex-col sm:flex-row'>
+                {project.status === 'Not Released' ? (
+                  <CTAButton
+                    as='button'
+                    type='button'
+                    colorStyle='gradientBlue'
+                    animation='all'
+                    className={anchorClassName}
+                    disabled={true}
+                    title={`Live-Demo of ${project.title} not yet released`}
+                    aria-label={`Live-Demo of ${project.title} not yet released`}
+                  >
+                    Project Live-Demo
+                    <CaretRightIcon />
+                  </CTAButton>
+                ) : (
+                  <CTAButton
+                    as='a'
+                    href={project.links.liveDemo}
+                    colorStyle='gradientBlue'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    animation='all'
+                    className={anchorClassName}
+                  >
+                    Project Live-Demo
+                    <CaretRightIcon />
+                  </CTAButton>
+                )}
+                {project.links.github !== null ? (
+                  <CTAButton
+                    as='a'
+                    href={project.links.github}
+                    colorStyle='gradientBlue'
+                    animation='all'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className={anchorClassName}
+                  >
+                    Project GitHub
+                    <CaretRightIcon />
+                  </CTAButton>
+                ) : (
+                  <CTAButton
+                    as='button'
+                    type='button'
+                    colorStyle='gradientBlue'
+                    disabled={true}
+                    title={`GitHub of ${project.title} not public`}
+                    aria-label={`GitHub of ${project.title} not public`}
+                    className={anchorClassName}
+                  >
+                    Project GitHub
+                    <CaretRightIcon />
+                  </CTAButton>
+                )}
               </div>
             </div>
           </div>
-          {project.thumbnail && (
-            <div className={styles.thumbnailOverview}>
-              <div>
-                <h2 id='project-images' className='nwt--f-h3'>
-                  Project Images
-                </h2>
-                <hr />
-              </div>
-              <div>
-                <ImageCarousel project={project} bigImageSize='75vw' />
-              </div>
-            </div>
-          )}
-          <nav
-            className={styles.mobileTableOfContent}
-            aria-label='Table of contents'
-          >
+          <div className='lg:hidden'>
             <MobileTableOfContent headings={headings} />
-          </nav>
-        </div>
-        <div className={styles.bodyBottom}>
-          <div className={styles.article}>
-            <MDXRemote source={content} components={coreMdxComponents} />
           </div>
-          <aside
-            className={styles.tableOfContent}
-            aria-label='Table of contents'
-          >
-            <TableOfContent headings={headings} variant='sidebar' />
-          </aside>
+          <div className='border-t border-[#0066ff] space-y-2 max-w-[72ch] mx-auto lg:max-w-[initial]'>
+            <strong className='font-heading font-extrabold text-lg underline'>
+              Share the Study
+            </strong>
+            <ul>
+              <li>
+                {/* TODO: Create more Options to share */}
+                <ShareButton />
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+
+      <div
+        className={`${maximumContentClassName} flex items-start justify-between gap-8`}
+      >
+        <div className='basis-[72ch] max-w-[72ch] mx-auto lg:mx-[initial]'>
+          <MDXRemote source={content} components={coreMdxComponents} />
+        </div>
+        <aside
+          className='basis-[290px] flex-shrink-0 pb-12 px-6 sticky top-[70px] hidden lg:block'
+          aria-label='Table of contents'
+        >
+          <TableOfContent
+            headings={headings}
+            variant='sidebar'
+            listClassName='max-h-80'
+          />
+        </aside>
       </div>
     </article>
   );

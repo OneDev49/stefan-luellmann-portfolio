@@ -1,10 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { cn } from '@/lib/utilities';
 
 import Image, { ImageProps } from 'next/image';
-import clsx from 'clsx';
-import styles from './ImageSkeletonLoader.module.scss';
 
 interface ImageSkeletonLoaderProps extends Omit<ImageProps, 'alt'> {
   alt: string;
@@ -18,24 +17,37 @@ export default function ImageSkeletonLoader({
   wrapperClassName,
   ...props
 }: ImageSkeletonLoaderProps) {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState<boolean>(false);
+
+  const imageClassName = cn(
+    'opacity-0 transition-opacity duration-500 ease-in-out',
+    loaded && 'opacity-100',
+    className
+  );
+
+  const imageWrapperClassName = cn(
+    'relative flex overflow-hidden w-full',
+    wrapperClassName
+  );
 
   return (
-    <div className={clsx(styles.wrapper, wrapperClassName)}>
+    <div className={imageWrapperClassName}>
       {!loaded && (
         <div
-          className={styles.skeleton}
+          className='absolute inset-0 bg-[#0d3c7a] bg-[linear-gradient(90deg,#00277c_8%,#0a3fb1_18%,#00277c_28%)] animate-image-skeleton-shimmer rounded-lg grid place-items-center bg-[length:1200px_100%]'
           aria-label='Image is loading'
           title='Image is loading'
         >
-          <span>Image is Loading</span>
+          <span className='opacity-75 text-lg font-extrabold text-[#74a7eb]'>
+            Image is Loading
+          </span>
         </div>
       )}
       <Image
         {...props}
         alt={alt ?? ''}
         onLoad={() => setLoaded(true)}
-        className={clsx(styles.image, loaded && styles.visible, className)}
+        className={imageClassName}
       />
     </div>
   );

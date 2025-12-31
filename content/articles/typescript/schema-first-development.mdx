@@ -1,0 +1,146 @@
+---
+
+title: "From 'Double-Work' to Single Source of Truth: Why I switched to Schema-First Development"
+excerpt: "There was a time in my career where I had two sources of truth. I changed that by using Schema-First Development."
+author: "Stefan Lüllmann"
+published: "2025-11-29"
+thumbnail: "x81VdwhEWe9YOuURLTkrtvTuZAei8dGHXMWLB9nk6PygbVSF"
+estimatedReadTime: "5 Minutes"
+category: "opinion"
+
+---
+
+<Section position="top">
+I used to view schema validation as a necessary evil.
+In fact, prior to adopting my current workflow, I often viewed libraries like Zod as unnecessary overhead, essentially "double work" alongside TypeScript interfaces.
+
+My logic was simple: If I have already typed this data structure in TypeScript, why do I need to type it again in a validation schema?
+For a long time, I maintained two separate files: a TypeScript interface for the compiler, and a Zod Schema for the runtime.
+As any experienced developer knows, maintaining two sources of truth is a recipe for disaster.
+It invites bugs, creates code drift and doubles the maintenance burden.
+
+It wasn't until I began architecting my latest project, a **"Nebenkostenabrechnung"** (Utility Bill) tool, that I realized my approach needed to change.
+</Section>
+
+<Section>
+## The Complexity Reality Check
+If you are familiar with German bureaucracy, you know that "simple" data structures simply do not exist in this domain.
+
+While planning the architecture for this tool, I was confronted with highly complex requirements:
+
+<List type="ul">
+- Nested Arrays of meter readings,
+- Data ranges that strictly cannot overlap,
+- and conditional fields that appear only on specific rental contract types.
+</List>
+
+I realized that for this level of complexity, TypeScript interfaces were insufficient.
+They are excellent for developer ergonomics, but they are essentially just "suggestions" that vanish at runtime.
+When dealing with strict financial data, I didn't just need a suggestion; I needed a contract.
+
+I knew Zod belonged in the Tech-Stack, but I still held onto the fear of redundancy.
+I initially built the first prototype the old way: manually syncing interfaces and schemas.
+It felt cluttered and inefficient.
+</Section>
+
+
+<Section>
+## The z.infer Epiphany
+Frustrated by the redundancy, I took a step back to re-evaluate the documentation.
+That was when I fully embraced the power of **Inference**.
+
+I realized I had been approaching the problem backwards.
+I was treating the static Type as the primary source of truth and the Schema as a secondary utility.
+By flipping this relationship - making the Zod Schema the only definition and using <Code>z.infer</Code> to derive the TypeScript type - the friction disappeared.
+
+Here is what the pattern looks like in practice:
+
+<CodeBlock language="TypeScript">
+{`
+import { z } from "zod";
+
+// 1. The Schema is the Single Source of Truth
+export const landlordSchema = z.object({
+  name: z
+    .string()
+    .min(1, "Name of the landlord is required")
+    .max(100, "Name is too long"),
+  street: z
+    .string()
+    .min(1, "Street of the landlord is required")
+    .max(100, "Street must not exceed 100 characters"),
+  zip: z
+    .string()
+    .min(5, "ZIP code must have at least 5 characters")
+    .max(10, "ZIP code must not exceed 10 characters"),
+  city: z
+    .string()
+    .min(1, "City of the landlord is required")
+    .max(100, "City must not exceed 100 characters"),
+  email: z.email("Invalid E-Mail").optional().or(z.literal("")),
+  phone: z.string().optional(),
+  iban: z
+    .string()
+    .min(15, "IBAN too short")
+    .max(34, "IBAN too long")
+    .optional()
+    .or(z.literal("")),
+  bankName: z.string().max(100).optional(),
+  bic: z.string().max(11, "BIC too long").optional(),
+});
+
+// 2. The Type is derived automatically
+// No manual interface writing required.
+export type LandLordData = z.infer<typeof landlordSchema>;
+`}
+</CodeBlock>
+
+This shift created a true **Single Source of Truth**.
+Now, when I update a validation rule regarding a meter reading, the TypeScript updates automatically across the entire Full-Stack Application.
+The "double work" I feared was actually a result of my own architectural choices, not the tools themselves.
+</Section>
+
+
+<Section>
+## Schemas as Living Documentation
+Beyond the immediate efficiency gains, there was a secondary benefit I hadn't anticipated: **Living Documentation**.
+
+In a complex domain like utility billing, a standard interface like <Code>amount: number</Code> tells a developer very little about the business logic.
+However, a verbose Zod Schema tells a complete story.
+It defines min/max values, regex patterns for contract IDs, and custom error messages.
+
+Take a look at this Schema. This code doesn't just define the "Shape"; it defines the "Rules":
+<CodeBlock language="TypeScript">
+{`
+const MeterReadingSchema = z.object({
+    value: z.number().positive("Meter reading must be positive"),
+    readingDate: z.date(),
+    previousValue: z.number().optional(),
+})
+
+// The business logic lives inside the validation
+.refine((data) => !data.previousValue || data.value >= data.previousValue, {
+    message: "New reading cannot be lower than the previous reading",
+    path: ["value"],
+});
+`}
+</CodeBlock>
+
+If a new developer joins the project (or if I return to this code in six months), the Schema doesn't just define the __shape__ of the data; it explains the __rules__ of the business.
+It reduces the need for external documentation because the code documents itself.
+</Section>
+
+
+<Section>
+## Conclusion
+This journey from "hating schemas" to relying on them highlighted an important lesson in Software Engineering: often, the pain points we feel are not caused by the tools, but by how we utilize them.
+
+Adopting a Schema-first workflow was the "Aha!" moment for this project.
+It transformed validation from a redundant chore into a powerful architectural pillar.
+
+If you are interested in the Technical Implementation of this pattern, I recommend reading my Technical deep dive, <HyperLink href="/articles/typescript/zod-full-stack-pattern">The Full-Stack Zod Playbook</HyperLink>, where I break down the code structure step-by-step.
+
+Thank you for reading.
+Happy coding!
+Stefan
+</Section>

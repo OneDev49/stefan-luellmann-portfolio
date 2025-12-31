@@ -11,10 +11,10 @@ export interface Project {
     | 'V3 - Released';
   description: string;
   techStack: TechnologyName[];
-  caseStudyStatus: 'notReleased' | 'released';
+  caseStudyStatus: 'Not Released' | 'Released';
   caseStudyBrief: string;
   links: {
-    github: string;
+    github: string | null;
     liveDemo: string;
   };
   thumbnail: string;
@@ -29,18 +29,20 @@ export const personalProjects: Project[] | [] = [
     description:
       'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
     techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'netlify'],
-    caseStudyStatus: 'released',
+    caseStudyStatus: 'Released',
     caseStudyBrief:
       'A Case Study on the planning, design, development and deployment of my Professional Portfolio Website. The Case Study goes into detail about different designs, challenges and solutions for a variety of problems, like deciding which Technologies to use and why certain Technologies were used.',
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-portfolio',
       liveDemo: 'https://stefan-luellmann.com/',
     },
-    thumbnail: 'x81VdwhEWe9YglBJ9iXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
+    thumbnail: 'x81VdwhEWe9YufWdMOGMBAJTXcEpiqxV9sKO42Lv6SlI3wGY',
     images: [
-      'x81VdwhEWe9YglBJ9iXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
-      'x81VdwhEWe9YPw0HMULrk2i6cgS3Y9p8FLUOsheVEWmzZloG',
-      'x81VdwhEWe9YLgMvrVdInMrjeXmBiTPth46N1ogxlyE7cGJp',
+      'x81VdwhEWe9YufWdMOGMBAJTXcEpiqxV9sKO42Lv6SlI3wGY',
+      'x81VdwhEWe9Y7QQ5DrMG9IrZQzFSojw6XBRq1ykehxCNiHDa',
+      'x81VdwhEWe9Yzhp9loLGJkZPVfc7xgeIMDRHBQATbjKFOhyl',
+      'x81VdwhEWe9YIUq98PEl9J5WbN6XohyduFKaOCUP3BDAsHkp',
+      'x81VdwhEWe9Y3VPvhljJCGjLPhAUmYrb6IkV2ZcMgWv8DTot',
     ],
   },
   {
@@ -62,21 +64,28 @@ export const personalProjects: Project[] | [] = [
       'zod',
       'redis',
     ],
-    caseStudyStatus: 'released',
+    caseStudyStatus: 'Released',
     caseStudyBrief:
       'Designed, Developed and Deployed a Full-Stack E-Commerce Computer Store - Entro. Developed using SSG, ISR and SSR and a relational Database with Prisma.',
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-ecommerce-app',
       liveDemo: 'https://ecommerce.stefan-luellmann.com/',
     },
-    thumbnail: 'x81VdwhEWe9Ygmp6ZZXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
+    thumbnail: 'x81VdwhEWe9YckOJoCM4M8poqWTerm6fO7QFyAIYbhZiXjRB',
     images: [
-      'x81VdwhEWe9Ygmp6ZZXWUim2kHTLC3nG7P9fwtheso8Sp1IE',
-      'x81VdwhEWe9Yk6xvyNRfP1gF2n5dtA9WmjYOaITxQJVwBzLo',
-      'x81VdwhEWe9YmncacBN9P4VmtRyDwqsTxWXaG0lOzr9IC5Lo',
-      'x81VdwhEWe9YBtFXS7KeYfw57tzND9qVBJrFHu6XOnMahs34',
+      'x81VdwhEWe9YckOJoCM4M8poqWTerm6fO7QFyAIYbhZiXjRB',
+      'x81VdwhEWe9Yc0MawA4M8poqWTerm6fO7QFyAIYbhZiXjRB2',
+      'x81VdwhEWe9YiII0CzmxJPz0TqguADyd2SlvBtYRebXojs93',
+      'x81VdwhEWe9Y3Ps6hvjJCGjLPhAUmYrb6IkV2ZcMgWv8DTot',
+      'x81VdwhEWe9YU94jsAii4qTnHxOUe6kSWA2PvBzlj53NdRhC',
+      'x81VdwhEWe9YcNsrIc4M8poqWTerm6fO7QFyAIYbhZiXjRB2',
+      'x81VdwhEWe9YH1VBi23AULrIv19p0qBfTKZdXzJemEya26uS',
+      'x81VdwhEWe9Yz7uBnPLGJkZPVfc7xgeIMDRHBQATbjKFOhyl',
+      'x81VdwhEWe9YxW5jwAhEWe9YUi5auBoV1qRjKnb2ps8Mc4wC',
     ],
   },
 ];
 
 export const clientProjects: Project[] | [] = [];
+
+export const allProjects: Project[] = [...personalProjects, ...clientProjects];

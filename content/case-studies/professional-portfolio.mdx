@@ -11,47 +11,47 @@ releaseDateV1: "2025-7-17"
 ## Abstract
 I developed my personal website to showcase all my projects, documents and case studies in one central hub.
 The primary goal was to create a central hub for my portfolio that is fast, SEO-friendly and demonstrates modern web development best practices.
-Developed over two weeks, the site leverages the power of the <Highlight type="technology" technology="nextjs">Next.js</Highlight> App Router, <Highlight type="technology" technology="typescript">TypeScript</Highlight>, <Highlight type="technology" technology="react">React</Highlight> and custom developed React components, and Static Site Generation (SSG) to achieve near-perfect Lighthouse scores.
-Key architectural features include a global state solution using React Context for the website Modal and a dynamic content pipeline for case studies using <Highlight type="technology" technology="mdx">MDX</Highlight> and Gray Matter.
+Developed over two weeks, the site leverages the power of the <TechIconSpan technology="nextjs">Next.js</TechIconSpan> App Router, <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="react">React</TechIconSpan> and custom developed React components, and Static Site Generation (SSG) to achieve near-perfect Lighthouse scores.
+Key architectural features include a global state solution using React Context for the website Modal and a dynamic content pipeline for case studies using <TechIconSpan  technology="mdx">MDX</TechIconSpan> and Gray Matter.
 
-<TextBlock>
+<Section>
 ## Introduction
 This project was developed to display my projects, documents and case studies in a modern way using the latest technologies in website development.
 The core objective was to build a personal brand platform that not only showcases my projects but also serves as a testament to my skills in creating high-performance web applications.
 
 The core goals were to achieve a Lighthouse score of >95 across all metrics, ensure full accessibility (WCAG 2.1) and to build a scalable content system for future articles and case studies.
-</TextBlock>
+</Section>
 
-<TextBlock>
+<Section>
 ## Choosing the Technology
 When choosing the technology stack to develop and design this website, a main focus was speed and the app-like feeling.
 
-While there were ideas to use other technologies such as Astro.js, <Highlight type="technology" technology="nextjs">Next.js</Highlight> expanding market and its easy integration with <Highlight type="technology" technology="vercel">Vercel</Highlight> among other important advantages like the App Router were the key factors that ultimately led to the choice of Next.js as a core environment.
-<Highlight type="technology" technology="react">React</Highlight> and <Highlight type="technology" technology="typescript">TypeScript</Highlight> were relatively easy to choose due to the integration of both into Next.js.
+While there were ideas to use other technologies such as Astro.js, <TechIconSpan technology="nextjs">Next.js</TechIconSpan> expanding market and its easy integration with <TechIconSpan technology="vercel">Vercel</TechIconSpan> among other important advantages like the App Router were the key factors that ultimately led to the choice of Next.js as a core environment.
+<TechIconSpan technology="react">React</TechIconSpan> and <TechIconSpan technology="typescript">TypeScript</TechIconSpan> were relatively easy to choose due to the integration of both into Next.js.
 
-While my other projects levarage the utility-first approach of <Highlight type="technology" technology="tailwindcss">TailwindCSS</Highlight>, I chose <Highlight type="technology" technology="sass">SCSS</Highlight> for this project to demonstrate proficiency in traditional CSS architecture, including methodologies like BEM and the power of pre-processors for creating maintainable, scalable style sheets.
+While my other projects levarage the utility-first approach of <TechIconSpan technology="tailwindcss">TailwindCSS</TechIconSpan>, I chose <TechIconSpan technology="sass">SCSS</TechIconSpan> for this project to demonstrate proficiency in traditional CSS architecture, including methodologies like BEM and the power of pre-processors for creating maintainable, scalable style sheets.
 
-<Highlight type="technology" technology="mdx">MDX</Highlight> with Gray Matter were chosen to allow me to write articles such as this case study in an easy format and to integrate them in a simple workflow into the Next.js website.
-</TextBlock>
+<TechIconSpan technology="mdx">MDX</TechIconSpan> with Gray Matter were chosen to allow me to write articles such as this case study in an easy format and to integrate them in a simple workflow into the Next.js website.
+</Section>
 
 
-<TextBlock>
+<Section>
 ## Design of the Project
 In this project there were a couple of important design choices to be made.
 
-<TextSpacer />
+<Spacer />
 
 ### UI/UX Design
 The user journey was suppose to be very linear.
 
 Everything is only two clicks away and most of the website can be accessed from any page of the website.
 The header is suppose to be the guide through the website, allowing visitors to navigate easily through the website.
-The <Highlight color="code">Get In Touch</Highlight> button with its popup modal should will give the visitor all the information about me that they might need, from Social Media Links all the way to my CV and direct contact possibilities.
+The <Code>Get In Touch</Code> button with its popup modal should will give the visitor all the information about me that they might need, from Social Media Links all the way to my CV and direct contact possibilities.
 
-The design of the website was heavily based on the old design of NordWebTec and the dark blue color choice should give a modern, futuristic feeling to the visitor.
+The design of the website was heavily based on the old design of my Website and the dark blue color choice should give a modern, futuristic feeling to the visitor.
 Animations such as the moving background particles or the multiple different waves across the website should break the potential quiet website feel.
 
-<TextSpacer />
+<Spacer />
 
 ### Architectural Design
 The core principle behind every project I develop is DRY (Don't Repeat Yourself).
@@ -61,15 +61,15 @@ The architecture is built on a foundation of atomic design principles.
 Core UI elements were developed as small, reusable and unopinionated components (Icons, Buttons, Modals).
 These were then composed into larger "organisms" (like the Header or project cards).
 This approach, combined with a clear separation of concerns between Server Components (for static content) and Client Components (for interactivity), ensures the codebase is both maintainable and performant.
-</TextBlock>
+</Section>
 
 
 
-<TextBlock>
+<Section>
 ## Challenges & Solutions
 The two main challenges were the Modal and the MDX integration.
 
-<TextSpacer />
+<Spacer />
 
 ### First Challenge & Solution: Modal
 The first iteration of the website only had the modal as a component of the header.
@@ -78,7 +78,7 @@ This created a challenge since other components outside the header were not able
 To allow other components on the website to open the modal (regardless of their position on the page) the modal had to be extracted from the header and placed inside a React Context.
 This allowed every other component on the website to call and open the modal, regardless of their position.
 
-<TextSpacer />
+<Spacer />
 
 ### Second Challenge & Solution: MDX integration
 To write articles, blogs and documentations MDX was the best choice.
@@ -88,20 +88,20 @@ For basic pages such as the legal pages, MDX could simply be called and the Meta
 For the case studies however a proper translation layer had to be developed.
 To create dynamic slug-based articles, MDX had to find the correct article and frontmatter had to be used to populate the dynamic page itself.
 This core idea was the basic workflow to write, create and publish articles on the website.
-</TextBlock>
+</Section>
 
 
-<TextBlock>
+<Section>
 ## Deployment & Infrastructure
-The CI/CD pipeline is managed through GitHub, with the main branch automatically deploying to <Highlight type="technology" technology="netlify">Netlify</Highlight>.
+The CI/CD pipeline is managed through GitHub, with the main branch automatically deploying to <TechIconSpan technology="netlify">Netlify</TechIconSpan>.
 I made a strategic decision to host my personal brand site on Netlify and my more complex, application-focused projects (like Entro) on Vercel.
-This diversifies my experience with the two leading Jamstack platforms and segragates the resource usage of my portfolio pieces.
+This diversifies my experience with the two leading Jamstack platforms and segregates the resource usage of my portfolio pieces.
 
 The CI pipeline of the website always involves new feature branching, writing precise GitHub documentations prior to each merge and after a successful merge, the CD pipeline then deploys the latest version onto Netlify.
-</TextBlock>
+</Section>
 
 
-<TextBlock>
+<Section>
 ## Conclusion
 Through the successful development of the website and the implementation of Next.js and the App Router, a seamless user experience was created.
 At the same time MDX was successfully implemented.
@@ -109,5 +109,5 @@ At the same time MDX was successfully implemented.
 This now allows for vast possibilities for the future.
 One venue that is already in the planning is the creation of educational content and documentation on this website.
 Overall, the design and development of the website was a success.
-</TextBlock>
+</Section>
 

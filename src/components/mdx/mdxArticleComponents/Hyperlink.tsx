@@ -1,6 +1,7 @@
-import GlobeIcon from '@/components/icons/glyphs/GlobeIcon';
-import styles from './Hyperlink.module.scss';
+import { cn } from '@/lib/utilities';
+
 import Link from 'next/link';
+import ExternalLinkIcon from '@/components/icons/ui/ExternalLinkIcon';
 
 interface HyperLinkProps {
   children: string;
@@ -11,9 +12,12 @@ interface HyperLinkProps {
 export default function HyperLink({
   children,
   href,
-  className = '',
+  className,
 }: HyperLinkProps) {
-  const linkClassName = `${styles.link} ${className}`;
+  const linkClassName = cn(
+    'text-[#46e3ff] underline underline-offset-2 transition-all duration-200 ease-in-out inline-flex items-center gap-1 hover:text-[#aef3ff]',
+    className
+  );
 
   const isExternal = href.startsWith('http') || href.startsWith('//');
 
@@ -21,12 +25,12 @@ export default function HyperLink({
     return (
       <a
         href={href}
-        className={linkClassName}
+        className={`${linkClassName} mx-1`}
         target='_blank'
         rel='noopener noreferrer'
       >
         {children}
-        <GlobeIcon height={20} width={20} className={styles.icon} />
+        <ExternalLinkIcon height={15} width={15} />
       </a>
     );
   }

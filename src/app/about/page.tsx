@@ -1,53 +1,35 @@
 import type { Metadata } from 'next';
 
-import TimelineSection from './_components/TimelineSection';
-import ToolkitSection from './_components/ToolkitSection';
-import AboutHeroSection from './_components/AboutHeroSection';
-import PersonalImageCTA from '@/components/sections/PersonalImageCTA';
+import AboutHero from './_components/AboutHeroSection';
+import AboutTimeline from './_components/AboutTimeline';
+import AboutToolkit from './_components/AboutToolkit';
+import LatestArticles from '@/components/sections/LatestArticles';
 
 export const metadata: Metadata = {
   title: 'About Me',
   description:
-    'Learn more about my professional journey, from founding a Web Agency to specializing in modern Full-Stack Development with Next.js and TypeScript.',
+    'Learn about my full professional journey and how I became a Full-Stack Engineer & a Technical Writer.',
 
   openGraph: {
     title: 'About Stefan Lüllmann',
     description:
-      'A detailed look into my background, skills and professional philosophy.',
+      'Learn about my full professional journey and how I became a Full-Stack Engineer & a Technical Writer.',
   },
 
   twitter: {
     title: 'About Stefan Lüllmann',
     description:
-      'A detailed look into my background, skills and professional philosophy.',
+      'Learn about my full professional journey and how I became a Full-Stack Engineer & a Technical Writer.',
   },
 };
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <>
-      <AboutHeroSection />
-      <TimelineSection />
-      <ToolkitSection />
-      <PersonalImageCTA
-        heading={`Let's Connect!`}
-        paragraph={
-          <>
-            <span>
-              Thank you for taking the time to learn more about my background. I
-              love to plan, design, develop and optimize Websites and
-              Applications of all kinds.
-            </span>
-            <span>
-              If you believe that my skills and mindset would be a great fit for
-              your Team or Project, I&apos;d be exited to Chat!
-            </span>
-          </>
-        }
-        getInTouchButton={true}
-        background={true}
-        backgroundWaves={true}
-      />
+      <AboutHero />
+      <AboutTimeline />
+      <AboutToolkit />
+      <LatestArticles heading='Read my latest Technical Deep Dives' />
     </>
   );
 }

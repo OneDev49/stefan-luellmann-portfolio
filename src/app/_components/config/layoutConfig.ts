@@ -39,14 +39,32 @@ export const fontTexts = localFont({
   display: 'swap',
 });
 
+export const fontMono = localFont({
+  src: [
+    {
+      path: '../../../../public/fonts/ibm-plex-mono-regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../../../public/fonts/ibm-plex-mono-700.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+
+  variable: '--font-mono',
+  display: 'swap',
+});
+
 export const metadataConfig: Metadata = {
   // Core Metadata
   title: {
     template: '%s | Stefan Lüllmann',
-    default: 'Stefan Lüllmann | Full-Stack Software Developer',
+    default: 'Stefan Lüllmann | Full-Stack Engineer & Technical Writer',
   },
   description:
-    'The personal portfolio of Stefan Lüllmann, a Full-Stack Developer specializing in Next.js, TypeScript and modern web architectures. Explore my Projects, Case Studies and Articles!',
+    'Full-Stack Engineer & Technical Writer specializing in scalable Next.js architectures and high-performance databases. Technical Deep Dives, Playbooks and more on TypeScript, Zod, Prisma, System Design and more.',
 
   // Author & Keyword Metadata
   authors: [{ name: 'Stefan Lüllmann', url: personalData.url }],
@@ -73,10 +91,10 @@ export const metadataConfig: Metadata = {
   openGraph: {
     title: {
       template: '%s | Stefan Lüllmann',
-      default: 'Stefan Lüllmann | Full-Stack Software Developer',
+      default: 'Stefan Lüllmann | Full-Stack Engineer & Technical Writer',
     },
     description:
-      'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
+      'Full-Stack Engineer & Technical Writer specializing in scalable Next.js architectures and high-performance databases. Technical Deep Dives, Playbooks and more on TypeScript, Zod, Prisma, System Design and more.',
     url: personalData.url,
     siteName: 'Stefan Lüllmann',
     images: [
@@ -96,10 +114,10 @@ export const metadataConfig: Metadata = {
     card: 'summary_large_image',
     title: {
       template: '%s | Stefan Lüllmann',
-      default: 'Stefan Lüllmann | Full-Stack Software Developer',
+      default: 'Stefan Lüllmann | Full-Stack Engineer & Technical Writer',
     },
     description:
-      'Personal portfolio of Stefan Lüllmann, showcasing Full-Stack and Front-End Projects with Next.js, React, TypeScript and other languages.',
+      'Full-Stack Engineer & Technical Writer specializing in scalable Next.js architectures and high-performance databases. Technical Deep Dives, Playbooks and more on TypeScript, Zod, Prisma, System Design and more.',
     images: [
       `${siteData.uploadThingUrl}/x81VdwhEWe9YKbHRFQuwOLusU4nrYPKeglEHaIm1DQNjRA26`,
     ],

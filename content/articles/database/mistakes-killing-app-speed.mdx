@@ -1,0 +1,221 @@
+---
+
+title: "The Prisma Performance Playbook: 3 Common Mistakes Killing Your App's Speed"
+excerpt: "Learn how to identify and resolve the three most common Prisma performance pitfalls that are silently destroying your application's speed."
+author: "Stefan Lüllmann"
+published: "2025-12-02"
+thumbnail: "x81VdwhEWe9YHfCSTS3AULrIv19p0qBfTKZdXzJemEya26uS"
+estimatedReadTime: "5 Minutes"
+category: "playbook"
+
+---
+
+<Section position="top">
+Prisma is arguably the most important ORM in the modern JavaScript Ecosystem.
+It is intuitive, type-safe and highly scalable.
+
+I use it daily, either for my E-Commerce platform Entro or for my various client and personal projects.
+It allows me to ship production apps quickly by abstracting away the complex SQL glue code.
+
+But as with any powerful tool, that convenience comes with a trade-off.
+
+Prisma makes it dangerously easy to write inefficient database queries.
+Because the abstraction layer is so smooth, developers often forget that a single line of JavaScript can trigger massive, resource-intensive SQL operations.
+I have seen production codebases where fetching a blog post title inadvertently loaded the entire database table into memory.
+
+This is highly inefficient. As developers, we need to think about the **resource cost** of our code.
+Bad performance doesn't just frustrate users, it inflates cloud bills and wastes infrastructure.
+
+This article breaks down the three most common Prisma performance mistakes I have encountered, and exactly how to fix them.
+</Section>
+
+<Section>
+## Understanding the Cost
+Before we optimize, we must understand what is happening under the hood.
+Prisma is not magic, it is a SQL generator.
+
+Consider the seemingly harmless snippet:
+
+<CodeBlock language="TypeScript">
+{`
+await db.user.findMany({
+    include: { posts: true }
+})
+`}
+</CodeBlock>
+
+This snippet fetches **every user** and **every post** associated with them.
+That seems manageable if you have 10 users.
+But what if you have 100,000 users?
+And each has 10 posts?
+You are asking your database to return over a million rows of data.
+
+Let's look at the raw SQL query this generates:
+
+<CodeBlock language="SQL">
+{`
+--- Query 1: Fetch all User columns
+SELECT "id", "email", "name", "createdAt", ... FROM "User"
+
+--- Query 2: Fetch all Post columns for those IDs
+SELECT "id", "title", "content", "published", "authorId"
+FROM "Post"
+WHERE "authorId" IN ($1, $2, ... $100000)
+`}
+</CodeBlock>
+
+In this example, even if we assume a user only has four columns, the payload is massive.
+The cost isn't just in the database execution, it's in the network transfer and the Node.js memory parsing.
+Such an unoptimized query can result in seconds of loading time.
+
+The key takeaway is that seemingly small snippets of Prisma code can have a massive impact on your backend.
+</Section>
+
+
+<Section>
+## Mistake 1: The "Select All" Trap (Over-fetching)
+The <Code>include</Code> keyword is one of the most commonly abused features in Prisma.
+By default, it acts like a <Code>SELECT *</Code>, fetching every column from the joined table.
+
+If you only need to display the titles of a user's posts, why fetch the <Code>content</Code>, <Code>publishedAt</Code>, and <Code>tags</Code> columns?
+This is called **Over-Fetching**.
+
+**The Solution:** Be specific.
+Instead of fetching everything, tell Prisma exactly what you need using <Code>select</Code>.
+
+<CodeBlock language="TypeScript">
+{`
+// Bad: Fetches every column
+const users = await db.user.findMany({
+  include: { posts: true }
+});
+
+// Good: Fetches only the ID and Title
+const users = await db.user.findMany({
+  select: {
+    id: true,
+    posts: {
+      select: { title: true } // Precision fetching
+    }
+  }
+});
+`}
+</CodeBlock>
+
+In this code, we use the <Code>select</Code> keyword to act as a filter.
+Prisma translates this into a much leaner SQL query.
+This simple change can reduce your query payload size by 90% or more.
+</Section>
+
+
+<Section>
+## Mistake 2: The N+1 Problem
+Have you ever run a query inside a loop, or inside a <Code>.map()</Code> function?
+If so, you have likely created the **N+1 Problem**.
+
+Let's look at this example:
+
+<CodeBlock language="TypeScript">
+{`
+// 1. Fetch all users (1 Query)
+const users = await db.user.findMany();
+
+for (const user of users) {
+  // 2. Fetch posts for EACH user (N Queries)
+  const posts = await db.post.findMany({
+    where: { userId: user.id }
+  })
+}
+`}
+</CodeBlock>
+
+What exactly is happening here?
+First, we fetch all users (1 query).
+Then, the <Code>for</Code> loop runs.
+If there are 1,000 users, the code inside the loop runs 1,000 times.
+This results in **1,001 total requests** to your database.
+This will bring even a powerful server to a crawl.
+
+**The Solution:** Let Prisma handle the relation.
+
+You might notice that the solution to this problem looks familiar:
+
+<CodeBlock language="TypeScript">
+{`
+const users = await db.user.findMany({
+  select: {
+    id: true,
+    posts: {
+      select: { title: true }
+    }
+  }
+});
+`}
+</CodeBlock>
+
+You might ask: __"Stefan, isn't this the same code as Mistake 1?"__
+Yes, it is.
+And that is the beauty of Prisma.
+
+Prisma is smart enough to handle relation mapping automatically.
+Instead of firing a query for every user, it uses a technique called **Dataloader** under the hood to fetch all the required data in just two optimized queries.
+
+By using <Code>select</Code> (or <Code>include</Code>) correctly, you solve both Over-Fetching and the N+1 problem with one uniform solution.
+</Section>
+
+
+<Section>
+## Mistake 3: The "Await" Waterfall
+This mistake often happens in Server Components or API routes where you need data from multiple unrelated sources, perhaps a User, some Statistics, and a Product.
+
+You might write your queries like this:
+
+<CodeBlock language="TypeScript">
+{`
+// Bad: Serial Execution
+const user = await db.user.findUnique(...);    // Waits 200ms
+const stats = await db.stats.findMany(...);    // Waits 200ms
+const product = await db.product.findUnique(...); // Waits 200ms
+`}
+</CodeBlock>
+
+If you write your code like this, you are creating an **"Await" Waterfall**.
+The second query cannot start until the first one finishes.
+If each request takes 200ms, your total wait time is **600ms**.
+
+**The Solution:** Parallelize the requests.
+
+Since the <Code>stats</Code> query doesn't depend on the <Code>user</Code> query, they should run at the same time.
+
+<CodeBlock language="TypeScript">
+{`
+// Good: Parallel Execution
+const [user, stats, product] = await Promise.all([
+  db.user.findUnique(...),
+  db.stats.findMany(...),
+  db.product.findUnique(...),
+]);
+`}
+</CodeBlock>
+
+By wrapping the promises in <Code>Promise.all()</Code>, we trigger all three requests simultaneously.
+In our scenario, the total time drops from 600ms to just **200ms** (the time of the slowest query).
+
+This is a **66% improvement** in performance simply by changing how we structure our JavaScript.
+</Section>
+
+<Section>
+## Closing remarks
+There are many ways to optimize a Backend, but these three are the most common issues I see when auditing code.
+
+Writing queries with Prisma is incredibly easy, but just because it is easy doesn't mean it is efficient.
+As Full-Stack developers, it is our responsibility to look beyond the abstraction and ensure our applications respect both the user's time and our infrastructure's resources.
+
+Implementing these three patterns will save you from huge resource bills, headaches, and slow loading times.
+
+Thanks for reading.
+
+Happy Coding!
+
+Stefan
+</Section>
