@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utilities';
 
-import GradientButton from './GradientButton';
 import CheckIcon from '../icons/glyphs/CheckIcon';
 import LinkIcon from '../icons/glyphs/LinkIcon';
+import CTAButton from './CTAButton';
 
 interface ShareButtonProps {
   className?: string;
@@ -36,26 +37,33 @@ export default function ShareButton({ className }: ShareButtonProps) {
 
   const isDisabled = !currentUrl;
 
+  const anchorClassName = cn(
+    'px-2 py-1 font-heading font-extrabold flex gap-2',
+    className
+  );
+
   return (
-    <GradientButton
-      variant='green'
+    <CTAButton
+      colorStyle='gradientGreen'
+      animation='all'
       as='button'
       type='button'
       onClick={handleCopy}
       disabled={isDisabled}
       title='Copy page link'
-      className={className}
+      className={anchorClassName}
     >
       {isCopied ? (
         <>
+          Study Link Copied!
           <CheckIcon />
-          Copied!
         </>
       ) : (
         <>
-          <LinkIcon /> Copy Link to Share
+          Copy Link to Share
+          <LinkIcon />
         </>
       )}
-    </GradientButton>
+    </CTAButton>
   );
 }
