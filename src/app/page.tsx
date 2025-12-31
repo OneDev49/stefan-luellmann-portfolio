@@ -6,12 +6,12 @@ import LatestArticles from '@/components/sections/LatestArticles';
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <HomePageHero />
       <HomePageBento />
       <HomePageNewsletter />
       <LatestArticles heading='Discover my latest Technical Deep Dives' />
       <HomePageCTA />
-    </main>
+    </>
   );
 }
