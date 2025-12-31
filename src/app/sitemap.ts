@@ -1,52 +1,40 @@
 import { MetadataRoute } from 'next';
 import { personalData } from '@/config/siteData';
-import { getAllBlogPosts } from '@/lib/mdx';
-
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { getAllArticles } from '@/lib/mdx/articles';
+import { getAllCaseStudies } from '@/lib/mdx/case-studies';
 
 const BASE_URL = personalData.url || 'https://stefan-luellmann.com';
 
-async function getCaseStudySitemapData() {
-  const dir = path.join(process.cwd(), 'content', 'case-studies');
-  if (!fs.existsSync(dir)) return [];
-
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
-
-  return files.map((file) => {
-    const filePath = path.join(dir, file);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const { data } = matter(fileContent);
-
-    const lastModified = data.updated
-      ? new Date(data.updated)
-      : data.published
-      ? new Date(data.published)
-      : new Date();
-
-    return {
-      url: `${BASE_URL}/case-studies/${file.replace('.mdx', '')}`,
-      lastModified,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    };
-  });
-}
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogPosts = await getAllBlogPosts();
+  const articles = await getAllArticles();
 
-  const blogUrls = blogPosts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post.frontmatter.published
-      ? new Date(post.frontmatter.published)
-      : new Date(),
+  const articleUrls = articles.map((article) => ({
+    url: `${BASE_URL}/articles/${article.topic}/${article.slug}`,
+    lastModified: article.frontmatter.updated
+      ? new Date(article.frontmatter.updated)
+      : new Date(article.frontmatter.published),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
 
-  const caseStudyUrls = await getCaseStudySitemapData();
+  const caseStudies = await getAllCaseStudies();
+
+  const caseStudyUrls = caseStudies.map((caseStudy) => ({
+    url: `${BASE_URL}/case-studies/${caseStudy.slug}`,
+    lastModified: caseStudy.frontmatter.updated
+      ? new Date(caseStudy.frontmatter.updated)
+      : new Date(caseStudy.frontmatter.published),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  const topics = [...new Set(articles.map((article) => article.topic))];
+  const topicUrls = topics.map((topic) => ({
+    url: `${BASE_URL}/articles/${topic}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -62,13 +50,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/projects`,
+      url: `${BASE_URL}/work`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/case-studies`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/articles`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
@@ -87,5 +81,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  return [...staticRoutes, ...caseStudyUrls, ...blogUrls];
+  return [...staticRoutes, ...topicUrls, ...articleUrls, ...caseStudyUrls];
 }
