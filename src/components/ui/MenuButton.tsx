@@ -65,7 +65,7 @@ export default function MenuButton({ project, className }: MenuButtonProps) {
           >
             Live Demo
           </a>
-          {project.caseStudyStatus === 'released' && (
+          {project.caseStudyStatus === 'Released' && (
             <Link
               href={`/case-studies/${project.slug}`}
               className={anchorClassName}
@@ -73,14 +73,16 @@ export default function MenuButton({ project, className }: MenuButtonProps) {
               Case Study
             </Link>
           )}
-          <a
-            href={project.links.github}
-            rel='noopener noreferrer'
-            target='_blank'
-            className={anchorClassName}
-          >
-            GitHub
-          </a>
+          {project.links.github !== null && (
+            <a
+              href={project.links.github}
+              rel='noopener noreferrer'
+              target='_blank'
+              className={anchorClassName}
+            >
+              GitHub
+            </a>
+          )}
         </div>
       )}
     </div>
