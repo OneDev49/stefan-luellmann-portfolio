@@ -1,6 +1,6 @@
-import BackgroundBlob from './background/BackgroundBlob';
-import BackgroundShapeOne from './background/BackgroundShapeOne';
-import BackgroundShapeTwo from './background/BackgroundShapeTwo';
+import BackgroundBlob from '@/app/articles/_components/background/BackgroundBlob';
+import BackgroundShapeOne from '@/app/articles/_components/background/BackgroundShapeOne';
+import BackgroundShapeTwo from '@/app/articles/_components/background/BackgroundShapeTwo';
 
 export default function CaseStudiesHero() {
   return (
@@ -14,8 +14,10 @@ export default function CaseStudiesHero() {
         <strong className='text-[#36e5fc] font-mono uppercase'>
           Detailed, Precise, Extensive
         </strong>
-        <h1 className='text-h1 font-extrabold capitalize'>
-          Case Studies for each Project
+        <h1 className='text-h1 text-transparent font-extrabold capitalize'>
+          <span className='bg-gradient-card bg-clip-text'>
+            Case Studies for each Project
+          </span>
         </h1>
         <p className='mt-4'>
           I write detailed case studies for all the projects I work on, both

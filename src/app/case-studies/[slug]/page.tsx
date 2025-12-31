@@ -13,6 +13,7 @@ import ShareButton from '@/components/ui/ShareButton';
 import FormattedDate from '@/components/ui/FormattedDate';
 import CTAButton from '@/components/ui/CTAButton';
 import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
+import ImageCarousel from '@/components/ui/ProjectImageCarousel';
 
 interface CaseStudyPageProps {
   params: { slug: string };
@@ -107,6 +108,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className='max-w-2xl mx-auto'>
+            <ImageCarousel bigImageRenderSize='50vw' project={project} />
           </div>
           <div className='flex flex-col items-center max-w-xl mx-auto gap-4'>
             <div className='w-full flex flex-col items-center text-center gap-1'>
@@ -241,7 +245,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           <div className='lg:hidden'>
             <MobileTableOfContent headings={headings} />
           </div>
-          <div className='border-t border-[#0066ff] space-y-2'>
+          <div className='border-t border-[#0066ff] space-y-2 max-w-[72ch] mx-auto lg:max-w-[initial]'>
             <strong className='font-heading font-extrabold text-lg underline'>
               Share the Study
             </strong>
@@ -258,14 +262,18 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <div
         className={`${maximumContentClassName} flex items-start justify-between gap-8`}
       >
-        <div className='basis-[72ch] max-w-[72ch]'>
+        <div className='basis-[72ch] max-w-[72ch] mx-auto lg:mx-[initial]'>
           <MDXRemote source={content} components={coreMdxComponents} />
         </div>
         <aside
-          className='basis-[290px] flex-shrink-0 pt-4 pb-12 px-6 sticky t-[70px] hidden lg:block'
+          className='basis-[290px] flex-shrink-0 pb-12 px-6 sticky top-[70px] hidden lg:block'
           aria-label='Table of contents'
         >
-          <TableOfContent headings={headings} variant='sidebar' />
+          <TableOfContent
+            headings={headings}
+            variant='sidebar'
+            listClassName='max-h-80'
+          />
         </aside>
       </div>
     </article>
