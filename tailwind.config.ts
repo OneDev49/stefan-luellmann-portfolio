@@ -18,7 +18,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        background: '#00092e',
+        background: '#000414',
         foreground: '#ffffff',
       },
       fontSize: {
