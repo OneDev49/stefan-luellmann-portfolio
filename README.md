@@ -1,18 +1,20 @@
 # Stefan Lüllmann's Personal Portfolio
 
-![Professional Portfolio Preview](https://qnr34aa1vn.ufs.sh/f/x81VdwhEWe9YG1OekopKVqv5jYUWFgHJZNum1TXOtfSDIosQ)
+![Professional Portfolio Preview](https://qnr34aa1vn.ufs.sh/f/x81VdwhEWe9YufWdMOGMBAJTXcEpiqxV9sKO42Lv6SlI3wGY)
 
-This repository contains the source code for my Professional Portfolio Website, built to showcase my Projects (both Personal and Client) and professional Case Studies. Designed for speed, responsiveness, and maintainability.
+This repository contains the source code for my Professional Website, built to showcase my Projects (both Personal and Client), write Professional Case Studies for my projects and write technical deep dives on advanced topics.
+Designed for speed, responsiveness, and maintainability.
 
-**Live Demo**: [https://stefan-luellmann.com](https://stefan-luellmann.com)
+**Live Website**: [https://stefan-luellmann.com](https://stefan-luellmann.com)
 
 ## Core Features
 
-- **Project Showcase:** Highlights Personal and Client Projects with interactive cards and image galleries.
+- **Project Showcase:** Highlights Personal and Client Projects with interactive cards, image galleries, tech stacks and direct links to all relevant pages.
 - **Case Studies:** Detailed Case Studies written in MDX for each Project, documenting planning, design, tech choices, development, challenges, solutions and releases.
+- **Technical Deep Dives:** Widespread Technical Deep Dives on different technologies, from Performance to Edge Cases in Prisma, Zod, TypeScript, React and many more.
 - **High Performance:** Built with Next.js and Static Site Generation (SSG) to achieve optimal Lighthouse scores.
 - **Fully Responsive:** Mobile-first design ensures a seamless experience across all devices.
-- **Modern Styling:** SCSS Modules for component-scoped styles combined with global theming.
+- **Modern Styling:** Tailwind CSS usage for component-scoped styles combined with custom made reset additions and Tailwind classes.
 
 ## Tech Stack
 
@@ -22,7 +24,7 @@ This Project demonstrates proficiency in the following Technologies:
 - **Language:** [TypeScript](https://www.typescript.org/)
 - **Styling:** [SCSS Module](https://sass-lang.com/) and [clsx](https://github.com/lukeed/clsx) for conditional classnames.
 - **Content:** MDX parsed with `next-mdx-remote` and `gray-matter` for legal pages and case studies.
-- **Deployment:** [Vercel](https://vercel.com/)
+- **Deployment:** [Netlify](https://www.netlify.com/)
 
 ## Getting Started
 
@@ -63,16 +65,14 @@ After the 4. Step, open [http://localhost:3000](http://localhost:3000) in your b
 
 ## Folder Structure Overview
 
-- /public - Directory for favicon and CV files
-- /content - MDX content for Case Studies and Legal Pages
+- /public - Directory for favicons, CV files and font files
+- /content - MDX content for Technical Deep Dives (ordered by Topic), Case Studies and Legal Pages
 - /src - Next.js project directory
   - /app - Next.js App Router pages
   - /components - Reusable UI components
   - /config - Project and Case Study Metadata (`projects.ts`)
   - /context - React contexts
   - /lib - Utility functions (e.g., MDX parsing)
-  - /styles - Global and modular SCSS
-  - /assets - font resources
 
 ## Contact
 
