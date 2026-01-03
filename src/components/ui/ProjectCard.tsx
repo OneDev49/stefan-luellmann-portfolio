@@ -142,7 +142,9 @@ export default function ProjectCard({
           <div
             className={cn(
               'grid',
-              cardVariant === 'caseStudy' ? 'grid-cols-1' : 'grid-cols-2 gap-4'
+              cardVariant === 'caseStudy'
+                ? 'grid-cols-1'
+                : 'grid-cols-1 sm:grid-cols-2 gap-4'
             )}
           >
             {project.caseStudyStatus === 'Released' ? (

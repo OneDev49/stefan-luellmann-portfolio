@@ -43,7 +43,7 @@ export default function WorkHero() {
         <PerspectiveGrid variant='hallway' />
         <div className='relative flex items-center justify-center gap-4 mx-auto px-4 flex-col max-w-3xl text-center'>
           <h1 className='grid capitalize'>
-            <span className='text-h1 font-extrabold -mb-6 text-[rgba(173,173,173,0.6)]'>
+            <span className='text-h1 font-extrabold -mb-6 text-[rgba(173,173,173,0.6)] max-md:leading-loose'>
               Projects & Case Studies
             </span>
             <div className='font-extrabold text-transparent text-h3'>

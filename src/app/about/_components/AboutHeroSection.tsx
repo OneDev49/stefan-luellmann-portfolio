@@ -25,7 +25,7 @@ export default function AboutHero() {
         <div className='relative mx-auto w-full flex items-center justify-center lg:justify-between'>
           <div className='basis-[500px] gap-4 text-center flex flex-col lg:text-left lg:items-start xl:basis-[650px]'>
             <h1 className='grid capitalize'>
-              <span className='text-h1 font-extrabold -mb-6 text-[rgba(173,173,173,0.6)]'>
+              <span className='text-h1 font-extrabold -mb-6 text-[rgba(173,173,173,0.6)] max-md:leading-loose'>
                 About Stefan Lüllmann
               </span>
               <div className='font-extrabold text-transparent text-h3'>
@@ -40,7 +40,7 @@ export default function AboutHero() {
               experiences. I also love to write technical deep dives about
               projects, languages and everything in between.
             </p>
-            <div className='gap-6 flex flex-col items-center justify-center sm:flex-row'>
+            <div className='gap-3 md:gap-6 flex flex-col items-center justify-center sm:flex-row'>
               <CTAButton
                 href='/work'
                 animation='all'

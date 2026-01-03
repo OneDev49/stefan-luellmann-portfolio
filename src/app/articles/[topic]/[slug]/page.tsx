@@ -205,7 +205,7 @@ export default async function ArticlePage({ params }: PageProps) {
         </div>
 
         <div
-          className={`${maximumContentClassName} flex items-start justify-between gap-8`}
+          className={`${maximumContentClassName} lg:flex items-start justify-between gap-8`}
         >
           <div className='basis-[72ch] max-w-[72ch] mx-auto lg:mx-[initial]'>
             <MDXRemote source={content} components={coreMdxComponents} />
