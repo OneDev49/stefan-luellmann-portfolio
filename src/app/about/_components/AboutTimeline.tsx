@@ -11,6 +11,7 @@ import GlobeIcon from '@/components/icons/glyphs/GlobeIcon';
 import Image from 'next/image';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import CTAButton from '@/components/ui/CTAButton';
+import WaveTransition from '@/components/effects/WaveTransition';
 
 export default function AboutTimeline() {
   const { openGetInTouch } = useModal();
@@ -170,7 +171,7 @@ export default function AboutTimeline() {
           </li>
         </ol>
       </div>
-      <div className='bg-[#001c58] border-t-4 border-[#006fff] py-16'>
+      <div className='relative bg-[#001c58] border-t-4 border-[#006fff] pb-24 pt-16'>
         <div className='w-full mx-auto px-4 max-w-6xl flex gap-8 flex-col md:flex-row md:text-left text-center items-center'>
           <div className='flex border-2 border-white rounded-full overflow-hidden shadow-lg shadow-blue-600'>
             <ImageSkeletonLoader
@@ -186,7 +187,7 @@ export default function AboutTimeline() {
               sizes='(max-width: 768px) 100vw, 25vw'
             />
           </div>
-          <div className='flex-1 space-y-6 lg:ml-12'>
+          <div className='flex flex-col items-center md:items-start flex-1 space-y-6 lg:ml-12'>
             <h2 className='text-h2 text-transparent font-extrabold capitalize'>
               <span className='bg-gradient-card bg-clip-text'>
                 Reach out and Connect with me
@@ -217,6 +218,14 @@ export default function AboutTimeline() {
             </div>
           </div>
         </div>
+        <WaveTransition
+          position='bottom'
+          color='#000414'
+          variant='inner'
+          config={{
+            height: 75,
+          }}
+        />
       </div>
     </section>
   );
