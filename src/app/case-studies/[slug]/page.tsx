@@ -1,7 +1,7 @@
 import { personalProjects, clientProjects } from '@/config/projects';
 import { notFound } from 'next/navigation';
 import { siteData } from '@/config/siteData';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import { coreMdxComponents } from '@/components/mdx/mdxArticleComponents/mdxParentFile';
 import { getCaseStudyBySlug } from '@/lib/mdx/case-studies';
 import { BackgroundNetworkParticles } from '@/components/effects/BackgroundNetworkParticles';
@@ -16,7 +16,7 @@ import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
 import ImageCarousel from '@/components/ui/ProjectImageCarousel';
 
 interface CaseStudyPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const result = await getCaseStudyBySlug(slug);
   if (!result) return {};
 
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
 }
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const mdxResult = (await getCaseStudyBySlug(slug)) ?? notFound();
   const { frontmatter, headings, content } = mdxResult;
 
