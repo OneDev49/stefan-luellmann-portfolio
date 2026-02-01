@@ -7,7 +7,7 @@ import TopicsHero from './_components/TopicsHero';
 import TopicsMain from './_components/TopicsMain';
 
 interface PageProps {
-  params: { topic: string };
+  params: Promise<{ topic: string }>;
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const topicSlug = params.topic.toLowerCase();
+  const { topic } = await params;
+  const topicSlug = topic.toLowerCase();
   const metadata = topicMetadata[topicSlug as Topic];
 
   if (!metadata) {
@@ -57,7 +58,8 @@ export async function generateMetadata({
 }
 
 export default async function ArticleTopicPage({ params }: PageProps) {
-  const topicSlug = params.topic.toLowerCase();
+  const { topic } = await params;
+  const topicSlug = topic.toLowerCase();
   const topicsFromFs = await getAllTopics();
 
   if (!topicsFromFs.includes(topicSlug)) notFound();

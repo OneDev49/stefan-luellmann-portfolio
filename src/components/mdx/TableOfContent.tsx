@@ -49,7 +49,7 @@ export default function TableOfContent({
   if (headings.length === 0) return null;
 
   const renderLinks = () => (
-    <ol className={`${listClassName} overflow-y-auto`}>
+    <ol className={`${listClassName} overflow-y-auto scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-background`}>
       {headings.map((heading) => {
         const isActive = activeId === heading.slug;
 

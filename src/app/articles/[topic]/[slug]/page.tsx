@@ -5,7 +5,7 @@ import {
   getRelatedArticles,
 } from '@/lib/mdx/articles';
 import { notFound } from 'next/navigation';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import { personalData, siteData } from '@/config/siteData';
 import { coreMdxComponents } from '@/components/mdx/mdxArticleComponents/mdxParentFile';
 import { BackgroundNetworkParticles } from '@/components/effects/BackgroundNetworkParticles';
@@ -19,7 +19,7 @@ import FormattedDate from '@/components/ui/FormattedDate';
 import ShareButton from '@/components/ui/ShareButton';
 
 interface PageProps {
-  params: { topic: string; slug: string };
+  params: Promise<{ topic: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -31,7 +31,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { topic, slug } = params;
+  const { topic, slug } = await params;
   const result = await getArticleByTopicAndSlug(topic, slug);
   if (!result) return {};
 
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function ArticlePage({ params }: PageProps) {
-  const { topic, slug } = params;
+  const { topic, slug } = await params;
 
   const mdxResult = (await getArticleByTopicAndSlug(topic, slug)) ?? notFound();
 
