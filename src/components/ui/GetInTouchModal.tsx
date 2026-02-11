@@ -138,7 +138,7 @@ export default function GetInTouchModal({
               </div>
               <CTAButton
                 as='a'
-                href='/files/Stefan_Luellmann_CV_16.09.2025.pdf'
+                href='/files/Stefan_Luellmann_CV.pdf'
                 download
                 rel='noopener noreferrer'
                 target='_blank'
