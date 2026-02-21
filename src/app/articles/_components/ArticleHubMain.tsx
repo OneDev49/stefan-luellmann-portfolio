@@ -62,7 +62,9 @@ export default function ArticlesHubMain({
           </nav>
         </div>
 
-        <ul className='grid grid-cols-1 justify-items-center gap-8 mx-auto max-w-lg md:grid-cols-2 md:max-w-[initial]'>
+        <ul
+          className={`grid justify-items-center gap-8 mx-auto max-w-lg md:max-w-[initial] ${filteredPosts.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}
+        >
           {filteredPosts.map((post) => (
             <li key={post.slug}>
               <ArticleCard post={post} />

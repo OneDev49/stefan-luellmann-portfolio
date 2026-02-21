@@ -27,7 +27,9 @@ export default async function TopicsMain({ pageData, topic }: TopicsMainProps) {
       </div>
       <div className='flex flex-col gap-8'>
         {allTopicArticles.length > 0 ? (
-          <ul className='grid grid-cols-1 justify-items-center gap-8 mx-auto max-w-lg md:grid-cols-2 md:max-w-[initial]'>
+          <ul
+            className={`grid justify-items-center gap-8 mx-auto max-w-lg md:max-w-[initial] ${allTopicArticles.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}
+          >
             {allTopicArticles.map((article, index) => (
               <li key={index}>
                 <ArticleCard post={article} />
