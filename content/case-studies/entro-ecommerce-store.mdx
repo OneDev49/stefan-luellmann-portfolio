@@ -10,58 +10,64 @@ releaseDateV1: "2025-11-13"
 
 ## Abstract
 Entro, a full-stack E-Commerce platform, was developed to showcase proficiency in building large-scale, modern web applications.
-This four-month project utilizes a <TechIconSpan technology="nextjs">Next.js</TechIconSpan> App Router foundation with <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="prisma">Prisma</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan> to deliver a feature-rich app-like shopping experience.
+This four-month project utilizes a <TechIconSpan technology="nextjs">Next.js</TechIconSpan> App Router foundation with <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="prisma">Prisma</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan> to deliver a feature-rich shopping experience with app-like performance.
 The final product features a complete user journey, from dynamic product search and filtering to a persistent Cart/Wishlist and a comprehensive user dashboard, all while maintaining near-instant page loads.
+
 
 <Section>
 ## Introduction
-The initial vision for Entro was to create an E-Commerce experience that transcends the feel of a traditional website.
-After reviewing existing platforms like Shopify and WooCommerce, I identified a gap: a truly seamless, app-like feel with zero-latency page transitions.
+The initial vision for Entro was to create an E-Commerce experience that feels less like a traditional website and more like a native application.
+After reviewing existing platforms like Shopify and WooCommerce, I identified a gap: a truly seamless experience with zero-latency page transitions.
 This became the core objective and guiding principle for the project's design, development and architecture.
 </Section>
 
 
 <Section>
 ## Choosing the Technology
-To achieve the goal of creating a large E-Commerce project that essentially feels like a App, using Next.js and its App Router became essential.
-Next.js with its App Router and other additions (optimized Image Element, Link Element and others) quickly became the best solution.
-Next.js also comes with <TechIconSpan technology="react">React</TechIconSpan> and TypeScript.
-React was the perfect fit because of the component based architecture.
-To ensure that everything runs correctly and that everything is type-safe, TypeScript became the best choice.
+<ImageBlock src="x81VdwhEWe9Yx6SflThEWe9YUi5auBoV1qRjKnb2ps8Mc4wC" description="A visualization of the different technologies used to develop Entro, my E-Commerce Computer Store Project. Among them are icons of Next.js, React, TypeScript, Tailwind CSS, Zod, NextAuth.js, Vercel, Prisma and PostgreSQL." />
+
+To achieve the goal of creating a large E-Commerce project that feels like an app, Next.js with its App Router became essential.
+Next.js provides optimized components (Image, Link) and server-side capabilities that enable instant navigation and superior performance.
+It also comes with <TechIconSpan technology="react">React</TechIconSpan> and TypeScript built in.
+React was the perfect fit because of its component-based architecture.
+To ensure that everything runs correctly and is type-safe, TypeScript became the natural choice.
 These three technologies formed the core of the whole project.
 
-<TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan> was chosen as the best relational database system because it is both modern and supports complex queries as well as advanced data types.
-Supabase was chosen as the best provider because it is both Open Source and offers a very strong free (and paid) plan.
-Both are best for the project.
+<TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan> was chosen as the relational database system because it is both modern and supports complex queries as well as advanced data types.
+<TechIconSpan technology="supabase">Supabase</TechIconSpan> was chosen as the provider because it is both open source and offers a strong free tier.
+Both are well-suited for this type of project.
 
 <TechIconSpan technology="prisma">Prisma</TechIconSpan> was chosen as the ORM to bridge the gap between the Next.js application server and the PostgreSQL database hosted on Supabase.
-It is also very verbose, easy to implement and easy to expand upon if new additions, or even deletions, have to be made in the future.
+It is verbose, easy to implement and easy to expand upon if new additions, or even deletions, have to be made in the future.
 
-<TechIconSpan technology="tailwindcss">TailwindCSS</TechIconSpan> was used for the styling simply due to the fact that it ensures a uniform styling.
-A great addition was the easy implementation and the easy usage in components.
-Using TailwindCSS also ensured that no additional files (like SCSS files for example) had to be created.
+<TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan> was used for the styling simply due to the fact that it ensures uniform styling.
+A great addition was the easy implementation and usage in components.
+Using Tailwind CSS also ensured that no additional files (like SCSS files for example) had to be created.
 This ensured that the repository of the project stayed as slim as possible.
 </Section>
 
+
+
 <Section>
 ## Design of the Project
-The Design of the Project was a very important step as it involved structuring both the UI/UX of the project as well as the repository structure of the project.
+The design of the project was a very important step as it involved structuring both the UI/UX and the repository structure.
+
 <Spacer />
 
 ### UI/UX Design
-The first general idea when it came to the design was to take a common E-Commerce Design that is used in other E-Commerce stores, such as Amazon or eBay.
-However both were quickly ruled out simply due to the fact that both were too complicated for the first iteration of the project.
+The first general idea when it came to the design was to take a common E-Commerce design that is used in other stores, such as Amazon or eBay.
+However, both were quickly ruled out simply due to the fact that both were too complicated for the first iteration of the project.
 While their design was feasible, for the MVP both designs were not sufficient.
-After careful planning I came up with a general structure that a MVP E-Commerce app should have.
+After careful planning I came up with a general structure that an MVP E-Commerce app should have.
 
 Included in that structure was the homepage, product pages, search page, checkout as well as a Login/Register page and the User Dashboard.
 
-Regarding the UI Design I wanted to have something unique with a unique color tint that has not been used for E-Commerce Stores that often.
-The result was a green color tint with a variety of different green shades.
+Regarding the UI design I wanted to have something unique with a color scheme that has not been used for E-Commerce stores that often.
+The result was a green color palette with a variety of different green shades.
 Regarding primary and secondary buttons the choice was very easy, since orange is often associated with buying products on almost all E-Commerce stores.
 
-Finally, the UX was suppose to be as straight forward as it can be.
-The user should have absolute control of the whole experience, finding the right products, managing the products with the Wishlist and Cart and having an easy way to create a account or checkout, all through the header.
+Finally, the UX was supposed to be as straightforward as it can be.
+The user should have absolute control of the whole experience, finding the right products, managing the products with the Wishlist and Cart and having an easy way to create an account or checkout, all through the header.
 
 <Spacer />
 
@@ -83,8 +89,8 @@ The challenge was to design a database schema that was both structured enough fo
 
 The solution was a hybrid schema with Prisma and JSON.
 I designed a core <Code>Product</Code> model in Prisma with common fields like <Code>name</Code>, <Code>brand</Code> and <Code>price</Code>.
-For the specific specs of each product I used the PostgreSQL <Code>Json</Code> type.
-This provided the flexibility of a schema-less document within a strongly-typed, relational database, allowing me to store arbitrary specs (like "Cores" for the CPU or "Memory Size" for a GPU) without needing dozens of tables.
+For the specific specs of each product I used the PostgreSQL <Code>JSON</Code> type.
+This provided the flexibility of a schema-less document within a strongly-typed, relational database, allowing me to store arbitrary specs (like "Cores" for a CPU or "Memory Size" for a GPU) without needing dozens of tables.
 
 <Spacer />
 
@@ -93,53 +99,64 @@ As mentioned before, building an entire E-Commerce platform from scratch is a ma
 The initial scope included a real payment gateway, user-generated reviews and an admin dashboard, which was simply too large for a single developer to execute in a reasonable timeframe for a portfolio piece.
 
 The solution was to adopt the MVP (Minimum Viable Product) mindset.
-I made a strategic decision to focus on delivering a complete, end-to-end “happy path” user journey first.
+I made a strategic decision to focus on delivering a complete, end-to-end "happy path" user journey first.
 This meant prioritizing the core shopping experience: product discovery, a persistent Cart/Wishlist and a complete user authentication and dashboard system.
-Features like a live Stripe integration and an admin panel were explicitly deferred to “Future Improvements”, ensuring the core product could be delivered to a high standard.
+Features like a live Stripe integration and an admin panel were explicitly deferred to "Future Improvements", ensuring the core product could be delivered to a high standard.
 
 <Spacer />
 
-### Challenge 3: Resource Costs for a E-Commerce Portfolio Project
+### Challenge 3: Resource Costs for an E-Commerce Portfolio Project
 The primary goal of a portfolio project is to be reviewed, but a public-facing application with a live database is vulnerable to resource abuse and high costs.
-The challenge was to provide the full, authenticated user experience - including the Cart/Wishlist management and managing a dashboard - without any database “write” operations.
+The challenge was to provide the full, authenticated user experience - including the Cart/Wishlist management and managing a dashboard - without any database "write" operations.
 
-The solution was a hybrid “Demo Mode”.
-I designed and developed a project-wide “Demo Mode” controlled by an environmental variable.
-- **On the Server-Side** the server's data-fetching layer (<Code>lib/data/products.ts</Code>) conditionally bypasses Prisma and serves a static, in-memory version of the product catalog from a seed file.
-- **On the Client Side** the Zustand stores and dashboard components were refactored to be “demo-aware”. They detect Demo Mode and redirect all “write” operations (like <Code>addToCart</Code> or <Code>updateProfile</Code>) to use the browser's <Code>localStorage</Code> instead of making fetch calls to the API.
+The solution was a hybrid "Demo Mode".
+I designed and developed a project-wide "Demo Mode" controlled by an environmental variable.
 
-The Result is that the only real database interaction is the initial login of a pre-seeded demo user.
+<List type="ul">
+- **On the server-side** the server's data-fetching layer (<Code>lib/data/products.ts</Code>) conditionally bypasses Prisma and serves a static, in-memory version of the product catalog from a seed file.
+- **On the client-side** the Zustand stores and dashboard components were refactored to be "demo-aware". They detect Demo Mode and redirect all "write" operations (like <Code>addToCart</Code> or <Code>updateProfile</Code>) to use the browser's <Code>localStorage</Code> instead of making fetch calls to the API.
+</List>
+
+The result is that the only real database interaction is the initial login of a pre-seeded demo user.
 This creates a secure, incredibly fast and zero-cost interactive experience that perfectly showcases the application's full functionality.
 
 <Spacer />
 
 ### Challenge 4: Maintaining a Consistent Data Shape Across the Application
 The <Code>Product</Code> object from the Prisma database is very rich, but it is not perfectly suited for every part of the UI.
+
+<List type="ul">
 - The raw database model includes fields like <Code>oneStarReviews</Code>, <Code>twoStarReviews</Code>, etc., but the UI components just need a single, calculated <Code>averageRating</Code>.
-- The <Code>specs</Code> field is a generic <Code>Json</Code> type that needs to be safely parsed and typed before being used in a component.
+- The <Code>specs</Code> field is a generic <Code>JSON</Code> type that needs to be safely parsed and typed before being used in a component.
 - Different components have different data needs: a <Code>ProductCard</Code> needs a concise set of data, while a full <Code>ProductPage</Code> needs everything.
-Without a clear strategy, this leads to “data shaping” logic being scattered all over the application.
+</List>
+
+Without a clear strategy, this leads to "data shaping" logic being scattered all over the application.
 Components would have to perform their own rating calculations or JSON parsing, leading to duplicated code and a high risk of inconsistency and bugs.
 
 To solve this, I created a dedicated mapper layer (<Code>lib/mappers/product.ts</Code>).
 This layer contains pure functions whose only job is to transform the raw Prisma <Code>Product</Code> object into specific, consistent shapes required by the frontend.
-- **The Implementation:**
+
+
+<List type="ul">
+- **The implementation:**
   - <Code>mapToProductCard</Code>: This function takes a full Prisma product and returns a lean <Code>ProductCardType</Code> object, containing only the data needed for a product card. It also pre-calculates the <Code>averageRating</Code> and <Code>totalRatingCount</Code>, offloading that logic from the UI components.
   - <Code>mapToProductPage</Code>: This function creates a richer <Code>ProductPageType</Code> object, which includes all fields and safely parses the complex <Code>specs</Code> JSON using the <Code>normalizeSpecs</Code> function into a strongly-typed object.
-- **The Result:**
+- **The result:**
   - **Decoupling:** My React components are now completely decoupled from the raw database schema. They receive data in the exact, predictable shape they need. If the database schema ever changes, I only need to update the mappers, not dozens of components.
   - **Consistency & DRY:** All business logic (like rating calculation) is centralized in one place, ensuring it's applied consistently everywhere and is easy to maintain.
   - **Type Safety:** This pattern provides strong, end-to-end type safety, from the data fetch to the component's props.
+</List>
 
 <Spacer />
 
 ### Challenge 5: Ensuring Type-Safety Across the Full Stack
-A major challenge was ensuring data consistency between the Prisma-generated types from the database, the Zod schemas for validation and the prop types in the React components.
-Early versions of the dashboard suffered from cryptic TypeScript errors and UI bugs (<Code>Cannot read property ‘toFixed’ of undefined</Code>) caused by subtle mismatches between <Code>null</Code> (from Prisma) and <Code>undefined</Code> (from Zod/React Hook Form).
+A major challenge was ensuring data consistency between the Prisma-generated types from the database, the <TechIconSpan technology="zod">Zod</TechIconSpan> schemas for validation and the prop types in the React components.
+Early versions of the dashboard suffered from cryptic TypeScript errors and UI bugs (<Code>Cannot read property 'toFixed' of undefined</Code>) caused by subtle mismatches between <Code>null</Code> (from Prisma) and <Code>undefined</Code> (from Zod/React Hook Form).
 
 I solved this by establishing a clear architectural pattern.
-I created dedicated “transformer” functions and refined my Zod schemas to act as a bridge between the data shapes.
-The API layer became responsible for transforming client-sent strings into database-ready types (like <Code>Date</Code> objects), and the client components became responsible for transforming server-sent <Code>null</Code> values into empty <Code>string</Code> suitable for form inputs.
+I created dedicated "transformer" functions and refined my Zod schemas to act as a bridge between the data shapes.
+The API layer became responsible for transforming client-sent strings into database-ready types (like <Code>Date</Code> objects), and the client components became responsible for transforming server-sent <Code>null</Code> values into empty <Code>strings</Code> suitable for form inputs.
 This resulted in a fully type-safe, end-to-end data flow and eliminated the entire class of hydration errors.
 
 <Spacer />
@@ -157,11 +174,11 @@ This made the application platform-agnostic and resolved the critical deployment
 
 <Section>
 ## Deployment & Infrastructure
-Initially I planned to deploy Entro together with my personal Website onto Vercel.
-However, as it was already stated in the Case Study for my Personal Website, to separate the projects and to give both my portfolio projects and my personal website as much room to “breathe” in as possible, I deployed Entro on Vercel and my personal website on Netlify.
-This would ensure that Entro, being a Full-Stack E-Commerce Store, had access to all the resources it might potentially need.
+Initially, I planned to deploy Entro together with my personal website onto Vercel.
+However, as it was already stated in the case study for my personal website, to separate the projects and to give both my portfolio projects and my personal website as much room to "breathe" as possible, I deployed Entro on Vercel and my personal website on Netlify.
+This would ensure that Entro, being a full-stack E-Commerce store, had access to all the resources it might potentially need.
 
-The full CI/CD pipeline was managed on GitHub and using Git.
+The full CI/CD pipeline was managed on GitHub and using <TechIconSpan technology="git">Git</TechIconSpan>.
 The CI pipeline of the website always involves creating a new feature branch, developing inside it, creating a new local build after development, writing precise, atomic commit messages and detailed pull request descriptions for it, and checking everything again prior to being pushed onto GitHub.
 Once the CI pipeline has finished, CD takes place on Vercel's end.
 When a new branch is merged with the project, Vercel checks the compatibility, builds a new version of the project and deploys the new version properly.
@@ -171,11 +188,11 @@ When a new branch is merged with the project, Vercel checks the compatibility, b
 <Section>
 ## Conclusion
 Over a 4-month period, Entro was successfully planned, designed, developed and deployed.
-It shows a vast range of skills, from Frontend like <TechIconSpan technology="react">React</TechIconSpan>, <TechIconSpan technology="typescript">TypeScript</TechIconSpan> and <TechIconSpan technology="tailwindcss">TailwindCSS</TechIconSpan> to Backend like <TechIconSpan technology="prisma">Prisma</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan>PostgreSQL.
-On top of that it also shows proper authentication with <TechIconSpan technology="nextauthjs">NextAuthJS</TechIconSpan> and proper state management with <TechIconSpan technology="zustand">Zustand</TechIconSpan>.
+It shows a vast range of skills, from frontend like <TechIconSpan technology="react">React</TechIconSpan>, <TechIconSpan technology="typescript">TypeScript</TechIconSpan> and <TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan> to backend like <TechIconSpan technology="prisma">Prisma</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan>.
+On top of that it also shows proper authentication with <TechIconSpan technology="nextauthjs">NextAuth.js</TechIconSpan> and proper state management with <TechIconSpan technology="zustand">Zustand</TechIconSpan>.
 
 Since the current version of Entro is only the Minimum Viable Product also known as MVP, there is an enormous amount of content still planned.
-From adding more than 200 more products, to creating a complete PC-Builder with the available products of the Store to implementing a full checkout and payment system.
+From adding more than 200 more products, to creating a complete PC-Builder with the available products of the store to implementing a full checkout and payment system.
 
 There is still a lot to work on, and I am excited to plan, design and develop everything.
 </Section>

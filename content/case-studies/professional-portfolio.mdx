@@ -2,112 +2,175 @@
 
 author: "Stefan Lüllmann"
 published: "2025-11-16"
+updated: "2026-02-03"
 designedBy: "Stefan Lüllmann"
 developedBy: "Stefan Lüllmann"
 releaseDateV1: "2025-7-17"
 
 ---
 
+## Update to V2
+On February 2026 this case study was updated to accommodate the new version of the website that was released in early January 2026.
+If you want to view the old version of this case study, visit the GitHub page of the old version here: <HyperLink href="https://github.com/onedev49/">GitHub URL</HyperLink>.
+
+
+
+<Section>
 ## Abstract
-I developed my personal website to showcase all my projects, documents and case studies in one central hub.
-The primary goal was to create a central hub for my portfolio that is fast, SEO-friendly and demonstrates modern web development best practices.
-Developed over two weeks, the site leverages the power of the <TechIconSpan technology="nextjs">Next.js</TechIconSpan> App Router, <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="react">React</TechIconSpan> and custom developed React components, and Static Site Generation (SSG) to achieve near-perfect Lighthouse scores.
-Key architectural features include a global state solution using React Context for the website Modal and a dynamic content pipeline for case studies using <TechIconSpan  technology="mdx">MDX</TechIconSpan> and Gray Matter.
+I designed, developed and deployed my professional website to have a centralized hub for all my projects (private, client, NDA client, etc.), case studies and articles I worked on over the years.
+The primary goal was to create a modern, easily scalable, SEO-friendly portfolio website that was also easy to maintain.
+
+<Spacer />
+
+The first version was developed over two weeks in late 2025.
+After reworking the first version and replacing all SCSS classes with easily maintainable and scalable <TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan> classes while also reworking the UI/UX, the second version was published in early January 2026.
+The site leverages the power of the <TechIconSpan technology="nextjs">Next.js</TechIconSpan> App Router, <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="react">React</TechIconSpan> (and custom-made React components) and Static Site Generation (SSG) to achieve near-perfect Lighthouse scores while allowing for quick navigation throughout the website.
+Key architectural features include a global state solution using React Context for the website modal and a dynamic content pipeline for case studies using <TechIconSpan  technology="mdx">MDX</TechIconSpan> and Gray Matter.
+</Section>
+
+
 
 <Section>
 ## Introduction
-This project was developed to display my projects, documents and case studies in a modern way using the latest technologies in website development.
-The core objective was to build a personal brand platform that not only showcases my projects but also serves as a testament to my skills in creating high-performance web applications.
+This project was developed to serve as a centralized hub and to display my projects, articles and case studies in a modern way using the latest stable technologies in web development.
+A secondary goal of this website was to serve as a showcase to display my skills in an easy-to-access manner while creating a high-performance web application.
 
-The core goals were to achieve a Lighthouse score of >95 across all metrics, ensure full accessibility (WCAG 2.1) and to build a scalable content system for future articles and case studies.
+However, the primary goal was to design, develop and deploy a website that has near-perfect Lighthouse scores of >95 across all metrics, has full accessibility (WCAG 2.1), is easily maintainable and can be scaled to accommodate future articles and case studies.
 </Section>
+
+
 
 <Section>
 ## Choosing the Technology
-When choosing the technology stack to develop and design this website, a main focus was speed and the app-like feeling.
+<ImageBlock src="x81VdwhEWe9Y4RZgjW6ODFemTkEbHlp49aX0G8s2rMIURJhQ" description="A visualization of the different technologies used to develop my professional website. Among them are icons of Figma, TailwindCSS, NextJS, React, TypeScript, Netlify and MDX." />
 
-While there were ideas to use other technologies such as Astro.js, <TechIconSpan technology="nextjs">Next.js</TechIconSpan> expanding market and its easy integration with <TechIconSpan technology="vercel">Vercel</TechIconSpan> among other important advantages like the App Router were the key factors that ultimately led to the choice of Next.js as a core environment.
-<TechIconSpan technology="react">React</TechIconSpan> and <TechIconSpan technology="typescript">TypeScript</TechIconSpan> were relatively easy to choose due to the integration of both into Next.js.
+Since the goals were already defined, it was easy to decide which technologies to use to design, develop and deploy the website.
 
-While my other projects levarage the utility-first approach of <TechIconSpan technology="tailwindcss">TailwindCSS</TechIconSpan>, I chose <TechIconSpan technology="sass">SCSS</TechIconSpan> for this project to demonstrate proficiency in traditional CSS architecture, including methodologies like BEM and the power of pre-processors for creating maintainable, scalable style sheets.
+<TechIconSpan technology="figma">Figma</TechIconSpan> was used to create a first working design of the project.
+Elements like colors, images, typography and the icon were created inside the moodboard.
+The initial wireframe was enough to create a very early MVP of the project.
 
-<TechIconSpan technology="mdx">MDX</TechIconSpan> with Gray Matter were chosen to allow me to write articles such as this case study in an easy format and to integrate them in a simple workflow into the Next.js website.
+Since I have already worked with <TechIconSpan technology="nextjs">Next.js</TechIconSpan> in previous projects (both client projects and personal projects), using it was an easy decision.
+Initially I used Next.js 14.x, however, due to several security risks the website was updated to Next.js 15.x.
+
+<TechIconSpan technology="react">React</TechIconSpan> (for the UI) and <TechIconSpan technology="typescript">TypeScript</TechIconSpan> (for compile-time type safety) were easy decisions as well, since Next.js works with both and I have used both inside previous projects.
+
+While the first version of this website used SCSS to demonstrate proficiency in traditional <TechIconSpan technology="css3">CSS</TechIconSpan> architecture, including methodologies like BEM and the power of pre-processors for creating maintainable, scalable style sheets, for the second version SCSS was substituted with <TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan>.
+The core reason behind this decision was maintainability and scalability.
+While SCSS was a good initial decision, I noticed that the larger the project grew, the more time was wasted on maintaining the <Code>.scss</Code> files.
+On top of that, having both the <Code>.scss</Code> files and the <Code>.tsx</Code> files inside the file system meant that the whole project was harder to navigate.
+It created bloat that I did not want, hence the reason all SCSS classes were completely substituted with Tailwind CSS classes after a thorough refactor of the complete website.
+
+MDX together with Gray Matter were chosen to allow me to write articles such as this case study in an easy format and to integrate them in a simple workflow into the Next.js website.
+On top of this, MDX allowed for the creation of my own components that I could then, in turn, use inside the MDX files.
+This gave me free reign over the complete UI of each article and case study.
 </Section>
+
 
 
 <Section>
 ## Design of the Project
-In this project there were a couple of important design choices to be made.
+As mentioned before, the design of this project was primarily done inside Figma.
+The design itself followed standard website design practices of firstly creating a wireframe, then creating a moodboard and ultimately creating the finished first version of the website.
+
+<ImageBlock src="x81VdwhEWe9YFzpgZbov7RD3nPz5oaAqMe0m6u9GpLJWXZY2" description="A display of the wireframe of the project, created in Figma. It shows the very first version of the wireframe." />
+
+Along with these standard design practices, there were two major branches that had to be worked on along with a couple of important design choices.
+
 
 <Spacer />
 
 ### UI/UX Design
-The user journey was suppose to be very linear.
+The primary goal for the UI/UX design was for the user journey to be very linear across the whole website.
 
-Everything is only two clicks away and most of the website can be accessed from any page of the website.
-The header is suppose to be the guide through the website, allowing visitors to navigate easily through the website.
-The <Code>Get In Touch</Code> button with its popup modal should will give the visitor all the information about me that they might need, from Social Media Links all the way to my CV and direct contact possibilities.
+Everything was supposed to be only two clicks away and most of the website could be accessed from any page through the header or the footer.
+The header itself was supposed to be the guide through the website, allowing visitors to navigate easily.
 
-The design of the website was heavily based on the old design of my Website and the dark blue color choice should give a modern, futuristic feeling to the visitor.
-Animations such as the moving background particles or the multiple different waves across the website should break the potential quiet website feel.
+A special function was assigned to the <Code>Get In Touch</Code> button inside the header.
+When a visitor clicks it, a modal pops up with all the necessary contact information about me (email, GitHub, LinkedIn) and a direct download link to my CV.
+This was done so visitors could easily find my contact information.
+At the same time it provided an easy solution to the goal of keeping everything just two clicks away.
+
+The overall design of the website was heavily based on the old design of my previous website (2020 to 2024).
+The dark blue color scheme gives a modern, futuristic feeling to the visitor.
+Animations such as the moving background particles, the interactive grid or the different waves across the website serve the purpose of breaking the potential quiet feeling of the website while also being a good fit for the futuristic design.
+The first version of the website still had a particle animation that spanned across the whole website.
+This was quickly removed as it created too much noise.
+On top of that, all animations inside the text sections of articles and case studies were removed, to allow the user to fully focus on the articles, graphics and code.
 
 <Spacer />
 
 ### Architectural Design
-The core principle behind every project I develop is DRY (Don't Repeat Yourself).
-The same applies here.
+A core principle every developer, including myself, follows is DRY (Don't Repeat Yourself). The same applies here.
 
-The architecture is built on a foundation of atomic design principles.
+The architecture was built on a foundation of atomic design principles.
 Core UI elements were developed as small, reusable and unopinionated components (Icons, Buttons, Modals).
 These were then composed into larger "organisms" (like the Header or project cards).
 This approach, combined with a clear separation of concerns between Server Components (for static content) and Client Components (for interactivity), ensures the codebase is both maintainable and performant.
+
+A feature-first architecture was planned during the development of the second version, but was ultimately deemed not possible in the timeframe I set for the rework, due to the fact that it took quite some time to substitute all SCSS classes and files with Tailwind CSS classes.
 </Section>
 
 
 
 <Section>
 ## Challenges & Solutions
-The two main challenges were the Modal and the MDX integration.
+During the development, there were a couple of notable challenges.
 
 <Spacer />
 
-### First Challenge & Solution: Modal
-The first iteration of the website only had the modal as a component of the header.
-This created a challenge since other components outside the header were not able to open the modal.
+### Challenge 1: Get In Touch Modal
+**Challenge:** The very first iteration of the website had the <Code>Get In Touch</Code> modal as a component of the header itself.
+This created an issue, since other components outside the header, such as CTA sections, were not able to open the modal.
 
-To allow other components on the website to open the modal (regardless of their position on the page) the modal had to be extracted from the header and placed inside a React Context.
-This allowed every other component on the website to call and open the modal, regardless of their position.
+**Solution:** To allow other components on the website to open the modal, regardless of their position on the page and on the website, the modal had to be extracted from the header and placed inside a React Context.
+This in turn allowed every other component on the website to call and open the modal, regardless of their position.
+
+The extracted modal architecture:
+<ImageBlock src="x81VdwhEWe9YWdGHHBUwnHQ0UJzmqDOlcpPSTIeBjixv83dF" description="A visualization of the Modal implementation. On the left is the 'before', displaying that the Modal was a component of the header itself. On the right is the 'after', displaying that the Modal got extracted, and turned into a Context which is wrapped around the whole application, allowing every component to open it, regardless of it's position." />
 
 <Spacer />
 
-### Second Challenge & Solution: MDX integration
-To write articles, blogs and documentations MDX was the best choice.
-To integrate it and to add Metadata for SEO at the same time was a challenge.
+### Challenge 2: MDX Integration
+**Challenge:** To write articles and case studies, MDX was the best choice.
+To integrate it and to add metadata for SEO at the same time while also allowing for multiple MDX folders to be maintained and to allow for Next.js to find the correct corresponding article inside the <Code>/content</Code> folder of MDX was a challenge.
 
-For basic pages such as the legal pages, MDX could simply be called and the Metadata could simply be placed inside the legal pages page.tsx itself.
-For the case studies however a proper translation layer had to be developed.
-To create dynamic slug-based articles, MDX had to find the correct article and frontmatter had to be used to populate the dynamic page itself.
-This core idea was the basic workflow to write, create and publish articles on the website.
+**Solution:** The first production version of the website that was released in late October 2025 solved this issue by having a very linear structure for the MDX content, only having one folder and one uniform TypeScript file.
+This was not possible for the second production version, as the URL structure changed substantially throughout the project.
+To fix the aforementioned challenge and to increase both scalability and maintainability, specific TypeScript files were created for the corresponding MDX content types (<Code>articles.ts</Code>, <Code>case-studies.ts</Code>, <Code>legals.ts</Code>).
+Every content type received their own helper functions.
+To provide Next.js with the correct content, each type was provided with a recursive Node.js function that is fetching each article of a corresponding type inside a corresponding folder.
+These helper functions in turn not only allowed for Next.js to get the correct metadata and MDX content, but it also allowed me to create embla article carousels of the articles with such filters as <Code>latest</Code>, <Code>oldest</Code> and others.
+
+The MDX content structure and helper function workflow:
+<ImageBlock src="x81VdwhEWe9YdMGkfHQbYI5Z8Vxh6j7eWEJXNs4DbCRLFn9q" description="A visualization of the MDX implementation. The visualization displays the flow of the newly developed content flows, from the '/content' directory, to dedicated TypeScript helper files for each category (articles, case-studies, legals), to the dynamic NextJS routes such as '/case-studies/[slug]'." />
+
 </Section>
+
 
 
 <Section>
 ## Deployment & Infrastructure
-The CI/CD pipeline is managed through GitHub, with the main branch automatically deploying to <TechIconSpan technology="netlify">Netlify</TechIconSpan>.
-I made a strategic decision to host my personal brand site on Netlify and my more complex, application-focused projects (like Entro) on Vercel.
-This diversifies my experience with the two leading Jamstack platforms and segregates the resource usage of my portfolio pieces.
+The first production version of the website was deployed in October 2025 on Netlify.
+The second production version of the website was deployed in early January 2026.
 
-The CI pipeline of the website always involves new feature branching, writing precise GitHub documentations prior to each merge and after a successful merge, the CD pipeline then deploys the latest version onto Netlify.
+The whole CI/CD pipeline is managed through GitHub and is open source.
+The main branch is deploying to <TechIconSpan technology="netlify">Netlify</TechIconSpan> after each PR is checked thoroughly.
+During the first production deployment I made the strategic decision to host my professional website on Netlify and all of my private projects on <TechIconSpan technology="vercel">Vercel</TechIconSpan> alone for a clear separation of concerns and to have a better view of the analytic data between the different projects.
+
+Separating the concerns also allowed me to diversify my experience with the two leading Jamstack platforms and segregates the resource usage of my private project pieces.
+
+The CI pipeline of the website always involves new feature branching, writing precise GitHub documentation prior to each merge and after a successful merge, the CD pipeline then deploys the latest version onto Netlify.
 </Section>
+
 
 
 <Section>
 ## Conclusion
-Through the successful development of the website and the implementation of Next.js and the App Router, a seamless user experience was created.
+Through the successful development of the website and the implementation of Next.js and the App Router, a seamless, up-to-date user experience was created.
 At the same time MDX was successfully implemented.
 
 This now allows for vast possibilities for the future.
 One venue that is already in the planning is the creation of educational content and documentation on this website.
 Overall, the design and development of the website was a success.
 </Section>
-
