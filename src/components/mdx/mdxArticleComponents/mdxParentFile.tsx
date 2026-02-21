@@ -3,11 +3,12 @@ import { slugify } from '@/lib/mdx/mdx-utils';
 import Section from './Section';
 import Spacer from './Spacer';
 import CodeBlock from './CodeBlock';
-import HyperLink from './Hyperlink';
+import HyperLink from './HyperLink';
 import Code from './Code';
 import TechIconSpan from './TechIconSpan';
 import Callout from './Callout';
 import List from './List';
+import ImageBlock from './ImageBlock';
 
 const headingClassName = 'scroll-mt-[70px] font-extrabold';
 
@@ -41,11 +42,13 @@ export const coreMdxComponents = {
   CodeBlock,
   Code,
   Callout,
-  TechIconSpan,
   HyperLink,
+  ImageBlock,
+  List,
   Spacer,
   Section,
-  List,
+  TechIconSpan,
+
   h2: H2,
   h3: H3,
   p: P,
