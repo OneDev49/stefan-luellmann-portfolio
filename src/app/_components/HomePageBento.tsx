@@ -6,6 +6,7 @@ import {
   getArticlesByCategory,
   getLatestArticles,
 } from '@/lib/mdx/articles';
+import { InteractiveGrid } from '@/components/effects/InteractiveGrid';
 
 import LinkedInIconWithName from '@/components/icons/brands/LinkedInIconWithName';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
@@ -15,7 +16,6 @@ import MenuButton from '@/components/ui/MenuButton';
 import TechnologyContainer from '@/components/ui/TechnologyContainer';
 import Link from 'next/link';
 import CTAButton from '@/components/ui/CTAButton';
-import { InteractiveGrid } from '@/components/effects/InteractiveGrid';
 
 export default async function HomePageBento() {
   const latestArticle: Article[] = await getLatestArticles(1);
@@ -50,6 +50,16 @@ export default async function HomePageBento() {
   const listButtonClassName =
     'gap-1 py-1 px-2 items-center rounded-md font-heading font-extrabold';
   const contentSkeletonClassName = 'h-2 bg-neutral-50/25 rounded-full';
+
+  const Wrapper = latestProject.links.liveDemo ? 'a' : 'div';
+
+  const wrapperProps = latestProject.links.liveDemo
+    ? {
+        href: latestProject.links.liveDemo,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+    : {};
 
   return (
     <section className='relative'>
@@ -153,11 +163,7 @@ export default async function HomePageBento() {
                 <div className='flex flex-1 items-center gap-2'>
                   <div className='flex flex-col gap-4 items-center sm:items-start flex-1'>
                     <div className='sm:hidden'>
-                      <a
-                        href={latestProject.links.liveDemo}
-                        rel='noopener noreferrer'
-                        target='_blank'
-                      >
+                      <Wrapper {...wrapperProps}>
                         <ImageSkeletonLoader
                           draggable={false}
                           alt={latestProject.title}
@@ -167,7 +173,7 @@ export default async function HomePageBento() {
                           height={160}
                           className='h-auto w-full'
                         />
-                      </a>
+                      </Wrapper>
                     </div>
                     <h4 className='line-clamp-1 text-[18px] font-extrabold underline'>
                       {latestProject.title}
@@ -198,11 +204,7 @@ export default async function HomePageBento() {
                     />
                   </div>
                   <div className='flex-1 hidden sm:block'>
-                    <a
-                      href={latestProject.links.liveDemo}
-                      rel='noopener noreferrer'
-                      target='_blank'
-                    >
+                    <Wrapper {...wrapperProps}>
                       <ImageSkeletonLoader
                         draggable={false}
                         alt={latestProject.title}
@@ -212,7 +214,7 @@ export default async function HomePageBento() {
                         height={160}
                         className='h-auto w-full'
                       />
-                    </a>
+                    </Wrapper>
                   </div>
                 </div>
               ) : (
