@@ -1,4 +1,4 @@
-import { personalProjects, clientProjects } from '@/config/projects';
+import { allProjects } from '@/config/projects';
 import { notFound } from 'next/navigation';
 import { siteData } from '@/config/siteData';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
@@ -20,8 +20,6 @@ interface CaseStudyPageProps {
 }
 
 export async function generateStaticParams() {
-  const allProjects = [...personalProjects, ...clientProjects];
-
   return allProjects.map((project) => ({ slug: project.slug }));
 }
 
@@ -32,7 +30,6 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
 
   const { frontmatter } = result;
 
-  const allProjects = [...personalProjects, ...clientProjects];
   const project = allProjects.find((p) => p.slug === slug);
 
   const DESCRIPTION_TEXT =
@@ -68,7 +65,6 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const mdxResult = (await getCaseStudyBySlug(slug)) ?? notFound();
   const { frontmatter, headings, content } = mdxResult;
 
-  const allProjects = [...personalProjects, ...clientProjects];
   const project = allProjects.find((p) => p.slug === slug);
   if (!project) notFound();
 
@@ -184,7 +180,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 <strong>Important Links:</strong>
               </div>
               <div className='flex gap-4 flex-col sm:flex-row'>
-                {project.status === 'Not Released' ? (
+                {project.status === 'Not Released' ||
+                project.links.liveDemo === null ? (
                   <CTAButton
                     as='button'
                     type='button'
@@ -251,8 +248,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             </strong>
             <ul>
               <li>
-                {/* TODO: Create more Options to share */}
-                <ShareButton />
+                <ShareButton variant='full' position='study' />
               </li>
             </ul>
           </div>
@@ -262,7 +258,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <div
         className={`${maximumContentClassName} lg:flex items-start justify-between gap-8`}
       >
-        <div className='basis-[72ch] max-w-[72ch] mx-auto lg:mx-[initial]'>
+        <div className='basis-[72ch] max-w-[72ch] mx-auto lg:mx-[initial] text-justify'>
           <MDXRemote source={content} components={coreMdxComponents} />
         </div>
         <aside
