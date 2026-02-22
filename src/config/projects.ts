@@ -97,9 +97,8 @@ export const privateClientProjects: Project[] | [] = [
     description:
       'Complete development of a Gaming Website for a Business Client. The Website served both as a E-Commerce Store for InGame content and a place for players to manage their account. Development of the Project was done in different Teams for the different areas (Design, Frontend, Backend). The Project was started in early 2024 and finished near the end of April 2024.',
     techStack: [
-      'nextjs',
-      'typescript',
       'react',
+      'typescript',
       'tailwindcss',
       'zod',
       'redux',
