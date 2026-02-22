@@ -3,6 +3,7 @@ import {
   fontMono,
   fontTexts,
   metadataConfig,
+  viewportConfig,
 } from './_components/config/layoutConfig';
 import { ModalProvider } from '@/context/ModalContext';
 
@@ -11,6 +12,7 @@ import FooterSection from '@/components/layout/Footer';
 import HeaderSection from '@/components/layout/Header';
 
 export const metadata = metadataConfig;
+export const viewport = viewportConfig;
 
 export default function RootLayout({
   children,
