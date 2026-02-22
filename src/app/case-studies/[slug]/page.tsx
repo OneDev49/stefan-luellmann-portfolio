@@ -189,8 +189,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     animation='all'
                     className={anchorClassName}
                     disabled={true}
-                    title={`Live-Demo of ${project.title} not yet released`}
-                    aria-label={`Live-Demo of ${project.title} not yet released`}
+                    title={`Live-Demo of ${project.title} not yet publicly available.`}
+                    aria-label={`Live-Demo of ${project.title} not yet publicly available.`}
                   >
                     Project Live-Demo
                     <CaretRightIcon />
@@ -228,11 +228,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                     type='button'
                     colorStyle='gradientBlue'
                     disabled={true}
-                    title={`GitHub of ${project.title} not public`}
-                    aria-label={`GitHub of ${project.title} not public`}
+                    title={`Source Code of ${project.title} not public`}
+                    aria-label={`Source Code of ${project.title} not public`}
                     className={anchorClassName}
                   >
-                    Project GitHub
+                    Project Source Code
                     <CaretRightIcon />
                   </CTAButton>
                 )}
