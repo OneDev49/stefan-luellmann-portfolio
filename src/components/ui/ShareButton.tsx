@@ -67,7 +67,7 @@ export default function ShareButton({
   const anchorChildClassName = 'flex items-center gap-2';
 
   return (
-    <div className='flex gap-3'>
+    <div className='flex flex-wrap gap-2'>
       <CTAButton
         colorStyle='gradientGreen'
         animation='all'
@@ -94,7 +94,7 @@ export default function ShareButton({
       </CTAButton>
 
       {variant === 'full' && (
-        <div className='flex flex-wrap gap-2'>
+        <>
           <CTAButton
             colorStyle={false}
             animation='all'
@@ -142,7 +142,7 @@ export default function ShareButton({
               Reddit
             </span>
           </CTAButton>
-        </div>
+        </>
       )}
     </div>
   );

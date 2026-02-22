@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { personalData, siteData } from '@/config/siteData';
 
 import localFont from 'next/font/local';
@@ -136,4 +136,11 @@ export const metadataConfig: Metadata = {
       'max-snippet': -1,
     },
   },
+};
+
+export const viewportConfig: Viewport = {
+  themeColor: '#000414',
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 };

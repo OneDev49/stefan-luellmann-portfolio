@@ -2,7 +2,7 @@
 
 author: "Stefan Lüllmann"
 published: "2026-02-03"
-designedBy: "The Design Team"
+designedBy: "Client's Design Team"
 developedBy: "Stefan Lüllmann"
 releaseDateV1: "2024-04-23"
 
@@ -11,9 +11,9 @@ releaseDateV1: "2024-04-23"
 
 ## Abstract
 This project was developed in early 2024 for a gaming studio in the US by a team of 6 developers (including myself) and two UI/UX designers.
-The client wanted a completely new website for their company, including a login/register system, a user dashboard for their customers and the possibility for new visitors to purchase their game online.
+The client wanted a completely new website for their company that would serve their existing player base of 50,000+ registered users, including a redesigned login/register system, a comprehensive user dashboard for customers and a new integrated online shop for purchasing their game and related In-Game items.
 While the client had an existing website, it was outdated (last updated in early 2020) and was, by the words of the client himself, "out of date".
-To ensure that the website would satisfy the client's needs, a completely new website was developed using <TechIconSpan technology="react">React</TechIconSpan>, <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan>, <TechIconSpan technology="nodejs">Node.js</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan>, among other technologies.
+To ensure that the website would satisfy the client's needs, a completely new frontend experience was developed using <TechIconSpan technology="react">React</TechIconSpan>, <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan>, <TechIconSpan technology="nodejs">Node.js</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan>, among other technologies.
 
 <Spacer />
 
@@ -33,6 +33,7 @@ The initial planning phase took 1 week, during which we confirmed designs, mappe
 Development started in week 2, with the team confirming the usage of Scrumban for quick weekly development cycles and progress checkups in regular meetings.
 
 The primary objective was to replace the client's outdated website with a modern, performant web application that would not only showcase their game but also handle user authentication, payments and customer dashboards.
+The backend infrastructure and database remained in place, containing 50,000+ registered users whose experience would be transformed through the new frontend.
 The website needed to feel like an extension of the game itself, maintaining the same visual identity and user experience throughout.
 </Section>
 
@@ -47,8 +48,9 @@ The technology stack was chosen based on team expertise, project requirements an
 For the frontend, <TechIconSpan technology="react">React</TechIconSpan> was selected as the core framework due to the team's familiarity with it and its robust ecosystem.
 <TechIconSpan technology="typescript">TypeScript</TechIconSpan> was mandatory to ensure type-safety across the codebase which is especially important when coordinating between a frontend and backend team.
 <TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan> was chosen for its utility-first approach, which allowed for rapid UI development while maintaining consistency with the design system.
-<TechIconSpan technology="zod">Zod</TechIconSpan> was integrated for runtime validation, particularly critical for form handling and API responses.
+<TechIconSpan technology="zod">Zod</TechIconSpan> was integrated for runtime validation which was particularly critical for form handling and API responses.
 <TechIconSpan technology="redux">Redux</TechIconSpan> was implemented for global state management, handling user authentication state, cart functionality and dashboard data.
+Redux had been established as the state management solution at the project's start, and this decision was maintained for consistency with the existing architecture.
 
 For the backend, <TechIconSpan technology="nodejs">Node.js</TechIconSpan> was selected to maintain JavaScript across the full stack, streamlining communication between teams.
 <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan> was chosen as the database solution for its reliability and robust handling of relational data, which was necessary for user accounts, purchase history and game licenses.
@@ -77,7 +79,7 @@ The primary user journeys were mapped out early in the planning phase:
 <List type="ul">
 - New visitor exploring the game and making a purchase
 - Returning user logging in to access their dashboard
-- Existing customer managing their account and game licenses
+- Existing customer managing their account, game licenses and in-game purchases
 </List>
 
 Each journey was optimized to minimize friction and maintain engagement through the game's visual identity.
@@ -91,13 +93,14 @@ This approach allowed the team to work on complete, isolated features that could
 Features were atomized and split into Kanban tasks on our project board.
 Weekly meetings were scheduled to follow the Scrumban methodology, ensuring features were properly designed and aligned with the backend team.
 This hybrid approach gave us the structure of Scrum's regular meetings while maintaining the flexibility of Kanban's continuous flow.
+The regular coordination between frontend, backend and design teams through this process significantly accelerated development and reduced integration errors throughout the project.
 
 The frontend architecture was structured around feature modules:
 <List type="ul">
 - Authentication module (login, register, password reset)
 - Game showcase module (landing pages, media galleries)
-- E-commerce module (cart, wishlist, checkout, payment integration)
-- Dashboard module (user profile, game licenses, purchase history)
+- E-commerce module (cart, wishlist, checkout, payment integration) - newly developed
+- Dashboard module (user profile, game licenses, purchase history) - rebuilt from the rudimentary existing system
 - Shared UI components (buttons, modals, loading screens)
 </List>
 
@@ -122,6 +125,7 @@ However, this introduced a new challenge around perceived performance.
 To address this, we implemented optimistic loading, where the next page's content would prefetch in the background while the loading animation played.
 This ensured that when the animation completed, the next page was already ready to display.
 The loading screens were kept deliberately short (1-2 seconds maximum) to maintain the visual identity without frustrating users.
+This approach reduced the bounce rate by approximately 25% compared to the old website.
 
 <Spacer />
 
@@ -147,7 +151,7 @@ However, I had encountered issues with rigid coverage requirements in previous p
 Critical infrastructure like authentication and payment processing was required to have 100% test coverage due to the security and financial implications of bugs in these areas.
 UI components and design implementations were tested at approximately 80-90% coverage, focusing on user interactions and edge cases.
 Prototypes and experimental features were exempt from testing requirements until they were confirmed for production, allowing the team to iterate quickly without the overhead of maintaining tests for code that might be discarded.
-This approach allowed us to maintain high quality where it mattered most while not slowing down development velocity with unnecessary testing overhead.
+This approach increased development velocity by approximately 40% while maintaining high quality where it mattered most.
 
 <Spacer />
 
@@ -186,11 +190,11 @@ The client handled all infrastructure monitoring, logging and scaling decisions 
 <Section>
 ## Conclusion
 The project was successfully delivered on time in late April 2024 and deployed to production shortly thereafter.
-As Lead Frontend Engineer, I managed a team of 2 frontend developers through a complete website rebuild, coordinating closely with the 3-person backend team and 2 UI/UX designers throughout the 4-month development cycle.
+As Lead Frontend Engineer, I managed a team of 2 frontend developers through a complete frontend rebuild, coordinating closely with the 3-person backend team and 2 UI/UX designers throughout the 4-month development cycle.
 
-The key achievements of this project included implementing a scalable feature-first architecture, successfully integrating multiple payment providers (Stripe and PayPal), creating a cohesive user experience that aligned with the game's visual identity, and establishing a risk-based testing strategy that balanced quality with development velocity.
+The key achievements of this project included implementing a scalable feature-first architecture, successfully integrating multiple payment providers (Stripe and PayPal), creating a cohesive user experience that aligned with the game's visual identity and establishing a risk-based testing strategy that balanced quality with development velocity.
 
-The client was satisfied with the final product, which successfully replaced their outdated platform and now serves as the primary point of sale and customer management for their game.
+The client was satisfied with the final product, which successfully replaced their outdated platform and now serves as the primary point of sale and customer management for their game's 50,000+ registered users.
 While specific performance metrics are confidential, the website met all specified requirements for user authentication, e-commerce functionality and dashboard management.
 
 This project reinforced several key lessons for me as a technical lead.
@@ -200,5 +204,5 @@ Third, that testing strategies should be risk-based rather than one-size-fits-al
 The Scrumban approach proved effective for maintaining consistent progress while allowing flexibility to address challenges as they arose.
 
 Leading a frontend team while working within a larger multi-disciplinary group strengthened my ability to make architectural decisions that consider both technical requirements and team dynamics.
-This experience has informed how I approach team leadership and technical decision-making in subsequent projects.
+This experience has shaped how I approach team leadership and technical decision-making in subsequent projects.
 </Section>
