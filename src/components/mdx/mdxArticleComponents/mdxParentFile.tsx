@@ -3,7 +3,7 @@ import { slugify } from '@/lib/mdx/mdx-utils';
 import Section from './Section';
 import Spacer from './Spacer';
 import CodeBlock from './CodeBlock';
-import HyperLink from './HyperLink';
+import HyperLink from './Hyperlink';
 import Code from './Code';
 import TechIconSpan from './TechIconSpan';
 import Callout from './Callout';
