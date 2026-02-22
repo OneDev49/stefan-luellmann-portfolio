@@ -29,8 +29,8 @@ export default function HyperLink({
         target='_blank'
         rel='noopener noreferrer'
       >
-        {children}
         <ExternalLinkIcon height={15} width={15} />
+        {children}
       </a>
     );
   }

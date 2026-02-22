@@ -26,7 +26,9 @@ export default async function LatestArticles({
         <h2 className='text-h2 text-transparent font-extrabold capitalize text-center'>
           <span className='bg-gradient-card bg-clip-text'>{heading}</span>
         </h2>
-        <ul className='flex justify-center flex-col items-center md:items-start md:flex-row gap-8'>
+        <ul
+          className={`grid gap-8 justify-items-center items-start ${latestArticles.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}
+        >
           {latestArticles.map((article, index) => (
             <li key={index}>
               <ArticleCard post={article} />

@@ -57,14 +57,16 @@ export default function MenuButton({ project, className }: MenuButtonProps) {
               : 'opacity-0'
           )}
         >
-          <a
-            href={project.links.liveDemo}
-            rel='noopener noreferrer'
-            target='_blank'
-            className={anchorClassName}
-          >
-            Live Demo
-          </a>
+          {project.links.liveDemo !== null && (
+            <a
+              href={project.links.liveDemo}
+              rel='noopener noreferrer'
+              target='_blank'
+              className={anchorClassName}
+            >
+              Live Demo
+            </a>
+          )}
           {project.caseStudyStatus === 'Released' && (
             <Link
               href={`/case-studies/${project.slug}`}

@@ -8,7 +8,7 @@ import CTAButton from './CTAButton';
 import ImageSkeletonLoader from './ImageSkeletonLoader';
 
 interface ProjectCardProps {
-  projectCategory: 'personal' | 'client';
+  projectCategory: 'personal' | 'publicClient' | 'privateClient';
   project: Project;
   cardVariant?: 'caseStudy' | 'all';
 }
@@ -21,24 +21,29 @@ export default function ProjectCard({
   const wrapperClassName = cn(
     'rounded-xl border grid grid-cols-1 max-w-[550px] mx-auto overflow-hidden',
     projectCategory === 'personal' &&
-      'shadow-[0_0_20px_2px_rgb(0,81,255)] border-[#0059ff]',
-    projectCategory === 'client' &&
-      'shadow-[0_0_20px_2px_rgb(0,81,255)] border-[#0084ff]'
+      'shadow-[0_0_20px_2px_rgb(0,34,255)] border-[#0059ff]',
+    projectCategory === 'publicClient' &&
+      'shadow-[0_0_20px_2px_rgb(0,81,255)] border-[#0084ff]',
+    projectCategory === 'privateClient' &&
+      'shadow-[0_0_20px_2px_rgb(17,21,245)] border-[#0b0d85]'
   );
   const imageContainerClassName = cn(
     'flex flex-col gap-2 relative border-b',
     projectCategory === 'personal' && 'border-[#0059ff] ',
-    projectCategory === 'client' && 'border-[#0084ff]'
+    projectCategory === 'publicClient' && 'border-[#0084ff]',
+    projectCategory === 'privateClient' && 'border-[#0b0d85]'
   );
   const imageOverlayClassName = cn(
     'absolute inset-0 z-30',
     projectCategory === 'personal' &&
       'shadow-[inset_0_-4px_15px_0_rgb(0,60,255)]',
-    projectCategory === 'client' &&
-      'shadow-[inset_0_-4px_15px_0_rgb(0,120,255)]'
+    projectCategory === 'publicClient' &&
+      'shadow-[inset_0_-4px_15px_0_rgb(0,120,255)]',
+    projectCategory === 'privateClient' &&
+      'shadow-[inset_0_-4px_15px_0_rgb(17,21,245)]'
   );
   const projectStatusClassName = cn(
-    'absolute z-40 top-0 left-0 m-2 border px-3 rounded-md shadow-[0_4px_4px_0_rgb(0,0,0,0.25)]',
+    'absolute text-sm z-40 top-0 left-0 m-2 border px-3 rounded-md shadow-[0_4px_4px_0_rgb(0,0,0,0.25)] select-none',
     (project.status === 'Not Released' && cardVariant === 'all') ||
       (project.caseStudyStatus === 'Not Released' &&
         cardVariant === 'caseStudy')
@@ -50,8 +55,10 @@ export default function ProjectCard({
     'flex-auto flex flex-col gap-4 justify-between p-4',
     projectCategory === 'personal' &&
       'bg-[linear-gradient(-15deg,#001684_6%,#000830_27%,#000b43_68%,#001996_100%)]',
-    projectCategory === 'client' &&
-      'bg-[linear-gradient(-15deg,#003e84_6%,#000830_27%,#000b43_68%,#003e84_100%)]'
+    projectCategory === 'publicClient' &&
+      'bg-[linear-gradient(-15deg,#003e84_6%,#000830_27%,#000b43_68%,#003e84_100%)]',
+    projectCategory === 'privateClient' &&
+      'bg-[linear-gradient(-15deg,#0e11b5_6%,#000830_27%,#000b43_68%,#0e11b5_100%)]'
   );
 
   const anchorClassName = 'px-2 py-2 font-heading font-extrabold';
@@ -61,8 +68,8 @@ export default function ProjectCard({
       <div className={imageContainerClassName}>
         <div className={projectStatusClassName}>
           {cardVariant === 'caseStudy'
-            ? `Case Study: ${project.caseStudyStatus}`
-            : `Demo: ${project.status}`}
+            ? `Study Status: ${project.caseStudyStatus}`
+            : `Project Status: ${project.status}`}
         </div>
         <div className={imageOverlayClassName} />
         <ImageSkeletonLoader
@@ -80,8 +87,11 @@ export default function ProjectCard({
         <div className='space-y-2'>
           {cardVariant === 'caseStudy' && (
             <strong className='underline font-mono'>
-              {projectCategory.charAt(0).toUpperCase() +
-                projectCategory.slice(1)}{' '}
+              {projectCategory === 'publicClient'
+                ? 'Public Client'
+                : projectCategory === 'privateClient'
+                  ? 'Private Client'
+                  : 'Personal'}{' '}
               Project
             </strong>
           )}
@@ -108,7 +118,8 @@ export default function ProjectCard({
         <div className='flex gap-4 flex-col justify-center'>
           {cardVariant === 'all' && (
             <>
-              {project.status === 'Not Released' ? (
+              {project.status === 'Not Released' ||
+              project.links.liveDemo === null ? (
                 <CTAButton
                   as='button'
                   type='button'

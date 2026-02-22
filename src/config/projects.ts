@@ -5,17 +5,18 @@ export interface Project {
   title: string;
   status:
     | 'Not Released'
-    | 'Released'
     | 'V1 - Released'
     | 'V2 - Released'
-    | 'V3 - Released';
+    | 'V3 - Released'
+    | 'Demo Released'
+    | 'Finished';
   description: string;
   techStack: TechnologyName[];
   caseStudyStatus: 'Not Released' | 'Released';
   caseStudyBrief: string;
   links: {
     github: string | null;
-    liveDemo: string;
+    liveDemo: string | null;
   };
   thumbnail: string;
   images: string[];
@@ -25,13 +26,13 @@ export const personalProjects: Project[] | [] = [
   {
     slug: 'professional-portfolio',
     title: 'Professional Portfolio',
-    status: 'V1 - Released',
+    status: 'V2 - Released',
     description:
       'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
     techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'netlify'],
     caseStudyStatus: 'Released',
     caseStudyBrief:
-      'A Case Study on the planning, design, development and deployment of my Professional Portfolio Website. The Case Study goes into detail about different designs, challenges and solutions for a variety of problems, like deciding which Technologies to use and why certain Technologies were used.',
+      'Case Study of my Professional Portfolio Website, its conception, design, development and deployment. The Case Study goes into detail about challenges, such as MDX Integration and Website-wide Modal development as well as technological decisions.',
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-portfolio',
       liveDemo: 'https://stefan-luellmann.com/',
@@ -48,9 +49,9 @@ export const personalProjects: Project[] | [] = [
   {
     slug: 'entro-ecommerce-store',
     title: 'Entro - ECommerce Computer Store',
-    status: 'V1 - Released',
+    status: 'Demo Released',
     description:
-      'A Full-Stack E-Commerce Computer Store designed with Figma, developed with NextJS, React, TypeScript, Prisma, PostgreSQL and TailwindCSS.',
+      'A Full-Stack E-Commerce Computer Store designed with Figma, developed with NextJS, React, TypeScript, Prisma, PostgreSQL and TailwindCSS. Responsive, scalable and easily maintainable. Built to showcase FullStack Capabilities beyond the detailed deep dives and case studies that exist on my website.',
     techStack: [
       'nextjs',
       'react',
@@ -66,7 +67,7 @@ export const personalProjects: Project[] | [] = [
     ],
     caseStudyStatus: 'Released',
     caseStudyBrief:
-      'Designed, Developed and Deployed a Full-Stack E-Commerce Computer Store - Entro. Developed using SSG, ISR and SSR and a relational Database with Prisma.',
+      'Case Study of my E-Commerce Computer Store Project - Entro, its complete conception, design, development and deployment. The Case Study goes into detail about challenges, such as complex data modelling, scope management, resource costs, data shapes and type-safety across a larger application.',
     links: {
       github: 'https://github.com/OneDev49/stefan-luellmann-ecommerce-app',
       liveDemo: 'https://ecommerce.stefan-luellmann.com/',
@@ -86,6 +87,43 @@ export const personalProjects: Project[] | [] = [
   },
 ];
 
-export const clientProjects: Project[] | [] = [];
+export const publicClientProjects: Project[] | [] = [];
 
-export const allProjects: Project[] = [...personalProjects, ...clientProjects];
+export const privateClientProjects: Project[] | [] = [
+  {
+    slug: 'nda-gaming-studio-web-application',
+    title: 'NDA: Gaming Studio Web Application',
+    status: 'Finished',
+    description:
+      'Complete development of a Gaming Website for a Business Client. The Website served both as a E-Commerce Store for InGame content and a place for players to manage their account. Development of the Project was done in different Teams for the different areas (Design, Frontend, Backend). The Project was started in early 2024 and finished near the end of April 2024.',
+    techStack: [
+      'nextjs',
+      'typescript',
+      'react',
+      'tailwindcss',
+      'zod',
+      'redux',
+      'nodejs',
+      'postgresql',
+    ],
+    caseStudyStatus: 'Released',
+    caseStudyBrief:
+      'Case Study of the NDA Project: Gaming Studio Web Application I worked on as a Lead Frontend Engineer. The Case Study goes into detail about challenges, such as loading screen animation between pages, payment integrations, code coverage standards and user dashboard loading animations.',
+    links: {
+      github: null,
+      liveDemo: null,
+    },
+    thumbnail: 'x81VdwhEWe9Ys2TkTt5g4AQNzRB9T0SYaxsXweUFyrl8PdJv',
+    images: [],
+  },
+];
+
+export const clientProjects: Project[] = [
+  ...publicClientProjects,
+  ...privateClientProjects,
+];
+export const allProjects: Project[] = [
+  ...publicClientProjects,
+  ...privateClientProjects,
+  ...personalProjects,
+];

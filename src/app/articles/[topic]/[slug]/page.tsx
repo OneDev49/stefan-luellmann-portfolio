@@ -192,12 +192,11 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
             <div className='border-t border-[#0066ff] space-y-2 max-w-[72ch] mx-auto lg:max-w-[initial]'>
               <strong className='font-heading font-extrabold text-lg underline'>
-                Share the Study
+                Share the Article
               </strong>
               <ul>
                 <li>
-                  {/* TODO: Create more Options to share */}
-                  <ShareButton />
+                  <ShareButton variant='full' position='article' />
                 </li>
               </ul>
             </div>
@@ -223,7 +222,7 @@ export default async function ArticlePage({ params }: PageProps) {
         </div>
       </article>
       {relatedArticles.length > 0 && (
-        <div className='max-w-7xl mx-auto px-4 my-36 flex flex-col items-center gap-8'>
+        <section className='max-w-7xl mx-auto px-4 my-36 flex flex-col items-center gap-8'>
           <div className='text-center'>
             <h2 className='text-h2 font-extrabold'>
               <span className='text-transparent bg-gradient-card bg-clip-text'>
@@ -232,12 +231,16 @@ export default async function ArticlePage({ params }: PageProps) {
             </h2>
             <p>Other articles related to this topic.</p>
           </div>
-          <div className='grid grid-cols-1 gap-8 items-start md:grid-cols-2'>
+          <ul
+            className={`grid gap-8 justify-items-center items-start ${relatedArticles.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}
+          >
             {relatedArticles.map((article, index) => (
-              <ArticleCard key={index} post={article} />
+              <li key={index}>
+                <ArticleCard post={article} />
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </section>
       )}
     </>
   );

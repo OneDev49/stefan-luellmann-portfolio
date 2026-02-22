@@ -23,6 +23,8 @@ import WordPressIcon from './tech/WordPressIcon';
 import ZodIcon from './tech/ZodIcon';
 import RedisIcon from './tech/RedisIcon';
 import NetlifyIcon from './tech/NetlifyIcon';
+import ReduxIcon from './tech/ReduxIcon';
+import UpstashIcon from './tech/UpstashIcon';
 
 export type TechnologyName =
   | 'nextjs'
@@ -49,7 +51,9 @@ export type TechnologyName =
   | 'wordpress'
   | 'zod'
   | 'redis'
-  | 'netlify';
+  | 'netlify'
+  | 'redux'
+  | 'upstash';
 
 export const TechIconMap: Record<
   TechnologyName,
@@ -80,6 +84,8 @@ export const TechIconMap: Record<
   zod: ZodIcon,
   redis: RedisIcon,
   netlify: NetlifyIcon,
+  redux: ReduxIcon,
+  upstash: UpstashIcon,
 };
 
 interface TechIconProps extends React.SVGProps<SVGSVGElement> {

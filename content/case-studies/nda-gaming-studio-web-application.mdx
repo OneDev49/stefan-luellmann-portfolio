@@ -1,0 +1,204 @@
+---
+
+author: "Stefan Lüllmann"
+published: "2026-02-03"
+designedBy: "The Design Team"
+developedBy: "Stefan Lüllmann"
+releaseDateV1: "2024-04-23"
+
+---
+
+
+## Abstract
+This project was developed in early 2024 for a gaming studio in the US by a team of 6 developers (including myself) and two UI/UX designers.
+The client wanted a completely new website for their company, including a login/register system, a user dashboard for their customers and the possibility for new visitors to purchase their game online.
+While the client had an existing website, it was outdated (last updated in early 2020) and was, by the words of the client himself, "out of date".
+To ensure that the website would satisfy the client's needs, a completely new website was developed using <TechIconSpan technology="react">React</TechIconSpan>, <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan>, <TechIconSpan technology="nodejs">Node.js</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan>, among other technologies.
+
+<Spacer />
+
+The client hired me for approximately 4 months as Lead Frontend Engineer to manage the frontend team that consisted of 2 other developers.
+Together with the backend team and the design team, work began around mid-January 2024.
+Agile Scrumban development cycles were adopted to ensure consistent progress and to ensure that the project was finished by the end of April 2024.
+The project was successfully completed in late April 2024 and deployed shortly thereafter.
+
+
+<Section>
+## Introduction
+I was contacted in early January 2024 to join this project as Lead Frontend Engineer.
+The contract was signed shortly after, and my role was to take charge of a team of 2 frontend developers to form the complete frontend development team of 3 (including myself).
+The remaining 3 developers formed the backend team, which I would coordinate with closely throughout the project.
+
+The initial planning phase took 1 week, during which we confirmed designs, mapped out user flows and aligned the architectural structure between backend and frontend.
+Development started in week 2, with the team confirming the usage of Scrumban for quick weekly development cycles and progress checkups in regular meetings.
+
+The primary objective was to replace the client's outdated website with a modern, performant web application that would not only showcase their game but also handle user authentication, payments and customer dashboards.
+The website needed to feel like an extension of the game itself, maintaining the same visual identity and user experience throughout.
+</Section>
+
+
+
+<Section>
+## Choosing the Technology
+The technology stack was chosen based on team expertise, project requirements and scalability needs.
+
+<ImageBlock src="x81VdwhEWe9YsnDRgX5g4AQNzRB9T0SYaxsXweUFyrl8PdJv" description="A visualization of the different technologies used to develop the Gaming Studio Web Application. Among them are icons of React, TypeScript, Tailwind CSS, Zod, Redux, Node.js and PostgreSQL." />
+
+For the frontend, <TechIconSpan technology="react">React</TechIconSpan> was selected as the core framework due to the team's familiarity with it and its robust ecosystem.
+<TechIconSpan technology="typescript">TypeScript</TechIconSpan> was mandatory to ensure type-safety across the codebase which is especially important when coordinating between a frontend and backend team.
+<TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan> was chosen for its utility-first approach, which allowed for rapid UI development while maintaining consistency with the design system.
+<TechIconSpan technology="zod">Zod</TechIconSpan> was integrated for runtime validation, particularly critical for form handling and API responses.
+<TechIconSpan technology="redux">Redux</TechIconSpan> was implemented for global state management, handling user authentication state, cart functionality and dashboard data.
+
+For the backend, <TechIconSpan technology="nodejs">Node.js</TechIconSpan> was selected to maintain JavaScript across the full stack, streamlining communication between teams.
+<TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan> was chosen as the database solution for its reliability and robust handling of relational data, which was necessary for user accounts, purchase history and game licenses.
+
+The decision to use this stack was made collaboratively between the frontend and backend leads during the initial planning phase, ensuring both teams were comfortable with the technologies and could work efficiently together.
+</Section>
+
+
+
+<Section>
+## Design of the Project
+The design of the project was handled by a dedicated design team of 2 UI/UX designers who worked closely with both development teams throughout the project.
+
+<Spacer />
+
+### UI/UX Design
+The UI was designed in a way that converged with the game's visual identity.
+Buttons, menus and whole interfaces were designed to accommodate the game's aesthetic, creating a cohesive experience between the game itself and the website.
+This meant using the same color palettes, typography and visual effects that players would recognize from the game.
+
+The UX was designed to allow for a guided user flow to both the register/login system and to the purchase flow.
+This was achieved by keeping the page count relatively small while using the length of individual pages to tell the story of the game.
+The design team utilized the game's existing visual language and narrative elements to create an immersive scrolling experience that naturally led users toward conversion points.
+
+The primary user journeys were mapped out early in the planning phase:
+<List type="ul">
+- New visitor exploring the game and making a purchase
+- Returning user logging in to access their dashboard
+- Existing customer managing their account and game licenses
+</List>
+
+Each journey was optimized to minimize friction and maintain engagement through the game's visual identity.
+
+<Spacer />
+
+### Architectural Design
+Feature-first development was prioritized throughout the project.
+This approach allowed the team to work on complete, isolated features that could be developed, tested and integrated independently.
+
+Features were atomized and split into Kanban tasks on our project board.
+Weekly meetings were scheduled to follow the Scrumban methodology, ensuring features were properly designed and aligned with the backend team.
+This hybrid approach gave us the structure of Scrum's regular meetings while maintaining the flexibility of Kanban's continuous flow.
+
+The frontend architecture was structured around feature modules:
+<List type="ul">
+- Authentication module (login, register, password reset)
+- Game showcase module (landing pages, media galleries)
+- E-commerce module (cart, wishlist, checkout, payment integration)
+- Dashboard module (user profile, game licenses, purchase history)
+- Shared UI components (buttons, modals, loading screens)
+</List>
+
+This modular approach ensured clear separation of concerns and made it easier to distribute work across the team without conflicts.
+</Section>
+
+
+
+<Section>
+## Challenges & Solutions
+During the 4-month development period, several notable challenges arose that required careful consideration and problem-solving.
+
+<Spacer />
+
+### Challenge 1: Animated Loading Screens Between Pages
+**Challenge:** The game itself featured animated loading screens as part of its identity.
+The client specifically requested that the website should include similar animated loading screens between page transitions to maintain consistency with the in-game experience.
+
+**Solution:** I implemented a custom page transition system using React's context API and route change detection.
+Each page transition triggered a loading animation that matched the game's visual style.
+However, this introduced a new challenge around perceived performance.
+To address this, we implemented optimistic loading, where the next page's content would prefetch in the background while the loading animation played.
+This ensured that when the animation completed, the next page was already ready to display.
+The loading screens were kept deliberately short (1-2 seconds maximum) to maintain the visual identity without frustrating users.
+
+<Spacer />
+
+### Challenge 2: Payment Integration
+**Challenge:** The client required integration with multiple payment providers to maximize conversion.
+Specifically, the website needed to support PayPal for users who preferred that ecosystem, as well as the full range of payment options available through Stripe (credit cards, Apple Pay, Google Pay, etc.).
+This was considered absolutely mandatory to make it as easy as possible for customers to complete purchases.
+
+**Solution:** I worked closely with the backend team to implement a payment abstraction layer that could handle multiple payment providers seamlessly.
+On the frontend, I created a unified checkout interface that would detect the user's preferred payment method and present the appropriate payment form.
+The implementation used Stripe's Elements for card payments and PayPal's SDK for PayPal transactions.
+All payment flows were thoroughly tested with both successful and failed payment scenarios.
+Error handling was particularly important here, ensuring users received clear feedback if a payment failed and could easily retry with a different method.
+
+<Spacer />
+
+### Challenge 3: Code Coverage Standards
+**Challenge:** There was an initial discussion phase on what amount of code coverage should be required across the project.
+One of the more experienced developers initially suggested a blanket code coverage target of approximately 90% across the entire codebase.
+However, I had encountered issues with rigid coverage requirements in previous projects where they led to meaningless tests just to hit arbitrary numbers.
+
+**Solution:** After discussions with the team, I proposed a more dynamic, risk-based approach to testing that was ultimately adopted.
+Critical infrastructure like authentication and payment processing was required to have 100% test coverage due to the security and financial implications of bugs in these areas.
+UI components and design implementations were tested at approximately 80-90% coverage, focusing on user interactions and edge cases.
+Prototypes and experimental features were exempt from testing requirements until they were confirmed for production, allowing the team to iterate quickly without the overhead of maintaining tests for code that might be discarded.
+This approach allowed us to maintain high quality where it mattered most while not slowing down development velocity with unnecessary testing overhead.
+
+<Spacer />
+
+### Challenge 4: User Dashboard Loading Animations
+**Challenge:** To maintain the theme of gamifying the UI throughout the website, the initial design included the game-styled loading animations not just between pages, but also between tabs and actions within the user dashboard.
+The goal was to create a cohesive experience, but it was unclear whether this would enhance or hinder usability.
+
+**Solution:** The team initially implemented the full loading animation system across the dashboard as designed.
+However, internal testing revealed significant UX issues.
+The animations distracted users too much and added unnecessary wait time between tab switches and form submissions within the dashboard.
+This finding prompted a more comprehensive review of all loading screens across the website.
+Ultimately, I made the decision to remove loading animations between tabs within the dashboard entirely, as users needed to move quickly between different sections of their account.
+The same approach was applied to other tab-based interfaces on the site.
+More critically, loading animations were completely removed from sensitive user actions such as login attempts and payment processing.
+For these flows, we implemented instant feedback mechanisms (spinners, progress indicators) instead of full-screen animations.
+This maintained a higher UX standard by prioritizing functionality over aesthetic consistency in contexts where speed and clarity were paramount.
+</Section>
+
+
+
+<Section>
+## Deployment & Infrastructure
+The deployment infrastructure was managed by the client's internal DevOps team.
+As is common with enterprise clients, the specific infrastructure details (hosting platform, containerization strategy, scaling configuration) were managed internally by their infrastructure team.
+
+The CI/CD pipeline was managed through the client's internal system, accessible only via VPN for security reasons.
+As Lead Frontend Engineer, my responsibility was ensuring the frontend codebase was deployment-ready, with proper build configurations and environment variable management.
+The actual deployment process was automated through the internal pipeline, with deployments triggered after code reviews and approvals.
+
+The production deployment occurred in late April 2024, following a staged rollout process.
+The client handled all infrastructure monitoring, logging and scaling decisions post-deployment.
+</Section>
+
+
+
+<Section>
+## Conclusion
+The project was successfully delivered on time in late April 2024 and deployed to production shortly thereafter.
+As Lead Frontend Engineer, I managed a team of 2 frontend developers through a complete website rebuild, coordinating closely with the 3-person backend team and 2 UI/UX designers throughout the 4-month development cycle.
+
+The key achievements of this project included implementing a scalable feature-first architecture, successfully integrating multiple payment providers (Stripe and PayPal), creating a cohesive user experience that aligned with the game's visual identity, and establishing a risk-based testing strategy that balanced quality with development velocity.
+
+The client was satisfied with the final product, which successfully replaced their outdated platform and now serves as the primary point of sale and customer management for their game.
+While specific performance metrics are confidential, the website met all specified requirements for user authentication, e-commerce functionality and dashboard management.
+
+This project reinforced several key lessons for me as a technical lead.
+First, the importance of clear cross-team communication, especially when coordinating frontend and backend development on a tight timeline.
+Second, that user experience sometimes requires making tough decisions that deviate from initial designs, as we did with the loading animations.
+Third, that testing strategies should be risk-based rather than one-size-fits-all.
+The Scrumban approach proved effective for maintaining consistent progress while allowing flexibility to address challenges as they arose.
+
+Leading a frontend team while working within a larger multi-disciplinary group strengthened my ability to make architectural decisions that consider both technical requirements and team dynamics.
+This experience has informed how I approach team leadership and technical decision-making in subsequent projects.
+</Section>

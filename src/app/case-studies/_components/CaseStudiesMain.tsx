@@ -1,7 +1,8 @@
 import {
   allProjects,
-  clientProjects,
   personalProjects,
+  privateClientProjects,
+  publicClientProjects,
 } from '@/config/projects';
 
 import ProjectCard from '@/components/ui/ProjectCard';
@@ -21,12 +22,22 @@ export default function CaseStudiesMain() {
                 />
               </li>
             ))}
-          {clientProjects.length > 0 &&
-            clientProjects.map((project, index) => (
+          {publicClientProjects.length > 0 &&
+            publicClientProjects.map((project, index) => (
               <li key={index}>
                 <ProjectCard
                   project={project}
-                  projectCategory='client'
+                  projectCategory='publicClient'
+                  cardVariant='caseStudy'
+                />
+              </li>
+            ))}
+          {privateClientProjects.length > 0 &&
+            privateClientProjects.map((project, index) => (
+              <li key={index}>
+                <ProjectCard
+                  project={project}
+                  projectCategory='privateClient'
                   cardVariant='caseStudy'
                 />
               </li>
