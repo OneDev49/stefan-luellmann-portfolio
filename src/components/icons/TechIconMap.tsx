@@ -25,6 +25,7 @@ import RedisIcon from './tech/RedisIcon';
 import NetlifyIcon from './tech/NetlifyIcon';
 import ReduxIcon from './tech/ReduxIcon';
 import UpstashIcon from './tech/UpstashIcon';
+import CloudFlareIcon from './tech/CloudFlareIcon';
 
 export type TechnologyName =
   | 'nextjs'
@@ -53,7 +54,8 @@ export type TechnologyName =
   | 'redis'
   | 'netlify'
   | 'redux'
-  | 'upstash';
+  | 'upstash'
+  | 'cloudflare';
 
 export const TechIconMap: Record<
   TechnologyName,
@@ -86,6 +88,7 @@ export const TechIconMap: Record<
   netlify: NetlifyIcon,
   redux: ReduxIcon,
   upstash: UpstashIcon,
+  cloudflare: CloudFlareIcon,
 };
 
 interface TechIconProps extends React.SVGProps<SVGSVGElement> {
