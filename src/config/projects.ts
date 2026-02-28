@@ -28,8 +28,15 @@ export const personalProjects: Project[] | [] = [
     title: 'Professional Portfolio',
     status: 'V2 - Released',
     description:
-      'My own personal portfolio Website, built with NextJS, React, TypeScript and SCSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
-    techStack: ['nextjs', 'react', 'typescript', 'sass', 'mdx', 'netlify'],
+      'My own personal portfolio Website, built with NextJS, React, TypeScript and Tailwind CSS. Responsive, scalable and easily maintainable. Built to showcase not only my personal projects, but the projects I built for my clients, as well as writing articles and case studies about my projects.',
+    techStack: [
+      'nextjs',
+      'react',
+      'typescript',
+      'tailwindcss',
+      'mdx',
+      'netlify',
+    ],
     caseStudyStatus: 'Released',
     caseStudyBrief:
       'Case Study of my Professional Portfolio Website, its conception, design, development and deployment. The Case Study goes into detail about challenges, such as MDX Integration and Website-wide Modal development as well as technological decisions.',
@@ -51,7 +58,7 @@ export const personalProjects: Project[] | [] = [
     title: 'Entro - ECommerce Computer Store',
     status: 'Demo Released',
     description:
-      'A Full-Stack E-Commerce Computer Store designed with Figma, developed with NextJS, React, TypeScript, Prisma, PostgreSQL and TailwindCSS. Responsive, scalable and easily maintainable. Built to showcase FullStack Capabilities beyond the detailed deep dives and case studies that exist on my website.',
+      'A Full-Stack E-Commerce Computer Store designed with Figma, developed with NextJS, React, TypeScript, Prisma, PostgreSQL, Tailwind CSS and other technologies. Has currently more than 80 products in its catalog together with professional images, descriptions and specs of each Computer component.',
     techStack: [
       'nextjs',
       'react',
@@ -59,11 +66,11 @@ export const personalProjects: Project[] | [] = [
       'prisma',
       'tailwindcss',
       'zustand',
+      'nextauthjs',
       'postgresql',
       'supabase',
       'vercel',
       'zod',
-      'redis',
     ],
     caseStudyStatus: 'Released',
     caseStudyBrief:
@@ -95,7 +102,7 @@ export const privateClientProjects: Project[] | [] = [
     title: 'NDA: Gaming Studio Web Application',
     status: 'Finished',
     description:
-      'Complete development of a Gaming Website for a Business Client. The Website served both as a E-Commerce Store for InGame content and a place for players to manage their account. Development of the Project was done in different Teams for the different areas (Design, Frontend, Backend). The Project was started in early 2024 and finished near the end of April 2024.',
+      'Complete development of a Gaming Website for a Business Client. The Website served both as a E-Commerce Store for InGame content and to buy the game. It also served as a place for players to manage their account. Development of the Project was done in different teams for the different areas (Design, Frontend, Backend). I worked as a Lead Frontend Engineer on this project. The Project was started in early 2024 and finished near the end of April 2024.',
     techStack: [
       'react',
       'typescript',
@@ -113,6 +120,34 @@ export const privateClientProjects: Project[] | [] = [
       liveDemo: null,
     },
     thumbnail: 'x81VdwhEWe9Ys2TkTt5g4AQNzRB9T0SYaxsXweUFyrl8PdJv',
+    images: [],
+  },
+  {
+    slug: 'nda-foreign-news-website',
+    title: 'NDA: Foreign News Website',
+    status: 'Finished',
+    description:
+      'Complete development of a Foreign News Website that operates in a country that heavily restricts free speech. Developing a product that had both high security and anonymity for the client and the 20+ authors was the highest priority. I worked as a solo Full-Stack Engineer on this project. The Project was started in September 2024 and finished in December 2024.',
+    techStack: [
+      'nextjs',
+      'react',
+      'typescript',
+      'tailwindcss',
+      'zod',
+      'nextauthjs',
+      'redis',
+      'prisma',
+      'postgresql',
+      'mdx',
+    ],
+    caseStudyStatus: 'Released',
+    caseStudyBrief:
+      'Case Study of the NDA Project: Foreign News Website I worked on as a Solo Full-Stack Engineer. The case study foes into detail about challenges, such as migrating 90+ legacy WordPress articles, developing a complete multi-layer security system, maintaining author anonymity, dynamic content with static performance and other challenges.',
+    links: {
+      github: null,
+      liveDemo: null,
+    },
+    thumbnail: 'x81VdwhEWe9YQnPsFJDI1O7Cd2btZFA38iaKMH6vwWBzDNJk',
     images: [],
   },
 ];
