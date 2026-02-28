@@ -1,0 +1,215 @@
+---
+
+author: "Stefan Lüllmann"
+published: "2026-02-22"
+designedBy: "The Client"
+developedBy: "Stefan Lüllmann"
+releaseDateV1: "2024-12-16"
+
+---
+
+
+## Abstract
+This project was a solo contract to completely rebuild a legacy WordPress news website operating in a country with limited press freedom.
+Development ran from September 2024 to December 2024 to meet the January 2025 release deadline.
+I was responsible for building a fully custom frontend and admin system that would allow the client and 20+ authors to create, edit and delete posts with rich media support, all while maintaining strict anonymity protections.
+The design was prepared by the client while the complete development, including a custom MDX-based content management system, was executed by me.
+The website was developed using <TechIconSpan technology="nextjs">Next.js</TechIconSpan>, <TechIconSpan technology="react">React</TechIconSpan>, <TechIconSpan technology="typescript">TypeScript</TechIconSpan>, <TechIconSpan technology="mdx">MDX</TechIconSpan>, <TechIconSpan technology="prisma">Prisma</TechIconSpan> and <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan>, with media hosted on Hetzner S3.
+
+
+
+<Section>
+## Introduction
+In early September 2024 I was approached by the client and a contract was signed together with an NDA due to the website operating in a country that heavily restricts free speech.
+The client's existing WordPress website had become outdated both technically and visually.
+More importantly, WordPress did not provide the level of control needed for the specific requirements around anonymity, security and content workflow.
+The decision was made to build a completely custom solution.
+
+As the sole developer on this 4-month contract, I was responsible not only for delivering a working product but also for ensuring the codebase would be easily maintainable for future developers.
+This influenced every architectural decision, prioritizing clear code organization, comprehensive documentation and patterns that would be immediately understandable to the next person working on the project.
+
+The work that had to be done included building the new platform, creating a custom admin system and migrating over 90 existing articles from the WordPress database to the new MDX-based system.
+</Section>
+
+
+
+<Section>
+## Choosing the Technology
+To replace the outdated WordPress site, I chose <TechIconSpan technology="nextjs">Next.js</TechIconSpan> with its App Router for seamless navigation and app-like performance.
+An important early decision was whether to use an existing CMS like Strapi or Contentful.
+
+I decided against this for two main reasons:
+<List type="ol">
+1. The client's anonymity and security requirements were too specific for off-the-shelf solutions;
+2. The client wanted a streamlined content workflow without CMS bloat, and MDX provided the perfect balance of familiar Markdown with support for embedded React components.
+</List>
+
+<ImageBlock src="x81VdwhEWe9Y3GudbcjJCGjLPhAUmYrb6IkV2ZcMgWv8DTot" description="A visualization of the different technologies used to develop the Foreign News Website. Among them are icons of Next.js, React, TypeScript, Tailwind CSS, Zod, NextAuth.js, Redis, Prisma, PostgreSQL and MDX." />
+
+<TechIconSpan technology="react">React</TechIconSpan> and <TechIconSpan technology="typescript">TypeScript</TechIconSpan> provided the foundation.
+<TechIconSpan technology="tailwindcss">Tailwind CSS</TechIconSpan> kept styling centralized.
+<TechIconSpan technology="zod">Zod</TechIconSpan> handled runtime validation.
+<TechIconSpan technology="nextauthjs">NextAuth.js</TechIconSpan> managed authentication.
+Upstash <TechIconSpan technology="redis">Redis</TechIconSpan> provided rate limiting.
+
+<TechIconSpan technology="prisma">Prisma</TechIconSpan> served as the ORM with <TechIconSpan technology="postgresql">PostgreSQL</TechIconSpan> as the database.
+<TechIconSpan technology="mdx">MDX</TechIconSpan> was chosen as the content format, allowing authors to write in Markdown while embedding custom React components for specialized sections like image galleries, videos and blockquotes.
+
+For media storage, Hetzner S3 (a German-based, GDPR-compliant object storage service) was chosen over US-based alternatives like Amazon S3 to keep all data under European jurisdiction and outside the reach of the government in the authors' home country.
+</Section>
+
+
+
+<Section>
+## Design of the Project
+
+### UI/UX Design
+The client provided designs in <TechIconSpan technology="figma">Figma</TechIconSpan>, but they were not fully finished and had usability issues that would have caused decision paralysis for users.
+After reworking the design while keeping it as close to the client's vision as possible, the design was finalized at the end of September 2024.
+The refinements focused on simplifying navigation, establishing clearer visual hierarchy and reducing cognitive load.
+
+<Spacer />
+
+### Architectural Design
+A feature-first architecture was used, with features developed in self-contained modules.
+This approach was chosen specifically because future developers might work on this project after my contract ended.
+By organizing code into feature modules, anyone coming into the project could quickly understand where to find functionality and how to add new features without breaking existing ones.
+
+The architecture was designed around three concerns:
+<List type="ul">
+- The public-facing news website;
+- The author dashboard;
+- And the admin panel.
+</List>
+These were kept logically separate but connected through secure API endpoints.
+</Section>
+
+
+
+<Section>
+## Challenges & Solutions
+
+### Challenge 1: Building a Custom Admin Panel and Content Editor
+**Challenge:** The client needed a custom admin system allowing him to manage users and roles, while allowing authors to create rich articles with various content sections.
+Traditional CMS solutions were ruled out due to security concerns and the need for complete control over the workflow.
+
+<Spacer size={0.5} />
+
+**Solution:** I developed a custom admin panel built in Next.js with dedicated routes.
+The admin panel was kept intentionally simple:
+<List type="ul">
+- **For Authors:** Create articles with MDX support, dynamic section builder (add image/video/text/blockquote sections), media upload to Hetzner S3, tag and category management and draft/publish workflow.
+- **For Admin:** All author capabilities plus user management (create users, adjust roles, manage permissions), full content moderation and system settings.
+</List>
+The section builder was implemented as a React component allowing authors to add, remove and reorder sections.
+Each section type had its own component that rendered both in the editor and on the public site.
+
+<Spacer />
+
+### Challenge 2: Maintaining Author Anonymity
+**Challenge:** Anonymity was critical on the frontend, while the admin needed to see who wrote which article on the backend.
+This required protecting author identities from public view while maintaining internal accountability.
+
+<Spacer size={0.5} />
+
+**Solution:** I designed database models that separated public and internal data, implementing pseudonymization for 20+ authors.
+On the public site, articles display only pseudonyms.
+Actual author information is stored in access-controlled tables only accessible through the admin backend.
+The database and servers were hosted offshore in the EU, outside the jurisdiction of the client's home country.
+
+<Spacer />
+
+### Challenge 3: Multi-Layer Security
+**Challenge:** The website did not have public registration.
+Only a login page should exist, with the admin managing all users.
+Securing the login was critical due to cybersecurity threats targeting news websites in politically sensitive areas, such as the country of the client.
+
+<Spacer size={0.5} />
+
+**Solutions:** A multi-layer security system was implemented that blocked 99.9% of unauthorized access attempts:
+<List type="ul">
+- <TechIconSpan technology="nextauthjs">NextAuth.js</TechIconSpan> for authentication with session management
+- Upstash <TechIconSpan technology="redis">Redis</TechIconSpan> for rate limiting login attempts
+- <TechIconSpan technology="cloudflare">CloudFlare</TechIconSpan> for bot protection
+- Additional measures (undisclosed for security reasons)
+</List>
+
+<Spacer />
+
+### Challenge 4: European Media Storage
+**Challenge:** Authors needed to use videos, images and other media content inside their articles.
+I initially proposed Amazon S3 or Google Cloud Storage, but the client rejected these as they operate under US jurisdiction.
+
+<Spacer size={0.5} />
+
+**Solutions:** Hetzner S3, a German-based and GDPR-compliant object storage service, was selected.
+I developed a complete media pipeline through Next.js API routes:
+<List type="ol">
+1. Authors upload media via the admin panel
+2. Files are processed and uploaded to Hetzner S3
+3. Secure URLs are returned for embedding in MDX articles
+</List>
+The system also handles image optimization and responsive sizing.
+
+<Spacer />
+
+### Challenge 5: Migrating 90+ Articles from WordPress
+**Challenge:** The legacy WordPress site contained over 90 published articles that needed migration.
+WordPress stores content in <TechIconSpan technology="mysql">MySQL</TechIconSpan> with HTML formatting, not MDX.
+Media files were in WordPress's upload directory, not Hetzner S3.
+URLs and metadata needed to be preserved for SEO.
+
+<Spacer size={0.5} />
+
+**Solution:** I developed a custom migration script that:
+<List type="ol">
+1. Extracted posts from the WordPress MySQL database
+2. Converted HTML content to clean MDX format
+3. Migrated media files from WordPress to Hetzner S3, updating all references
+4. Preserved metadata (publication dates, authors, categories, URL slugs) which maintained and improved SEO performance in the new system
+5. Validated each article to ensure no data loss
+</List>
+The script was tested thoroughly on staging before being executed on the full dataset.
+I manually reviewed a sample of articles to catch potential edge cases.
+
+<Spacer />
+
+### Challenge 6: Dynamic Content with Static Performance
+**Challenge:** The website needed to stay fast while allowing authors to publish new articles at any time.
+The challenge was balancing fresh content with the performance benefits of static generation.
+
+<Spacer size={0.5} />
+
+**Solution:** I implemented Next.js Incremental Static Regeneration (ISR) with Cache Tags and dashboard-controlled revalidation configuration.
+When an author publishes, edits or deletes an article through the admin panel, the system triggers revalidation of the affected pages (article page, category pages, homepage).
+This approach reduced load times by 70% compared to the legacy WordPress site while ensuring visitors see the latest content without sacrificing performance.
+</Section>
+
+
+
+<Section>
+## Deployment & Infrastructure
+The CI/CD pipeline was managed through Jenkins with GitLab as the version control system (client requirement for additional security controls).
+The deployment architecture included multiple layers of security and redundancy, with the database and application servers hosted offshore in the EU.
+Media files were stored on Hetzner S3 in Germany.
+Production deployment was completed mid-December 2024, with the website launching in early January 2025.
+</Section>
+
+
+
+<Section>
+## Conclusion
+After successfully developing the website, building the custom admin panel and migrating all 90+ articles, the client received a complete modern platform that met all security and anonymity requirements.
+The client and authors were satisfied with the custom admin panel, which provided exactly the functionality needed without traditional CMS complexity.
+
+As of February 2026, the website remains online, continuing to report on sensitive topics.
+I prioritized making the code easily scalable and maintainable, knowing future developers might expand or maintain the platform long after my contract ended.
+Every architectural decision was made with this in mind: clear organization, comprehensive documentation and consistent patterns.
+
+This project reinforced the value of building custom solutions when off-the-shelf tools don't fit specific requirements.
+While building a CMS from scratch was more work upfront, it provided complete control over security, workflow and user experience.
+It also highlighted the importance of writing code for the next developer, not just yourself, and the unique challenges of building platforms in politically sensitive contexts where security and anonymity are fundamental requirements.
+
+Overall, the project was successfully developed and deployed.
+I am fully satisfied with how the product turned out, and so is the client and the authors.
+</Section>
