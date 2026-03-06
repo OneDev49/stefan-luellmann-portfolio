@@ -79,10 +79,13 @@ export default function CTAButton<C extends React.ElementType = typeof Link>({
 
   if (colorStyle === 'borderPurple') {
     return (
-      <Component className={buttonClassNames} {...restProps}>
-        <span className='absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#a6d3ff_0%,#3949b2_50%,#a6d3ff_100%)]' />
+      <Component
+        className={`${buttonClassNames} shadow-sm transition-shadow dark:shadow-none shadow-black`}
+        {...restProps}
+      >
+        <span className='absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#000b53_0%,#ffffff_50%,#000b53_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#a6d3ff_0%,#3949b2_50%,#a6d3ff_100%)]' />
 
-        <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-zinc-950 px-4 py-1 text-sm font-medium text-white backdrop-blur-3xl'>
+        <span className='inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-white dark:bg-zinc-950 px-4 py-1 text-sm font-medium text-[#1e3a8a] dark:text-white backdrop-blur-3xl'>
           {children}
         </span>
       </Component>

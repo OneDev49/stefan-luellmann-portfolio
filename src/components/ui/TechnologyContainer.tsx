@@ -75,8 +75,8 @@ export default function TechnologyContainer({
     styleSize === 'small'
       ? 'gap-2 py-0.5 px-2'
       : styleSize === 'big'
-      ? 'gap-4 py-1 px-2'
-      : '',
+        ? 'gap-4 py-1 px-2'
+        : '',
     background === true &&
       'bg-black rounded-lg border border-[#002b98] shadow-[0_0_15px_5px_rgba(0,81,255,0.25)]',
     className
