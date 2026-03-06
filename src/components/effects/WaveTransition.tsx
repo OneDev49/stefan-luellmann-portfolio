@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect, useRef, useState } from 'react';
 
 interface WaveConfig {
   color?: string;
@@ -21,7 +22,7 @@ interface WaveTransitionProps {
   position: 'top' | 'bottom';
   positionOffset?: string;
   variant?: 'inner' | 'outer';
-  color: string;
+  color?: string;
   config?: Partial<WaveConfig>;
   className?: string;
 }
@@ -62,6 +63,10 @@ class HorizontalSingleWave {
     this.config = { ...defaultConfig, ...userConfig } as Required<WaveConfig>;
     this.phaseOffset = Math.random() * Math.PI * 2;
     this.resize();
+  }
+
+  updateColor(newColor: string): void {
+    this.config.color = newColor;
   }
 
   resize(): void {
@@ -222,12 +227,18 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
   position,
   positionOffset = '0px',
   variant = 'outer',
-  color,
+  color: propColor,
   config = {},
   className = '',
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const waveRef = useRef<HorizontalSingleWave | null>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const color = propColor || (resolvedTheme === 'dark' ? '#000414' : '#f5f7ff');
 
   const waveHeight = config.height || 100;
 
@@ -254,7 +265,13 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
       window.removeEventListener('resize', handleResize);
       wave.stop();
     };
-  }, [color, config]);
+  }, []);
+
+  useEffect(() => {
+    if (waveRef.current) {
+      waveRef.current.updateColor(color);
+    }
+  }, [color]);
 
   const canvasPosition =
     position === 'top'
@@ -262,8 +279,8 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
         ? { top: 0 }
         : { bottom: 0 }
       : variant === 'outer'
-      ? { bottom: 0 }
-      : { top: 0 };
+        ? { bottom: 0 }
+        : { top: 0 };
 
   const wrapperPosition =
     position === 'top' ? { top: positionOffset } : { bottom: positionOffset };

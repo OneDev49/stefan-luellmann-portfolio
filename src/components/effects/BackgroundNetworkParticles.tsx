@@ -1,9 +1,21 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import { useEffect, useRef } from 'react';
 
 export function BackgroundNetworkParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { resolvedTheme } = useTheme();
+
+  const colorRGBRef = useRef('59, 130, 246');
+
+  useEffect(() => {
+    if (resolvedTheme === 'dark') {
+      colorRGBRef.current = '59, 130, 246';
+    } else {
+      colorRGBRef.current = '37, 99, 235';
+    }
+  }, [resolvedTheme]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -16,7 +28,6 @@ export function BackgroundNetworkParticles() {
     let height = 0;
     const connectionDistance = 150;
     const mouseDistance = 200;
-    const colorRGB = '59, 130, 246';
 
     const mouse = { x: 0, y: 0 };
     const particles: Particle[] = [];
@@ -60,7 +71,7 @@ export function BackgroundNetworkParticles() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${colorRGB}, 0.5)`;
+        ctx.fillStyle = `rgba(${colorRGBRef.current}, 0.5)`;
         ctx.fill();
       }
     }
@@ -89,7 +100,7 @@ export function BackgroundNetworkParticles() {
 
         if (distMouse < mouseDistance) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(${colorRGB}, ${
+          ctx.strokeStyle = `rgba(${colorRGBRef.current}, ${
             1 - distMouse / mouseDistance
           })`;
           ctx.lineWidth = 1;
@@ -109,7 +120,7 @@ export function BackgroundNetworkParticles() {
           if (distSq < connDistSq) {
             ctx.beginPath();
             const distance = Math.sqrt(distSq);
-            ctx.strokeStyle = `rgba(${colorRGB}, ${
+            ctx.strokeStyle = `rgba(${colorRGBRef.current}, ${
               0.2 * (1 - distance / connectionDistance)
             })`;
             ctx.lineWidth = 0.5;
