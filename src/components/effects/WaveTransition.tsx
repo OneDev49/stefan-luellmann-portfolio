@@ -242,12 +242,18 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
 
   const waveHeight = config.height || 100;
 
+  // Refs capture initial values so the effect runs only once on mount.
+  // Color changes are handled reactively in the separated useEffect below.
+  // Required to satisfy ESLint react-hook/exhaustive-deps
+  const colorRef = useRef(color);
+  const configRef = useRef(config);
+
   useEffect(() => {
     if (!canvasRef.current) return;
 
     const waveConfig: Partial<WaveConfig> = {
-      color,
-      ...config,
+      color: colorRef.current,
+      ...configRef.current,
     };
 
     const wave = new HorizontalSingleWave(canvasRef.current, waveConfig);
@@ -284,6 +290,8 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
 
   const wrapperPosition =
     position === 'top' ? { top: positionOffset } : { bottom: positionOffset };
+
+  if (!mounted) return null;
 
   return (
     <div

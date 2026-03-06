@@ -6,7 +6,6 @@ import { siteData } from '@/config/siteData';
 import { cn } from '@/lib/utilities';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import HamburgerIcon from '../icons/ui/HamburgerIcon';
 import HeaderPhoneNav from './_components/HeaderPhoneNav';
 import CTAButton from '../ui/CTAButton';
