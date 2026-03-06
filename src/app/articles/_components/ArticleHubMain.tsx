@@ -51,9 +51,9 @@ export default function ArticlesHubMain({
                 }}
                 type='button'
                 className={cn(
-                  'py-2 px-3 cursor-pointer bg-none text-white border-b-2 border-[#b9b9b9] hover:bg-[#0059ff62]',
+                  'py-2 px-3 cursor-pointer bg-none border-b-2 border-[#b9b9b9] hover:bg-[#0059ff62]',
                   topic === activeTopic &&
-                    'bg-[#00359762] border-b-2 border-[#0059ff]'
+                    'bg-[#bad1fd] dark:bg-[#003597a1] border-b-2 border-[#0059ff]'
                 )}
               >
                 {topic.charAt(0).toUpperCase() + topic.slice(1)}

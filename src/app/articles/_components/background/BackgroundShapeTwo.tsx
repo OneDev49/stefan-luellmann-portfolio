@@ -1,12 +1,12 @@
 interface BackgroundShapeTwoProps {
   className?: string;
+  strokeColor?: string;
 }
 
 export default function BackgroundShapeTwo({
   className,
+  strokeColor,
 }: BackgroundShapeTwoProps) {
-  const strokeColor = '#003cff';
-
   return (
     <svg
       width='175'

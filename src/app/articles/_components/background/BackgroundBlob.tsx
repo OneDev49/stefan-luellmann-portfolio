@@ -1,8 +1,12 @@
 interface BackgroundBlobProps {
   className?: string;
+  shapeColor?: string;
 }
 
-export default function BackgroundBlob({ className }: BackgroundBlobProps) {
+export default function BackgroundBlob({
+  className,
+  shapeColor,
+}: BackgroundBlobProps) {
   return (
     <svg
       width='1440'
@@ -16,7 +20,7 @@ export default function BackgroundBlob({ className }: BackgroundBlobProps) {
       <g filter='url(#filter0_f_3545_1806)'>
         <path
           d='M1202.14 368.399L700.289 562.09L304.468 341.386L151.294 198.419L264.997 -40.4986L742.331 -28.1488L1077.16 -40.4987L1249.34 150.127L1202.14 368.399Z'
-          fill='#001a5e'
+          fill={shapeColor}
         />
       </g>
       <defs>

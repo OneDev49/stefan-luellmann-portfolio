@@ -1,12 +1,12 @@
 interface BackgroundShapeOneProps {
   className?: string;
+  strokeColor?: string;
 }
 
 export default function BackgroundShapeOne({
   className,
+  strokeColor,
 }: BackgroundShapeOneProps) {
-  const strokeColor = '#003cff';
-
   return (
     <svg
       width='234'
