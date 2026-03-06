@@ -60,7 +60,7 @@ export default function TopicsHero({ pageData, topic }: TopicsHeroProps) {
               </CTAButton>
             </div>
           </div>
-          <div className='hidden overflow-hidden shadow-[0_0_8px_0px_rgb(255,255,255,0.5)] rounded-xl py-2 px-4 bg-black lg:block text-center border border-[#363636]'>
+          <div className='hidden overflow-hidden shadow-[0_0_8px_0px_rgb(255,255,255,0.5)] rounded-xl py-2 px-4 dark:bg-black lg:block text-center dark:border border-[#363636]'>
             <TechIcon
               name={pageData.hero.technologyName}
               height={250}

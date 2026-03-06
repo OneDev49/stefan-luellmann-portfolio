@@ -17,7 +17,7 @@ export default function ArticleCard({ post }: ArticleCardProps) {
   return (
     <Link
       href={`/articles/${post.topic}/${post.slug}`}
-      className='bg-gradient-to-tr from-[#0077ff] to-[#000dff] block text-white rounded-2xl shadow-[0_0_15px_5px_#0051ff] overflow-hidden border-[#0059ff] border transition-all duration-300 ease-in-out max-w-lg hover:shadow-[0_0_15px_5px_#5289ff]'
+      className='bg-gradient-to-tr from-[#fff] to-[#0077ff] dark:from-[#0077ff] dark:to-[#000dff] block rounded-2xl shadow-[0_0_15px_5px_#0051ff] overflow-hidden border-[#0059ff] border transition-all duration-300 ease-in-out max-w-lg hover:shadow-[0_0_15px_5px_#5289ff]'
     >
       <article className='flex flex-col'>
         {post.frontmatter.thumbnail && (
@@ -34,7 +34,7 @@ export default function ArticleCard({ post }: ArticleCardProps) {
             </div>
           </div>
         )}
-        <div className='flex flex-col gap-4 p-4 bg-[#000830]'>
+        <div className='flex flex-col gap-4 p-4 bg-[#ffffffba] dark:bg-[#000830ba] border-t-2 border-[#0059ff]'>
           <div className='text-[#9f9f9f] font-extrabold text-[14px]'>
             {post.topic && <span>Category: {properCategory} | </span>}
             {post.frontmatter.published && (

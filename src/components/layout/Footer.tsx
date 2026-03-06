@@ -14,7 +14,7 @@ export default function FooterSection() {
   const listClassName = 'flex items-center gap-1';
 
   return (
-    <footer>
+    <footer className='text-white'>
       <div className='relative -bottom-[5px]'>
         <FooterBackground />
       </div>

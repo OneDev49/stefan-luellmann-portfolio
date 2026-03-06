@@ -11,10 +11,9 @@ export default function WorkMain() {
   return (
     <section className='relative my-36'>
       {personalProjects.length > 0 && (
-        <div className='bg-gradient-to-b from-[#00117e] to-[#00000000] py-16 mb-48 relative'>
+        <div className='bg-gradient-to-b from-[#bdc6ff] dark:from-[#00117e] to-[#00000000] py-16 mb-48 relative'>
           <WaveTransition
             position='top'
-            color='#000414'
             variant='inner'
             config={{
               height: 75,
@@ -37,7 +36,9 @@ export default function WorkMain() {
                 developed for clients.
               </p>
             </div>
-            <ul className={`grid gap-12 ${personalProjects.length > 1 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+            <ul
+              className={`grid gap-12 ${personalProjects.length > 1 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}
+            >
               {personalProjects.map((project, index) => (
                 <li key={index}>
                   <ProjectCard project={project} projectCategory='personal' />
@@ -48,10 +49,9 @@ export default function WorkMain() {
         </div>
       )}
       {publicClientProjects !== null && publicClientProjects.length > 0 && (
-        <div className='bg-gradient-to-b from-[#003479] to-[#00000000] py-16 relative mt-36 mb-48'>
+        <div className='bg-gradient-to-b from-[#9bc6ff] dark:from-[#003479] to-[#00000000] py-16 relative mt-36 mb-48'>
           <WaveTransition
             position='top'
-            color='#000414'
             variant='inner'
             config={{
               height: 75,
@@ -76,7 +76,9 @@ export default function WorkMain() {
                 </span>
               </p>
             </div>
-            <ul className={`grid gap-12 ${publicClientProjects.length > 1 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+            <ul
+              className={`grid gap-12 ${publicClientProjects.length > 1 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}
+            >
               {publicClientProjects.map((project, index) => (
                 <li key={index}>
                   <ProjectCard
@@ -90,10 +92,9 @@ export default function WorkMain() {
         </div>
       )}
       {privateClientProjects !== null && privateClientProjects.length > 0 && (
-        <div className='bg-gradient-to-b from-[#0b0d85] to-[#00000000] py-16 relative mt-36 mb-48'>
+        <div className='bg-gradient-to-b from-[#b5b6ff] dark:from-[#0b0d85] to-[#00000000] py-16 relative mt-36 mb-48'>
           <WaveTransition
             position='top'
-            color='#000414'
             variant='inner'
             config={{
               height: 75,
@@ -105,7 +106,7 @@ export default function WorkMain() {
           >
             <div className='text-center max-w-xl mx-auto flex flex-col gap-4'>
               <h2 className='text-h2 text-transparent font-extrabold capitalize text-center'>
-                <span className='bg-gradient-card bg-clip-text'>
+                <span className='bg-gradient-card bg-clip-text underline'>
                   Private Client Projects
                 </span>
               </h2>
@@ -118,7 +119,9 @@ export default function WorkMain() {
                 </span>
               </p>
             </div>
-            <ul className={`grid gap-12 ${privateClientProjects.length > 1 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}>
+            <ul
+              className={`grid gap-12 ${privateClientProjects.length > 1 ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1'}`}
+            >
               {privateClientProjects.map((project, index) => (
                 <li key={index}>
                   <ProjectCard

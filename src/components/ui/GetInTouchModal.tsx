@@ -81,7 +81,7 @@ export default function GetInTouchModal({
     'shadow-[inset_0_2px_4px_2px_rgb(255,255,255,0.25)] py-1.5 px-2 flex gap-2 text-base';
 
   return (
-    <div className='fixed inset-0 z-[999]' aria-hidden={!isVisible}>
+    <div className='fixed inset-0 z-[999] text-white' aria-hidden={!isVisible}>
       <div
         className='fixed inset-0 z-[100] grid place-items-center overflow-y-auto text-sm py-4'
         role='dialog'

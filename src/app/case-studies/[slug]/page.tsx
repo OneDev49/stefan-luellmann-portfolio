@@ -93,7 +93,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 </span>
               </div>
             </h1>
-            <ul className='flex flex-wrap justify-center gap-2'>
+            <ul className='flex flex-wrap justify-center gap-2 text-white text-sm'>
               {project.techStack.map((tech) => (
                 <li key={tech}>
                   <TechnologyContainer

@@ -1,7 +1,8 @@
 'use client';
 
 import { personalData, siteData } from '@/config/siteData';
-import { useModal } from '@/context/ModalContext';
+import { useModal } from '@/providers/ModalProvider';
+import { useTheme } from 'next-themes';
 
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
@@ -12,20 +13,31 @@ import CTAButton from '@/components/ui/CTAButton';
 export default function AboutHero() {
   const { openGetInTouch } = useModal();
 
+  const { resolvedTheme } = useTheme();
+
+  const backgroundBlobColor =
+    resolvedTheme === 'dark' ? '#0021A6' : '#0077ff42';
+
   const buttonClassName =
     'gap-1 py-1 px-2 items-center rounded-md font-heading font-extrabold';
 
   return (
     <section className='relative min-h-[80svh] grid place-items-center overflow-hidden'>
       <div className='absolute inset-0'>
-        <BlobOne className='absolute top-0 right-0' />
-        <BlobTwo className='absolute left-0 bottom-0' />
+        <BlobOne
+          className='absolute top-0 right-0'
+          shapeColor={backgroundBlobColor}
+        />
+        <BlobTwo
+          className='absolute left-0 bottom-0'
+          shapeColor={backgroundBlobColor}
+        />
       </div>
       <div className='py-20 max-w-7xl w-full mx-auto px-4 flex flex-col'>
         <div className='relative mx-auto w-full flex items-center justify-center lg:justify-between'>
           <div className='basis-[500px] gap-4 text-center flex flex-col lg:text-left lg:items-start xl:basis-[650px]'>
             <h1 className='grid capitalize'>
-              <span className='text-h1 font-extrabold -mb-6 text-[rgba(173,173,173,0.6)] max-md:leading-loose'>
+              <span className='text-h1 font-extrabold -mb-6 text-gray-500/50 dark:text-[rgba(173,173,173,0.6)] max-md:leading-loose'>
                 About Stefan Lüllmann
               </span>
               <div className='font-extrabold text-transparent text-h3'>
@@ -63,7 +75,7 @@ export default function AboutHero() {
               </CTAButton>
             </div>
           </div>
-          <div className='hidden overflow-hidden rounded-full shadow-[0_0_30px_2px_rgb(0,119,255)] lg:block'>
+          <div className='hidden overflow-hidden rounded-full shadow-[0_0_30px_2px_rgb(0,119,255)] lg:block max-h-[400px]'>
             <ImageSkeletonLoader
               loading='eager'
               className='object-cover brightness-90'

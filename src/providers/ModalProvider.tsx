@@ -1,7 +1,8 @@
 'use client';
 
-import GetInTouchModal from '@/components/ui/GetInTouchModal';
 import { createContext, ReactNode, useContext, useState } from 'react';
+
+import GetInTouchModal from '@/components/ui/GetInTouchModal';
 
 interface ModalContextProps {
   openGetInTouch: () => void;

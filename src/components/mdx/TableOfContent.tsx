@@ -49,13 +49,13 @@ export default function TableOfContent({
   if (headings.length === 0) return null;
 
   const renderLinks = () => (
-    <ol className={`${listClassName} overflow-y-auto scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-background`}>
+    <ol
+      className={`${listClassName} overflow-y-auto scrollbar-thumb-blue-900 scrollbar-thin dark:scrollbar-thumb-blue-500 dark:scrollbar-track-gray-900 scrollbar-track-gray-200`}
+    >
       {headings.map((heading) => {
         const isActive = activeId === heading.slug;
 
-        const linkClassName = cn(
-          'block py-1 px-3 text-white text-sm underline-none'
-        );
+        const linkClassName = cn('block py-1 px-3 text-sm underline-none');
         const listItemClassName = cn(
           'border-l-2 border-[#ffffff1f] transition-all duration-75 ease-in-out hover:bg-[#549eff77] hover:border-[#0050b9]',
           heading.level === 3 && 'pl-4',
@@ -84,10 +84,10 @@ export default function TableOfContent({
 
   if (variant === 'collapsible') {
     return (
-      <nav className='rounded-lg mb-8 max-w-[72ch] bg-[#00228a] shadow-[0_0_10px_5px_rgb(0,43,173)]'>
+      <nav className='rounded-lg mb-8 max-w-[72ch] bg-[#dfe7ff] dark:bg-[#00228a] shadow-sm shadow-black dark:shadow-[0_0_10px_5px_rgb(0,43,173)]'>
         <button
           type='button'
-          className='underline flex justify-between items-center w-full px-4 py-3 bg-none text-white font-extrabold cursor-pointer'
+          className='underline flex justify-between items-center w-full px-4 py-3 bg-none  font-extrabold cursor-pointer'
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
         >

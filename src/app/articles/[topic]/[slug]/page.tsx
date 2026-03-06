@@ -178,10 +178,9 @@ export default async function ArticlePage({ params }: PageProps) {
                   width={1200}
                   height={628}
                   sizes='(min-width: 1250px) 75vw, 100vw'
-                  className='h-auto'
+                  className='h-auto rounded-md'
                 />
-
-                <figcaption className='flex gap-2 text-sm text-[#d3d3d3]'>
+                <figcaption className='flex gap-2 text-sm text-[#474747] dark:text-[#d3d3d3]'>
                   <span className='underline'>Picture:</span>
                   <span className='italic'>{frontmatter.title}</span>
                 </figcaption>

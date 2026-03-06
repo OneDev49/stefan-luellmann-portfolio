@@ -1,13 +1,11 @@
-import { cn } from '@/lib/utilities';
-
 interface CodeProps {
   children: React.ReactNode;
 }
 
 export default function Code({ children }: CodeProps) {
-  const codeClassName = cn(
-    'py-0.5 px-1 inline-block rounded bg-black font-mono border border-[#313131] text-sm'
+  return (
+    <code className='py-[0.1em] px-[0.2em] inline-block rounded bg-gray-300 dark:bg-black font-mono border border-[#acacac] dark:border-[#313131] text-[0.875em]'>
+      {children}
+    </code>
   );
-
-  return <code className={codeClassName}>{children}</code>;
 }

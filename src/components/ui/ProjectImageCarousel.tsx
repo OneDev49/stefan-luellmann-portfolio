@@ -76,7 +76,7 @@ export default function ImageCarousel({
           </Wrapper>
         </div>
         {project.images.length === 0 && (
-          <figcaption className='flex gap-2 text-sm text-[#d3d3d3]'>
+          <figcaption className='flex gap-2 text-sm text-[#3f3f3f] dark:text-[#d3d3d3]'>
             <span className='underline'>Picture:</span>
             <span className='italic'>Thumbnail of the Project</span>
           </figcaption>

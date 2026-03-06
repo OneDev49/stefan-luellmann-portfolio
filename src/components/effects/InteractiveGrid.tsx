@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utilities';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useId } from 'react';
 
 interface InteractiveGridProps extends React.SVGProps<SVGSVGElement> {
   width?: number;
@@ -23,8 +23,8 @@ interface GridPoint {
 export function InteractiveGrid({
   width = 40,
   height = 40,
-  gridColor = '#1d1d1e',
-  highlightColor = '#3b82f680',
+  gridColor = 'var(--grid-line)',
+  highlightColor = 'var(--grid-highlight)',
   fadeDuration = 500,
   showCoordinates = false,
   autoPulse = false,
@@ -32,6 +32,8 @@ export function InteractiveGrid({
   className,
   ...props
 }: InteractiveGridProps) {
+  const patternId = useId();
+
   const [currentCell, setCurrentCell] = useState<GridPoint | null>(null);
   const [trail, setTrail] = useState<GridPoint[]>([]);
 
@@ -118,7 +120,7 @@ export function InteractiveGrid({
     >
       <defs>
         <pattern
-          id='grid-pattern'
+          id={patternId}
           width={width}
           height={height}
           patternUnits='userSpaceOnUse'
@@ -134,7 +136,7 @@ export function InteractiveGrid({
         </pattern>
       </defs>
 
-      <rect width='100%' height='100%' fill='url(#grid-pattern)' />
+      <rect width='100%' height='100%' fill={`url(#${patternId})`} />
 
       {trail.map((cell) => (
         <rect

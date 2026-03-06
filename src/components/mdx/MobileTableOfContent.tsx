@@ -48,7 +48,7 @@ export default function MobileTableOfContent({
   }, []);
 
   const floatingButtonClassName = cn(
-    'fixed bottom-6 right-6 z-40 bg-[#0033be] text-white p-3 border border-[#6e6e6e] rounded-full shadow-[0_0_15px_2px_rgb(255,255,255,0.1)] opacity-0 scale-90 transition-all duration-300 pointer-events-none hover:text-white hover:cursor-pointer hover:bg-[#0043fa]',
+    'fixed bottom-6 right-6 z-40 p-3 rounded-full opacity-0 scale-90 transition-all duration-300 pointer-events-none hover:text-white hover:cursor-pointer hover:bg-[#0043fa] bg-[#dfe7ff] dark:bg-[#00228a] shadow-sm shadow-black dark:shadow-white',
     isFloatingButtonVisible && 'opacity-100 scale-100 pointer-events-auto'
   );
 
@@ -58,7 +58,7 @@ export default function MobileTableOfContent({
   );
 
   const contentClassName = cn(
-    'fixed top-0 bottom-0 right-0 w-[85%] max-w-80 z-[1000] bg-[linear-gradient(180deg,#000645_0%,#000435_60%,#000216_100%)] border-l border-[#747474] p-4 flex flex-col translate-x-full transition-transform duration-300 ease-in-out [&_nav]:overflow-y-auto [&_nav]:flex-grow',
+    'fixed top-0 bottom-0 right-0 w-[85%] max-w-80 z-[1000] bg-gradient-to-b from-[#ffffff] via-[#ffffff] to-[#9CD2FF] dark:from-[#000645] dark:via-[#000435] dark:to-[#000216] border-l border-[#747474] p-4 flex flex-col translate-x-full transition-transform duration-300 ease-in-out [&_nav]:overflow-y-auto [&_nav]:flex-grow',
     isOverlayOpen && 'translate-x-0'
   );
 

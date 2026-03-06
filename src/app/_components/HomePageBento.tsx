@@ -43,7 +43,7 @@ export default async function HomePageBento() {
 
   const listClassName =
     'bg-gradient-to-br from-[#003cff] via-[#5e00ff] to-[#003cff] min-h-[250px] p-0.5 rounded-md shadow-lg shadow-blue-800';
-  const listBgClassName = 'bg-[#001456] h-full rounded-md p-4';
+  const listBgClassName = 'bg-white dark:bg-[#001456] h-full rounded-md p-4';
   const hrClassName =
     'max-w-[75%] h-0.5 border-0 bg-gradient-to-br from-[#0033ff] to-[#0059ff]';
   const listHeadingClassName = 'text-[26px] font-extrabold capitalize';
@@ -105,7 +105,7 @@ export default async function HomePageBento() {
                           src={`${siteData.uploadThingUrl}/${article.frontmatter.thumbnail}`}
                           width={307}
                           height={160}
-                          className='h-auto w-full'
+                          className='h-auto w-full rounded-md'
                         />
                       </Link>
                     </div>
@@ -143,7 +143,7 @@ export default async function HomePageBento() {
                         src={`${siteData.uploadThingUrl}/${article.frontmatter.thumbnail}`}
                         width={307}
                         height={160}
-                        className='h-auto w-full'
+                        className='h-auto w-full rounded-md'
                       />
                     </Link>
                   </div>
@@ -171,7 +171,7 @@ export default async function HomePageBento() {
                           src={`${siteData.uploadThingUrl}/${latestProject.thumbnail}`}
                           width={307}
                           height={160}
-                          className='h-auto w-full'
+                          className='h-auto w-full rounded-md'
                         />
                       </Wrapper>
                     </div>
@@ -186,8 +186,9 @@ export default async function HomePageBento() {
                             svgHeight={20}
                             svgWidth={20}
                             styleSize='small'
+                            background={false}
                             variant='icon'
-                            className='text-sm px-1'
+                            className='px-1 text-white bg-gray-300 dark:bg-black rounded-lg border dark:border-[#002b98]'
                           />
                         </li>
                       ))}
@@ -212,7 +213,7 @@ export default async function HomePageBento() {
                         src={`${siteData.uploadThingUrl}/${latestProject.thumbnail}`}
                         width={307}
                         height={160}
-                        className='h-auto w-full'
+                        className='h-auto w-full rounded-md'
                       />
                     </Wrapper>
                   </div>
@@ -240,7 +241,7 @@ export default async function HomePageBento() {
                   <h3 className={listHeadingClassName}>My Latest Articles</h3>
                   <hr className={hrClassName} />
                   <p className='mt-2'>
-                    I write 3 articles each week, each one being technical in
+                    I actively write articles, each one being technical in
                     nature.
                   </p>
                 </div>
@@ -264,7 +265,7 @@ export default async function HomePageBento() {
                             src={`${siteData.uploadThingUrl}/${article.frontmatter.thumbnail}`}
                             width={260}
                             height={135}
-                            className='h-auto w-full'
+                            className='h-auto w-full rounded-md'
                           />
                         </Link>
                       ))
@@ -293,7 +294,7 @@ export default async function HomePageBento() {
                             src={`${siteData.uploadThingUrl}/${article.frontmatter.thumbnail}`}
                             width={260}
                             height={135}
-                            className='h-auto w-full'
+                            className='h-auto w-full rounded-md'
                           />
                         </Link>
                       ))
@@ -327,9 +328,7 @@ export default async function HomePageBento() {
                   </div>
                 </div>
                 <article className='flex gap-3 items-center'>
-                  <div
-                    className={`flex-1 max-w-[70px] overflow-hidden rounded-full shadow-[0_0_15px_2px_rgb(0,119,255)]`}
-                  >
+                  <div className='flex-1 max-w-[70px] overflow-hidden rounded-full shadow-[0_0_15px_2px_rgb(0,119,255)]'>
                     <ImageSkeletonLoader
                       loading='eager'
                       className='w-auto'
@@ -352,16 +351,17 @@ export default async function HomePageBento() {
                       <span>|</span>
                       <span>Full-Stack Developer</span>
                     </div>
-                    <ul className='flex gap-2'>
+                    <ul className='flex gap-0.5 flex-wrap'>
                       {techIcons.map((tech) => (
                         <li key={tech}>
                           <TechnologyContainer
                             svgHeight={18}
                             svgWidth={18}
                             technology={tech}
-                            variant='icon'
                             background={false}
-                            styleSize='none'
+                            variant='icon'
+                            styleSize='small'
+                            className='px-1 text-white bg-gray-300 dark:bg-black rounded-lg border dark:border-[#002b98]'
                           />
                         </li>
                       ))}

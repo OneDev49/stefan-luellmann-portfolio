@@ -43,7 +43,7 @@ export default function ProjectCard({
       'shadow-[inset_0_-4px_15px_0_rgb(17,21,245)]'
   );
   const projectStatusClassName = cn(
-    'absolute text-sm z-40 top-0 left-0 m-2 border px-3 rounded-md shadow-[0_4px_4px_0_rgb(0,0,0,0.25)] select-none',
+    'absolute text-sm z-40 top-0 left-0 m-2 border px-3 rounded-md shadow-[0_4px_4px_0_rgb(0,0,0,0.25)] select-none text-white',
     (project.status === 'Not Released' && cardVariant === 'all') ||
       (project.caseStudyStatus === 'Not Released' &&
         cardVariant === 'caseStudy')
@@ -54,11 +54,11 @@ export default function ProjectCard({
   const contentClassName = cn(
     'flex-auto flex flex-col gap-4 justify-between p-4',
     projectCategory === 'personal' &&
-      'bg-[linear-gradient(-15deg,#001684_6%,#000830_27%,#000b43_68%,#001996_100%)]',
+      'bg-[linear-gradient(-15deg,#bdc6ff,#ffffff,#bdc6ff)] dark:bg-[linear-gradient(-15deg,#001684,#000830,#001684)]',
     projectCategory === 'publicClient' &&
-      'bg-[linear-gradient(-15deg,#003e84_6%,#000830_27%,#000b43_68%,#003e84_100%)]',
+      'bg-[linear-gradient(-15deg,#9bc6ff,#ffffff,#9bc6ff)] dark:bg-[linear-gradient(-15deg,#003e84,#000830,#003e84)]',
     projectCategory === 'privateClient' &&
-      'bg-[linear-gradient(-15deg,#0e11b5_6%,#000830_27%,#000b43_68%,#0e11b5_100%)]'
+      'bg-[linear-gradient(-15deg,#b5b6ff,#ffffff,#b5b6ff)] dark:bg-[linear-gradient(-15deg,#0e11b5,#000830,#0e11b5)]'
   );
 
   const anchorClassName = 'px-2 py-2 font-heading font-extrabold';
