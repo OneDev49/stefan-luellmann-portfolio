@@ -76,7 +76,7 @@ export default function ShareButton({
         onClick={handleCopy}
         disabled={isDisabled}
         title='Copy page link'
-        className={anchorClassName}
+        className={`${anchorClassName} shadow-none`}
       >
         <span className={anchorChildClassName}>
           {isCopied ? (
