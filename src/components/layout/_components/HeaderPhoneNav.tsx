@@ -5,10 +5,10 @@ import AnglesRightIcon from '@/components/icons/ui/AnglesRightIcon';
 import Link from 'next/link';
 import clsx from 'clsx';
 import CloseIcon from '@/components/icons/ui/CloseIcon';
-import Image from 'next/image';
 import GitHubIcon from '@/components/icons/brands/GitHubIcon';
 import LinkedInIcon from '@/components/icons/brands/LinkedInIcon';
 import CTAButton from '@/components/ui/CTAButton';
+import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 
 interface HeaderPhoneNavProps {
   isPhoneNavClosed: boolean;
@@ -26,7 +26,7 @@ export default function HeaderPhoneNav({
     isPhoneNavClosed ? 'animate-opacity-hide' : 'animate-opacity-show'
   );
   const phoneNavClassName = clsx(
-    'bg-gradient-to-b from-[#000645] via-[#000435] to-[#000216] h-full left-0 max-w-[380px] overflow-y-auto overflow-x-hidden fixed top-0 origin-left -translate-x-[380px] w-[85%] z-[100] border-r border-[#747474] overscroll-contain',
+    'bg-gradient-to-b from-[#ffffff] via-[#ffffff] to-[#9CD2FF] dark:from-[#000645] dark:via-[#000435] dark:to-[#000216] h-full left-0 max-w-[380px] overflow-y-auto overflow-x-hidden fixed top-0 origin-left -translate-x-[380px] w-[85%] z-[100] border-r border-[#747474] overscroll-contain',
     isPhoneNavClosed ? 'animate-sideNav-collapse' : 'animate-sideNav-expand'
   );
   const closeBtnClassName = clsx(
@@ -37,21 +37,21 @@ export default function HeaderPhoneNav({
   const anchorSectionHeaderClassName =
     'flex items-center font-extrabold gap-4 mt-1 text-xl p-2 sm:py-[10px] sm:px-[15px]';
   const anchorClassName =
-    'p-2 transition-colors hover:bg-[#04188f] sm:py-[10px] sm:px-[15px]';
+    'p-2 transition-colors hover:bg-[#BCC5FF] dark:hover:bg-[#04188f] sm:py-[10px] sm:px-[15px]';
   const anchorUtilsClassName = 'flex items-center justify-between gap-3 group';
   const anchorContainerClassName = 'flex flex-col items-start gap-1 text-sm';
   const anchorSVGClassName =
     'min-w-[15px] group-hover:translate-x-1 transition-all duration-300 ease-in-out';
   const anchorHeading =
-    'flex items-center text-[#63b2fd] text-lg font-heading font-extrabold gap-[10px]';
+    'flex items-center text-[#2092FF] dark:text-[#63b2fd] text-lg font-heading font-extrabold gap-[10px]';
   const anchorAnnounce =
     'bg-[#0072b4] py-[0px] font-normal px-1 rounded-md text-[0.8rem] leading-6 text-white';
 
   return (
-    <div className='[&_a]:text-white'>
+    <div className='[&_a]:text-[var(--global-text-color)]'>
       <div className={overlayClassName} onClick={closePhoneNav} />
       <div className={closeBtnClassName} onClick={closePhoneNav}>
-        <CloseIcon height={30} width={30} />
+        <CloseIcon height={30} width={30} className='text-white' />
       </div>
       <nav className={phoneNavClassName}>
         <div className='p-3 flex items-center justify-between gap-2'>
@@ -61,10 +61,10 @@ export default function HeaderPhoneNav({
             onClick={closePhoneNav}
             className='w-full'
           >
-            <Image
+            <ImageSkeletonLoader
               decoding='async'
               draggable='false'
-              className='max-h-16 h-auto w-auto min-w-full'
+              className='max-h-16 h-auto w-auto min-w-full invert dark:invert-0'
               src={`${siteData.uploadThingUrl}/x81VdwhEWe9Yjt17UDWZWS01vBYf3yHtizhn8IV2UdGeQlP5`}
               alt='Logo of my Personal Website'
               height={55}
