@@ -29,7 +29,7 @@ export default function Callout({
             height={30}
             width={30}
             variant='shaped'
-            className='text-[#00ff26] min-w-7'
+            className='text-[#27b93d] dark:text-[#00ff26] min-w-7'
           />
         ) : type === 'danger' ? (
           <CloseIcon
@@ -43,7 +43,7 @@ export default function Callout({
             height={30}
             width={30}
             variant='shaped'
-            className='text-[#f6ff00] min-w-7'
+            className='text-[#b6b129] dark:text-[#f6ff00] min-w-7'
           />
         )}
         <span className='font-heading text-xl'>{heading}</span>
