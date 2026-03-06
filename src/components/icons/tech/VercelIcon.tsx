@@ -30,7 +30,7 @@ export default function VercelIcon({
     >
       <path
         d='M23.8281 0.0078125L46.9219 40.0078H0.734375L23.8281 0.0078125Z'
-        fill='#fff'
+        fill='currentColor'
       />
     </svg>
   );
