@@ -43,7 +43,7 @@ export default function AboutToolkit() {
           applications.
         </p>
       </div>
-      <ul className='grid grid-cols-2 gap-8 justify-items-center sm:grid-cols-4 md:grid-cols-6'>
+      <ul className='grid grid-cols-2 gap-8 justify-items-center sm:grid-cols-4 md:grid-cols-6 text-black dark:text-white'>
         {techStack.map((tech) => (
           <li className='relative group flex justify-center' key={tech}>
             <TechnologyContainer
@@ -54,7 +54,7 @@ export default function AboutToolkit() {
               variant='icon'
               className='grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out'
             />
-            <div className="absolute top-[110%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out bg-gradient-to-r from-[#0059ff] to-[#00d9ff] rounded-lg px-2 py-1 after:content-[' '] after:absolute after:bottom-full after:left-1/2 after:-ml-[7px] after:border-8 after:border-[transparent_transparent_#00d9ff_transparent] z-20">
+            <div className="absolute top-[110%] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out bg-gradient-to-r from-[#0059ff] to-[#00d9ff] rounded-lg px-2 py-1 after:content-[' '] after:absolute after:bottom-full after:left-1/2 after:-ml-[7px] after:border-8 after:border-[transparent_transparent_#00d9ff_transparent] z-20 text-white">
               <p>{tech.charAt(0).toUpperCase() + tech.slice(1)}</p>
             </div>
           </li>

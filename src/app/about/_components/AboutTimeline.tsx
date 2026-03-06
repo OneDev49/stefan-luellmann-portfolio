@@ -1,7 +1,7 @@
 'use client';
 
 import { personalData, siteData } from '@/config/siteData';
-import { useModal } from '@/context/ModalContext';
+import { useModal } from '@/providers/ModalProvider';
 
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
 import RocketIcon from '@/components/icons/glyphs/RocketIcon';
@@ -22,7 +22,10 @@ export default function AboutTimeline() {
   const h3ClassName = 'text-h3-small font-extrabold pb-2 underline';
 
   const middleContainerClassName =
-    'h-[50px] w-[50px] grid place-items-center bg-[linear-gradient(225deg,#0059ff,#00d9ff)] border rounded-2xl relative shadow-[0_4px_15px_5px_rgb(0,111,255)]';
+    'h-[50px] w-[50px] grid place-items-center bg-[linear-gradient(225deg,#0059ff,#00d9ff)] border rounded-2xl relative shadow-[0_4px_15px_5px_rgb(0,111,255)] text-white';
+
+  const imageContainerClassName =
+    'hidden md:block bg-[#000] p-4 dark:bg-none rounded-md shadow-md dark:shadow-none shadow-black border border-gray-400 dark:border-transparent';
 
   return (
     <section id='timeline' className='scroll-mt-20'>
@@ -42,7 +45,9 @@ export default function AboutTimeline() {
         <ol className='relative gap-32 pl-2 flex flex-col m-0 py-16 sm:py-36 md:items-center md:pl-0'>
           <div className='absolute w-[5px] top-0 bottom-0 left-[33px] bg-[linear-gradient(180deg,#0095ff,#006fff)] md:rounded-[25px_25px_0_0] md:left-[initial]' />
           <li className={listClassName}>
-            <div className='hidden mr-[70px] md:justify-self-end md:block'>
+            <div
+              className={`${imageContainerClassName} mr-[70px] md:justify-self-end`}
+            >
               <Image
                 draggable='false'
                 className='max-h-[300px] h-auto w-auto'
@@ -54,7 +59,7 @@ export default function AboutTimeline() {
               />
             </div>
             <div className={middleContainerClassName}>
-              <GlobeIcon height={35} width={35} />
+              <GlobeIcon height={30} width={30} />
             </div>
             <div
               className='justify-self-start md:max-w-[550px]'
@@ -92,9 +97,11 @@ export default function AboutTimeline() {
               </p>
             </div>
             <div className={middleContainerClassName}>
-              <BriefcaseIcon height={35} width={35} />
+              <BriefcaseIcon height={30} width={30} />
             </div>
-            <div className='hidden justify-self-start ml-[70px] md:block'>
+            <div
+              className={`${imageContainerClassName} justify-self-start ml-[70px]`}
+            >
               <Image
                 draggable='false'
                 className='max-h-[300px] h-auto w-auto'
@@ -107,7 +114,9 @@ export default function AboutTimeline() {
             </div>
           </li>
           <li className={listClassName}>
-            <div className='hidden mr-[70px] md:justify-self-end md:block'>
+            <div
+              className={`${imageContainerClassName} mr-[70px] md:justify-self-end`}
+            >
               <Image
                 draggable='false'
                 className='max-h-[300px] h-auto w-auto'
@@ -119,7 +128,7 @@ export default function AboutTimeline() {
               />
             </div>
             <div className={middleContainerClassName}>
-              <CodeIcon height={35} width={35} />
+              <CodeIcon height={30} width={30} />
             </div>
             <div
               className='justify-self-start md:max-w-[550px]'
@@ -155,9 +164,11 @@ export default function AboutTimeline() {
               </p>
             </div>
             <div className={middleContainerClassName}>
-              <RocketIcon height={35} width={35} />
+              <RocketIcon height={30} width={30} />
             </div>
-            <div className='hidden justify-self-start ml-[70px] md:block'>
+            <div
+              className={`${imageContainerClassName} justify-self-start ml-[70px]`}
+            >
               <Image
                 draggable='false'
                 className='max-h-[300px] h-auto w-auto'
@@ -171,7 +182,7 @@ export default function AboutTimeline() {
           </li>
         </ol>
       </div>
-      <div className='relative bg-[#001c58] border-t-4 border-[#006fff] pb-24 pt-16'>
+      <div className='relative bg-[rgb(var(--section-background))] border-t-4 border-[#006fff] pb-24 pt-16'>
         <div className='w-full mx-auto px-4 max-w-6xl flex gap-8 flex-col md:flex-row md:text-left text-center items-center'>
           <div className='flex border-2 border-white rounded-full overflow-hidden shadow-lg shadow-blue-600'>
             <ImageSkeletonLoader
@@ -220,7 +231,6 @@ export default function AboutTimeline() {
         </div>
         <WaveTransition
           position='bottom'
-          color='#000414'
           variant='inner'
           config={{
             height: 75,
