@@ -44,15 +44,15 @@ export default function WorkHero() {
   );
 
   const uniqueAnchorClassName =
-    "border py-1 px-2 gap-1 font-heading font-extrabold hover:scale-105 relative overflow-hidden flex items-center justify-center rounded-md active:scale-[0.98] transition-all duration-200 ease-in-out hover:before:animate-custom-link-move before:content-[' '] before:absolute before:w-[100px] before:h-full before:bg-[linear-gradient(120deg,rgb(255,255,255,0)_30%,rgb(255,255,255,0.8),rgb(255,255,255,0)_70%)] before:top-0 before:-left-[100px] before:opacity-60";
+    "text-white border py-1 px-2 gap-1 font-heading font-extrabold hover:scale-105 relative overflow-hidden flex items-center justify-center rounded-md active:scale-[0.98] transition-all duration-200 ease-in-out hover:before:animate-custom-link-move before:content-[' '] before:absolute before:w-[100px] before:h-full before:bg-[linear-gradient(120deg,rgb(255,255,255,0)_30%,rgb(255,255,255,0.8),rgb(255,255,255,0)_70%)] before:top-0 before:-left-[100px] before:opacity-60";
 
   return (
     <section className='relative'>
-      <div className='relative min-h-[100svh] grid grid-rows-[1fr_auto] gap-8 py-40 bg-black'>
+      <div className='relative min-h-[100svh] grid grid-rows-[1fr_auto] gap-8 py-40 '>
         <PerspectiveGrid variant='hallway' />
         <div className='relative flex items-center justify-center gap-4 mx-auto px-4 flex-col max-w-3xl text-center'>
           <h1 className='grid capitalize'>
-            <span className='text-h1 font-extrabold -mb-6 text-[rgba(173,173,173,0.6)] max-md:leading-loose'>
+            <span className='text-h1 font-extrabold -mb-6 text-gray-500/50 dark:text-[rgba(173,173,173,0.6)] max-md:leading-loose'>
               Projects & Case Studies
             </span>
             <div className='font-extrabold text-transparent text-h3'>
@@ -142,7 +142,6 @@ export default function WorkHero() {
       </div>
       <WaveTransition
         position='bottom'
-        color='#000414'
         variant='inner'
         config={{
           height: 95,
