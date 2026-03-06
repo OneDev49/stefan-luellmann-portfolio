@@ -5,7 +5,7 @@ import {
   metadataConfig,
   viewportConfig,
 } from './_components/config/layoutConfig';
-import { ModalProvider } from '@/context/ModalContext';
+import { MainProvider } from '@/providers/MainProvider';
 
 import './globals.css';
 import FooterSection from '@/components/layout/Footer';
@@ -23,13 +23,14 @@ export default function RootLayout({
     <html
       lang='en'
       className={`${fontHeadings.variable} ${fontTexts.variable} ${fontMono.variable}`}
+      suppressHydrationWarning
     >
       <body>
-        <ModalProvider>
+        <MainProvider>
           <HeaderSection />
           <main>{children}</main>
           <FooterSection />
-        </ModalProvider>
+        </MainProvider>
       </body>
     </html>
   );
