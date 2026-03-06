@@ -1,7 +1,7 @@
 'use client';
 
 import { personalData, siteData } from '@/config/siteData';
-import { useModal } from '@/context/ModalContext';
+import { useModal } from '@/providers/ModalProvider';
 
 import ImageSkeletonLoader from '@/components/ui/ImageSkeletonLoader';
 import CaretRightIcon from '@/components/icons/ui/CaretRightIcon';
@@ -12,10 +12,9 @@ export default function HomePageCTA() {
   const { openGetInTouch } = useModal();
 
   return (
-    <section className='relative bg-[#020d7e] mb-36'>
+    <section className='relative bg-[rgb(var(--section-background))] mb-36'>
       <WaveTransition
         position='top'
-        color='#000414'
         variant='inner'
         config={{
           height: 75,
@@ -69,7 +68,6 @@ export default function HomePageCTA() {
       </div>
       <WaveTransition
         position='bottom'
-        color='#000414'
         variant='inner'
         config={{
           height: 75,
