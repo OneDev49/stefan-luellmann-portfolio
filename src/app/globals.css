@@ -2,9 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+  animation-timing-function: ease-in-out;
+}
+
 @layer base {
+  /* Root = Light Mode of Website */
+  :root {
+    --background: 245 247 255;
+    --global-text-color: 0 0 0;
+    --gradient-text: 180deg, #1f1f1f 50%, #555 100%;
+    --section-background: 196 210 255;
+
+    /* Interactive Grid Colors */
+    --grid-line: #cecece;
+    --grid-highlight: #3b83f6cb;
+  }
+
+  /* .dark = Dark Mode of Website */
+  .dark {
+    --background: 0 4 20;
+    --global-text-color: 255 255 255;
+    --gradient-text: 180deg, #fff 50%, #929292 100%;
+    --section-background: 2 13 126;
+
+    /* Interactive Grid Colors */
+    --grid-line: #1d1d1d;
+    --grid-highlight: #3b82f680;
+  }
+
   body {
-    @apply bg-background text-foreground break-words relative leading-relaxed antialiased;
+    @apply break-words relative leading-relaxed antialiased;
+    background-color: rgb(var(--background));
+    color: rgb(var(--global-text-color));
     font-family: var(--font-text);
   }
 

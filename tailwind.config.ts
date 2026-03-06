@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './src/**/*.{html,js,jsx,ts,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,10 +18,6 @@ const config: Config = {
       '2xl': '1400px',
     },
     extend: {
-      colors: {
-        background: '#000414',
-        foreground: '#ffffff',
-      },
       fontSize: {
         h1: 'clamp(2rem, 4vw, 3rem)',
         h2: 'clamp(1.875rem, 4vw, 2.5rem)',
@@ -71,7 +68,7 @@ const config: Config = {
           'forwards image-skeleton-shimmer 4s linear infinite',
       },
       backgroundImage: {
-        'gradient-card': 'linear-gradient(180deg, #fff 50%, #929292 100%)',
+        'gradient-card': 'linear-gradient(var(--gradient-text))',
       },
       fontFamily: {
         heading: 'var(--font-heading)',
@@ -79,9 +76,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("tailwind-scrollbar")({ nocompatible: true }),
-  ],
+  plugins: [require('tailwind-scrollbar')({ nocompatible: true })],
 };
 
 export default config;
