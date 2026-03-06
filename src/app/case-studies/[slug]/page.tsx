@@ -14,7 +14,6 @@ import FormattedDate from '@/components/ui/FormattedDate';
 import CTAButton from '@/components/ui/CTAButton';
 import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
 import ImageCarousel from '@/components/ui/ProjectImageCarousel';
-import ReadingSurface from '@/components/mdx/ReadingSurface';
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>;
