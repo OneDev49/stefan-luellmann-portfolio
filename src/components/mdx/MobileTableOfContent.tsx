@@ -1,13 +1,13 @@
 'use client';
 
 import { Heading } from '@/lib/mdx/mdx-utils';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { cn } from '@/lib/utilities';
 import { createPortal } from 'react-dom';
 
 import TableOfContent from './TableOfContent';
-import HamburgerIcon from '../icons/ui/HamburgerIcon';
 import CloseIcon from '../icons/ui/CloseIcon';
+import ListIcon from '../icons/ui/ListIcon';
 
 interface MobileTableOfContentProps {
   headings: Heading[];
@@ -32,26 +32,6 @@ export default function MobileTableOfContent({
     setTimeout(() => setIsOverlayVisible(false), 300);
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsFloatingButtonVisible(!entry.isIntersecting);
-      },
-      { rootMargin: '0px 0px 100% 0px' }
-    );
-
-    const currentRef = initialTocRef.current;
-    if (currentRef) observer.observe(currentRef);
-    return () => {
-      if (currentRef) observer.unobserve(currentRef);
-    };
-  }, []);
-
-  const floatingButtonClassName = cn(
-    'fixed bottom-6 right-6 z-40 p-3 rounded-full opacity-0 scale-90 transition-all duration-300 pointer-events-none hover:text-white hover:cursor-pointer hover:bg-[#0043fa] bg-[#dfe7ff] dark:bg-[#00228a] shadow-sm shadow-black dark:shadow-white',
-    isFloatingButtonVisible && 'opacity-100 scale-100 pointer-events-auto'
-  );
-
   const overlayClassName = cn(
     'fixed inset-0 bg-black/75 z-[1000] backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out',
     isOverlayOpen && 'opacity-100'
@@ -64,17 +44,14 @@ export default function MobileTableOfContent({
 
   return (
     <>
-      <div ref={initialTocRef} className='w-full max-w-lg mx-auto'>
-        <TableOfContent headings={headings} variant='collapsible' />
-      </div>
-
       <button
         type='button'
-        className={floatingButtonClassName}
+        className='fixed bottom-6 right-0 z-40 p-3 rounded-l-md text-white hover:cursor-pointer hover:bg-[#0043fa] bg-[#4a77ff] dark:bg-[#00228a] border border-r-0 dark:border-blue-600 border-blue-700 hover:dark:bg-[#0043fa]'
         onClick={handleOpen}
         title='Open Table Of Contents'
+        aria-label='Open Table Of Contents'
       >
-        <HamburgerIcon width={20} height={20} />
+        <ListIcon width={20} height={20} />
       </button>
 
       {isOverlayVisible &&
