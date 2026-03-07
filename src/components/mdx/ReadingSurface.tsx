@@ -21,6 +21,7 @@ export default function ReadingSurface({
   useEffect(() => {
     setMounted(true);
   }, []);
+  if (!mounted) return null;
 
   const activeFontSize = mounted
     ? fontSizeMap[fontSize]
