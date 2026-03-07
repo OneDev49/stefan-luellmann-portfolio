@@ -50,14 +50,14 @@ export default function TableOfContent({
 
   const renderLinks = () => (
     <ol
-      className={`${listClassName} overflow-y-auto scrollbar-thumb-blue-900 scrollbar-thin dark:scrollbar-thumb-blue-500 dark:scrollbar-track-gray-900 scrollbar-track-gray-200`}
+      className={`${listClassName} overflow-y-auto scrollbar-thumb-blue-900 scrollbar-thin dark:scrollbar-thumb-blue-500 dark:scrollbar-track-gray-900 scrollbar-track-gray-200 `}
     >
       {headings.map((heading) => {
         const isActive = activeId === heading.slug;
 
         const linkClassName = cn('block py-1 px-3 text-sm underline-none');
         const listItemClassName = cn(
-          'border-l-2 border-[#ffffff1f] transition-all duration-75 ease-in-out hover:bg-[#549eff77] hover:border-[#0050b9]',
+          'border-l-2 border-[#2020201f] dark:border-[#ffffff1f] transition-all duration-75 ease-in-out hover:bg-[#549eff77] hover:border-[#0050b9]',
           heading.level === 3 && 'pl-4',
           isActive &&
             'bg-[#549eff3f] border-[#003881] hover:bg-[#549eff77] hover:border-[#0050b9]'
