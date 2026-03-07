@@ -6,6 +6,7 @@ import GitHubIcon from '../icons/brands/GitHubIcon';
 import LinkedInIcon from '../icons/brands/LinkedInIcon';
 import EnvelopeIcon from '../icons/glyphs/EnvelopeIcon';
 import FooterBackground from './_components/background/FooterBackground';
+import FooterScrollTop from './_components/FooterScrollButton';
 
 export default function FooterSection() {
   const anchorClassName = 'custom-hover-underline-swipe';
@@ -19,6 +20,7 @@ export default function FooterSection() {
         <FooterBackground />
       </div>
       <div className='bg-gradient-to-r from-[#000386] to-[#00478d] text-center md:text-left'>
+        <FooterScrollTop />
         <div
           className={`${divClassName} flex flex-col pt-8 pb-4 border-b-white border-b md:flex-row md:justify-between`}
         >
