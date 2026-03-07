@@ -291,8 +291,6 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
   const wrapperPosition =
     position === 'top' ? { top: positionOffset } : { bottom: positionOffset };
 
-  if (!mounted) return null;
-
   return (
     <div
       className={className}
@@ -304,6 +302,7 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
         overflow: 'hidden',
         pointerEvents: 'none',
         zIndex: 1,
+        visibility: mounted ? 'visible' : 'hidden',
         ...wrapperPosition,
       }}
     >
