@@ -17,6 +17,8 @@ import TableOfContent from '@/components/mdx/TableOfContent';
 import ArticleCard from '@/components/ui/ArticleCard';
 import FormattedDate from '@/components/ui/FormattedDate';
 import ShareButton from '@/components/ui/ShareButton';
+import ReadingSurface from '@/components/mdx/ReadingSurface';
+import AccessibilityMenu from '@/components/mdx/AccessibilityMenu';
 
 interface PageProps {
   params: Promise<{ topic: string; slug: string }>;
@@ -189,6 +191,7 @@ export default async function ArticlePage({ params }: PageProps) {
             <div className='lg:hidden'>
               <MobileTableOfContent headings={headings} />
             </div>
+            <AccessibilityMenu />
             <div className='border-t border-[#0066ff] space-y-2 max-w-[72ch] mx-auto lg:max-w-[initial]'>
               <strong className='font-heading font-extrabold text-lg underline'>
                 Share the Article
@@ -205,9 +208,9 @@ export default async function ArticlePage({ params }: PageProps) {
         <div
           className={`${maximumContentClassName} lg:flex items-start justify-between gap-8`}
         >
-          <div className='basis-[72ch] max-w-[72ch] mx-auto lg:mx-[initial]'>
+          <ReadingSurface className='basis-[72ch] max-w-[72ch] mx-auto lg:mx-[initial]'>
             <MDXRemote source={content} components={coreMdxComponents} />
-          </div>
+          </ReadingSurface>
           <aside
             className='basis-[290px] flex-shrink-0 pb-12 px-6 sticky top-[70px] hidden lg:block'
             aria-label='Table of contents'

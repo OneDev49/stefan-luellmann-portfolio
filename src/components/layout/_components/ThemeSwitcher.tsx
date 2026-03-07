@@ -48,6 +48,8 @@ export default function ThemeSwitcher() {
 
   if (!mounted) return null;
 
+  const iconSize: number = 20;
+
   return (
     <div ref={ref} className='relative'>
       <button
@@ -58,9 +60,11 @@ export default function ThemeSwitcher() {
         aria-haspopup='true'
         className='flex items-center justify-center w-8 h-8 rounded-md opacity-70 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--global-text-color))]  transition-colors duration-150 ease-linear'
       >
-        {theme === 'light' && <SunIcon />}
-        {theme === 'dark' && <MoonIcon />}
-        {theme === 'system' && <DesktopIcon />}
+        {theme === 'light' && <SunIcon height={iconSize} width={iconSize} />}
+        {theme === 'dark' && <MoonIcon height={iconSize} width={iconSize} />}
+        {theme === 'system' && (
+          <DesktopIcon height={iconSize} width={iconSize} />
+        )}
       </button>
       {open && (
         <div
