@@ -14,8 +14,8 @@ import FormattedDate from '@/components/ui/FormattedDate';
 import CTAButton from '@/components/ui/CTAButton';
 import MobileTableOfContent from '@/components/mdx/MobileTableOfContent';
 import ImageCarousel from '@/components/ui/ProjectImageCarousel';
-import SlidingSettingsPanel from '@/components/mdx/AccessibilityMenu';
 import ReadingSurface from '@/components/mdx/ReadingSurface';
+import AccessibilityMenu from '@/components/mdx/AccessibilityMenu';
 
 interface CaseStudyPageProps {
   params: Promise<{ slug: string }>;
@@ -244,7 +244,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           <div className='lg:hidden'>
             <MobileTableOfContent headings={headings} />
           </div>
-          <SlidingSettingsPanel />
+          <AccessibilityMenu />
           <div className='border-t border-[#0066ff] space-y-2 max-w-[72ch] mx-auto lg:max-w-[initial]'>
             <strong className='font-heading font-extrabold text-lg underline'>
               Share the Study
