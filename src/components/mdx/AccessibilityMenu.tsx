@@ -6,7 +6,7 @@ import { cn } from '@/lib/utilities';
 
 import UniversalAccessIcon from '../icons/glyphs/UniversalAccessIcon';
 
-export default function SlidingSettingsPanel() {
+export default function AccessibilityMenu() {
   const { fontSize, setFontSize } = useAccessibilityStore();
   const [mounted, setMounted] = useState(false);
 
