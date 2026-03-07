@@ -1,7 +1,7 @@
 'use client';
 
 import { Heading } from '@/lib/mdx/mdx-utils';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { cn } from '@/lib/utilities';
 import { createPortal } from 'react-dom';
 
@@ -16,11 +16,8 @@ interface MobileTableOfContentProps {
 export default function MobileTableOfContent({
   headings,
 }: MobileTableOfContentProps) {
-  const [isFloatingButtonVisible, setIsFloatingButtonVisible] =
-    useState<boolean>(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState<boolean>(false);
   const [isOverlayOpen, setIsOverlayOpen] = useState<boolean>(false);
-  const initialTocRef = useRef<HTMLDivElement>(null);
 
   const handleOpen = () => {
     setIsOverlayVisible(true);
