@@ -127,6 +127,7 @@ export default function HeaderSection() {
                 >
                   <HamburgerIcon color='currentColor' height={20} width={20} />
                 </button>
+                <ThemeSwitcher />
                 <CTAButton
                   as='button'
                   colorStyle='borderPurple'
