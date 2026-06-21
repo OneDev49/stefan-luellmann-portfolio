@@ -5,8 +5,8 @@ import Image from 'next/image';
 import GitHubIcon from '../icons/brands/GitHubIcon';
 import LinkedInIcon from '../icons/brands/LinkedInIcon';
 import EnvelopeIcon from '../icons/glyphs/EnvelopeIcon';
-import FooterBackground from './_components/background/FooterBackground';
 import FooterScrollTop from './_components/FooterScrollButton';
+import TerrainTransition from '../effects/TerrainTransition';
 
 export default function FooterSection() {
   const anchorClassName = 'custom-hover-underline-swipe';
@@ -15,10 +15,16 @@ export default function FooterSection() {
   const listClassName = 'flex items-center gap-1';
 
   return (
-    <footer className='text-white'>
-      <div className='relative -bottom-[5px]'>
-        <FooterBackground />
+    <footer className='relative text-white z-10 pt-32'>
+      <div className='relative'>
+        <TerrainTransition
+          color={{ from: '#000386', to: '#00478d' }}
+          height={120}
+          speed={2}
+          position='top'
+        />
       </div>
+
       <div className='bg-gradient-to-r from-[#000386] to-[#00478d] text-center md:text-left'>
         <FooterScrollTop />
         <div
