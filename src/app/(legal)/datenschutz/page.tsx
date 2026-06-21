@@ -8,8 +8,15 @@ export async function generateMetadata() {
 
   return {
     title: 'Datenschutz',
-    description:
-      'Datenschutzerklärung von meiner Website - stefan-luellmann.com',
+
+    alternates: {
+      canonical: '/datenschutz',
+    },
+
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 

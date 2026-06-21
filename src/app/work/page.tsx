@@ -3,21 +3,26 @@ import { Metadata } from 'next';
 import WorkHero from './_components/WorkHero';
 import WorkMain from './_components/WorkMain';
 
+const title: string = `Project Showcase`;
+const extendedDescription: string = `Explore both Personal and Client Projects made by me. Designed, Developed and deployed entirely by myself.`;
+const shortDescription: string = `Explore every personal and client project I designed, developed and deployed.`;
+
 export const metadata: Metadata = {
-  title: 'Project Showcase',
-  description:
-    'Explore both Personal and Client Projects made by me. Designed, Developed and deployed entirely by myself.',
+  title: title,
+  description: extendedDescription,
 
   openGraph: {
-    title: 'Project Showcase',
-    description:
-      'Explore every personal and client project I designed, developed and deployed.',
+    title: title,
+    description: shortDescription,
   },
 
   twitter: {
-    title: 'Project Showcase',
-    description:
-      'Explore every personal and client project I designed, developed and deployed.',
+    title: title,
+    description: shortDescription,
+  },
+
+  alternates: {
+    canonical: '/work',
   },
 };
 

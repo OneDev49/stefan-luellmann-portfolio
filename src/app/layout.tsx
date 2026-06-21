@@ -1,11 +1,13 @@
+import { MainProvider } from '@/providers/MainProvider';
+import {
+  metadataConfig,
+  viewportConfig,
+} from './_components/config/metadataConfig';
 import {
   fontHeadings,
   fontMono,
   fontTexts,
-  metadataConfig,
-  viewportConfig,
-} from './_components/config/layoutConfig';
-import { MainProvider } from '@/providers/MainProvider';
+} from './_components/config/fontConfig';
 
 import './globals.css';
 import FooterSection from '@/components/layout/Footer';

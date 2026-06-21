@@ -42,13 +42,20 @@ export async function generateMetadata({ params }: PageProps) {
   const DESCRIPTION_TEXT =
     frontmatter.excerpt || 'A detailed article from Stefan Lüllmann';
 
-  const THUMBNAIL = frontmatter.thumbnail
+  const OPENGRAPHTHUMBNAIL = frontmatter.thumbnail
     ? [
         {
           url: `${siteData.uploadThingUrl}/${frontmatter.thumbnail}`,
+          width: 1200,
+          height: 630,
+          alt: `${DESCRIPTION_TEXT}`,
         },
       ]
     : [];
+
+  const TWITTERTHUMBNAIL = frontmatter.thumbnail
+    ? `${siteData.uploadThingUrl}/${frontmatter.thumbnail}`
+    : ``;
 
   return {
     title: `${frontmatter.title}`,
@@ -59,14 +66,19 @@ export async function generateMetadata({ params }: PageProps) {
       title: `${frontmatter.title}`,
       description: DESCRIPTION_TEXT,
       url: `/articles/${topic}/${slug}`,
-      images: THUMBNAIL,
+      siteName: 'Stefan Lüllmann',
+      images: OPENGRAPHTHUMBNAIL,
     },
 
     twitter: {
       card: 'summary_large_image',
       title: `${frontmatter.title}`,
       description: DESCRIPTION_TEXT,
-      images: THUMBNAIL,
+      images: [TWITTERTHUMBNAIL],
+    },
+
+    alternates: {
+      canonical: `/articles/${topic}/${slug}`,
     },
   };
 }
