@@ -1,0 +1,21 @@
+{
+  "name": "Stefan Lüllmann",
+  "short_name": "Stefan Lüllmann",
+  "description": "Full-Stack Engineer & Technical Writer specializing in scalable Next.js architectures and high-performance databases.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#000000",
+  "theme_color": "#0258cd",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
