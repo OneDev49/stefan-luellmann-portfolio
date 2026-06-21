@@ -4,21 +4,25 @@ import { Metadata } from 'next';
 import ArticlesHubMain from './_components/ArticleHubMain';
 import ArticleHubHero from './_components/ArticleHubHero';
 
+const title: string = `Articles`;
+const description: string = `Read Technical Articles I wrote on all sorts of different topics. From NextJS to React, from Prisma to PostgreSQL. I write about all technical topics as a Full-Stack Developer.`;
+
 export const metadata: Metadata = {
-  title: 'Articles',
-  description:
-    'Read Technical Articles I wrote on all sorts of different topics. From NextJS to React, from Prisma to PostgreSQL. I write about all technical topics as a Full-Stack Developer.',
+  title: title,
+  description: description,
 
   openGraph: {
-    title: 'Articles',
-    description:
-      'Read Technical Articles I wrote on all sorts of different topics. From NextJS to React, from Prisma to PostgreSQL. I write about all technical topics as a Full-Stack Developer.',
+    title: title,
+    description: description,
   },
 
   twitter: {
-    title: 'Articles',
-    description:
-      'Read Technical Articles I wrote on all sorts of different topics. From NextJS to React, from Prisma to PostgreSQL. I write about all technical topics as a Full-Stack Developer.',
+    title: title,
+    description: description,
+  },
+
+  alternates: {
+    canonical: '/articles',
   },
 };
 
