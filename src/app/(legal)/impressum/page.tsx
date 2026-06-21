@@ -8,8 +8,15 @@ export async function generateMetadata() {
 
   return {
     title: 'Impressum',
-    description:
-      'Impressum von stefan-luellmann.com - Meiner persönlichen Website.',
+
+    alternates: {
+      canonical: '/impressum',
+    },
+
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 
