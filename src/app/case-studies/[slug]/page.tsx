@@ -37,9 +37,20 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
   const DESCRIPTION_TEXT =
     project?.caseStudyBrief || 'A detailed case study from Stefan Lüllmann';
 
-  const THUMBNAIL = project?.thumbnail
-    ? [{ url: `${siteData.uploadThingUrl}/${project?.thumbnail}` }]
+  const OPENGRAPHTHUMBNAIL = project?.thumbnail
+    ? [
+        {
+          url: `${siteData.uploadThingUrl}/${project?.thumbnail}`,
+          width: 1200,
+          height: 630,
+          alt: `${DESCRIPTION_TEXT}`,
+        },
+      ]
     : [];
+
+  const TWITTERTHUMBNAIL = project?.thumbnail
+    ? `${siteData.uploadThingUrl}/${project?.thumbnail}`
+    : ``;
 
   return {
     title: `Case Study: ${project?.title}`,
@@ -50,14 +61,18 @@ export async function generateMetadata({ params }: CaseStudyPageProps) {
       title: `Case Study: ${project?.title}`,
       description: DESCRIPTION_TEXT,
       url: `/case-studies/${slug}`,
-      images: THUMBNAIL,
+      images: OPENGRAPHTHUMBNAIL,
     },
 
     twitter: {
       card: 'summary_large_image',
       title: `Case Study: ${project?.title}`,
       description: DESCRIPTION_TEXT,
-      images: THUMBNAIL,
+      images: [TWITTERTHUMBNAIL],
+    },
+
+    alternates: {
+      canonical: `/case-studies/${slug}`,
     },
   };
 }
