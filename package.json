@@ -1,6 +1,6 @@
 {
   "name": "stefan-luellmann-personal-website",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -39,6 +39,8 @@
     "typescript": "^5"
   },
   "overrides": {
-    "glob": "^10.4.6"
+    "glob": "^10.4.6",
+    "postcss": "$postcss",
+    "sharp": "^0.35.0"
   }
 }
